@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   name: StressPotion
   description: Stress removing 20 Stress
-  image: {fileID: -6874050526597916664, guid: 25415194518491346b5bed393ae2b4fd, type: 3}
+  image: {fileID: 425806401702303504, guid: 966fce2b35c27b6469a97e300bae41af, type: 3}
   StressRemoved: 20
   speedGiven: 0
   speedDuration: 0
