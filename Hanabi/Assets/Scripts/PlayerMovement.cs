@@ -32,11 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
 
     public static PlayerMovement instance;
-
-<<<<<<< Updated upstream
-    public static PlayerMovement instance;
-=======
->>>>>>> Stashed changes
     private void Awake()
     {
         // Il faut qu'il n'y ai qu'un seul et unique inventaire
@@ -45,11 +40,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogWarning("il y a plus d'une instance de mouvement dans la scène");
             return;
         }
-<<<<<<< Updated upstream
-        
-=======
-
->>>>>>> Stashed changes
         instance = this;
     }
 

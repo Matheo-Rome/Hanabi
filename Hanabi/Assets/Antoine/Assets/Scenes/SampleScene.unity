@@ -2741,7 +2741,9 @@ MonoBehaviour:
   wallChekLeft2: {fileID: 1465447281}
   onGround: 0
   onWall: 0
-  sliding: 0
+  dashSpeed: 0
+  startDashTime: 0
+  direction: 0
 --- !u!212 &1563850334
 SpriteRenderer:
   m_ObjectHideFlags: 0
