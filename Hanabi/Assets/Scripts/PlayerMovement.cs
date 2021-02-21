@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
+    public static PlayerMovement instance;
+    
     [Range(1, 10)] public float jumpVelocity;
     public float speed;
     public float slideSpeed;
@@ -30,8 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public float startDashTime;
     public int direction;
 
-
-    public static PlayerMovement instance;
+    
     private void Awake()
     {
         // Il faut qu'il n'y ai qu'un seul et unique inventaire
