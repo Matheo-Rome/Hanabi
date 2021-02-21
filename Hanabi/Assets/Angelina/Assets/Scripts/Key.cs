@@ -32,7 +32,7 @@ public class Key : MonoBehaviour
         {
             if (!isFollowing)
             {
-                PlayerController thePlayer = FindObjectOfType<PlayerController>();
+                PlayerMovement thePlayer = FindObjectOfType<PlayerMovement>();
 
                 followTarget = thePlayer.transform;
             }
