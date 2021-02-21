@@ -312,6 +312,7 @@ MonoBehaviour:
   wallCheckRight2: {fileID: 1890143229084948447}
   wallCheckLeft: {fileID: 1890143229227400345}
   wallChekLeft2: {fileID: 1890143230352452470}
+  keyFollowPoint: {fileID: 0}
   onGround: 0
   onWall: 0
   dashSpeed: 20
