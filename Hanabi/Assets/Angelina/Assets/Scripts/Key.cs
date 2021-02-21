@@ -10,13 +10,11 @@ public class Key : MonoBehaviour
 
     public Transform followTarget;
     
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (isFollowing)
@@ -26,16 +24,20 @@ public class Key : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             if (!isFollowing)
             {
-                PlayerMovement thePlayer = FindObjectOfType<PlayerMovement>();
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
 
-                followTarget = thePlayer.keyFollowPoint;
+                followTarget = player.keyFollowPoint;
+
+                isFollowing = true;
+                player.followingKey = this;
             }
         }
+        
     }
 }

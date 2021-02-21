@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform keyFollowPoint;
 
+    public Key followingKey;
+
     public bool onGround;
     public bool onWall;
     private bool hasDashed;
