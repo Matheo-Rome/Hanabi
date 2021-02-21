@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform wallCheckLeft;
     public Transform wallChekLeft2;
 
+    public Transform keyFollowPoint;
+
     public bool onGround;
     public bool onWall;
     private bool hasDashed;
