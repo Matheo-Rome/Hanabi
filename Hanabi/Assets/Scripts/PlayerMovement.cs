@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class jump : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Range(1, 10)] public float jumpVelocity;
     public float speed;

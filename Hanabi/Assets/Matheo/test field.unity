@@ -23236,7 +23236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3a80588309d4a4680b07cb5aebf293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
 --- !u!212 &872847074
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23296,7 +23295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872847070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.452, y: -2.973, z: 0}
+  m_LocalPosition: {x: 5.589, y: -3.006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1913465963}
@@ -23336,18 +23335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435143b2f41616d4390d5631a2f09c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 6.74
-  speed: 10
-  slideSpeed: 2
-  groundCheckLeft: {fileID: 1913465963}
-  groundCheckRight: {fileID: 1259544547}
-  wallCheckRight: {fileID: 167381596}
-  wallCheckRight2: {fileID: 1507747250}
-  wallCheckLeft: {fileID: 1365036788}
-  wallChekLeft2: {fileID: 304994587}
-  onGround: 0
-  onWall: 0
-  sliding: 0
 --- !u!114 &872847078
 MonoBehaviour:
   m_ObjectHideFlags: 0
