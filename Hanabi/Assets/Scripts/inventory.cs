@@ -28,16 +28,18 @@ public class inventory : MonoBehaviour
         instance = this;
     }
 
+    public void Addcoins(int pièce)
+    {
+        NombreDePièce += pièce; 
+        compteurdecoinstext.text = NombreDePièce.ToString();
+        
+    }
+    
     public void Start()
     {
         updateinventoryImage(currentindexitem);
     }
 
-    public void Addcoins(int pièce)
-    {
-        NombreDePièce += pièce;
-        compteurdecoinstext.text = NombreDePièce.ToString();
-    }
 
     public void ConsommerItems()
     {
