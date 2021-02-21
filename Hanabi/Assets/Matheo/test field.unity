@@ -23166,8 +23166,8 @@ GameObject:
   - component: {fileID: 872847072}
   - component: {fileID: 872847071}
   - component: {fileID: 872847076}
-  - component: {fileID: 872847077}
   - component: {fileID: 872847078}
+  - component: {fileID: 872847073}
   - component: {fileID: 872847079}
   m_Layer: 0
   m_Name: characters_23
@@ -23223,6 +23223,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &872847073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872847070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc679e55b403ce409716c1e6475e547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpVelocity: 6.67
+  speed: 10
+  slideSpeed: 2
+  groundCheckLeft: {fileID: 1913465963}
+  groundCheckRight: {fileID: 1259544547}
+  wallCheckRight: {fileID: 167381596}
+  wallCheckRight2: {fileID: 1507747250}
+  wallCheckLeft: {fileID: 1365036788}
+  wallChekLeft2: {fileID: 304994587}
+  onGround: 0
+  onWall: 0
+  dashSpeed: 20
+  startDashTime: 0.1
+  direction: 0
 --- !u!212 &872847074
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23310,30 +23336,6 @@ CircleCollider2D:
   m_Offset: {x: 0.044663638, y: -0.55381316}
   serializedVersion: 2
   m_Radius: 0.4461909
---- !u!114 &872847077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872847070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435143b2f41616d4390d5631a2f09c8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpVelocity: 6.74
-  speed: 10
-  slideSpeed: 2
-  groundCheckLeft: {fileID: 1913465963}
-  groundCheckRight: {fileID: 1259544547}
-  wallCheckRight: {fileID: 167381596}
-  wallCheckRight2: {fileID: 1507747250}
-  wallCheckLeft: {fileID: 1365036788}
-  wallChekLeft2: {fileID: 304994587}
-  onGround: 0
-  onWall: 0
-  sliding: 0
 --- !u!114 &872847078
 MonoBehaviour:
   m_ObjectHideFlags: 0
