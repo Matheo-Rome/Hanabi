@@ -26,6 +26,18 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    public static PlayerMovement instance;
+    private void Awake()
+    {
+        // Il faut qu'il n'y ai qu'un seul et unique inventaire
+        if (instance != null)
+        {
+            Debug.LogWarning("il y a plus d'une instance de mouvement dans la scène");
+            return;
+        }
+        
+        instance = this;
+    }
 
     private void Start()
     {
