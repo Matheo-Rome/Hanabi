@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     private float dashTime;
     public float startDashTime;
     public int direction;
+    private float dashCD = 0.5f;
+    private float NextDash;
 
     
     private void Awake()
@@ -78,7 +80,8 @@ public class PlayerMovement : MonoBehaviour
         
         if (direction == 0)
         {
-            if (Input.GetButton("Dash")&& !hasDashed)
+            if (Input.GetButton("Dash") && !hasDashed && Time.time > NextDash)
+            {
                 if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") < 0) //diagonal haute gauche
                     direction = 1;
                 else if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") > 0) //diagonal haute droite
@@ -95,6 +98,9 @@ public class PlayerMovement : MonoBehaviour
                     direction = 7;
                 else if (Input.GetAxis("Horizontal") > 0) //droite
                     direction = 8;
+                NextDash = Time.time + dashCD;
+                    
+            }
         }
         else
         {
