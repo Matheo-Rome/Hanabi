@@ -37,7 +37,7 @@ public class inventory : MonoBehaviour
     
     public void Start()
     {
-        updateinventoryImage(currentindexitem);
+        updateinventoryImage();
     }
 
 
@@ -52,7 +52,9 @@ public class inventory : MonoBehaviour
         PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
         PlayerMovement.instance.speed += currentItem.speedGiven;
         contenu.Remove(contenu[0]);
-        GetNextItem();
+        itemUIimage.sprite = null;
+        itemUIName.text = "";
+        
     }
 
     public void GetNextItem()
@@ -67,7 +69,7 @@ public class inventory : MonoBehaviour
         {
             currentindexitem = 0;
         }
-        updateinventoryImage(currentindexitem);
+        updateinventoryImage();
         
     }
 
@@ -83,10 +85,10 @@ public class inventory : MonoBehaviour
         {
             currentindexitem = contenu.Count - 1;
         }
-        updateinventoryImage(currentindexitem);
+        updateinventoryImage();
     }
 
-    public void updateinventoryImage(int currentindexitem)
+    public void updateinventoryImage()
     {
         if (contenu.Count > 0)
         {
@@ -98,6 +100,19 @@ public class inventory : MonoBehaviour
         {
             itemUIimage.sprite = null;
             itemUIName.text = "";
+        }
+    }
+
+    public void remplacementItem(Items item)
+    {
+        if (contenu.Count == 1)
+        {
+            contenu.Remove(contenu[0]);
+            contenu.Add(item);
+        }
+        else
+        {
+            contenu.Add(item);
         }
     }
 
