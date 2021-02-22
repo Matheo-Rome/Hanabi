@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
                  Physics2D.OverlapArea(wallCheckLeft.position, wallChekLeft2.position);
 
-        if (Input.GetButtonDown("Jump") && onGround)
+       if (Input.GetButtonDown("Jump") && onGround)
         {
             rb.velocity = Vector2.up * jumpVelocity;
         }
@@ -77,7 +77,11 @@ public class PlayerMovement : MonoBehaviour
         float yRaw = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(x, 0);
 
-        Walk(dir);
+        //Walk(dir);
+        rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
+
+        if (!onGround)
+            rb.velocity = new Vector2(dir.x * speed / 1.4f, rb.velocity.y);
 
         if (onWall && !onGround && !Input.GetButtonDown("Jump"))
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -slideSpeed, float.MaxValue));
@@ -156,13 +160,15 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+    
 
 
-    private void Walk(Vector2 dir)
+    /*private void Walk(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
-    }
-
+    }*/
+    
+   
 }
 
    
