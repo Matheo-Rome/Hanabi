@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sandwitch Triangle
   m_EditorClassIdentifier: 
   id: 1
-  name: Sandwitch Triangle
+  name: StressPotion
   description: Stress removing 20 Stress
   image: {fileID: 425806401702303504, guid: 966fce2b35c27b6469a97e300bae41af, type: 3}
   StressRemoved: 20

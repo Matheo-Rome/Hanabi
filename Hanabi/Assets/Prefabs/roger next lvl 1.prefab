@@ -128,6 +128,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream:Hanabi/Assets/Prefabs/roger next lvl 1.prefab
   - component: {fileID: 9174278262050652454}
   - component: {fileID: 9174278262050652455}
   - component: {fileID: 9174278262050652453}
@@ -140,6 +141,22 @@ GameObject:
   - component: {fileID: 5205765734505477684}
   m_Layer: 0
   m_Name: roger next lvl 1
+=======
+  - component: {fileID: 3994425836278609680}
+  - component: {fileID: 3994425836278609681}
+  - component: {fileID: 3994425836278609683}
+  - component: {fileID: 3994425836278609708}
+  - component: {fileID: 3994425836278609687}
+  - component: {fileID: 3994425836278609685}
+  - component: {fileID: 3994425836278609682}
+  - component: {fileID: 3994425836278609684}
+  - component: {fileID: 3266286631558867729}
+  - component: {fileID: 1647616188}
+  - component: {fileID: 1647616189}
+  - component: {fileID: 1647616190}
+  m_Layer: 0
+  m_Name: roger next lvl
+>>>>>>> Stashed changes:Hanabi/Assets/Prefabs/roger next lvl.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,12 +389,17 @@ PolygonCollider2D:
       - {x: 0.5049505, y: -0.8862548}
       - {x: 0.4756062, y: 0.33882308}
       - {x: 0.4824412, y: 0.40621138}
+<<<<<<< Updated upstream:Hanabi/Assets/Prefabs/roger next lvl 1.prefab
 --- !u!114 &5205765734505477684
+=======
+--- !u!114 &1647616188
+>>>>>>> Stashed changes:Hanabi/Assets/Prefabs/roger next lvl.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream:Hanabi/Assets/Prefabs/roger next lvl 1.prefab
   m_GameObject: {fileID: 9174278262050652443}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -419,10 +441,25 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9174278262689713887
 GameObject:
+=======
+  m_GameObject: {fileID: 3994425836278609709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &1647616189
+MonoBehaviour:
+>>>>>>> Stashed changes:Hanabi/Assets/Prefabs/roger next lvl.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream:Hanabi/Assets/Prefabs/roger next lvl 1.prefab
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9174278262689713886}
@@ -435,10 +472,42 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &9174278262689713886
 Transform:
+=======
+  m_GameObject: {fileID: 3994425836278609709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 0
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
+--- !u!114 &1647616190
+MonoBehaviour:
+>>>>>>> Stashed changes:Hanabi/Assets/Prefabs/roger next lvl.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream:Hanabi/Assets/Prefabs/roger next lvl 1.prefab
   m_GameObject: {fileID: 9174278262689713887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.442, y: -0.466, z: 0}
@@ -447,3 +516,23 @@ Transform:
   m_Father: {fileID: 9174278262050652454}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_GameObject: {fileID: 3994425836278609709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1647616188}
+  - {fileID: 1647616189}
+  viewIdField: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+>>>>>>> Stashed changes:Hanabi/Assets/Prefabs/roger next lvl.prefab
