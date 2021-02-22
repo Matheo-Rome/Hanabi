@@ -38,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public int direction;
     private float dashCD = 0.5f;
     private float NextDash;
-
-    public static bool player1 = true;
+    
 
 
     
