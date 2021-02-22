@@ -1,37 +1,49 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class LePrendreTrigger : MonoBehaviour
+public class PickUpItem : MonoBehaviour
 {
-    private bool isInRange;
     private Text interactUI;
-    
-    
-    
-    
-    private void Awake()
+    private bool isInRange;
+
+    public Items item;
+
+    void Awake()
     {
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isInRange)
+        {
+            TakeItem();
+        }
+    }
+
+    void TakeItem()
+    {
+        inventory.instance.remplacementItem(item);
+        inventory.instance.updateinventoryImage();
+        interactUI.enabled = false;
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            isInRange = true;
             interactUI.enabled = true;
+            isInRange = true;
         }
     }
 
-   
-    //Test la proximité du player et du pnj
-    //Se met sur false si leur boites de collision ne sont pas en contact
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            isInRange = false;
             interactUI.enabled = false;
+            isInRange = false;
         }
     }
-
 }
