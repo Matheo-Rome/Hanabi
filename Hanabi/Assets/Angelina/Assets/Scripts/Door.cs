@@ -35,7 +35,6 @@ public class Door : MonoBehaviour
                 theSR.sprite = doorOpenSprite;
                 player.followingKey.gameObject.SetActive(false);
                 player.followingKey = null;
-                gameObject.SetActive(false);
                 
                
             }
