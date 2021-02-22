@@ -297,7 +297,7 @@ InputManager:
     m_Name: Dash
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: $
     positiveButton: mouse 1
     altNegativeButton: 
     altPositiveButton: joystick button 1
