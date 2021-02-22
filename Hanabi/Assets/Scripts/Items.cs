@@ -10,4 +10,5 @@ public class Items : ScriptableObject
     public int StressRemoved;
     public int speedGiven;
     public float speedDuration;
+    public int JumpBoostGiven;
 }
