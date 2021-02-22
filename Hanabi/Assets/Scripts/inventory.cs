@@ -13,6 +13,7 @@ public class inventory : MonoBehaviour
     public int currentindexitem = 0;
     public Image itemUIimage;
     public Text itemUIName;
+    public Image Invisibleimage;
 
 
     public static inventory instance;
@@ -52,7 +53,7 @@ public class inventory : MonoBehaviour
         PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
         PlayerMovement.instance.speed += currentItem.speedGiven;
         contenu.Remove(contenu[0]);
-        itemUIimage.sprite = null;
+        itemUIimage.sprite = Invisibleimage.sprite;
         itemUIName.text = "";
         
     }
@@ -98,7 +99,7 @@ public class inventory : MonoBehaviour
 
         else
         {
-            itemUIimage.sprite = null;
+            itemUIimage.sprite = Invisibleimage.sprite;
             itemUIName.text = "";
         }
     }
