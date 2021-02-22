@@ -31,7 +31,7 @@ public class PickUpItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.tag == "Player")
         {
             interactUI.enabled = true;
             isInRange = true;
@@ -40,7 +40,7 @@ public class PickUpItem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.tag == "Player")
         {
             interactUI.enabled = false;
             isInRange = false;
