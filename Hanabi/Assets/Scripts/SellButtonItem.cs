@@ -9,7 +9,7 @@ public class SellButtonItem : MonoBehaviour
 
     public Items item;
 
-    public bool ok = true;
+    public bool ok;
 
     public void BuyItem()
     {
