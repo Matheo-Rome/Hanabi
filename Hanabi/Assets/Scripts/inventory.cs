@@ -52,7 +52,7 @@ public class inventory : MonoBehaviour
         Items currentItem = contenu[currentindexitem];
         PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
         PlayerMovement.instance.speed += currentItem.speedGiven;
-        PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven; //test  hugo
+        PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven; 
         contenu.Remove(contenu[0]);
         itemUIimage.sprite = Invisibleimage.sprite;
         itemUIName.text = "";
