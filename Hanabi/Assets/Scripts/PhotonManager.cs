@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using Photon.Realtime;
-using Unity.Mathematics;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     
+<<<<<<< HEAD
     private bool connect;
 
     public Transform SpawnPoint1;
@@ -17,12 +16,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     private Transform sp;
 
 
+=======
+>>>>>>> parent of 02ecb0b (Multi)
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
     }
     
-    public override void OnConnectedToMaster()
+public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
     }
@@ -34,6 +35,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+<<<<<<< HEAD
         /*if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
@@ -43,5 +45,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             sp = SpawnPoint2;
         }*/
         PhotonNetwork.Instantiate("roger", SpawnPoint1.position, quaternion.identity, 0);
+=======
+        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
+        
+>>>>>>> parent of 02ecb0b (Multi)
     }
 }
