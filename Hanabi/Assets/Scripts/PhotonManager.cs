@@ -1,29 +1,35 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.Demo.PunBasics;
 using Photon.Realtime;
-using Unity.Mathematics;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     private bool connect;
 
     public Transform SpawnPoint1;
     public Transform SpawnPoint2;
     private Transform sp;
 
-    public Camera cam1;
-    public Camera cam2;
-  
+
+=======
+>>>>>>> parent of 02ecb0b (Multi)
+=======
+>>>>>>> parent of 02ecb0b (Multi)
+=======
+>>>>>>> parent of 02ecb0b (Multi)
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
     }
     
-    public override void OnConnectedToMaster()
+public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
     }
@@ -35,15 +41,29 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        if (PhotonNetwork.PlayerList.Length <= 1)
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        /*if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
-
         }
         else
         {
             sp = SpawnPoint2;
-        }
-        PhotonNetwork.Instantiate("roger", sp.position, quaternion.identity, 0);
+        }*/
+        PhotonNetwork.Instantiate("roger", SpawnPoint1.position, quaternion.identity, 0);
+=======
+        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
+        
+>>>>>>> parent of 02ecb0b (Multi)
+=======
+        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
+        
+>>>>>>> parent of 02ecb0b (Multi)
+=======
+        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
+        
+>>>>>>> parent of 02ecb0b (Multi)
     }
 }

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6578cfbbd830e4b99ab535ec51ea3b, type: 3}
   m_Name: Jump potion
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
-  description: 
-  image: {fileID: 0}
+  id: 3
+  name: Jump Potion
+  description: gives the player a higher jump
+  image: {fileID: 1527132242282399131, guid: 25415194518491346b5bed393ae2b4fd, type: 3}
   StressRemoved: 0
   speedGiven: 0
   speedDuration: 0
+  jumpBoostGiven: 10
