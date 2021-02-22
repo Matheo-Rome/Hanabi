@@ -38,16 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public int direction;
     private float dashCD = 0.5f;
     private float NextDash;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-=======
->>>>>>> parent of 02ecb0b (Multi)
-=======
->>>>>>> parent of 02ecb0b (Multi)
-=======
->>>>>>> parent of 02ecb0b (Multi)
+
 
 
     
