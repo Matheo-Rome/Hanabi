@@ -13,6 +13,7 @@ public class inventory : MonoBehaviour
     public int currentindexitem = 0;
     public Image itemUIimage;
     public Text itemUIName;
+    public Image Invisibleimage;
 
 
     public static inventory instance;
@@ -53,7 +54,7 @@ public class inventory : MonoBehaviour
         PlayerMovement.instance.speed += currentItem.speedGiven;
         PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven; //test  hugo
         contenu.Remove(contenu[0]);
-        itemUIimage.sprite = null;
+        itemUIimage.sprite = Invisibleimage.sprite;
         itemUIName.text = "";
         
     }
@@ -99,7 +100,7 @@ public class inventory : MonoBehaviour
 
         else
         {
-            itemUIimage.sprite = null;
+            itemUIimage.sprite = Invisibleimage.sprite;
             itemUIName.text = "";
         }
     }
