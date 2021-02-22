@@ -10,6 +10,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private bool connect;
 
     public Transform SpawnPoint1;
@@ -17,6 +18,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     private Transform sp;
 
 
+=======
+>>>>>>> parent of 02ecb0b (Multi)
 =======
 >>>>>>> parent of 02ecb0b (Multi)
 =======
@@ -40,6 +43,7 @@ public override void OnConnectedToMaster()
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         /*if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
@@ -49,6 +53,10 @@ public override void OnConnectedToMaster()
             sp = SpawnPoint2;
         }*/
         PhotonNetwork.Instantiate("roger", SpawnPoint1.position, quaternion.identity, 0);
+=======
+        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
+        
+>>>>>>> parent of 02ecb0b (Multi)
 =======
         PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
         
