@@ -39,6 +39,7 @@ public class inventory : MonoBehaviour
     public void Start()
     {
         updateinventoryImage();
+        UpdateTextUI();
     }
 
 
@@ -116,6 +117,11 @@ public class inventory : MonoBehaviour
         {
             contenu.Add(item);
         }
+    }
+    
+    public void UpdateTextUI()
+    {
+        compteurdecoinstext.text = NombreDePièce.ToString();
     }
 
 }

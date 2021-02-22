@@ -8,14 +8,16 @@ using Unity.Mathematics;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
-    
-
     private bool connect;
 
     public Transform SpawnPoint1;
     public Transform SpawnPoint2;
     private Transform sp;
 
+    public Camera cam1;
+    public Camera cam2;
+    private Camera cam;
+    private Camera came;
 
 
     void Start()
@@ -36,24 +38,20 @@ public override void OnConnectedToMaster()
     public override void OnJoinedRoom()
     {
 
-        /*if (PhotonNetwork.PlayerList.Length <= 1)
+        if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
+            cam = cam1;
+            came = cam2;
         }
         else
         {
             sp = SpawnPoint2;
-        }*/
-        PhotonNetwork.Instantiate("roger", SpawnPoint1.position, quaternion.identity, 0);
-
-        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
-        
-
-        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
-        
-
-        PhotonNetwork.Instantiate("roger", new Vector2(0,0),Quaternion.identity);
-        
-
+            cam = cam2;
+            came = cam1;
+        }
+        GameObject player = PhotonNetwork.Instantiate("roger", sp.position, quaternion.identity, 0) as GameObject;
+        cam.enabled = true;
+        came.enabled = false;
     }
 }
