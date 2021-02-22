@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.Demo.PunBasics;
 using Photon.Realtime;
 using Unity.Mathematics;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
-    
     private bool connect;
 
     public Transform SpawnPoint1;
@@ -17,13 +16,16 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public Camera cam1;
     public Camera cam2;
-  
+    private Camera cam;
+    private Camera came;
+
+
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
     }
     
-    public override void OnConnectedToMaster()
+public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
     }
@@ -35,15 +37,21 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+
         if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
-
+            cam = cam1;
+            came = cam2;
         }
         else
         {
             sp = SpawnPoint2;
+            cam = cam2;
+            came = cam1;
         }
-        PhotonNetwork.Instantiate("roger", sp.position, quaternion.identity, 0);
+        GameObject player = PhotonNetwork.Instantiate("roger", sp.position, quaternion.identity, 0) as GameObject;
+        cam.enabled = true;
+        came.enabled = false;
     }
 }

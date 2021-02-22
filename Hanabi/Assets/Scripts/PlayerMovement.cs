@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     
     public static PlayerMovement instance;
     
-    public float jumpVelocity;
+    [Range(1, 10)] public float jumpVelocity;
     public float speed;
     public float slideSpeed;
 
@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashCD = 0.5f;
     private float NextDash;
 
-    public static bool player1 = true;
 
 
     
@@ -128,35 +127,27 @@ public class PlayerMovement : MonoBehaviour
                 switch (direction)
                 {
                     case 1 :
-                        rb.velocity = Vector2.zero;
                         rb.velocity = (Vector2.up + Vector2.left).normalized * dashSpeed; //diagonal haute gauche
                         break;
                     case 2 :
-                        rb.velocity = Vector2.zero;
                         rb.velocity = (Vector2.up + Vector2.right).normalized * dashSpeed;  //diagonal haute droite
                         break;
                     case 3 :
-                        rb.velocity = Vector2.zero;
                         rb.velocity = (Vector2.down + Vector2.left).normalized * dashSpeed; // diagonal basse gauche
                         break;
                     case 4:
-                        rb.velocity = Vector2.zero;
                         rb.velocity = (Vector2.down + Vector2.right).normalized * dashSpeed; //diagonal basse droite
                         break;
                     case 5 :
-                        rb.velocity = Vector2.zero;
                         rb.velocity = Vector2.up * dashSpeed; //haut
                         break;
                     case 6 :
-                        rb.velocity = Vector2.zero;
                         rb.velocity = Vector2.down * dashSpeed;  //bas
                         break;
                     case 7 :
-                        rb.velocity = Vector2.zero;
                         rb.velocity = Vector2.left * dashSpeed; //gauche
                         break;
                     case 8 :
-                        rb.velocity = Vector2.zero;
                         rb.velocity = Vector2.right * dashSpeed; //droite
                         break;
                 }
