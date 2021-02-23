@@ -39,6 +39,7 @@ public class inventory : MonoBehaviour
     public void Start()
     {
         updateinventoryImage();
+        UpdateTextUI();
     }
 
 
@@ -52,7 +53,9 @@ public class inventory : MonoBehaviour
         Items currentItem = contenu[currentindexitem];
         PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
         PlayerMovement.instance.speed += currentItem.speedGiven;
-        PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven; 
+        PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven;
+		PlayerMovement.instance.hasDashed = currentItem.dashReset;
+		PlayerMovement.instance.itemJump = currentItem.jumpGiven;
         contenu.Remove(contenu[0]);
         itemUIimage.sprite = Invisibleimage.sprite;
         itemUIName.text = "";
@@ -116,6 +119,11 @@ public class inventory : MonoBehaviour
         {
             contenu.Add(item);
         }
+    }
+    
+    public void UpdateTextUI()
+    {
+        compteurdecoinstext.text = NombreDePièce.ToString();
     }
 
 }
