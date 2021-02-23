@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool onGround;
     public bool onWall;
-    private bool hasDashed;
+    public bool hasDashed; //changed due to it needing to be changed for an item
     
     public float dashSpeed;
     private float dashTime;
