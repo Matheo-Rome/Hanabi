@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     private float dashCD = 0.5f;
     private float NextDash;
 
+	public bool itemJump; //item test
+
 
 
     
@@ -67,9 +69,10 @@ public class PlayerMovement : MonoBehaviour
         onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
                  Physics2D.OverlapArea(wallCheckLeft.position, wallChekLeft2.position);
 
-       if (Input.GetButtonDown("Jump") && onGround)
+       if ((Input.GetButtonDown("Jump") && onGround) || itemJump) //item test
         {
             rb.velocity = Vector2.up * jumpVelocity;
+			itemJump = false; //item test
         }
 
         float x = Input.GetAxis("Horizontal");
