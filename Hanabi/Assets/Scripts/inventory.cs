@@ -54,8 +54,8 @@ public class inventory : MonoBehaviour
         PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
         PlayerMovement.instance.speed += currentItem.speedGiven;
         PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven;
-		//PlayerMovement.instance.hasDashed = currentItem.dashReset;  //rajoute pas des truc random sans le dire dans PlayerMovement ça casse tout chacal
-		//PlayerMovement.instance.itemJump = currentItem.jumpGiven;
+		//PlayerMovement.instance.hasDashed = currentItem.dashReset;  
+		PlayerMovement.instance.itemJump = currentItem.jumpGiven;
         contenu.Remove(contenu[0]);
         itemUIimage.sprite = Invisibleimage.sprite;
         itemUIName.text = "";
