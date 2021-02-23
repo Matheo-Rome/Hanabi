@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa6578cfbbd830e4b99ab535ec51ea3b, type: 3}
-  m_Name: SpeedPotion
+  m_Name: SpeedPotionNew
   m_EditorClassIdentifier: 
-  id: 2
-  name: SpeedPotion
+  id: 3
+  name: SpeedPotionNew
   description: "Potion qui augmente la vitesse de 10 unit\xE9s"
-  image: {fileID: -6540880107424386307, guid: 25415194518491346b5bed393ae2b4fd, type: 3}
+  image: {fileID: -6540880107424386307, guid: 76ffe0297478847a48c3091443de6fc4, type: 3}
   StressRemoved: 0
-  speedGiven: 10
+  speedGiven: 1.5
   speedDuration: 0
   jumpBoostGiven: 0
-  Price: 3
+  Price: 100
