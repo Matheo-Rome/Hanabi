@@ -44,8 +44,7 @@ public class PlayerMovement : MonoBehaviourPun
     private float NextDash;
 
     public GameObject playerCamera;
-    //public GameObject playerCamera2;
-    //public Transform center;
+    
 
 
 
@@ -67,22 +66,11 @@ public class PlayerMovement : MonoBehaviourPun
         if (photonView.IsMine)
         {
             playerCamera.SetActive(true);
-            //notplayerCamera.SetActive(false);
         }
         else
         {
             playerCamera.SetActive(false);
         }
-        /*if (PhotonNetwork.PlayerList.Length >= 1)
-        {
-            playerCamera.SetActive(true);
-            //playerCamera2.SetActive(false);
-        }
-        else
-        {
-            playerCamera2.SetActive(true);
-            //playerCamera.SetActive(false);
-        }*/
     }
 
 
@@ -178,25 +166,11 @@ public class PlayerMovement : MonoBehaviourPun
                         rb.velocity = Vector2.right * dashSpeed; //droite
                         break;
                 }
-                
             }
-        
         }
-
         if (onGround)
             hasDashed = false;
-
-
     }
-    
-
-
-    /*private void Walk(Vector2 dir)
-    {
-        rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
-    }*/
-    
-   
 }
 
    
