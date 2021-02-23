@@ -6040,7 +6040,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 200
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -7175,7 +7175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3dc3c86787d64e85ff7f3ef7d6f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "NombreDePi\xE8ce": 200
+  "NombreDePi\xE8ce": 1000
   compteurdecoinstext: {fileID: 887429707}
   contenu:
   - {fileID: 11400000, guid: e8eb2f028c8c19c4590111bcdfc867e5, type: 2}
@@ -7945,6 +7945,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0e34b055cbf7fe40bbb99733d284ddf, type: 2}
   - {fileID: 11400000, guid: 31a2d48b6cdbd3346a9c6bf7775142c9, type: 2}
   - {fileID: 11400000, guid: 31a2d48b6cdbd3346a9c6bf7775142c9, type: 2}
+  - {fileID: 11400000, guid: 703c9db66098a9c409d829c2791ed6ab, type: 2}
+  - {fileID: 11400000, guid: 703c9db66098a9c409d829c2791ed6ab, type: 2}
+  - {fileID: 11400000, guid: 703c9db66098a9c409d829c2791ed6ab, type: 2}
+  - {fileID: 11400000, guid: 55a565b59b70d1f49898dde4fac9cc9b, type: 2}
+  - {fileID: 11400000, guid: 6eb8ec4e5d4136a40b08842e07f3c61a, type: 2}
+  - {fileID: 11400000, guid: 6eb8ec4e5d4136a40b08842e07f3c61a, type: 2}
 --- !u!114 &6910300654076325726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4712993794571101646, guid: e0be14df9f9da034697b10fb1d8e5d4f,

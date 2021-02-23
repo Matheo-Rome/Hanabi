@@ -43,7 +43,6 @@ public class InventairePassif : MonoBehaviour
 
     public void AddEffectItem(Items items)
     {
-        PlayerStress.instance.HealStressplayer(items.StressRemoved);
         PlayerMovement.instance.speed += items.speedGiven;
         PlayerMovement.instance.jumpVelocity += items.jumpBoostGiven; 
     }
