@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Pun.Demo.PunBasics;
 using UnityEngine;
+using Object = System.Object;
 
-public class PlayerMovement : MonoBehaviour
+
+public class PlayerMovement : MonoBehaviourPun
 {
     
     public static PlayerMovement instance;
@@ -39,9 +43,12 @@ public class PlayerMovement : MonoBehaviour
     private float dashCD = 0.5f;
     private float NextDash;
 
+    public GameObject playerCamera;
+    //public GameObject playerCamera2;
+    //public Transform center;
 
 
-    
+
     private void Awake()
     {
         // Il faut qu'il n'y ai qu'un seul et unique inventaire
@@ -57,12 +64,32 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
+        if (photonView.IsMine)
+        {
+            playerCamera.SetActive(true);
+            //notplayerCamera.SetActive(false);
+        }
+        else
+        {
+            playerCamera.SetActive(false);
+        }
+        /*if (PhotonNetwork.PlayerList.Length >= 1)
+        {
+            playerCamera.SetActive(true);
+            //playerCamera2.SetActive(false);
+        }
+        else
+        {
+            playerCamera2.SetActive(true);
+            //playerCamera.SetActive(false);
+        }*/
     }
 
 
     void Update()
     {
 
+        
         onGround = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
         onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
                  Physics2D.OverlapArea(wallCheckLeft.position, wallChekLeft2.position);

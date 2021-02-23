@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -8,16 +9,17 @@ using Unity.Mathematics;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
-    private bool connect;
 
     public Transform SpawnPoint1;
     public Transform SpawnPoint2;
     private Transform sp;
-
-    public Camera cam1;
-    public Camera cam2;
-    private Camera cam;
-    private Camera came;
+    
+    private string prefabname;
+    private bool player1;
+    private bool connect;
+    
+    
+    
 
 
     void Start()
@@ -41,17 +43,14 @@ public override void OnConnectedToMaster()
         if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
-            cam = cam1;
-            came = cam2;
+            prefabname = "roger1 1";
         }
         else
         {
             sp = SpawnPoint2;
-            cam = cam2;
-            came = cam1;
+            prefabname = "roger2 1";
         }
-        GameObject player = PhotonNetwork.Instantiate("roger", sp.position, quaternion.identity, 0) as GameObject;
-        cam.enabled = true;
-        came.enabled = false;
+        GameObject player = PhotonNetwork.Instantiate(prefabname, sp.position, quaternion.identity, 0) as GameObject;
     }
+    
 }
