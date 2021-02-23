@@ -12,4 +12,5 @@ public class Items : ScriptableObject
     public float speedDuration;
     public int jumpBoostGiven;
     public int Price;
+    public bool dashReset;
 }
