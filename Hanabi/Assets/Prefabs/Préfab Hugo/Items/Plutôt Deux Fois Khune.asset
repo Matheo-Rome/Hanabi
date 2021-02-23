@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6578cfbbd830e4b99ab535ec51ea3b, type: 3}
   m_Name: "Pluto\u0302t Deux Fois Khune"
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
-  description: 
-  image: {fileID: 0}
+  id: 4
+  name: "Plut\xF4t deux fois Khune"
+  description: resets your character's dash
+  image: {fileID: 2178675759595541465, guid: 2ebc6b2e25e3d9e469761dafbfb8706d, type: 3}
   StressRemoved: 0
   speedGiven: 0
   speedDuration: 0
   jumpBoostGiven: 0
   Price: 0
-  dashReset: 0
+  dashReset: 1
+  jumpGiven: 0
