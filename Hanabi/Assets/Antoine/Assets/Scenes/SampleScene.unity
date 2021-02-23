@@ -416,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &245162935
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7927,9 +7927,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pnjName: Marchand
   itemsToSell:
-  - {fileID: 11400000, guid: 1093138210aeed446b97a62735fc61b1, type: 2}
-  - {fileID: 11400000, guid: 1093138210aeed446b97a62735fc61b1, type: 2}
-  - {fileID: 11400000, guid: 1093138210aeed446b97a62735fc61b1, type: 2}
+  - {fileID: 11400000, guid: b22e6c0171ef6421aa6152608859c203, type: 2}
+  - {fileID: 11400000, guid: b22e6c0171ef6421aa6152608859c203, type: 2}
+  - {fileID: 11400000, guid: b22e6c0171ef6421aa6152608859c203, type: 2}
   - {fileID: 11400000, guid: c342c364f9ce34664bf3704afb8a8999, type: 2}
   - {fileID: 11400000, guid: 946330cc94f429e498c7a099c33d9ab8, type: 2}
   - {fileID: 11400000, guid: 946330cc94f429e498c7a099c33d9ab8, type: 2}
@@ -7939,6 +7939,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c1f6558aefe03642af4399fc77b2d25, type: 2}
   - {fileID: 11400000, guid: a80c763aa9a190f4fbc9e5ec78391c69, type: 2}
   - {fileID: 11400000, guid: a80c763aa9a190f4fbc9e5ec78391c69, type: 2}
+  - {fileID: 11400000, guid: 494b7a2e206dcf4418fe4554c3c5fbad, type: 2}
+  - {fileID: 11400000, guid: 494b7a2e206dcf4418fe4554c3c5fbad, type: 2}
+  - {fileID: 11400000, guid: 494b7a2e206dcf4418fe4554c3c5fbad, type: 2}
+  - {fileID: 11400000, guid: a0e34b055cbf7fe40bbb99733d284ddf, type: 2}
+  - {fileID: 11400000, guid: 31a2d48b6cdbd3346a9c6bf7775142c9, type: 2}
+  - {fileID: 11400000, guid: 31a2d48b6cdbd3346a9c6bf7775142c9, type: 2}
 --- !u!114 &6910300654076325726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4712993794571101646, guid: e0be14df9f9da034697b10fb1d8e5d4f,

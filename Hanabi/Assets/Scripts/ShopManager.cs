@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.ObjectModel;
+using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -36,6 +37,13 @@ public class ShopManager : MonoBehaviour
     void UpdateItemToSell(Items[] items)
     {
         var j = 0;
+        int reduction = 0;
+        var nouveauxprix = 0;
+
+        foreach (var objet in InventairePassif.instance.content)
+        {
+            reduction += objet.ReducePrice;
+        }
         
         // supprime les potentiels boutons présent dans le parents
         for (int i = 0; i < sellbuttonsParent.childCount; i++)
@@ -46,12 +54,15 @@ public class ShopManager : MonoBehaviour
         // Instancie un bouton pour chaque item à vendre et le configure
         for (int i = 0; i < 3; i++)
         {
-            j = Random.Range(0, 11);
+            
+            nouveauxprix = items[j].Price - reduction;
+            
+            j = Random.Range(0, 17);
             GameObject button = Instantiate(sellbuttonPrefab, sellbuttonsParent);
             SellButtonItem buttonScript = button.GetComponent<SellButtonItem>();
             buttonScript.ItemName.text = items[j].name;
             buttonScript.ItemImage.sprite = items[j].image;
-            buttonScript.ItemPrice.text = items[j].Price.ToString();
+            buttonScript.ItemPrice.text = nouveauxprix.ToString();
 
             buttonScript.item = items[j];
             
