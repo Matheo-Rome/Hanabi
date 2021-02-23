@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerStress : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerStress : MonoBehaviour
     public int currentStress;
     public int maxStress = 200;
     public int reductiondestress = 0;
+    public Text Pretzelcompteur;
 
     public StressBar stressBar;
 
@@ -34,7 +36,7 @@ public class PlayerStress : MonoBehaviour
         foreach (var objet in InventairePassif.instance.content)
         {
             reductiondestress += objet.StressRemoved;
-
+            Pretzelcompteur.text = reductiondestress.ToString();
             if (objet.StressRemoved == 0)
             {
                 content.Add(objet);
@@ -57,6 +59,7 @@ public class PlayerStress : MonoBehaviour
         {
             HealStressplayer(reductiondestress);
             reductiondestress = 0;
+            Pretzelcompteur.text = reductiondestress.ToString();
 
         }
         
