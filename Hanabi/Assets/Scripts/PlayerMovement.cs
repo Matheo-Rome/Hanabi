@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     public bool onGround;
     public bool onWall;
-    private bool hasDashed;
+    public bool hasDashed;
     
     public float dashSpeed;
     private float dashTime;
@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviourPun
     public int direction;
     private float dashCD = 0.5f;
     private float NextDash;
+
+	public bool itemJump;
 
     public GameObject playerCamera;
     
@@ -82,9 +84,10 @@ public class PlayerMovement : MonoBehaviourPun
         onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
                  Physics2D.OverlapArea(wallCheckLeft.position, wallChekLeft2.position);
 
-       if (Input.GetButtonDown("Jump") && onGround)
+       if ((Input.GetButtonDown("Jump") && onGround) || itemJump)
         {
             rb.velocity = Vector2.up * jumpVelocity;
+			itemJump = false;
         }
 
         float x = Input.GetAxis("Horizontal");
