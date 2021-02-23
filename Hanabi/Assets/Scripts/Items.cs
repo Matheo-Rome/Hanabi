@@ -8,8 +8,8 @@ public class Items : ScriptableObject
     public string description;
     public Sprite image;
     public int StressRemoved;
-    public int speedGiven;
+    public float speedGiven;
     public float speedDuration;
-    public int jumpBoostGiven;
+    public float jumpBoostGiven;
     public int Price;
 }

@@ -7175,7 +7175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3dc3c86787d64e85ff7f3ef7d6f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "NombreDePi\xE8ce": 20
+  "NombreDePi\xE8ce": 200
   compteurdecoinstext: {fileID: 887429707}
   contenu:
   - {fileID: 11400000, guid: e8eb2f028c8c19c4590111bcdfc867e5, type: 2}
@@ -7515,6 +7515,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6910300655207625546}
     m_Modifications:
+    - target: {fileID: 2198243940302366349, guid: e0be14df9f9da034697b10fb1d8e5d4f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 112.84979
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198243940302366349, guid: e0be14df9f9da034697b10fb1d8e5d4f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15.767487
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198243940302366349, guid: e0be14df9f9da034697b10fb1d8e5d4f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198243940302366349, guid: e0be14df9f9da034697b10fb1d8e5d4f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 47.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2198243941239065600, guid: e0be14df9f9da034697b10fb1d8e5d4f,
         type: 3}
       propertyPath: m_Enabled
@@ -7580,6 +7600,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2198243941967203529, guid: e0be14df9f9da034697b10fb1d8e5d4f,
+        type: 3}
+      propertyPath: ok
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4712993794077805129, guid: e0be14df9f9da034697b10fb1d8e5d4f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7589,6 +7614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CloseShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712993794571101646, guid: e0be14df9f9da034697b10fb1d8e5d4f,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4712993795614046286, guid: e0be14df9f9da034697b10fb1d8e5d4f,
         type: 3}
@@ -7863,8 +7893,8 @@ MonoBehaviour:
   pnjName: Marchand
   itemsToSell:
   - {fileID: 11400000, guid: 31a2d48b6cdbd3346a9c6bf7775142c9, type: 2}
-  - {fileID: 11400000, guid: e8eb2f028c8c19c4590111bcdfc867e5, type: 2}
-  - {fileID: 11400000, guid: e8eb2f028c8c19c4590111bcdfc867e5, type: 2}
+  - {fileID: 11400000, guid: 1093138210aeed446b97a62735fc61b1, type: 2}
+  - {fileID: 11400000, guid: c342c364f9ce34664bf3704afb8a8999, type: 2}
 --- !u!114 &6910300654076325726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4712993794571101646, guid: e0be14df9f9da034697b10fb1d8e5d4f,
