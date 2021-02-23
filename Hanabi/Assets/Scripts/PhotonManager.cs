@@ -43,12 +43,12 @@ public override void OnConnectedToMaster()
         if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
-            prefabname = "roger1 1";
+            prefabname = "roger1";
         }
         else
         {
             sp = SpawnPoint2;
-            prefabname = "roger2 1";
+            prefabname = "roger2";
         }
         GameObject player = PhotonNetwork.Instantiate(prefabname, sp.position, quaternion.identity, 0) as GameObject;
     }
