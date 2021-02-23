@@ -6,15 +6,11 @@ using UnityEngine;
 public class DoorInteractPressureButton : MonoBehaviour
 {
 
-   /* [SerializeField] private GameObject doorGameObject;
-
+    /*[SerializeField] private GameObject doorGameObject;
     private IDoor door;
+    
     private float timer;
-
-    private void Awake()
-    {
-        door = doorGameObject.GetComponent<IDoor>();
-    }
+    
 
     private void Update()
     {
@@ -36,26 +32,13 @@ public class DoorInteractPressureButton : MonoBehaviour
             timer = 5f;
         }
     }
-
-    private void OnTriggerStay2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Player"))
-        {
-            timer = 1f;
-        }
-    }*/
    
-   
+   /*/
    private PlayerMovement player;
-
-   //portefermée
-   public SpriteRenderer theSR;
-   //porte ouverte
-   public Sprite doorOpenSprite;
-    
-
-   public bool doorOpen, waitingToOpen;
+   
    private float timer;
+
+   public bool ButtonActive = false;
 
    void Start()
    {
@@ -69,7 +52,7 @@ public class DoorInteractPressureButton : MonoBehaviour
            timer -= Time.deltaTime;
            if (timer <= 0f)
            {
-               gameObject.SetActive(true);
+               ButtonActive = false;
            }
        }
    }
@@ -79,11 +62,8 @@ public class DoorInteractPressureButton : MonoBehaviour
        if (collider.CompareTag("Player"))
        {
            timer = 5f;
-           doorOpen = true;
-           
-           theSR.sprite = doorOpenSprite;
-           
-           gameObject.SetActive(false);
+           ButtonActive = true;
+
        }
    }
    

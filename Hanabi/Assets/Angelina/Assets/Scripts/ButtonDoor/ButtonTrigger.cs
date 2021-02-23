@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ButtonTrigger : MonoBehaviour
+{
+    private float timer;
+    public DoorSetActive door;
+    
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Player"))
+        {
+            door.OpenDoor();
+            timer = 7f;
+        }
+    }
+    
+    private void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+            {
+                door.CloseDoor();
+            }
+        }
+    }
+}
