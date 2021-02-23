@@ -50,14 +50,15 @@ public class ShopManager : MonoBehaviour
         {
             Destroy(sellbuttonsParent.GetChild(i).gameObject);
         }
-        
+
         // Instancie un bouton pour chaque item à vendre et le configure
         for (int i = 0; i < 3; i++)
         {
             
-            nouveauxprix = items[j].Price - reduction;
+            nouveauxprix = 0;
             
             j = Random.Range(0, 17);
+            nouveauxprix = items[j].Price - reduction;
             GameObject button = Instantiate(sellbuttonPrefab, sellbuttonsParent);
             SellButtonItem buttonScript = button.GetComponent<SellButtonItem>();
             buttonScript.ItemName.text = items[j].name;
