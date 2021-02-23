@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class ShopManager : MonoBehaviour
 
     void UpdateItemToSell(Items[] items)
     {
+        var j = 0;
         
         // supprime les potentiels boutons présent dans le parents
         for (int i = 0; i < sellbuttonsParent.childCount; i++)
@@ -41,19 +43,22 @@ public class ShopManager : MonoBehaviour
             Destroy(sellbuttonsParent.GetChild(i).gameObject);
         }
         
-        // Instancie un bouton pour chaque item à vendre et le configure (peut-être créer un array ?)
-        for (int i = 0; i < items.Length; i++)
+        // Instancie un bouton pour chaque item à vendre et le configure
+        for (int i = 0; i < 3; i++)
         {
+            j = Random.Range(0, 11);
             GameObject button = Instantiate(sellbuttonPrefab, sellbuttonsParent);
             SellButtonItem buttonScript = button.GetComponent<SellButtonItem>();
-            buttonScript.ItemName.text = items[i].name;
-            buttonScript.ItemImage.sprite = items[i].image;
-            buttonScript.ItemPrice.text = items[i].Price.ToString();
+            buttonScript.ItemName.text = items[j].name;
+            buttonScript.ItemImage.sprite = items[j].image;
+            buttonScript.ItemPrice.text = items[j].Price.ToString();
 
-            buttonScript.item = items[i];
+            buttonScript.item = items[j];
             
             button.GetComponent<Button>().onClick.AddListener(delegate { buttonScript.BuyItem(); });
         }
+
+
     }
     
     
