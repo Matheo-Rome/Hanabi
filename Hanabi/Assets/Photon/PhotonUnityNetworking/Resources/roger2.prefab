@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 9149673787030875235}
   - component: {fileID: 3041251655079163471}
   m_Layer: 0
-  m_Name: roger2 1
+  m_Name: roger2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,9 +188,11 @@ MonoBehaviour:
   followingKey: {fileID: 0}
   onGround: 1
   onWall: 0
+  hasDashed: 0
   dashSpeed: 20
   startDashTime: 0.1
   direction: 0
+  itemJump: 0
   playerCamera: {fileID: 4288644486121542692}
 --- !u!251 &4008435687835367575
 PlatformEffector2D:
