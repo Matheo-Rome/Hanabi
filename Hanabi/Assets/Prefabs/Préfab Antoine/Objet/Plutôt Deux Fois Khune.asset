@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa6578cfbbd830e4b99ab535ec51ea3b, type: 3}
-  m_Name: "Plut\xF4t Deux Fois Khune"
+  m_Name: "Pluto\u0302t Deux Fois Khune"
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
-  description: 
-  image: {fileID: 0}
+  id: 15
+  name: "Plut\xF4t deux fois Khune"
+  description: resets the dash when used
+  image: {fileID: 2178675759595541465, guid: b75a1cf78617446209dcc5832572c7ff, type: 3}
   StressRemoved: 0
   speedGiven: 0
-  speedDuration: 0
   jumpBoostGiven: 0
   Price: 0
-  dashReset: 0
-  jumpGiven: 0
   ReducePrice: 0
