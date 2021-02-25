@@ -15,6 +15,8 @@ public class inventory : MonoBehaviour
     public Text itemUIName;
     public Image Invisibleimage;
 
+    private float cooldown;
+
 
     public static inventory instance;
     private void Awake()
@@ -52,17 +54,26 @@ public class inventory : MonoBehaviour
 
         Items currentItem = contenu[currentindexitem];
 
-        if (currentItem.id == 8) //if the item is "updraft"
+        if (Time.time > cooldown)
         {
-            PlayerMovement.instance.itemJump = true;
-        }
+            if (currentItem.id == 8) //if the item is "updraft"
+            {
+                PlayerMovement.instance.itemJump = true;
+                cooldown = Time.time + 15f;
+            }
 
-        if (currentItem.id == 15) //if the item is "plutôt deux fois Khune"
-        {
-            PlayerMovement.instance.hasDashed = false;
+            if (currentItem.id == 15) //if the item is "plutôt deux fois Khune"
+            {
+                PlayerMovement.instance.hasDashed = false;
+                cooldown = Time.time + 15f;
+            }
+
+            if (currentItem.id == 7) //if the item is "sandwich triangle"
+            {
+                PlayerStress.instance.HealStressplayer(20);
+                cooldown = Time.time + 40f;
+            }
         }
-        
-        PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
     }
 
     public void updateinventoryImage()
