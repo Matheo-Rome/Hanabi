@@ -9,10 +9,7 @@ public class Items : ScriptableObject
     public Sprite image;
     public int StressRemoved;
     public float speedGiven;
-    public float speedDuration;
     public float jumpBoostGiven;
     public int Price;
-    public bool dashReset;
-    public bool jumpGiven;
     public int ReducePrice;
 }
