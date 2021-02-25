@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviourPun
     public Transform wallCheckRight; 
     //public Transform wallCheckRight2;
     public Transform wallCheckLeft;
-    //public Transform wallChekLeft2;
+    //public Transform wallCheckLeft2;
 
     public Transform keyFollowPoint;
 
@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     private void Dashdir()
     {
-        if (Input.GetButton("Dash") && !hasDashed && Time.time > NextDash)
+        if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
         {
             if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") < 0) //diagonal haute gauche
                 direction = 1;
