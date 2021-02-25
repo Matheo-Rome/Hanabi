@@ -39,7 +39,7 @@ public override void OnConnectedToMaster()
         if (PhotonNetwork.PlayerList.Length <= 1)
         {
             sp = SpawnPoint1;
-            prefabname = "roger1";
+            prefabname = "roger2";
         }
         else
         {
