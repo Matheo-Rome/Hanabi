@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviourPun
     public int direction;
     private float dashCD = 0.5f;
     private float NextDash;
+    private bool isDashing;
 
 	public bool itemJump;
 
@@ -97,8 +98,8 @@ public class PlayerMovement : MonoBehaviourPun
        if (Input.GetButtonDown("Jump") && onGround || itemJump)
            Jump();
 
-       
-        Walk(dir);
+       if(!isDashing)
+            Walk(dir);
 
        //Réduction de la vitesse de déplacement sur l'axe x dans les airs 
        if (!onGround)
@@ -112,8 +113,10 @@ public class PlayerMovement : MonoBehaviourPun
         if (direction == 0)
             Dashdir();
         else
+        {
             Dash();
-        
+        }
+
         //Reset du Dash quand le personnage touche le sol
         if (onGround)
             hasDashed = false;
@@ -139,6 +142,7 @@ public class PlayerMovement : MonoBehaviourPun
     {
         if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
         {
+            rb.velocity = Vector2.zero;
             if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") < 0) //diagonal haute gauche
                 direction = 1;
             else if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") > 0) //diagonal haute droite
@@ -155,7 +159,7 @@ public class PlayerMovement : MonoBehaviourPun
                 direction = 7;
             else if (Input.GetAxis("Horizontal") > 0) //droite
                 direction = 8;
-            NextDash = Time.time + dashCD;
+            isDashing = true;
         }   
     }
 
@@ -166,11 +170,13 @@ public class PlayerMovement : MonoBehaviourPun
             direction = 0;
             dashTime = startDashTime;
             rb.velocity /= 3;
+            isDashing = false;
         }
         else
         {
             dashTime -= Time.deltaTime;
             hasDashed = true;
+            NextDash = Time.time + dashCD;
             switch (direction)
             {
                 case 1 :
