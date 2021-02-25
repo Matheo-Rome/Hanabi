@@ -49,48 +49,20 @@ public class inventory : MonoBehaviour
         {
             return;
         }
-        
+
         Items currentItem = contenu[currentindexitem];
+
+        if (currentItem.id == 8) //if the item is "updraft"
+        {
+            PlayerMovement.instance.itemJump = true;
+        }
+
+        if (currentItem.id == 15) //if the item is "plutôt deux fois Khune"
+        {
+            PlayerMovement.instance.hasDashed = false;
+        }
+        
         PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
-        PlayerMovement.instance.speed += currentItem.speedGiven;
-        PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven;
-		//PlayerMovement.instance.hasDashed = currentItem.dashReset;  
-		PlayerMovement.instance.itemJump = currentItem.jumpGiven;
-        contenu.Remove(contenu[0]);
-        itemUIimage.sprite = Invisibleimage.sprite;
-        itemUIName.text = "";
-        
-    }
-
-    public void GetNextItem()
-    {
-        if (contenu.Count == 0)
-        {
-            return;
-        }
-        
-        currentindexitem ++;
-        if (currentindexitem > contenu.Count - 1)
-        {
-            currentindexitem = 0;
-        }
-        updateinventoryImage();
-        
-    }
-
-    public void GetPreviousItem()
-    {
-        if (contenu.Count == 0)
-        {
-            return;
-        }
-        
-        currentindexitem --;
-        if (currentindexitem < 0)
-        {
-            currentindexitem = contenu.Count - 1;
-        }
-        updateinventoryImage();
     }
 
     public void updateinventoryImage()
