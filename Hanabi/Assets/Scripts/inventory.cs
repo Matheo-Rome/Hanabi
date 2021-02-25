@@ -56,22 +56,23 @@ public class inventory : MonoBehaviour
 
         if (Time.time > cooldown)
         {
-            if (currentItem.id == 8) //if the item is "updraft"
+            switch (currentItem.id)
             {
-                PlayerMovement.instance.itemJump = true;
-                cooldown = Time.time + 15f;
-            }
-
-            if (currentItem.id == 15) //if the item is "plutôt deux fois Khune"
-            {
-                PlayerMovement.instance.hasDashed = false;
-                cooldown = Time.time + 15f;
-            }
-
-            if (currentItem.id == 7) //if the item is "sandwich triangle"
-            {
-                PlayerStress.instance.HealStressplayer(20);
-                cooldown = Time.time + 40f;
+                //if the item is "updraft"
+                case 8:
+                    PlayerMovement.instance.itemJump = true;
+                    cooldown = Time.time + 15f;
+                    break;
+                //if the item is "plutôt deux fois Khune"
+                case 15:
+                    PlayerMovement.instance.hasDashed = false;
+                    cooldown = Time.time + 15f;
+                    break;
+                //if the item is "sandwich triangle"
+                case 7:
+                    PlayerStress.instance.HealStressplayer(20);
+                    cooldown = Time.time + 40f;
+                    break;
             }
         }
     }
