@@ -150,7 +150,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 13
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc679e55b403ce409716c1e6475e547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 6.67
+  jumpVelocity: 8.02
   speed: 10
   slideSpeed: 2
   groundCheckLeft: {fileID: 1414395951144151190}
@@ -444,7 +444,7 @@ MonoBehaviour:
   onGround: 1
   onWall: 0
   hasDashed: 0
-  dashSpeed: 20
+  dashSpeed: 30
   startDashTime: 0.1
   direction: 0
   itemJump: 0
