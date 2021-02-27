@@ -6,12 +6,15 @@ public class ButtonTrigger : MonoBehaviour
 {
     private float timer;
     public DoorSetActive door;
+    public SpriteRenderer theSR;
+    public Sprite buttonOff;
+    public Sprite buttonOn;
     
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))
         {
+            theSR.sprite = buttonOn;
             door.OpenDoor();
             timer = 7f;
         }
@@ -25,6 +28,7 @@ public class ButtonTrigger : MonoBehaviour
             if (timer <= 0f)
             {
                 door.CloseDoor();
+                theSR.sprite = buttonOff;
             }
         }
     }

@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorTriggerButton : MonoBehaviour
+public class DoorCheatCode : MonoBehaviour
 {
-    [SerializeField] private DoorSetActive _doorSetActive;
-    //IDoor GameObject
-
+    public DoorSetActive door;
+    
     private void Update()
     {
         // Cheat Code ouvre-ferme la porte
         if (Input.GetKeyDown(KeyCode.F))
-            _doorSetActive.OpenDoor();
+            door.OpenDoor();
         
         if (Input.GetKeyDown(KeyCode.G))
-            _doorSetActive.CloseDoor();
+            door.CloseDoor();
     }
 }

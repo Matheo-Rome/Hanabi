@@ -21,3 +21,6 @@ MonoBehaviour:
   speedDuration: 0
   jumpBoostGiven: 0.3335
   Price: 40
+  dashReset: 0
+  jumpGiven: 0
+  ReducePrice: 0
