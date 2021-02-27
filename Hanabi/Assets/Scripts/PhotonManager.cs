@@ -15,13 +15,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     private Transform sp;
     
     private string prefabname;
-    private bool player1;
     private bool connect;
     
     
-    
-
-
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();

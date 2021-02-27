@@ -15,6 +15,8 @@ public class inventory : MonoBehaviour
     public Text itemUIName;
     public Image Invisibleimage;
 
+    private float cooldown;
+
 
     public static inventory instance;
     private void Awake()
@@ -49,48 +51,30 @@ public class inventory : MonoBehaviour
         {
             return;
         }
-        
+
         Items currentItem = contenu[currentindexitem];
-        PlayerStress.instance.HealStressplayer(currentItem.StressRemoved);
-        PlayerMovement.instance.speed += currentItem.speedGiven;
-        PlayerMovement.instance.jumpVelocity += currentItem.jumpBoostGiven;
-		//PlayerMovement.instance.hasDashed = currentItem.dashReset;  
-		PlayerMovement.instance.itemJump = currentItem.jumpGiven;
-        contenu.Remove(contenu[0]);
-        itemUIimage.sprite = Invisibleimage.sprite;
-        itemUIName.text = "";
-        
-    }
 
-    public void GetNextItem()
-    {
-        if (contenu.Count == 0)
+        if (Time.time > cooldown)
         {
-            return;
+            switch (currentItem.id)
+            {
+                //if the item is "updraft"
+                case 8:
+                    PlayerMovement.instance.itemJump = true;
+                    cooldown = Time.time + 15f;
+                    break;
+                //if the item is "plutôt deux fois Khune"
+                case 15:
+                    PlayerMovement.instance.hasDashed = false;
+                    cooldown = Time.time + 15f;
+                    break;
+                //if the item is "sandwich triangle"
+                case 7:
+                    PlayerStress.instance.HealStressplayer(20);
+                    cooldown = Time.time + 40f;
+                    break;
+            }
         }
-        
-        currentindexitem ++;
-        if (currentindexitem > contenu.Count - 1)
-        {
-            currentindexitem = 0;
-        }
-        updateinventoryImage();
-        
-    }
-
-    public void GetPreviousItem()
-    {
-        if (contenu.Count == 0)
-        {
-            return;
-        }
-        
-        currentindexitem --;
-        if (currentindexitem < 0)
-        {
-            currentindexitem = contenu.Count - 1;
-        }
-        updateinventoryImage();
     }
 
     public void updateinventoryImage()

@@ -16,11 +16,8 @@ MonoBehaviour:
   name: StressPotion
   description: Stress removing 20 Stress
   image: {fileID: 425806401702303504, guid: 966fce2b35c27b6469a97e300bae41af, type: 3}
-  StressRemoved: 20
+  StressRemoved: 0
   speedGiven: 0
-  speedDuration: 0
   jumpBoostGiven: 0
   Price: 5
-  dashReset: 0
-  jumpGiven: 0
   ReducePrice: 0
