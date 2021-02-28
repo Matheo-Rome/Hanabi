@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -23,11 +23,11 @@ public class PlayerMovement : MonoBehaviourPun
 
     //Checker de position
     public Transform groundCheckLeft;   
-    public Transform groundCheckRight;
+    //public Transform groundCheckRight;
     public Transform wallCheckRight; 
-    public Transform wallCheckRight2;
+    //public Transform wallCheckRight2;
     public Transform wallCheckLeft;
-    public Transform wallCheckLeft2;
+    //public Transform wallCheckLeft2;
 
     public Transform keyFollowPoint;
 
@@ -46,17 +46,9 @@ public class PlayerMovement : MonoBehaviourPun
     private float NextDash;
     private bool isDashing;
 
-    public bool ClassiqueDash;
-    public bool BouncyDash;
-    private bool isBouncydashing;
-    public bool LightDash;
-
 	public bool itemJump;
 
     public GameObject playerCamera;
-
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
     
 
 
@@ -76,8 +68,6 @@ public class PlayerMovement : MonoBehaviourPun
     {
         rb = GetComponent<Rigidbody2D>(); 
         dashTime = startDashTime;
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         
         if (photonView.IsMine)  //Active la caméra du joueur est éteint celle de l'autre joueur
         {
@@ -90,7 +80,7 @@ public class PlayerMovement : MonoBehaviourPun
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         //Information sur la direction du déplacement selon les touches appuyé
         float x = Input.GetAxis("Horizontal");
@@ -100,48 +90,36 @@ public class PlayerMovement : MonoBehaviourPun
         Vector2 dir = new Vector2(x, 0);
         
         //Vérifie la position du personnage par rapport au sol et aux murs.
-        onGround = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
-        onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) || 
-                 Physics2D.OverlapArea(wallCheckLeft.position, wallCheckLeft2.position);
+        onGround = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckLeft.position);
+        onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight.position) || 
+                 Physics2D.OverlapArea(wallCheckLeft.position, wallCheckLeft.position);
         
         //Jump
-       if (Input.GetButton("Jump") && onGround || itemJump)
+       if (Input.GetButtonDown("Jump") && onGround || itemJump)
            Jump();
 
        if(!isDashing)
             Walk(dir);
-
-       animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-       Flip(rb.velocity.x);
 
        //Réduction de la vitesse de déplacement sur l'axe x dans les airs 
        if (!onGround)
            SlowAir(dir);
 
        //Sliding
-        if (onWall && !onGround && !Input.GetButton("Jump") && !isBouncydashing)
+        if (onWall && !onGround && !Input.GetButtonDown("Jump"))
             Slide();
         
-        //Dash Classique
-        if (direction == 0 && ClassiqueDash)
-            DashdirClassique();
-        else if (ClassiqueDash)
-            DashClassique();
-        
-        
-        //Dash Bouncy
-        if(direction == 0 && BouncyDash)
-            DashdirBouncy();
-        else if (BouncyDash)
-            DashBouncy();
+        //Dash
+        if (direction == 0)
+            Dashdir();
+        else
+        {
+            Dash();
+        }
 
-
-            //Reset du Dash quand le personnage touche le sol
+        //Reset du Dash quand le personnage touche le sol
         if (onGround)
             hasDashed = false;
-
-        if (rb.velocity.y < 0)
-            isBouncydashing = false;
     }
 
     private void Jump()
@@ -160,7 +138,7 @@ public class PlayerMovement : MonoBehaviourPun
         rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -slideSpeed, float.MaxValue));
     }
 
-    private void DashdirClassique()
+    private void Dashdir()
     {
         if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
         {
@@ -185,7 +163,7 @@ public class PlayerMovement : MonoBehaviourPun
         }   
     }
 
-    private void DashClassique()
+    private void Dash()
     {
         if (dashTime <= 0)
         {
@@ -229,61 +207,10 @@ public class PlayerMovement : MonoBehaviourPun
         }
     }
 
-    private void DashdirBouncy()
-    {
-        if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
-        {
-            rb.velocity = Vector2.zero;
-
-            if (Input.GetAxis("Horizontal") < 0) //gauche
-                direction = 1;
-            else if (Input.GetAxis("Horizontal") > 0) //droite
-                direction = 2;
-            isDashing = true;
-        }   
-    }
-
-    private void DashBouncy()
-    {
-        if (dashTime <= 0)
-        {
-            direction = 0;
-            dashTime = startDashTime;
-            rb.velocity /= 3;
-            isDashing = false;
-            if (onWall)
-            {
-                rb.velocity = Vector2.up * jumpVelocity*2;
-                isBouncydashing = true;
-            }
-        }
-        else
-        {
-            dashTime -= Time.deltaTime;
-            hasDashed = true;
-            NextDash = Time.time + dashCD;
-            switch (direction)
-            {
-                case 1:
-                    rb.velocity = Vector2.left * dashSpeed; //gauche
-                    break;
-                case 2:
-                    rb.velocity = Vector2.right * dashSpeed; //droite
-                    break;
-            }
-        }
-    }
-
     private void SlowAir(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed / 1.4f, rb.velocity.y);
     }
-
-    private void Flip(float _velocity)
-    {
-        if (_velocity > 0.1f)
-            spriteRenderer.flipX = false;
-        else if (_velocity < -0.1f)
-            spriteRenderer.flipX = true;
-    }
 }
+
+   
