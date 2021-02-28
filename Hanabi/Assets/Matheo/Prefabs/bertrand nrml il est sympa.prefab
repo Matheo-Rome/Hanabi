@@ -90,6 +90,56 @@ Transform:
   m_Father: {fileID: 1531785653977813044}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3528124648762887838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2500298864388995281}
+  - component: {fileID: 6830868611447270586}
+  m_Layer: 0
+  m_Name: KeyFollowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2500298864388995281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3528124648762887838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.311, y: 0.145, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1531785653977813044}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6830868611447270586
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3528124648762887838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e762a38d4b6d1546b22f39c9892cd1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3858907495483119459
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +182,7 @@ Transform:
   - {fileID: 6808509223923434328}
   - {fileID: 4305187281943492500}
   - {fileID: 7743626952262386355}
+  - {fileID: 2500298864388995281}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -237,9 +288,12 @@ MonoBehaviour:
   speed: 10
   slideSpeed: 2
   groundCheckLeft: {fileID: 5557812860351985857}
+  groundCheckRight: {fileID: 0}
   wallCheckRight: {fileID: 6808509223923434328}
+  wallCheckRight2: {fileID: 0}
   wallCheckLeft: {fileID: 4305187281943492500}
-  keyFollowPoint: {fileID: 0}
+  wallCheckLeft2: {fileID: 0}
+  keyFollowPoint: {fileID: 2500298864388995281}
   followingKey: {fileID: 0}
   onGround: 1
   onWall: 0
@@ -247,6 +301,9 @@ MonoBehaviour:
   dashSpeed: 30
   startDashTime: 0.1
   direction: 0
+  ClassiqueDash: 0
+  BouncyDash: 0
+  LightDash: 0
   itemJump: 0
   playerCamera: {fileID: 7743626952262386364}
 --- !u!251 &7504988035963296258
