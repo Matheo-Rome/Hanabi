@@ -5222,6 +5222,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6363285486907970181, guid: b69da3986d8ca1a4eb3311caa733f8d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363285486907970181, guid: b69da3986d8ca1a4eb3311caa733f8d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.56
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b69da3986d8ca1a4eb3311caa733f8d1, type: 3}
 --- !u!1 &1073924099
@@ -13384,7 +13394,7 @@ PrefabInstance:
     - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
@@ -13394,34 +13404,48 @@ PrefabInstance:
     - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: "Apr\xE8s les contreforts, la montagne se dresse devant moi, solitaire,
-        \xE0 mon image."
+      value: "Apr\xE8s     les     contreforts,     la     montagne     se     dresse    
+        devant     moi,     solitaire     \xE0     mon image."
       objectReference: {fileID: 0}
     - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: "Bien qu\u2019\xE0 l\u2019\xE9cart de toute civilisation, seule au milieu
-        de la nature, je me sens observ\xE9 par une pr\xE9sence invisible et pourtant
-        si proche semblant m\u2019aider au fur et \xE0 mesure de mon p\xE9riple."
+      value: "Bien     qu\u2019\xE0     l\u2019\xE9cart     de     toute     civilisation,    
+        seule     au     milieu     de     la     nature,"
       objectReference: {fileID: 0}
     - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: "Je la sens toujours \xE0 mes c\xF4t\xE9s, je devine instinctivement
-        un d\xE9sir semblable au mien : atteindre le sommet, voir les feux d'artifice
-        et voir son v\u0153u s\u2019exaucer.\r\n"
+      value: "Je     me     sens     observ\xE9     par     une     pr\xE9sence    
+        invisible     et     pourtant     si     proche     semblant     m\u2019aider    
+        au     fur     et     \xE0      mesure     de     mon     p\xE9riple.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
-      value: "Je laisse ce message \xE0 ceux qui suivent : la mont\xE9e qui vous
-        attend est longue et ardue et deux chemin s\u2019offre \xE0 vous "
+      value: "Je     la     sens     toujours     \xE0     mes     c\xF4t\xE9s,    
+        je     devine     instinctivement     un     d\xE9sir    semblable     au   
+        mien : "
       objectReference: {fileID: 0}
     - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[5]
-      value: "L\u2019un \xE9clatant sous la lumi\xE8re du soleil, l\u2019autre qui
-        n\u2019en n\u2019a jamais vu les rayons."
+      value: "Atteindre     le     sommet,     voir     les     feux     d'artifice    
+        et     voir     son     v\u0153u     s\u2019exaucer."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: "Je     laisse     ce     message     \xE0     ceux     qui     suivent
+        :    la     mont\xE9e     qui     vous   attend     est     longue     et    
+        ardue     et     deux     chemin     s\u2019offre     \xE0     vous   :"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452724215317099520, guid: b53bf83795bf8cb48af33ac6d8831dfd,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[7]
+      value: "L\u2019un     \xE9clatant     sous     la     lumi\xE8re     du    
+        soleil,     l\u2019autre     qui     n\u2019en     n\u2019a     jamais  
+        vu     les     rayons"
       objectReference: {fileID: 0}
     - target: {fileID: 5452724215317099521, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
@@ -13441,7 +13465,7 @@ PrefabInstance:
     - target: {fileID: 5452724215317099521, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.59
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 5452724215317099521, guid: b53bf83795bf8cb48af33ac6d8831dfd,
         type: 3}
