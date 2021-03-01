@@ -60,7 +60,7 @@ public class PlayerStress : MonoBehaviour
             HealStressplayer(reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
-
+            
         }
         
     }
