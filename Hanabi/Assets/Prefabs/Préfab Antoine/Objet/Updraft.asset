@@ -18,8 +18,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 38da1260cbc7f43a68051b0b289cf0f5, type: 3}
   StressRemoved: 0
   speedGiven: 0
-  speedDuration: 0
   jumpBoostGiven: 0
   Price: 0
-  dashReset: 0
-  jumpGiven: 1
+  ReducePrice: 0
+  reloadTime: 15
