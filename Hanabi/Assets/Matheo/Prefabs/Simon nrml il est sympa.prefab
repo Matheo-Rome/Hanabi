@@ -474,6 +474,9 @@ MonoBehaviour:
   LightDash: 0
   itemJump: 0
   playerCamera: {fileID: 3227367440632984424}
+  player1: 0
+  player2: 0
+  player: {fileID: 8228812998613378743}
 --- !u!251 &3429518475302579158
 PlatformEffector2D:
   m_ObjectHideFlags: 0
