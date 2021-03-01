@@ -14,11 +14,13 @@ public class inventory : MonoBehaviour
     public Image itemUIimage;
     public Text itemUIName;
     public Image Invisibleimage;
-
-    private float cooldown;
-
+    
+    public float timeStart;
+    public Text displayTime;
+    public float cooldown;
 
     public static inventory instance;
+    
     private void Awake()
     {
         // Il faut qu'il n'y ai qu'un seul et unique inventaire
@@ -42,6 +44,7 @@ public class inventory : MonoBehaviour
     {
         updateinventoryImage();
         UpdateTextUI();
+        displayTime.text = "";
     }
 
 
@@ -62,18 +65,42 @@ public class inventory : MonoBehaviour
                 case 8:
                     PlayerMovement.instance.itemJump = true;
                     cooldown = Time.time + 15f;
+                    timeStart = 15f;
                     break;
                 //if the item is "plutôt deux fois Khune"
                 case 15:
                     PlayerMovement.instance.hasDashed = false;
                     cooldown = Time.time + 15f;
+                    timeStart = 15f;
                     break;
                 //if the item is "sandwich triangle"
                 case 7:
                     PlayerStress.instance.HealStressplayer(20);
                     cooldown = Time.time + 40f;
+                    timeStart = 40f;
                     break;
             }
+        }
+    }
+
+    private void Update() //updates the countdown for the current active item, will change later
+    {
+        if (contenu.Count > 0)
+        {
+            if (timeStart > 0)
+            {
+                timeStart -= Time.deltaTime;
+                displayTime.text = Mathf.Round(timeStart).ToString();
+            }
+            else
+            {
+                displayTime.text = "ready";
+            }
+        }
+
+        else
+        {
+            displayTime.text = "";
         }
     }
 

@@ -5,27 +5,32 @@ using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour
 {
+    public static Countdown instance;
+    
     public float timeStart;
-    public Text textBox;
+    public Text displayTime;
     
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        textBox.text = timeStart.ToString();
+        displayTime.text = "";
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        if (timeStart > 0)
+        if (inventory.instance.cooldown > Time.time)
         {
-            timeStart -= Time.deltaTime;
-            textBox.text = Mathf.Round(timeStart).ToString();
-        }
+            if (timeStart > 0)
+            {
+                timeStart -= Time.deltaTime;
+                displayTime.text = Mathf.Round(timeStart).ToString();
+            }
 
-        if (timeStart < 0)
-        {
-            textBox.text = "Ready";
+            else
+            {
+                displayTime.text = "Ready";
+            }
         }
     }
 }
