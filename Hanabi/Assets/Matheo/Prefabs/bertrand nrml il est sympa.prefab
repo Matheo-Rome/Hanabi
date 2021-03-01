@@ -341,6 +341,7 @@ MonoBehaviour:
   playerCamera: {fileID: 7743626952262386364}
   player1: 0
   player2: 0
+  player: {fileID: 3858907495483119459}
 --- !u!251 &7504988035963296258
 PlatformEffector2D:
   m_ObjectHideFlags: 0
