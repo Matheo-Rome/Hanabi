@@ -120,7 +120,10 @@ using Object = System.Object;
          if (!isDashing)
              Walk(dir);
 
-         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+         animator.SetFloat("SpeedX", Mathf.Abs(rb.velocity.x));
+         animator.SetFloat("SpeedY", rb.velocity.y);
+         animator.SetBool("GroundColl",onGround);
+         animator.SetBool("WallColl",onWall);
          Flip(rb.velocity.x);
 
          //Réduction de la vitesse de déplacement sur l'axe x dans les airs 
@@ -159,9 +162,7 @@ using Object = System.Object;
                  spriteRenderer.enabled = true;
                  collider.enabled = true;
              }
-
-
-
+         
          //Reset du Dash quand le personnage touche le sol
          if (onGround)
              hasDashed = false;
@@ -366,8 +367,6 @@ using Object = System.Object;
             return false;
         else
             return true;
-        
-        
     }
     private void SlowAir(Vector2 dir)
     {

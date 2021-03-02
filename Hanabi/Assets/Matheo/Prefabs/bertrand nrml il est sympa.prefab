@@ -336,7 +336,7 @@ MonoBehaviour:
   direction: 0
   ClassiqueDash: 0
   BouncyDash: 0
-  LightDash: 0
+  LightDash: 1
   itemJump: 0
   playerCamera: {fileID: 7743626952262386364}
   player1: 0
