@@ -92,7 +92,7 @@ public class inventory : MonoBehaviour
         }
     }
 
-    private void Update() //updates the countdown for the current active item, will change later
+    private void Update() //updates the countdown for the current active item
     {
         if (contenu.Count > 0)
         {
