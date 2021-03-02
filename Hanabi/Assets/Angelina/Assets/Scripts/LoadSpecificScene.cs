@@ -14,6 +14,7 @@ public class LoadSpecificScene : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        
     }
     
 }
