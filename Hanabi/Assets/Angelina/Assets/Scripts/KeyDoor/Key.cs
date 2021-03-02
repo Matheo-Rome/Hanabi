@@ -10,9 +10,9 @@ public class Key : MonoBehaviour
 
     public Transform followTarget;
     
+    
     void Start()
     {
-        
     }
     
     void Update()
@@ -20,7 +20,7 @@ public class Key : MonoBehaviour
         if (isFollowing)
         {
             transform.position = Vector3.Lerp(transform.position, followTarget.position, followSpeed * Time.deltaTime);
-            
+
         }
     }
 
@@ -36,6 +36,7 @@ public class Key : MonoBehaviour
 
                 isFollowing = true;
                 player.followingKey = this;
+                
             }
         }
         
