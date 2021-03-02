@@ -6,8 +6,10 @@ using System.Collections.Generic;
 public class inventory : MonoBehaviour
 {
     public int NombreDePièce;
+    public int NombreDeRaspberries;
 
     public Text compteurdecoinstext;
+    public Text compteurdeRaspberries;
     
     public List<Items> contenu = new List<Items>();
     public int currentindexitem = 0;
@@ -37,6 +39,13 @@ public class inventory : MonoBehaviour
     {
         NombreDePièce += pièce; 
         compteurdecoinstext.text = NombreDePièce.ToString();
+        
+    }
+    
+    public void AddRaspberries(int Raspberries)
+    {
+        NombreDeRaspberries += Raspberries; 
+        compteurdeRaspberries.text = NombreDeRaspberries.ToString();
         
     }
     
@@ -135,6 +144,7 @@ public class inventory : MonoBehaviour
     public void UpdateTextUI()
     {
         compteurdecoinstext.text = NombreDePièce.ToString();
+        compteurdeRaspberries.text = NombreDeRaspberries.ToString();
     }
 
 }
