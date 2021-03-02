@@ -9394,7 +9394,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "NombreDePi\xE8ce": 1000
+  NombreDeRaspberries: 0
   compteurdecoinstext: {fileID: 1910915104}
+  compteurdeRaspberries: {fileID: 0}
   contenu: []
   currentindexitem: 0
   itemUIimage: {fileID: 596257322}
@@ -12205,7 +12207,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 703c9db66098a9c409d829c2791ed6ab, type: 2}
   - {fileID: 11400000, guid: 703c9db66098a9c409d829c2791ed6ab, type: 2}
   - {fileID: 11400000, guid: 703c9db66098a9c409d829c2791ed6ab, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: b7c283631c7416441aca4870021377bd, type: 2}
   - {fileID: 11400000, guid: 6eb8ec4e5d4136a40b08842e07f3c61a, type: 2}
   - {fileID: 11400000, guid: 6eb8ec4e5d4136a40b08842e07f3c61a, type: 2}
 --- !u!61 &1532009747

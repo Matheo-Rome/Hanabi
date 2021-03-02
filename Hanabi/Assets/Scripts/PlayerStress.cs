@@ -62,7 +62,7 @@ public class PlayerStress : MonoBehaviour
             Pretzelcompteur.text = reductiondestress.ToString();
             
         }
-        
+
     }
 
     void TakeStress(int addstress)
