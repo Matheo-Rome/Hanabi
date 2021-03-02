@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using UnityEngine;
-using Object = System.Object;
+ using UnityEngine.Internal.VR;
+ using Object = System.Object;
 
 
  public class PlayerMovement : MonoBehaviourPun
@@ -46,6 +47,8 @@ using Object = System.Object;
      private float NextDash;
      private bool isDashing;
      private Vector2 dir;
+     private Vector3 stocktele;
+     private int isInside = 0;
 
      public bool ClassiqueDash;
      public bool BouncyDash;
@@ -151,20 +154,10 @@ using Object = System.Object;
          if (direction == 0 && LightDash)
              DashdirLight();
          else if (LightDash)
-             if (collTest(dir))
-                 DashLight();
-             else
-             {
-                 direction = 0;
-                 dashTime = startDashTime;
-                 rb.velocity = Vector2.zero;
-                 isDashing = false;
-                 spriteRenderer.enabled = true;
-                 collider.enabled = true;
-             }
-         
+             DashLight();
+
          //Reset du Dash quand le personnage touche le sol
-         if (onGround)
+         if (onGround && Time.time >= NextDash)
              hasDashed = false;
 
          if (rb.velocity.y < 0)
@@ -312,20 +305,32 @@ using Object = System.Object;
             {
                 direction = 1;
                 dir = Vector2.left;
+                spriteRenderer.enabled = false;
+                collider.isTrigger = true;
+                isDashing = true;
+                if (onWall)
+                    isInside--;
             }
             else if (Input.GetAxis("Horizontal") > 0) //droite
             {
                 direction = 2;
                 dir = Vector2.right;
+                spriteRenderer.enabled = false;
+                collider.isTrigger = true;
+                isDashing = true;
+                if (onWall)
+                    isInside--;
             }
             else if (Input.GetAxis("Vertical") > 0) //haut
             {
                 direction = 3;
                 dir = Vector2.up;
+                spriteRenderer.enabled = false;
+                collider.isTrigger = true;
+                isDashing = true;
+                isInside--;
             }
-            spriteRenderer.enabled = false;
-            collider.enabled = false;
-            isDashing = true;
+            stocktele = player.transform.position;
         }   
     }
 
@@ -336,9 +341,14 @@ using Object = System.Object;
             direction = 0;
             dashTime = startDashTime;
             rb.velocity = Vector2.zero;
+            if (isInside%2 == 1)
+            {
+                player.transform.position = stocktele;
+            }
+            isInside = 0;
             isDashing = false;
             spriteRenderer.enabled = true;
-            collider.enabled = true;
+            collider.isTrigger = false;
         }
         else
         {
@@ -359,15 +369,13 @@ using Object = System.Object;
             }
         }
     }
-
-    private bool collTest(Vector2 dir)
+    
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        var tab = Physics2D.RaycastAll(player.transform.position, dir, 2f);
-        if (tab.Length % 2 == 1)
-            return false;
-        else
-            return true;
+        isInside++;
     }
+
     private void SlowAir(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed / 1.4f, rb.velocity.y);
