@@ -38,12 +38,14 @@ public override void OnConnectedToMaster()
 
         if (PhotonNetwork.PlayerList.Length <= 1)
         {
-            GameObject player1 = PhotonNetwork.Instantiate("roger nrml il est sympa", SpawnPoint1.position, quaternion.identity, 0) as GameObject;
+            GameObject player1 = PhotonNetwork.Instantiate("roger nrml il est sympa", SpawnPoint1.position, 
+                quaternion.identity, 0) as GameObject;
             player1.GetComponent<PlayerMovement>().player1 = true;
         }
         else
         {
-            GameObject player2 = PhotonNetwork.Instantiate("roger nrml il est sympa 2", SpawnPoint2.position, quaternion.identity, 0) as GameObject;
+            GameObject player2 = PhotonNetwork.Instantiate("roger nrml il est sympa 2", SpawnPoint2.position, 
+                quaternion.identity, 0) as GameObject;
             player2.GetComponent<PlayerMovement>().player2 = true;
         }
         
