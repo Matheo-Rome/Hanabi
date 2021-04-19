@@ -79,7 +79,7 @@ public class DialogueManager : MonoBehaviour
 
     
     //Active l'animation qui va fermer la fenetre de dialogue
-    void EndDialogue()
+    public void EndDialogue()
     {
         animator.SetBool("isOpen", false);
     }
