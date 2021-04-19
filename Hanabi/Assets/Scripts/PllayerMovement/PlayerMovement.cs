@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
+using UnityEditor.Timeline;
 using UnityEngine;
  using UnityEngine.Internal.VR;
  using Object = System.Object;
@@ -12,6 +13,7 @@ using UnityEngine;
  {
 
      public static PlayerMovement instance;
+     private PlayerStress Stress;
 
      //Mouvement
      public float jumpVelocity;
@@ -31,6 +33,7 @@ using UnityEngine;
      public Transform wallCheckLeft2;
 
      public Transform keyFollowPoint;
+     public Transform SpawnPoint;
 
      public Key followingKey;
 
@@ -84,12 +87,12 @@ using UnityEngine;
 
      private void Start()
      {
-         DontDestroyOnLoad(gameObject);
          rb = GetComponent<Rigidbody2D>();
          dashTime = startDashTime;
          animator = GetComponent<Animator>();
          spriteRenderer = GetComponent<SpriteRenderer>();
          collider = GetComponent<PolygonCollider2D>();
+         Stress = GetComponent<PlayerStress>();
 
          if (photonView.IsMine) //Active la caméra du joueur est éteint celle de l'autre joueur
          {
@@ -380,8 +383,22 @@ using UnityEngine;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        isInside++;
+        if (other.CompareTag("Flower"))
+        {
+            gameObject.transform.position = new Vector3(SpawnPoint.position.x, SpawnPoint.position.y, SpawnPoint.position.z);
+            SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+        else if (other.CompareTag("Respawn"))
+        {
+            gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
+            SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            Stress.currentStress += 5;
+        }
+        else
+            isInside++;
     }
+    
+
 
     private void SlowAir(Vector2 dir)
     {
