@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -79,7 +79,6 @@ using UnityEngine;
              Debug.LogWarning("il y a plus d'une instance de mouvement dans la scène");
              return;
          }
-
          instance = this;
      }
 
@@ -202,7 +201,8 @@ using UnityEngine;
                 direction = 7;
             else if (Input.GetAxis("Horizontal") > 0) //droite
                 direction = 8;
-            isDashing = true;
+            if(direction != 0)
+                isDashing = true;
         }   
     }
 
@@ -257,10 +257,16 @@ using UnityEngine;
             rb.velocity = Vector2.zero;
 
             if (Input.GetAxis("Horizontal") < 0) //gauche
+            {
                 direction = 1;
+                isDashing = true;
+            }
             else if (Input.GetAxis("Horizontal") > 0) //droite
+            {
                 direction = 2;
-            isDashing = true;
+                isDashing = true;
+            }
+
         }   
     }
 
@@ -383,9 +389,16 @@ using UnityEngine;
 
     private void Flip(float _velocity)
     {
+        
         if (_velocity > 0.1f)
+        {
             spriteRenderer.flipX = false;
+            
+        }
         else if (_velocity < -0.1f)
+        {
             spriteRenderer.flipX = true;
+        }
+        
     }
  }
