@@ -72,4 +72,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Angelina/Assets/Scenes/test matheo.unity
     guid: 68332ac51c558584c8435a79571f0f8b
+  - enabled: 1
+    path: Assets/Matheo/scene/test1.unity
+    guid: 865bb5cff04b6704ba8488ab3ed23abf
+  - enabled: 1
+    path: Assets/Matheo/scene/test21.unity
+    guid: 01349cc2969abd64cb1cf42aa57b36a8
   m_configObjects: {}

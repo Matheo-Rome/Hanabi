@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1141463572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141463573}
+  - component: {fileID: 1141463574}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141463573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141463572}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2833341, y: -0.1611111, z: 0}
+  m_LocalScale: {x: 1.1111112, y: 1.1111112, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2772514432710000642}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1141463574
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141463572}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1181552287
 GameObject:
   m_ObjectHideFlags: 0
@@ -50,6 +102,10 @@ GameObject:
   - component: {fileID: 4413235459284648392}
   - component: {fileID: 390157526261917541}
   - component: {fileID: 2765683944522243074}
+  - component: {fileID: 1188831000}
+  - component: {fileID: 1188831001}
+  - component: {fileID: 1188831002}
+  - component: {fileID: 1188831003}
   m_Layer: 0
   m_Name: roger nrml il est sympa
   m_TagString: Player
@@ -76,6 +132,7 @@ Transform:
   - {fileID: 851509197956645733}
   - {fileID: 6363285486907970181}
   - {fileID: 1181552288}
+  - {fileID: 1141463573}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -206,6 +263,7 @@ MonoBehaviour:
   wallCheckLeft: {fileID: 614482713972615074}
   wallCheckLeft2: {fileID: 851509197956645733}
   keyFollowPoint: {fileID: 1181552288}
+  SpawnPoint: {fileID: 1141463573}
   followingKey: {fileID: 0}
   onGround: 1
   onWall: 0
@@ -340,7 +398,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3974355223994609117}
   - {fileID: 4413235459284648392}
-  viewIdField: 0
+  viewIdField: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2765683944522243074
@@ -359,6 +417,62 @@ MonoBehaviour:
   - {fileID: 5509288350125108629}
   - {fileID: 4452907637010290417}
   - {fileID: 2765683944522243074}
+--- !u!114 &1188831000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483462047983257429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c39df1218d3be744918037ea5a02447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventaire: {fileID: 0}
+--- !u!114 &1188831001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483462047983257429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8762629a7616344818a4f89ed50d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryGO: {fileID: 0}
+--- !u!114 &1188831002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483462047983257429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e06600f6239e74b8b3c911d861dbfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minStress: 0
+  currentStress: 0
+  maxStress: 200
+  reductiondestress: 0
+  Pretzelcompteur: {fileID: 0}
+  stressBar: {fileID: 0}
+--- !u!114 &1188831003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483462047983257429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69232ed2281f740418738601689e19fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1162461427466353558
 GameObject:
   m_ObjectHideFlags: 0
