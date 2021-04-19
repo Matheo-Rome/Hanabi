@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3352177854598410687, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
+        type: 3}
+      propertyPath: m_DistortionLevel
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7288506288116088033, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
         type: 3}
       propertyPath: m_RootOrder
@@ -65,8 +70,23 @@ PrefabInstance:
     - target: {fileID: 7288506288116088036, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
         type: 3}
       propertyPath: m_Name
-      value: AudioManagerHistory
+      value: AudioManagerHistory Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7288506288116088036, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288506288116088038, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288506288116088039, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
+        type: 3}
+      propertyPath: _audioDistortionFilter
+      value: 
+      objectReference: {fileID: 6630091378709093399}
     - target: {fileID: 7288506288116088039, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
         type: 3}
       propertyPath: playlist.Array.data[0]
@@ -74,3 +94,9 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: e50a9621e5b460c40bbcd3c3b26d95ec, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3c2301f1a9964c4f9ba405b4c46d6d0, type: 3}
+--- !u!170 &6630091378709093399 stripped
+AudioDistortionFilter:
+  m_CorrespondingSourceObject: {fileID: -3352177854598410687, guid: d3c2301f1a9964c4f9ba405b4c46d6d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 970663138400588374}
+  m_PrefabAsset: {fileID: 0}

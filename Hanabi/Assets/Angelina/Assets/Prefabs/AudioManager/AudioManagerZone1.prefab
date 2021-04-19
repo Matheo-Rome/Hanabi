@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7288506288116088033}
   - component: {fileID: 7288506288116088038}
   - component: {fileID: 7288506288116088039}
+  - component: {fileID: -3352177854598410687}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: AudioManagerZone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,3 +144,17 @@ MonoBehaviour:
   playlist:
   - {fileID: 8300000, guid: 4e6fd6a1edbad784da0ff679a1e6876b, type: 3}
   audioSource: {fileID: 7288506288116088038}
+  _audioDistortionFilter: {fileID: -3352177854598410687}
+  BoolBlur1: 0
+  BoolBlur2: 0
+  Blur1: {fileID: 0}
+  Blur2: {fileID: 0}
+--- !u!170 &-3352177854598410687
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288506288116088036}
+  m_Enabled: 1
+  m_DistortionLevel: 0.5

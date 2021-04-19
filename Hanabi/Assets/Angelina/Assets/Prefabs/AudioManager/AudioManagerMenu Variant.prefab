@@ -7,6 +7,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1484754551988859674, guid: 23be5c7a079519d48903385ee98f8674,
+        type: 3}
+      propertyPath: m_DistortionLevel
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630091378709093399, guid: 23be5c7a079519d48903385ee98f8674,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520313330074054320, guid: 23be5c7a079519d48903385ee98f8674,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520313330074054320, guid: 23be5c7a079519d48903385ee98f8674,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520313330074054320, guid: 23be5c7a079519d48903385ee98f8674,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520313330074054320, guid: 23be5c7a079519d48903385ee98f8674,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7520313330074054321, guid: 23be5c7a079519d48903385ee98f8674,
         type: 3}
       propertyPath: playlist.Array.data[0]
@@ -15,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 7520313330074054322, guid: 23be5c7a079519d48903385ee98f8674,
         type: 3}
       propertyPath: m_Name
-      value: AudioManagerMenu
+      value: AudioManagerMenu Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7520313330074054327, guid: 23be5c7a079519d48903385ee98f8674,
         type: 3}
