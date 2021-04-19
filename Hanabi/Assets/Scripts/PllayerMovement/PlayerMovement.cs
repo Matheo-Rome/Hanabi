@@ -84,6 +84,7 @@ using UnityEngine;
 
      private void Start()
      {
+         DontDestroyOnLoad(gameObject);
          rb = GetComponent<Rigidbody2D>();
          dashTime = startDashTime;
          animator = GetComponent<Animator>();
