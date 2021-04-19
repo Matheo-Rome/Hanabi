@@ -10,6 +10,8 @@ public class ShopTrigger : MonoBehaviour
     public string pnjName;
     public Items[] itemsToSell;
 
+    private bool HasTalked;
+
     private void Awake()
     {
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
@@ -17,15 +19,16 @@ public class ShopTrigger : MonoBehaviour
 
     void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.E))
+        if (isInRange && Input.GetKeyDown(KeyCode.E) && !HasTalked)
         {
             ShopManager.instance.OpenShop(itemsToSell, pnjName);
+            HasTalked = true;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !HasTalked)
         {
             isInRange = true;
             interactUI.enabled = true;

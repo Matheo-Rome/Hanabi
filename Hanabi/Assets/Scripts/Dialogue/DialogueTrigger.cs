@@ -9,6 +9,7 @@ public class DialogueTrigger : MonoBehaviour
    private bool isInRange;
 
    private Text interactUI;
+   
 
    private void Awake()
    {
@@ -46,6 +47,7 @@ public class DialogueTrigger : MonoBehaviour
       {
          isInRange = false;
          interactUI.enabled = false;
+         DialogueManager.instance.EndDialogue();
       }
    }
 
