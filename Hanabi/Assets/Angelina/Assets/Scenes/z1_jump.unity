@@ -462,6 +462,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3c2301f1a9964c4f9ba405b4c46d6d0, type: 3}
+--- !u!1 &1316211844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 483462047983257429, guid: b69da3986d8ca1a4eb3311caa733f8d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 105177665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1316211857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316211844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c39df1218d3be744918037ea5a02447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "Pi\xE8ce": 0
+  Raspberries: 0
 --- !u!1 &1329523707
 GameObject:
   m_ObjectHideFlags: 0
