@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 1188831000}
   - component: {fileID: 1188831001}
   - component: {fileID: 1188831002}
-  - component: {fileID: 1188831003}
+  - component: {fileID: 1527569853570182245}
   m_Layer: 0
   m_Name: roger nrml il est sympa
   m_TagString: Player
@@ -398,7 +398,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3974355223994609117}
   - {fileID: 4413235459284648392}
-  viewIdField: 2
+  viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2765683944522243074
@@ -461,7 +461,7 @@ MonoBehaviour:
   reductiondestress: 0
   Pretzelcompteur: {fileID: 0}
   stressBar: {fileID: 0}
---- !u!114 &1188831003
+--- !u!114 &1527569853570182245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
