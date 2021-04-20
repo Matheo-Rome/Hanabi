@@ -37,7 +37,7 @@ public class PlayerStress : MonoBehaviour
     {
         if (Time.time > StressCD)
         {
-           TakeStress(50);
+           TakeStress(1);
            StressCD = Time.time + nextStress;
         }
         
