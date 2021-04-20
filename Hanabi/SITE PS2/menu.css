@@ -1,0 +1,228 @@
+body{
+	background-color: #FFFFFF;
+	font: 16px/150% Montserrat;
+	margin: 0px;
+	padding: 0px;
+}
+
+br	{
+	content: "";
+	display: block;
+	margin-bottom: 1em;
+	}
+
+p
+	{
+	color: RGBa(0, 0, 0, .6);
+	text-align: center;
+	margin: 0px 200px 80px 200px;
+	}
+
+h1{ 	
+	font: 42px Montserrat Light;
+	text-transform : uppercase;
+	color: RGBa(255, 93, 143, 1);
+	text-align: center;
+	margin: 20px 0px 20px 0px;
+}
+
+h2{
+	font: bold 34px Montserrat;
+	color: RGBa(255, 93, 143, 1);
+	text-align: center;
+	margin: 80px 0px 80px 0px;
+}
+
+h3{ 	
+	color: RGBa(0, 0, 0, .85);
+	text-align: center;
+	font: 28px Montserrat Medium;
+	margin: 20px 0px 20px 0px;
+}
+
+h4{
+	color: RGBa(0, 0, 0, .6);
+	text-align: center;
+	font: 22px Montserrat Medium;
+	margin: 40px 0px 20px 0px;
+}
+
+h5{
+	color: RGBa(0, 0, 0, .5);
+	text-align: center;
+	font: italic 12px Montserrat;
+	margin: 0px 0px 80px 0px;
+}
+
+nav{
+	width: 100%;
+	background-color: #424558;
+}
+
+nav > ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+nav li{
+	list-style-type: none;
+}
+
+nav > ul > li{
+	float: left;
+	position: relative;
+}
+
+nav > ul::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.submenu{
+	display: none;
+}
+
+nav input[type=checkbox]{
+	display: none;
+}
+
+nav label{
+	display: none;
+}
+
+nav a{
+	display: inline-block;
+	text-decoration: none;
+}
+
+nav > ul > li > a{
+	padding: 20px 30px;
+	color: #FFF;
+}
+nav > ul > li:hover a{
+	padding: 15px 30px 20px 30px;
+}
+
+nav li:hover .submenu{
+	display: inline-block;
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	padding: 0px;
+	z-index: 1000;
+}
+
+.submenu li a{
+	padding: 15px 30px;
+	font-size: 12px;
+	color: RGBa(0, 0, 0, .85);
+	width: 270px;
+}
+
+.submenu li{
+	border-bottom: 1px solid  RGBa(255, 255, 255, .4);
+}
+
+.menu-accueil:hover{
+	border-top: 5px solid #FF5D8F;
+	background-color: RGBa(255, 192, 203, 0.15);
+}
+
+.menu-projet:hover{
+	border-top: 5px solid #FF5D8F;
+	background-color: RGBa(255, 192, 203, 0.15);
+}
+
+.menu-principe:hover{
+	border-top: 5px solid #FF5D8F;
+	background-color: RGBa(255, 192, 203, 0.15);
+}
+
+.menu-jouer:hover{
+	border-top: 5px solid #FF5D8F;
+	background-color: RGBa(255, 192, 203, 0.15);
+}
+
+.menu-contact:hover{
+	border-top: 5px solid #FF5D8F;
+	background-color: RGBa(255, 192, 203, 0.15);
+}
+
+.menu-accueil .submenu{
+	background-color: RGB(255, 223, 233);
+}
+
+.menu-projet .submenu{
+	background-color: RGB(255, 223, 233);
+}
+
+.menu-principe .submenu{
+	background-color: RGB(255, 223, 233);
+}
+
+.menu-jouer .submenu{
+	background-color: RGB(255, 223, 233);
+}
+
+.menu-contact .submenu{
+	background-color: RGB(255, 223, 233);
+}
+
+.submenu li:hover a{
+	color: RGBa(0, 0, 0 , .85);
+	font-weight: bold;
+}
+
+.menu-accueil .submenu li:hover{
+	background-color: RGB(255, 229, 237);
+}
+
+.menu-projet .submenu li:hover{
+	background-color: RGB(255, 229, 237);
+}
+
+.menu-principe .submenu li:hover{
+	background-color: RGB(255, 229, 237);
+}
+
+.menu-jouer .submenu li:hover{
+	background-color: RGB(255, 229, 237);
+}
+
+.menu-contact .submenu li:hover{
+	background-color: RGB(255, 229, 237);
+}
+
+nav input[type=checkbox]:checked ~ ul{
+	display: block;
+}
+
+@media screen and (max-width: 780px){
+	nav label{
+		display: block;
+		color: #FFF;
+		font-weight: bold;
+		background-color: RGBa(255, 20, 147, 0.97);
+		text-align: center;
+		padding: 12px 0px;
+	}
+	
+	nav ul{
+		display: none;
+	}
+	
+	nav ul li, nav ul li a{
+		width: 100%;
+		text-align: center;
+	}
+	
+	nav ul li a, nav ul li:hover a{
+		padding: 10px 0px;
+	}
+	
+	nav li:hover .submenu{
+	display: block;
+	position: static;
+	}
+}
