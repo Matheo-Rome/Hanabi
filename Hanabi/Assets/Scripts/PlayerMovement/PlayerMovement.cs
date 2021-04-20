@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
-using UnityEditor.Timeline;
+//using UnityEditor.Timeline;
 using UnityEngine;
- using UnityEngine.Internal.VR;
- using Object = System.Object;
+using UnityEngine.Internal.VR;
+using Object = System.Object;
 
 
  public class PlayerMovement : MonoBehaviourPun

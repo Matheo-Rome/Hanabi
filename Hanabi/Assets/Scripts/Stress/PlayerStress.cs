@@ -9,6 +9,9 @@ public class PlayerStress : MonoBehaviour
     public int maxStress = 200;
     public int reductiondestress = 0;
     public Text Pretzelcompteur;
+    public float nextStress = 2f;
+    public float StressCD;
+    
 
     public StressBar stressBar;
 
@@ -32,6 +35,12 @@ public class PlayerStress : MonoBehaviour
 
     void Update()
     {
+        if (Time.time > StressCD)
+        {
+           TakeStress(1);
+           StressCD = Time.time + nextStress;
+        }
+        
         List<Items> content = new List<Items>();;
         foreach (var objet in InventairePassif.instance.content)
         {
