@@ -57,7 +57,7 @@ public class ShopManager : MonoBehaviour
         {
             nouveauxprix = 0;
             
-            j = Random.Range(0, 23);
+            j = Random.Range(0, 30);
             nouveauxprix = items[j].Price - reduction;
             if (nouveauxprix < 0)
             {
