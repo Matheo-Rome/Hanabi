@@ -57,8 +57,9 @@ using Object = System.Object;
      public bool BouncyDash;
      private bool isBouncydashing;
      public bool LightDash;
-
+     
      public bool itemJump;
+     public bool itemTp;
 
      public GameObject playerCamera;
 
@@ -145,18 +146,17 @@ using Object = System.Object;
              DashdirClassique();
          else if (ClassiqueDash)
              DashClassique();
-
-
+         
          //Dash Bouncy
          if (direction == 0 && BouncyDash)
              DashdirBouncy();
          else if (BouncyDash)
              DashBouncy();
 
-         //Dash Light
-         if (direction == 0 && LightDash)
+         //Dash Light or The World
+         if (direction == 0 && (LightDash || itemTp))
              DashdirLight();
-         else if (LightDash)
+         else if (LightDash || itemTp)
              DashLight();
 
          //Reset du Dash quand le personnage touche le sol
@@ -307,7 +307,7 @@ using Object = System.Object;
 
     private void DashdirLight()
     {
-        if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
+        if ((Input.GetButton("Dash") || itemTp) && !hasDashed && Time.time >= NextDash)
         {
             rb.velocity = Vector2.zero;
 
@@ -359,6 +359,7 @@ using Object = System.Object;
             isDashing = false;
             spriteRenderer.enabled = true;
             collider.isTrigger = false;
+            itemTp = false;
         }
         else
         {

@@ -88,6 +88,12 @@ public class inventory : MonoBehaviour
                     cooldown = Time.time + 40f;
                     timeStart = 40f;
                     break;
+                //if the item is "The World"
+                case 19:
+                    PlayerMovement.instance.itemTp = true;
+                    cooldown = Time.time + 15f;
+                    timeStart = 15f;
+                    break;
             }
         }
     }
