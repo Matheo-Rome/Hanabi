@@ -32,16 +32,16 @@ public class LoadScene_z2 : MonoBehaviour
         if (i == 14)
             return 30;
 
-        //n'a pas encore visité le firecamp au bout de 8 salles
-        if (i == 8 && firecamp != 0)
+        //n'a pas encore visité le firecamp au bout de 7 salles
+        if (i == 6 && firecamp != 0)
         {
             firecamp = 0;
             i++;
             return 26;
         }
 
-        //n'a pas encore visité le shop au bout de 9 salles
-        if (i == 9 && shop != 0)
+        //n'a pas encore visité le shop au bout de 8 salles
+        if (i == 7 && shop != 0)
         {
             shop = 0;
             i++;
@@ -54,9 +54,8 @@ public class LoadScene_z2 : MonoBehaviour
             //si il y a encore des salles histoires
             if (history.Count > 0)
             {
-                
-                r = Random.Range(0, 5);
                 // 1/5 chance d'avoir une salle histoire
+                r = Random.Range(0, 5);
                 if (r == 0)
                 {
                     r = Random.Range(0, history.Count);
@@ -76,13 +75,21 @@ public class LoadScene_z2 : MonoBehaviour
             return next;
         }
         
+        //au bout de 10 salles,  1/10 chance d'aller à la zone suivante
+        if (i > 9)
+        {
+            r = Random.Range(0, 10);
+            if (r == 0)
+                return 30;
+        }
+            
+        
         //au dessus de 4 salles n'importe quelle salle peut tomber
         
         if (history.Count > 0)
         {
-                
-            r = Random.Range(0, 5);
             // 1/5 chance d'avoir une salle histoire
+            r = Random.Range(0, 5);
             if (r == 0)
             {
                 r = Random.Range(0, history.Count);
@@ -96,6 +103,7 @@ public class LoadScene_z2 : MonoBehaviour
 
         if (shop != 0)
         {
+            // 1/5 chance d'avoir le shop
             r = Random.Range(0, 5);
             if (r == 0)
             {
@@ -108,6 +116,8 @@ public class LoadScene_z2 : MonoBehaviour
         
         if (firecamp != 0)
         {
+            
+            // 1/5 chance d'avoir le firecamp
             r = Random.Range(0, 5);
             if (r == 0)
             {
@@ -117,7 +127,7 @@ public class LoadScene_z2 : MonoBehaviour
             }
         }
         
-        
+        //renvoie une salle puzzle
         r = Random.Range(0, scenes.Count);
         next = scenes[r];
         scenes.RemoveAt(r);
