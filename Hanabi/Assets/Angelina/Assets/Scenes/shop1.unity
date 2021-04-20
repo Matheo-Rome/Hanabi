@@ -8565,13 +8565,13 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 776c776297d2e4579b0447e8e0122227,
+      objectReference: {fileID: 11400000, guid: f71761cde87eb46f9b6378267b9ee8bf,
         type: 2}
     - target: {fileID: 8104736148605682781, guid: aaedea0c019b7084cad4f6fa29c68727,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2178675759595541465, guid: b75a1cf78617446209dcc5832572c7ff,
+      objectReference: {fileID: -4367367781644900664, guid: 2ebc6b2e25e3d9e469761dafbfb8706d,
         type: 3}
     - target: {fileID: 8104736148605682782, guid: aaedea0c019b7084cad4f6fa29c68727,
         type: 3}
@@ -8581,12 +8581,12 @@ PrefabInstance:
     - target: {fileID: 8104736148605682782, guid: aaedea0c019b7084cad4f6fa29c68727,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.489088
+      value: -3.53
       objectReference: {fileID: 0}
     - target: {fileID: 8104736148605682782, guid: aaedea0c019b7084cad4f6fa29c68727,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28353715
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8104736148605682782, guid: aaedea0c019b7084cad4f6fa29c68727,
         type: 3}
@@ -8631,7 +8631,7 @@ PrefabInstance:
     - target: {fileID: 8104736148605683618, guid: aaedea0c019b7084cad4f6fa29c68727,
         type: 3}
       propertyPath: m_Name
-      value: Ramasser Khune
+      value: Ramasser Dio
       objectReference: {fileID: 0}
     - target: {fileID: 8104736148605683619, guid: aaedea0c019b7084cad4f6fa29c68727,
         type: 3}

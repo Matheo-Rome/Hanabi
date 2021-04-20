@@ -153,16 +153,10 @@ using Object = System.Object;
          else if (BouncyDash)
              DashBouncy();
 
-         //Dash Light
-         if (direction == 0 && LightDash)
+         //Dash Light or The World
+         if (direction == 0 && (LightDash || itemTp))
              DashdirLight();
-         else if (LightDash)
-             DashLight();
-         
-         //The World
-         if (direction == 0 && itemTp)
-             DashdirLight();
-         else if (itemTp)
+         else if (LightDash || itemTp)
              DashLight();
 
          //Reset du Dash quand le personnage touche le sol
@@ -313,7 +307,7 @@ using Object = System.Object;
 
     private void DashdirLight()
     {
-        if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
+        if ((Input.GetButton("Dash") || itemTp) && !hasDashed && Time.time >= NextDash)
         {
             rb.velocity = Vector2.zero;
 
