@@ -24,8 +24,7 @@ public class EnemyAI : MonoBehaviour
     {
         _seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        
-        
+
         _positions.Add(target.position);
 
         

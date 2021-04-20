@@ -44,7 +44,8 @@ public class InventairePassif : MonoBehaviour
     public void AddEffectItem(Items items)
     {
         PlayerMovement.instance.speed += items.speedGiven;
-        PlayerMovement.instance.jumpVelocity += items.jumpBoostGiven; 
+        PlayerMovement.instance.jumpVelocity += items.jumpBoostGiven;
+        PlayerStress.instance.nextStress -= items.StressIntervalle;
     }
 
     public void Start()
@@ -239,7 +240,7 @@ public class InventairePassif : MonoBehaviour
         }
     }
 
-    public void UpdateImageInventory(int CurrentItemIndex)
+    public void UpdateImageInventory(int CurrentItemIndex)   //FAIT UN PUTAIN DE SWITCH C'EST ILLISIBLE :kappa:
     {
         if (CurrentItemIndex == 0)
         {
@@ -253,8 +254,7 @@ public class InventairePassif : MonoBehaviour
         
         if (CurrentItemIndex == 2)
         {
-            ImageItem2.sprite = content[CurrentItemIndex].image; 
-            
+            ImageItem2.sprite = content[CurrentItemIndex].image;
         }
         
         if (CurrentItemIndex == 3)

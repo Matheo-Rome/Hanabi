@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
-using UnityEditor.Timeline;
+//using UnityEditor.Timeline;
 using UnityEngine;
- using UnityEngine.Internal.VR;
- using Object = System.Object;
+using UnityEngine.Internal.VR;
+using Object = System.Object;
 
 
  public class PlayerMovement : MonoBehaviourPun
@@ -51,14 +51,16 @@ using UnityEngine;
      private bool isDashing;
      private Vector2 dir;
      private Vector3 stocktele;
+     private Vector3 stockSpawn;
      private int isInside = 0;
 
      public bool ClassiqueDash;
      public bool BouncyDash;
      private bool isBouncydashing;
      public bool LightDash;
-
+     
      public bool itemJump;
+     public bool itemTp;
 
      public GameObject playerCamera;
 
@@ -145,18 +147,17 @@ using UnityEngine;
              DashdirClassique();
          else if (ClassiqueDash)
              DashClassique();
-
-
+         
          //Dash Bouncy
          if (direction == 0 && BouncyDash)
              DashdirBouncy();
          else if (BouncyDash)
              DashBouncy();
 
-         //Dash Light
-         if (direction == 0 && LightDash)
+         //Dash Light or The World
+         if (direction == 0 && (LightDash || itemTp))
              DashdirLight();
-         else if (LightDash)
+         else if (LightDash || itemTp)
              DashLight();
 
          //Reset du Dash quand le personnage touche le sol
@@ -307,19 +308,28 @@ using UnityEngine;
 
     private void DashdirLight()
     {
-        if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
+        if ((Input.GetButton("Dash") || itemTp) && !hasDashed && Time.time >= NextDash)
         {
             rb.velocity = Vector2.zero;
+            if (Input.GetAxis("Vertical") > 0) //haut
+            {
+                direction = 3;
+                dir = Vector2.up;
+                spriteRenderer.enabled = false;
+                collider.isTrigger = true;
+                isDashing = true;
+                //isInside--;
+            }
 
-            if (Input.GetAxis("Horizontal") < 0) //gauche
+            else if (Input.GetAxis("Horizontal") < 0) //gauche
             {
                 direction = 1;
                 dir = Vector2.left;
                 spriteRenderer.enabled = false;
                 collider.isTrigger = true;
                 isDashing = true;
-                if (onWall)
-                    isInside--;
+                /*if (onWall)
+                    isInside--;*/
             }
             else if (Input.GetAxis("Horizontal") > 0) //droite
             {
@@ -328,19 +338,11 @@ using UnityEngine;
                 spriteRenderer.enabled = false;
                 collider.isTrigger = true;
                 isDashing = true;
-                if (onWall)
-                    isInside--;
-            }
-            else if (Input.GetAxis("Vertical") > 0) //haut
-            {
-                direction = 3;
-                dir = Vector2.up;
-                spriteRenderer.enabled = false;
-                collider.isTrigger = true;
-                isDashing = true;
-                isInside--;
+                /*if (onWall)
+                    isInside--;*/
             }
             stocktele = player.transform.position;
+            stockSpawn = SpawnPoint.position;
         }   
     }
 
@@ -351,14 +353,20 @@ using UnityEngine;
             direction = 0;
             dashTime = startDashTime;
             rb.velocity = Vector2.zero;
-            if (isInside%2 == 1)
+            Debug.Log(isInside);
+            if (isInside%2 != 0)
             {
                 player.transform.position = stocktele;
+                SpawnPoint.position = stockSpawn;
+                hasDashed = false;
             }
+            else
+                rb.velocity += Vector2.up*5;
             isInside = 0;
             isDashing = false;
             spriteRenderer.enabled = true;
             collider.isTrigger = false;
+            itemTp = false;
         }
         else
         {
@@ -392,7 +400,7 @@ using UnityEngine;
         {
             gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-            Stress.currentStress += 5;
+            PlayerStress.instance.TakeStress(10);
         }
         else
             isInside++;
