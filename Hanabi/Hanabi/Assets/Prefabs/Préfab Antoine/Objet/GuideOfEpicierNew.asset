@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6578cfbbd830e4b99ab535ec51ea3b, type: 3}
+  m_Name: GuideOfEpicierNew
+  m_EditorClassIdentifier: 
+  id: 10
+  name: GuideOfEpicierNew
+  description: "R\xE9duit les co\xFBts chez le marchand"
+  image: {fileID: 21300000, guid: bdb984f5aaac34941bdf10883f0ff9cb, type: 3}
+  StressRemoved: 0
+  speedGiven: 0
+  speedDuration: 0
+  jumpBoostGiven: 0
+  Price: 100
+  dashReset: 0
+  jumpGiven: 0
+  ReducePrice: 15
