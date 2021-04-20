@@ -12,4 +12,5 @@ public class Items : ScriptableObject
     public float jumpBoostGiven;
     public int Price;
     public int ReducePrice;
+    public float StressIntervalle;
 }

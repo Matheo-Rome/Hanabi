@@ -23,7 +23,7 @@ public class SellButtonItem : MonoBehaviour
                 reduction += objet.ReducePrice;
             }
 
-            nouveauxprix = (item.Price - reduction);
+            nouveauxprix = item.Price - reduction;
             if (nouveauxprix < 0)
             {
                 nouveauxprix = 0;

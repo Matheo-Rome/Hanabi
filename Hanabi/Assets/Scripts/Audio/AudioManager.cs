@@ -20,13 +20,13 @@ public class AudioManager : MonoBehaviour
             Blur2.SetActive(false);
             Blur1.SetActive(true);
         }
-        if(PlayerStress.instance.currentStress < 100)
+        else if(PlayerStress.instance.currentStress < 100)
         {
             _audioDistortionFilter.distortionLevel = (float)0.5;
             Blur2.SetActive(false);
             Blur1.SetActive(false);
         }
-        if(PlayerStress.instance.currentStress >= 150)
+        else if(PlayerStress.instance.currentStress >= 150)
         {
             _audioDistortionFilter.distortionLevel = (float)0.85;
             Blur2.SetActive(true);
@@ -45,13 +45,13 @@ public class AudioManager : MonoBehaviour
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
-            if(PlayerStress.instance.currentStress < 100)
+            else if(PlayerStress.instance.currentStress < 100)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
-            if(PlayerStress.instance.currentStress >= 150)
+            else if(PlayerStress.instance.currentStress >= 150)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.85;
                 Blur2.SetActive(true);

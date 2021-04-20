@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class CaptorTrigger : MonoBehaviour
@@ -28,7 +29,8 @@ public class CaptorTrigger : MonoBehaviour
         {
             theSR.sprite = buttonOn;
             IsActive = true;
-            
+            PlayerMovement.instance.hasDashed = false;
+
         }
     }
 }
