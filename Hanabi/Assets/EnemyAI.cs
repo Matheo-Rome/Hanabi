@@ -30,8 +30,8 @@ public class EnemyAI : MonoBehaviour
         
         _seeker.StartPath(rb.position, _positions[index]/*target.position*/, OnPathComplete);
         index++;
-        InvokeRepeating("AddPath",0f,.1f);
-        InvokeRepeating("UpdatePath",0f,.12f);
+        InvokeRepeating("AddPath",0f,.09f);
+        InvokeRepeating("UpdatePath",0f,.14f);
     }
 
     void AddPath()
