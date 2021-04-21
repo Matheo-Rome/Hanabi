@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 3979800031535945816}
   - component: {fileID: 6269348277438335532}
   - component: {fileID: 6235120833496776908}
+  - component: {fileID: 3354909776830644538}
   m_Layer: 0
   m_Name: bertrand nrml il est sympa
   m_TagString: Player
@@ -445,8 +446,8 @@ MonoBehaviour:
   onGround: 1
   onWall: 0
   hasDashed: 0
-  dashSpeed: 140
-  startDashTime: 0.025
+  dashSpeed: 15
+  startDashTime: 0.4
   direction: 0
   ClassiqueDash: 0
   BouncyDash: 0
@@ -672,6 +673,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69232ed2281f740418738601689e19fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &3354909776830644538
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413283747132478429}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.011385718, y: 0.02670347}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.002318468, y: 0.002018096}
+  m_EdgeRadius: 0
 --- !u!1 &514389590227332485
 GameObject:
   m_ObjectHideFlags: 0

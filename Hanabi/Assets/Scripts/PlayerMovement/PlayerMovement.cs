@@ -52,7 +52,8 @@ using Object = System.Object;
      private Vector2 dir;
      private Vector3 stocktele;
      private Vector3 stockSpawn;
-     private int isInside = 0;
+     private int isInsideEn = 0;
+     private int isInsideEx = 0;
 
      public bool ClassiqueDash;
      public bool BouncyDash;
@@ -71,7 +72,8 @@ using Object = System.Object;
      public bool player2;
 
      public GameObject player;
-     private Collider2D collider;
+     private PolygonCollider2D Polycollider;
+     private BoxCollider2D Boxcollider;
 
 
 
@@ -93,7 +95,10 @@ using Object = System.Object;
          dashTime = startDashTime;
          animator = GetComponent<Animator>();
          spriteRenderer = GetComponent<SpriteRenderer>();
-         collider = GetComponent<PolygonCollider2D>();
+         Polycollider = GetComponent<PolygonCollider2D>();
+         Boxcollider = GetComponent<BoxCollider2D>();
+         Boxcollider.enabled = false;
+         Boxcollider.isTrigger = true;
          Stress = GetComponent<PlayerStress>();
 
          if (photonView.IsMine) //Active la caméra du joueur est éteint celle de l'autre joueur
@@ -316,9 +321,9 @@ using Object = System.Object;
                 direction = 3;
                 dir = Vector2.up;
                 spriteRenderer.enabled = false;
-                collider.isTrigger = true;
+                Boxcollider.enabled = true;
+                Polycollider.enabled = false;
                 isDashing = true;
-                //isInside--;
             }
 
             else if (Input.GetAxis("Horizontal") < 0) //gauche
@@ -326,20 +331,18 @@ using Object = System.Object;
                 direction = 1;
                 dir = Vector2.left;
                 spriteRenderer.enabled = false;
-                collider.isTrigger = true;
+                Boxcollider.enabled = true;
+                Polycollider.enabled = false;
                 isDashing = true;
-                /*if (onWall)
-                    isInside--;*/
             }
             else if (Input.GetAxis("Horizontal") > 0) //droite
             {
                 direction = 2;
                 dir = Vector2.right;
                 spriteRenderer.enabled = false;
-                collider.isTrigger = true;
+                Boxcollider.enabled = true;
+                Polycollider.enabled = false;
                 isDashing = true;
-                /*if (onWall)
-                    isInside--;*/
             }
             stocktele = player.transform.position;
             stockSpawn = SpawnPoint.position;
@@ -353,8 +356,9 @@ using Object = System.Object;
             direction = 0;
             dashTime = startDashTime;
             rb.velocity = Vector2.zero;
-            Debug.Log(isInside);
-            if (isInside%2 != 0)
+            Debug.Log("Exit " + isInsideEx);
+            Debug.Log("Enter " + isInsideEn);
+            if (isInsideEn%2 != 0 || isInsideEx%2 != 0)
             {
                 player.transform.position = stocktele;
                 SpawnPoint.position = stockSpawn;
@@ -362,10 +366,12 @@ using Object = System.Object;
             }
             else
                 rb.velocity += Vector2.up*5;
-            isInside = 0;
+            isInsideEn = 0;
+            isInsideEx = 0;
             isDashing = false;
             spriteRenderer.enabled = true;
-            collider.isTrigger = false;
+            Boxcollider.enabled = false;
+            Polycollider.enabled = true;
             itemTp = false;
         }
         else
@@ -389,7 +395,7 @@ using Object = System.Object;
     }
     
     
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Flower"))
         {
@@ -410,16 +416,23 @@ using Object = System.Object;
         }
         else
         {
-            if (other.CompareTag("Planche") && !onGround)
+           
+            if (other.CompareTag("Planche"))
             {
-                isInside++;
-                Debug.Log("Planck");
+                isInsideEn++;
             }
-            isInside++;
-            Debug.Log("1");
+            isInsideEn++;
         }
     }
-    
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Planche"))
+        {
+            isInsideEx++;
+        }
+        isInsideEx++;
+    }
 
 
     private void SlowAir(Vector2 dir)
