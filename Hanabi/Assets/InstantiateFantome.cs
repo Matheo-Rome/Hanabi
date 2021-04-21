@@ -17,6 +17,11 @@ public class InstantiateFantome : MonoBehaviour
         if (PlayerStress.instance.currentStress == 200 && !Oneinstance)
         {
             Instantiate(Fantome, transform.position, Quaternion.identity);
+            Oneinstance = true;
+        }
+
+        if (PlayerStress.instance.currentStress < 200)
+        {
             Oneinstance = false;
         }
     }
