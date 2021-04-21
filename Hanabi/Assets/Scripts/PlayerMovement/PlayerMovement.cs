@@ -173,23 +173,26 @@ using Object = System.Object;
              isBouncydashing = false;
      }
  
-
- private void Jump()
+    //Fait sauter
+    private void Jump()
     {
         rb.velocity = Vector2.up * jumpVelocity;
         itemJump = false;
     }
 
+    //Permet de marcher
     private void Walk(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
     }
 
+    //Ralentit la chute lorsque l'on est contre le mur.
     private void Slide()
     {
         rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -slideSpeed, float.MaxValue));
     }
 
+    //Permet de sélectionner la direction du dash
     private void DashdirClassique()
     {
         if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
@@ -215,7 +218,7 @@ using Object = System.Object;
                 isDashing = true;
         }   
     }
-
+    //Effectue le dash : dans un premier temps propulse le joueur dans une direction donné et à la fin fait sortir le joueur du mode dash
     private void DashClassique()
     {
         if (dashTime <= 0)
@@ -259,7 +262,7 @@ using Object = System.Object;
             }
         }
     }
-
+    //Permet de sélectionner la direction du dash
     private void DashdirBouncy()
     {
         if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
@@ -279,7 +282,8 @@ using Object = System.Object;
 
         }   
     }
-
+    //Effectue le dash : dans un premier temps propulse le joueur dans une direction donné et à la fin fait sortir le joueur du mode dash
+    //Déclenche l'impulsion vers le haut dans le cas ou le joueur est contre un mur à la fin du dash
     private void DashBouncy()
     {
         if (dashTime <= 0)
@@ -310,7 +314,7 @@ using Object = System.Object;
             }
         }
     }
-
+    //Permet de sélectionner la direction du dash
     private void DashdirLight()
     {
         if ((Input.GetButton("Dash") || itemTp) && !hasDashed && Time.time >= NextDash)
@@ -348,7 +352,9 @@ using Object = System.Object;
             stockSpawn = SpawnPoint.position;
         }   
     }
-
+    //Effectue le dash : dans un premier temps propulse le joueur dans une direction donné et à la fin fait sortir le joueur du mode dash
+    //Pendant le dash le joueur est invisible est possède un collider isTrigger qui compte le nombre de collision.
+    //En cas de nombre impaire renvoie le joueur à sa position d'origine
     private void DashLight()
     {
         if (dashTime <= 0)
@@ -394,7 +400,7 @@ using Object = System.Object;
         }
     }
     
-    
+    // Test collider fin de niveau/tomber dans un trou/ collision avec l'ia de la mort qui tue/ collision lors d'une teleportation
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Flower"))
@@ -434,12 +440,13 @@ using Object = System.Object;
         isInsideEx++;
     }
 
-
+    //Ralentir la déplacement sur x quand on est en l'air
     private void SlowAir(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed / 1.4f, rb.velocity.y);
     }
-
+    
+    //Orient le personnage dans la bonne direction
     private void Flip(float _velocity)
     {
         
