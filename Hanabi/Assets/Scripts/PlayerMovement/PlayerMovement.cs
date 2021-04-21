@@ -389,7 +389,7 @@ using Object = System.Object;
     }
     
     
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Flower"))
         {
@@ -409,7 +409,15 @@ using Object = System.Object;
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         }
         else
+        {
+            if (other.CompareTag("Planche") && !onGround)
+            {
+                isInside++;
+                Debug.Log("Planck");
+            }
             isInside++;
+            Debug.Log("1");
+        }
     }
     
 
