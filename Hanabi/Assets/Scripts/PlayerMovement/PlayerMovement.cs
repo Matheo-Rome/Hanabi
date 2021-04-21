@@ -402,6 +402,12 @@ using Object = System.Object;
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             PlayerStress.instance.TakeStress(10);
         }
+        
+        else if (other.CompareTag("IA"))
+        {
+            gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
+            SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
         else
             isInside++;
     }
