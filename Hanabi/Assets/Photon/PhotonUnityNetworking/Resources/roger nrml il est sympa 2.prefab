@@ -371,10 +371,12 @@ MonoBehaviour:
   wallCheckLeft: {fileID: 6777498022327972804}
   wallCheckLeft2: {fileID: 6726334218581759747}
   keyFollowPoint: {fileID: 6235680426969324230}
+  SpawnPoint: {fileID: 0}
   followingKey: {fileID: 0}
   onGround: 1
   onWall: 0
   hasDashed: 0
+  hasFallen: 0
   dashSpeed: 30
   startDashTime: 0.1
   direction: 0
@@ -382,6 +384,7 @@ MonoBehaviour:
   BouncyDash: 0
   LightDash: 0
   itemJump: 0
+  itemTp: 0
   playerCamera: {fileID: 1064951917940934380}
   player1: 0
   player2: 0
