@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5493089594483668148}
   - component: {fileID: 5493089594483668149}
   - component: {fileID: 5493089594483668150}
-  - component: {fileID: 5493089594483668151}
   - component: {fileID: 3464695992875195267}
+  - component: {fileID: 7657904961139283853}
   m_Layer: 0
-  m_Name: plant
+  m_Name: z1_plant1
   m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,18 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.356381, y: 3.9206886}
   m_EdgeRadius: 0
---- !u!114 &5493089594483668151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5493089594483668104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d4ad8755bf8b24ba97b29b50b90a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3464695992875195267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,5 +120,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69232ed2281f740418738601689e19fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7657904961139283853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493089594483668104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83463a24061929348bad26f45094dc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
