@@ -446,6 +446,7 @@ MonoBehaviour:
   onGround: 1
   onWall: 0
   hasDashed: 0
+  hasFallen: 0
   dashSpeed: 15
   startDashTime: 0.4
   direction: 0
@@ -4410,7 +4411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5698837321430800355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.01, y: 4.71, z: -30.25}
+  m_LocalPosition: {x: 11.01, y: 4.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3162468263957257439}

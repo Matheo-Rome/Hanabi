@@ -65,6 +65,7 @@ using Object = System.Object;
      public bool itemTp;
 
      public GameObject playerCamera;
+     public Transform CameraSpawn;
 
      private Animator animator;
      private SpriteRenderer spriteRenderer;
@@ -416,13 +417,19 @@ using Object = System.Object;
         {
             gameObject.transform.position = new Vector3(SpawnPoint.position.x, SpawnPoint.position.y, SpawnPoint.position.z);
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
+            SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         }
         else if (other.CompareTag("Respawn"))
         {
             gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
+            playerCamera.transform.position = new Vector3(CameraSpawn.position.x, CameraSpawn.position.y,CameraSpawn.position.z);
+            CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             PlayerStress.instance.TakeStress(10);
             hasFallen = true;
+            
+            
         }
         
         else if (other.CompareTag("IA"))
