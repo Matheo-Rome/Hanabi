@@ -96,9 +96,13 @@ using Object = System.Object;
          animator = GetComponent<Animator>();
          spriteRenderer = GetComponent<SpriteRenderer>();
          Polycollider = GetComponent<PolygonCollider2D>();
-         Boxcollider = GetComponent<BoxCollider2D>();
-         Boxcollider.enabled = false;
-         Boxcollider.isTrigger = true;
+         if (LightDash)
+         {
+             Boxcollider = GetComponent<BoxCollider2D>();
+             Boxcollider.enabled = false;
+             Boxcollider.isTrigger = true;
+         }
+
          Stress = GetComponent<PlayerStress>();
 
          if (photonView.IsMine) //Active la caméra du joueur est éteint celle de l'autre joueur

@@ -30,7 +30,6 @@ public class CaptorTrigger : MonoBehaviour
             theSR.sprite = buttonOn;
             IsActive = true;
             PlayerMovement.instance.hasDashed = false;
-
         }
     }
 }
