@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +28,15 @@ public class MainCaptor : MonoBehaviour
         {
             door.OpenDoor();
         }
+
+        if (PlayerMovement.instance.hasFallen)
+        {
+            captor1.Desactivate();
+            captor2.Desactivate();
+            captor3.Desactivate();
+            captor4.Desactivate();
+            captor5.Desactivate();
+            captor6.Desactivate();
+        }
     }
-    
 }
