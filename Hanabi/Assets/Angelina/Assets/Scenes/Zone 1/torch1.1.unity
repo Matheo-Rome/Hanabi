@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 279265649}
   - component: {fileID: 279265648}
   - component: {fileID: 279265647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fondation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15134,7 +15134,7 @@ GameObject:
   - component: {fileID: 988247566}
   - component: {fileID: 988247565}
   - component: {fileID: 988247564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fondation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16638,7 +16638,7 @@ GameObject:
   - component: {fileID: 1924410976}
   m_Layer: 0
   m_Name: Grid_planche
-  m_TagString: Untagged
+  m_TagString: Planche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

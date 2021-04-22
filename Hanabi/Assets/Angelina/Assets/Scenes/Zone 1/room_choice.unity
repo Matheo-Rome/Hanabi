@@ -19183,7 +19183,7 @@ GameObject:
   - component: {fileID: 1653000749}
   - component: {fileID: 1653000748}
   - component: {fileID: 1653000747}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fondation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25562,7 +25562,7 @@ GameObject:
   - component: {fileID: 1786164343}
   m_Layer: 0
   m_Name: Grid_planche
-  m_TagString: Untagged
+  m_TagString: Planche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25640,7 +25640,7 @@ GameObject:
   - component: {fileID: 2043921874}
   - component: {fileID: 2043921873}
   - component: {fileID: 2043921872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fondation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

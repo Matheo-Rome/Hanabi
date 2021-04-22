@@ -2810,7 +2810,7 @@ GameObject:
   - component: {fileID: 665990559}
   m_Layer: 0
   m_Name: Grid_planche
-  m_TagString: Untagged
+  m_TagString: Planche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5227,7 +5227,7 @@ GameObject:
   - component: {fileID: 1073924103}
   - component: {fileID: 1073924102}
   - component: {fileID: 1073924101}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fondation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5402,6 +5402,18 @@ CompositeCollider2D:
         Y: -60000000
       - X: -10000000
         Y: -60000000
+      - X: -10000000
+        Y: -69999900
+      - X: -10000041
+        Y: -69999900
+      - X: -10000100
+        Y: -69999959
+      - X: -10000100
+        Y: -100000041
+      - X: -10000041
+        Y: -100000100
+      - X: -10000000
+        Y: -100000100
       - X: -10000000
         Y: -120000000
       - X: 30000000
@@ -9971,8 +9983,8 @@ Tilemap:
   - first: {x: -1, y: -10, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 100
+      m_TileIndex: 64
+      m_TileSpriteIndex: 60
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10241,8 +10253,8 @@ Tilemap:
   - first: {x: -1, y: -9, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 100
+      m_TileIndex: 64
+      m_TileSpriteIndex: 60
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10529,8 +10541,8 @@ Tilemap:
   - first: {x: -1, y: -8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 100
+      m_TileIndex: 64
+      m_TileSpriteIndex: 60
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18794,7 +18806,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 27
+  - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: fd8f2bb68ddb15a438501ea50276c9a8, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -18900,7 +18912,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 5
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: a45ba2c9b788a444db9a0dc16b4527dd, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 511d5b5a44d746146babcb4d98b16086, type: 2}
@@ -19098,7 +19110,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 5
+  - m_RefCount: 8
     m_Data: {fileID: 6327735968723387729, guid: 36b6ad71910cd8d4491d10ea005df2d6,
       type: 3}
   - m_RefCount: 0
@@ -19192,7 +19204,7 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: -6416297417331777710, guid: 36b6ad71910cd8d4491d10ea005df2d6,
       type: 3}
-  - m_RefCount: 27
+  - m_RefCount: 24
     m_Data: {fileID: 8436977407910290749, guid: 36b6ad71910cd8d4491d10ea005df2d6,
       type: 3}
   m_TileMatrixArray:
@@ -20926,7 +20938,7 @@ GameObject:
   - component: {fileID: 1495281258}
   - component: {fileID: 1495281257}
   - component: {fileID: 1495281256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fondation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
