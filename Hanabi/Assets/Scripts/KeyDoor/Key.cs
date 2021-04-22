@@ -23,7 +23,6 @@ public class Key : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, followTarget.position, followSpeed * Time.deltaTime);
             Destroy(GetComponent<BoxCollider2D>());
-
         }
     }
 
