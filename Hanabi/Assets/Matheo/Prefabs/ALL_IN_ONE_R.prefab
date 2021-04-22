@@ -6199,11 +6199,6 @@ PrefabInstance:
       propertyPath: Pretzelcompteur
       value: 
       objectReference: {fileID: 8099631764426135632}
-    - target: {fileID: 390157526261917541, guid: b69da3986d8ca1a4eb3311caa733f8d1,
-        type: 3}
-      propertyPath: viewIdField
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 483462047983257429, guid: b69da3986d8ca1a4eb3311caa733f8d1,
         type: 3}
       propertyPath: m_Name
@@ -6262,11 +6257,6 @@ PrefabInstance:
     - target: {fileID: 2772514432710000642, guid: b69da3986d8ca1a4eb3311caa733f8d1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6363285486907970181, guid: b69da3986d8ca1a4eb3311caa733f8d1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
