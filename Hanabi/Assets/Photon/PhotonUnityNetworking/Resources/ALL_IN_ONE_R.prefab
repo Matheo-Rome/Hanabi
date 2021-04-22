@@ -6183,6 +6183,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7529599775642276407}
     m_Modifications:
+    - target: {fileID: 1141463573, guid: b69da3986d8ca1a4eb3311caa733f8d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.14432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141463573, guid: b69da3986d8ca1a4eb3311caa733f8d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141463573, guid: b69da3986d8ca1a4eb3311caa733f8d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1188831000, guid: b69da3986d8ca1a4eb3311caa733f8d1, type: 3}
       propertyPath: Inventaire
       value: 
@@ -6203,6 +6215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: roger nrml il est sympa
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765683944522243074, guid: b69da3986d8ca1a4eb3311caa733f8d1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2772514432710000642, guid: b69da3986d8ca1a4eb3311caa733f8d1,
         type: 3}
@@ -6258,6 +6275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413235459284648392, guid: b69da3986d8ca1a4eb3311caa733f8d1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509288350125108629, guid: b69da3986d8ca1a4eb3311caa733f8d1,
         type: 3}
