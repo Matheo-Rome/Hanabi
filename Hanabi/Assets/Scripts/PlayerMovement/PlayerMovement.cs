@@ -52,7 +52,8 @@ using Object = System.Object;
      private Vector2 dir;
      private Vector3 stocktele;
      private Vector3 stockSpawn;
-     private int isInside = 0;
+     private int isInsideEn = 0;
+     private int isInsideEx = 0;
 
      public bool ClassiqueDash;
      public bool BouncyDash;
@@ -71,7 +72,8 @@ using Object = System.Object;
      public bool player2;
 
      public GameObject player;
-     private Collider2D collider;
+     private PolygonCollider2D Polycollider;
+     private BoxCollider2D Boxcollider;
 
 
 
@@ -93,7 +95,14 @@ using Object = System.Object;
          dashTime = startDashTime;
          animator = GetComponent<Animator>();
          spriteRenderer = GetComponent<SpriteRenderer>();
-         collider = GetComponent<PolygonCollider2D>();
+         Polycollider = GetComponent<PolygonCollider2D>();
+         if (LightDash)
+         {
+             Boxcollider = GetComponent<BoxCollider2D>();
+             Boxcollider.enabled = false;
+             Boxcollider.isTrigger = true;
+         }
+
          Stress = GetComponent<PlayerStress>();
 
          if (photonView.IsMine) //Active la caméra du joueur est éteint celle de l'autre joueur
@@ -168,23 +177,26 @@ using Object = System.Object;
              isBouncydashing = false;
      }
  
-
- private void Jump()
+    //Fait sauter
+    private void Jump()
     {
         rb.velocity = Vector2.up * jumpVelocity;
         itemJump = false;
     }
 
+    //Permet de marcher
     private void Walk(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
     }
 
+    //Ralentit la chute lorsque l'on est contre le mur.
     private void Slide()
     {
         rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -slideSpeed, float.MaxValue));
     }
 
+    //Permet de sélectionner la direction du dash
     private void DashdirClassique()
     {
         if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
@@ -210,7 +222,7 @@ using Object = System.Object;
                 isDashing = true;
         }   
     }
-
+    //Effectue le dash : dans un premier temps propulse le joueur dans une direction donné et à la fin fait sortir le joueur du mode dash
     private void DashClassique()
     {
         if (dashTime <= 0)
@@ -254,7 +266,7 @@ using Object = System.Object;
             }
         }
     }
-
+    //Permet de sélectionner la direction du dash
     private void DashdirBouncy()
     {
         if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash)
@@ -274,7 +286,8 @@ using Object = System.Object;
 
         }   
     }
-
+    //Effectue le dash : dans un premier temps propulse le joueur dans une direction donné et à la fin fait sortir le joueur du mode dash
+    //Déclenche l'impulsion vers le haut dans le cas ou le joueur est contre un mur à la fin du dash
     private void DashBouncy()
     {
         if (dashTime <= 0)
@@ -305,7 +318,7 @@ using Object = System.Object;
             }
         }
     }
-
+    //Permet de sélectionner la direction du dash
     private void DashdirLight()
     {
         if ((Input.GetButton("Dash") || itemTp) && !hasDashed && Time.time >= NextDash)
@@ -316,9 +329,9 @@ using Object = System.Object;
                 direction = 3;
                 dir = Vector2.up;
                 spriteRenderer.enabled = false;
-                collider.isTrigger = true;
+                Boxcollider.enabled = true;
+                Polycollider.enabled = false;
                 isDashing = true;
-                //isInside--;
             }
 
             else if (Input.GetAxis("Horizontal") < 0) //gauche
@@ -326,26 +339,26 @@ using Object = System.Object;
                 direction = 1;
                 dir = Vector2.left;
                 spriteRenderer.enabled = false;
-                collider.isTrigger = true;
+                Boxcollider.enabled = true;
+                Polycollider.enabled = false;
                 isDashing = true;
-                /*if (onWall)
-                    isInside--;*/
             }
             else if (Input.GetAxis("Horizontal") > 0) //droite
             {
                 direction = 2;
                 dir = Vector2.right;
                 spriteRenderer.enabled = false;
-                collider.isTrigger = true;
+                Boxcollider.enabled = true;
+                Polycollider.enabled = false;
                 isDashing = true;
-                /*if (onWall)
-                    isInside--;*/
             }
             stocktele = player.transform.position;
             stockSpawn = SpawnPoint.position;
         }   
     }
-
+    //Effectue le dash : dans un premier temps propulse le joueur dans une direction donné et à la fin fait sortir le joueur du mode dash
+    //Pendant le dash le joueur est invisible est possède un collider isTrigger qui compte le nombre de collision.
+    //En cas de nombre impaire renvoie le joueur à sa position d'origine
     private void DashLight()
     {
         if (dashTime <= 0)
@@ -353,8 +366,9 @@ using Object = System.Object;
             direction = 0;
             dashTime = startDashTime;
             rb.velocity = Vector2.zero;
-            Debug.Log(isInside);
-            if (isInside%2 != 0)
+            Debug.Log("Exit " + isInsideEx);
+            Debug.Log("Enter " + isInsideEn);
+            if (isInsideEn%2 != 0 || isInsideEx%2 != 0)
             {
                 player.transform.position = stocktele;
                 SpawnPoint.position = stockSpawn;
@@ -362,10 +376,12 @@ using Object = System.Object;
             }
             else
                 rb.velocity += Vector2.up*5;
-            isInside = 0;
+            isInsideEn = 0;
+            isInsideEx = 0;
             isDashing = false;
             spriteRenderer.enabled = true;
-            collider.isTrigger = false;
+            Boxcollider.enabled = false;
+            Polycollider.enabled = true;
             itemTp = false;
         }
         else
@@ -388,7 +404,7 @@ using Object = System.Object;
         }
     }
     
-    
+    // Test collider fin de niveau/tomber dans un trou/ collision avec l'ia de la mort qui tue/ collision lors d'une teleportation
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Flower"))
@@ -409,16 +425,32 @@ using Object = System.Object;
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         }
         else
-            isInside++;
+        {
+           
+            if (other.CompareTag("Planche"))
+            {
+                isInsideEn++;
+            }
+            isInsideEn++;
+        }
     }
-    
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Planche"))
+        {
+            isInsideEx++;
+        }
+        isInsideEx++;
+    }
 
+    //Ralentir la déplacement sur x quand on est en l'air
     private void SlowAir(Vector2 dir)
     {
         rb.velocity = new Vector2(dir.x * speed / 1.4f, rb.velocity.y);
     }
-
+    
+    //Orient le personnage dans la bonne direction
     private void Flip(float _velocity)
     {
         
