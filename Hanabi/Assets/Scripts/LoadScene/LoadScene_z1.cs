@@ -23,8 +23,10 @@ public class LoadScene_z1 : MonoBehaviour
             //si c'est la salle histoire renvoie vers la room_choice
             if (SceneManager.GetActiveScene().buildIndex == history)
             {
+                Destroy(gameObject);
                 new WaitForSeconds(0.3f);
                 SceneManager.LoadScene(14); 
+                
             }
             
             else

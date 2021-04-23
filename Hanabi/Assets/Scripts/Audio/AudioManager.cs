@@ -293,15 +293,9 @@ public class AudioManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 13)
         {
             InPuzzleRoom = false;
-            return 4;
+            return 5;
         }
         
-        if (!InPuzzleRoom)
-        {
-            InPuzzleRoom = true;
-            return 1;
-        }
-
         //cas où il ne faut pas modifier la musique 
         return 15;
     }
@@ -320,7 +314,7 @@ public class AudioManager : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex == 28 || SceneManager.GetActiveScene().buildIndex == 29)
         {
             InPuzzleRoom = false;
-            return 4;
+            return 5;
             
         }
         if (!InPuzzleRoom)
@@ -348,7 +342,7 @@ public class AudioManager : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex == 44)
         {
             InPuzzleRoom = false;
-            return 4;
+            return 5;
             
         }
         if (!InPuzzleRoom)
@@ -376,7 +370,7 @@ public class AudioManager : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex == 59)
         {
             InPuzzleRoom = false;
-            return 4;
+            return 5;
             
         }
         if (!InPuzzleRoom)
@@ -393,7 +387,7 @@ public class AudioManager : MonoBehaviour
     int SalleDefi()
     {
         InPuzzleRoom = false;
-        return 5;
+        return 6;
     }
     
     
