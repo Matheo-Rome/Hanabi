@@ -14,13 +14,13 @@ public class InstantiateFantome : MonoBehaviour
     }
     void Update()
     {
-        if (PlayerStress.instance.currentStress == 200 && !Oneinstance)
+        if (PlayerStress.instance.currentStress == 200 && !Oneinstance)//j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
         {
             instance = Instantiate(Fantome, transform.position, Quaternion.identity);
             Oneinstance = true;
         }
 
-        if (PlayerStress.instance.currentStress <= 189 && Oneinstance)
+        if (PlayerStress.instance.currentStress <= 189 && Oneinstance)// cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
         {
             Oneinstance = false;
             Destroy(instance);
