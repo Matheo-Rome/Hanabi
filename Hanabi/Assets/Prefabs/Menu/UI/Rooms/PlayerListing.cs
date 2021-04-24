@@ -39,7 +39,5 @@ public class PlayerListing : MonoBehaviourPunCallbacks
         }
 
         _text.text = player.NickName;
-        Debug.Log(player.NickName);
-        
     }
 }
