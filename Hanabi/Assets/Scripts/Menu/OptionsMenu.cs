@@ -1,16 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UIElements;
 
 public class OptionsMenu : MonoBehaviour
 {
+    public GameObject SliderGO;
+    public AudioManager audioManager;
+    private AudioSource audioSource;
+    private Slider Slider;
 
-    public AudioMixer audioMixer;
-    
+    private void Start()
+    {
+        audioSource = audioManager.GetComponent<AudioSource>();
+        Slider = SliderGO.GetComponent<Slider>();
+        
+
+    }
+     
+
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioSource.volume = volume;
     }
 
     public void setQuality(int qualityIndex)
