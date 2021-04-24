@@ -37,22 +37,26 @@ public class PlayerStress : MonoBehaviour
         currentStress = minStress;
         stressBar.SetMinStress(minStress);
     }
-
+    
     void Update()
     {
+        //checks if the player can gain stress based on the room he's in
         canGainStress = CanStress();
 
+        //checks if the room has changed
         if (SceneManager.GetActiveScene().buildIndex != previousRoom)
         {
             hasChangedRoom = true;
             previousRoom = SceneManager.GetActiveScene().buildIndex;
         }
         
+        //if the room just changed and it is a fire place room then we update the stress accordingly
         if (fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && hasChangedRoom)
         {
             currentStress = (int) (currentStress * 0.6f);
         }
         
+        //updates the stress each time the cd is up
         if (Time.time > StressCD && canGainStress)
         {
            TakeStress(1);
@@ -76,6 +80,7 @@ public class PlayerStress : MonoBehaviour
         
         InventairePassif.instance.content = content;    
 
+        //cheat code UwU omg so cool
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeStress(20);
