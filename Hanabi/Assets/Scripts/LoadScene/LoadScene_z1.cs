@@ -11,8 +11,7 @@ public class LoadScene_z1 : MonoBehaviour
     private int shop = 11;
     private int firecamp = 12;
     private int history = 13;
-    private int total = 14;
-    private int i = 1;
+    private int i = 0;
     private int r;
     private int next;
     
@@ -24,8 +23,10 @@ public class LoadScene_z1 : MonoBehaviour
             //si c'est la salle histoire renvoie vers la room_choice
             if (SceneManager.GetActiveScene().buildIndex == history)
             {
+                Destroy(gameObject);
                 new WaitForSeconds(0.3f);
                 SceneManager.LoadScene(14); 
+                
             }
             
             else
@@ -39,7 +40,7 @@ public class LoadScene_z1 : MonoBehaviour
 
     private int NextIndex()
     {
-        if (i == 12)
+        if (i == 11)
             return history;
 
         //n'a pas encore visité le firecamp au bout de 7 salles
@@ -69,11 +70,11 @@ public class LoadScene_z1 : MonoBehaviour
             return next;
         }
         
-        //au bout de 10 salles,  1/10 chance d'aller à la zone suivante
+        //au bout de 10 salles,  1/5 chance d'aller à la zone suivante
         if (i > 9)
         {
-            r = Random.Range(0, 10);
-            if (r == 0)
+            r = Random.Range(0, 5);
+            if (r == 1)
                 return history;
         }
             
@@ -83,7 +84,7 @@ public class LoadScene_z1 : MonoBehaviour
         {
             // 1/5 chance d'avoir le shop
             r = Random.Range(0, 5);
-            if (r == 0)
+            if (r == 1)
             {
                 shop = 0;
                 i++;
@@ -95,7 +96,7 @@ public class LoadScene_z1 : MonoBehaviour
         {
             // 1/5 chance d'avoir le firecamp
             r = Random.Range(0, 5);
-            if (r == 0)
+            if (r == 1)
             {
                 firecamp = 0;
                 i++; 
