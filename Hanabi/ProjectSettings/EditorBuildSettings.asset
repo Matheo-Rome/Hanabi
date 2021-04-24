@@ -102,10 +102,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Matheo/scene/Bouton Multi.unity
     guid: 61d3a59793e6af644b06bf9104e26e8c
-  - enabled: 0
-    path: Assets/Matheo/scene/test21.unity
-    guid: 01349cc2969abd64cb1cf42aa57b36a8
   - enabled: 1
     path: Assets/Angelina/Assets/Scenes/MenuAnge.unity
     guid: aa241552c05e64c71ad365620ccd6f7b
+  - enabled: 1
+    path: Assets/Matheo/scene/test21.unity
+    guid: 01349cc2969abd64cb1cf42aa57b36a8
   m_configObjects: {}

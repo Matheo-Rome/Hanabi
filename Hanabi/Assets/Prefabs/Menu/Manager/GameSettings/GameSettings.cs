@@ -11,14 +11,6 @@ public class GameSettings : ScriptableObject
    public string GameVersion { get { return _gameVersion; } }
 
    [SerializeField] 
-   private string _nicmName = "Joseph";
+   public string NickName = "Joseph";
    
-   public string NickName
-   {
-      get
-      {
-         int value = Random.Range(0, 9999);
-         return _nicmName + value.ToString();
-      }
-   }
 }
