@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStress : MonoBehaviour
 {
+    List<int> storyScenes = new List<int>{13, 14, 27, 28, 29, 42, 43, 44, 57, 58, 59, 60};
+    List<int> fireScenes = new List<int>{12, 26, 41, 56};
     public int minStress = 0;
     public int currentStress;
     public int maxStress = 200;
@@ -11,7 +14,9 @@ public class PlayerStress : MonoBehaviour
     public Text Pretzelcompteur;
     public float nextStress = 2f;
     public float StressCD;
-    
+    public bool canGainStress;
+    public bool hasChangedRoom;
+    public int previousRoom;
 
     public StressBar stressBar;
 
@@ -32,10 +37,27 @@ public class PlayerStress : MonoBehaviour
         currentStress = minStress;
         stressBar.SetMinStress(minStress);
     }
-
+    
     void Update()
     {
-        if (Time.time > StressCD)
+        //checks if the player can gain stress based on the room he's in
+        canGainStress = CanStress();
+
+        //checks if the room has changed
+        if (SceneManager.GetActiveScene().buildIndex != previousRoom)
+        {
+            hasChangedRoom = true;
+            previousRoom = SceneManager.GetActiveScene().buildIndex;
+        }
+        
+        //if the room just changed and it is a fire place room then we update the stress accordingly
+        if (fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && hasChangedRoom)
+        {
+            currentStress = (int) (currentStress * 0.6f);
+        }
+        
+        //updates the stress each time the cd is up
+        if (Time.time > StressCD && canGainStress)
         {
            TakeStress(1);
            if (currentStress > 200)
@@ -58,6 +80,7 @@ public class PlayerStress : MonoBehaviour
         
         InventairePassif.instance.content = content;    
 
+        //cheat code UwU omg so cool
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeStress(20);
@@ -76,6 +99,11 @@ public class PlayerStress : MonoBehaviour
             
         }
 
+    }
+
+    public bool CanStress()
+    {
+        return !fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && !storyScenes.Contains(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void TakeStress(int addstress)
