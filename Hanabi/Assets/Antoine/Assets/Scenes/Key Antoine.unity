@@ -11271,7 +11271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &722573736437570182
 Transform:
   m_ObjectHideFlags: 0
@@ -15594,6 +15594,7 @@ MonoBehaviour:
   onGround: 1
   onWall: 0
   hasDashed: 0
+  hasFallen: 0
   dashSpeed: 30
   startDashTime: 0.1
   direction: 0
@@ -15603,6 +15604,7 @@ MonoBehaviour:
   itemJump: 0
   itemTp: 0
   playerCamera: {fileID: 2796437860006423627}
+  CameraSpawn: {fileID: 0}
   player1: 0
   player2: 0
   player: {fileID: 8661975893511666068}

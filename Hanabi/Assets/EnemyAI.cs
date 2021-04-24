@@ -17,23 +17,23 @@ public class EnemyAI : MonoBehaviour
     private bool reachedEndOfPath = false;
     private Seeker _seeker;
     private Rigidbody2D rb;
-    private List<Vector3> _positions = new List<Vector3>();
-    private int index = 0;
+    private List<Vector3> _positions = new List<Vector3>(); //Cette liste va me permettre de stocker la position du joueur 
+    private int index = 0;//indexe de la liste au dessus
     
     void Start()
     {
-        _seeker = GetComponent<Seeker>();
+        _seeker = GetComponent<Seeker>(); // Ces deux éléments sont du code pour la création d'un path
         rb = GetComponent<Rigidbody2D>();
 
-        _positions.Add(target.position);
+        _positions.Add(target.position);// ici j'add la position du joueur à ma liste 
 
         
-        _seeker.StartPath(rb.position, _positions[index]/*target.position*/, OnPathComplete);
+        _seeker.StartPath(rb.position, _positions[index]/*target.position*/, OnPathComplete); // ici je créé un premier path avec la première position de mon joueur
         index++;
-        InvokeRepeating("AddPath",0f,.09f);
-        InvokeRepeating("UpdatePath",0f,.14f);
-    }
-
+        InvokeRepeating("AddPath",0f,.09f);//ici j'add la position du joueur tous les 0.09 secondes afin de faire une sorte de "positions précédentes"
+        InvokeRepeating("UpdatePath",0f,.14f);//ici je créé le nouveau path que mon fantome devra suivre avec la position du joueur que j'ai stocker dans la liste
+    }// cela me permet donc de créé un path a partir de la position du joueur précédente et ainsi de créé l'effet de suivre les mouvements du joueur alors qu'il ne fait que suivre les positions précédentes
+     //La méthode updatepath se fera tous les 0.14 secondes afin qu'elle utilise des positions précédentes du joueur.
     void AddPath()
     {
         _positions.Add(target.position);
@@ -43,9 +43,11 @@ public class EnemyAI : MonoBehaviour
         if (_seeker.IsDone())
         {
             _seeker.StartPath(rb.position,_positions[index]/*target.position*/, OnPathComplete);
-            index++;
+            index++;//startpath possède comme paramètre la position du fontome et la position ou il doit aller
         }
     }
+    
+    // le reste du code était essentiel à la création du path (repris d'un code internet) j'ai simplement modifier le début pour modifier le path et avoir l'impression qu'il suit les positions précédente du joueur.
     void OnPathComplete(Path p)
     {
         if (!p.error)

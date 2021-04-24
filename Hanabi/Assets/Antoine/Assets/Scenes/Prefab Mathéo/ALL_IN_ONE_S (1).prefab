@@ -344,6 +344,36 @@ Transform:
   m_Father: {fileID: 5627131626152859236}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1035597146488197833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5891357060036519616}
+  m_Layer: 0
+  m_Name: CameraPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5891357060036519616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035597146488197833}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.01, y: 4.975, z: -246}
+  m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5627131626152859236}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083304812852741113
 GameObject:
   m_ObjectHideFlags: 0
@@ -6585,7 +6615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3467924709254595820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.05, y: 5.52, z: -30.25}
+  m_LocalPosition: {x: 11.01, y: 4.975, z: -246}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5627131626152859236}
@@ -6930,6 +6960,7 @@ Transform:
   - {fileID: 5520280463167175455}
   - {fileID: 1007898329452339487}
   - {fileID: 2083304814877550139}
+  - {fileID: 5891357060036519616}
   m_Father: {fileID: 2083304814794125857}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7046,6 +7077,7 @@ MonoBehaviour:
   onGround: 1
   onWall: 0
   hasDashed: 0
+  hasFallen: 0
   dashSpeed: 30
   startDashTime: 0.1
   direction: 0
@@ -7055,6 +7087,7 @@ MonoBehaviour:
   itemJump: 0
   itemTp: 0
   playerCamera: {fileID: 3467924709254595820}
+  CameraSpawn: {fileID: 5891357060036519616}
   player1: 0
   player2: 0
   player: {fileID: 7988259161669046579}

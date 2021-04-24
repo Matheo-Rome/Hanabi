@@ -279,6 +279,7 @@ MonoBehaviour:
   itemJump: 0
   itemTp: 0
   playerCamera: {fileID: 6363285486907970186}
+  CameraSpawn: {fileID: 2413229273510789689}
   player1: 0
   player2: 0
   player: {fileID: 483462047983257429}

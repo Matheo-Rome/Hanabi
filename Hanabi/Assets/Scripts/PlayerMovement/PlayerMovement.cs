@@ -41,6 +41,7 @@ using Object = System.Object;
      public bool onWall;
      public bool hasDashed;
      public bool hasFallen;
+     public int fallResistance;
 
      //Dash
      public float dashSpeed;
@@ -53,6 +54,7 @@ using Object = System.Object;
      private Vector2 dir;
      private Vector3 stocktele;
      private Vector3 stockSpawn;
+     private Vector3 stockCam;
      private int isInsideEn = 0;
      private int isInsideEx = 0;
 
@@ -360,6 +362,7 @@ using Object = System.Object;
             }
             stocktele = player.transform.position;
             stockSpawn = SpawnPoint.position;
+            stockCam = playerCamera.transform.position;
         }   
     }
     //Effectue le dash : dans un premier temps propulse le joueur dans une direction donné et à la fin fait sortir le joueur du mode dash
@@ -378,6 +381,7 @@ using Object = System.Object;
             {
                 player.transform.position = stocktele;
                 SpawnPoint.position = stockSpawn;
+                playerCamera.transform.position = stockCam;
                 hasDashed = false;
             }
             else
@@ -417,16 +421,24 @@ using Object = System.Object;
         {
             gameObject.transform.position = new Vector3(SpawnPoint.position.x, SpawnPoint.position.y, SpawnPoint.position.z);
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            playerCamera.transform.position = new Vector3(CameraSpawn.position.x, CameraSpawn.position.y,CameraSpawn.position.z);
             CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
-            SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            
         }
         else if (other.CompareTag("Respawn"))
         {
-            gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
             playerCamera.transform.position = new Vector3(CameraSpawn.position.x, CameraSpawn.position.y,CameraSpawn.position.z);
+            gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
+            
             CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-            PlayerStress.instance.TakeStress(10);
+            
+            //Reduces the amount of stress gained when falling of you have the long fall boots item
+            foreach (var objet in InventairePassif.instance.content)
+            {
+                fallResistance += objet.StressLoss;
+            }
+            PlayerStress.instance.TakeStress(10 - fallResistance);
             hasFallen = true;
             
             
@@ -434,7 +446,9 @@ using Object = System.Object;
         
         else if (other.CompareTag("IA"))
         {
+            playerCamera.transform.position = new Vector3(CameraSpawn.position.x, CameraSpawn.position.y,CameraSpawn.position.z);
             gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
+            CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         }
         else
