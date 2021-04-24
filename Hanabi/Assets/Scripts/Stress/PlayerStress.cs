@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStress : MonoBehaviour
 {
+    List<int> storyScenes = new List<int>{13, 14, 27, 28, 29, 42, 43, 44, 57, 58, 59, 60};
+    List<int> fireScenes = new List<int>{12, 26, 41, 56};
     public int minStress = 0;
     public int currentStress;
     public int maxStress = 200;
@@ -11,7 +14,9 @@ public class PlayerStress : MonoBehaviour
     public Text Pretzelcompteur;
     public float nextStress = 2f;
     public float StressCD;
-    
+    public bool canGainStress;
+    public bool hasChangedRoom;
+    public int previousRoom;
 
     public StressBar stressBar;
 
@@ -35,7 +40,20 @@ public class PlayerStress : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > StressCD)
+        canGainStress = CanStress();
+
+        if (SceneManager.GetActiveScene().buildIndex != previousRoom)
+        {
+            hasChangedRoom = true;
+            previousRoom = SceneManager.GetActiveScene().buildIndex;
+        }
+        
+        if (fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && hasChangedRoom)
+        {
+            currentStress = (int) (currentStress * 0.6f);
+        }
+        
+        if (Time.time > StressCD && canGainStress)
         {
            TakeStress(1);
            if (currentStress > 200)
@@ -76,6 +94,11 @@ public class PlayerStress : MonoBehaviour
             
         }
 
+    }
+
+    public bool CanStress()
+    {
+        return !fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && !storyScenes.Contains(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void TakeStress(int addstress)
