@@ -12,7 +12,6 @@ public class LoadScene_z2 : MonoBehaviour
     List<int> history = new List<int>{27,28,29};
     private int shop = 25;
     private int firecamp = 26;
-    private int total = 14;
     private int i = 0;
     private int r;
     private int next;
@@ -29,7 +28,7 @@ public class LoadScene_z2 : MonoBehaviour
 
     private int NextIndex()
     {
-        if (i == 14)
+        if (i == 13)
             return 30;
 
         //n'a pas encore visité le firecamp au bout de 7 salles
@@ -56,7 +55,7 @@ public class LoadScene_z2 : MonoBehaviour
             {
                 // 1/5 chance d'avoir une salle histoire
                 r = Random.Range(0, 5);
-                if (r == 0)
+                if (r == 1)
                 {
                     r = Random.Range(0, history.Count);
                     next = history[r];
@@ -78,8 +77,8 @@ public class LoadScene_z2 : MonoBehaviour
         //au bout de 10 salles,  1/10 chance d'aller à la zone suivante
         if (i > 9)
         {
-            r = Random.Range(0, 10);
-            if (r == 0)
+            r = Random.Range(0, 5);
+            if (r == 1)
                 return 30;
         }
             
@@ -90,7 +89,7 @@ public class LoadScene_z2 : MonoBehaviour
         {
             // 1/5 chance d'avoir une salle histoire
             r = Random.Range(0, 5);
-            if (r == 0)
+            if (r == 1)
             {
                 r = Random.Range(0, history.Count);
                 next = history[r];
@@ -105,7 +104,7 @@ public class LoadScene_z2 : MonoBehaviour
         {
             // 1/5 chance d'avoir le shop
             r = Random.Range(0, 5);
-            if (r == 0)
+            if (r == 1)
             {
                 shop = 0;
                 i++;
@@ -119,7 +118,7 @@ public class LoadScene_z2 : MonoBehaviour
             
             // 1/5 chance d'avoir le firecamp
             r = Random.Range(0, 5);
-            if (r == 0)
+            if (r == 1)
             {
                 firecamp = 0;
                 i++; 

@@ -38,7 +38,7 @@ public override void OnConnectedToMaster()
 
         if (PhotonNetwork.PlayerList.Length <= 1)
         {
-            GameObject player1 = PhotonNetwork.Instantiate("ALL_IN_ONE_B", SpawnPoint1.position, 
+            GameObject player1 = PhotonNetwork.Instantiate("ALL_IN_ONE_R", SpawnPoint1.position, 
                 quaternion.identity, 0) as GameObject;
             player1.GetComponent<PlayerMovement>().player1 = true;
         }

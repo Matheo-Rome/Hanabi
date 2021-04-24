@@ -6696,6 +6696,7 @@ MonoBehaviour:
   onWall: 0
   hasDashed: 0
   hasFallen: 0
+  fallResistance: 0
   dashSpeed: 30
   startDashTime: 0.1
   direction: 0
