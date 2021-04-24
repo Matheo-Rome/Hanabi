@@ -41,6 +41,7 @@ using Object = System.Object;
      public bool onWall;
      public bool hasDashed;
      public bool hasFallen;
+     public int fallResistance;
 
      //Dash
      public float dashSpeed;
@@ -432,7 +433,12 @@ using Object = System.Object;
             CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
             SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             
-            PlayerStress.instance.TakeStress(10);
+            //Reduces the amount of stress gained when falling of you have the long fall boots item
+            foreach (var objet in InventairePassif.instance.content)
+            {
+                fallResistance += objet.StressLoss;
+            }
+            PlayerStress.instance.TakeStress(10 - fallResistance);
             hasFallen = true;
             
             
