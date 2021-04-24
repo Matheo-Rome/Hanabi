@@ -14,27 +14,41 @@ public class LoadScene_z1 : MonoBehaviour
     private int i = 0;
     private int r;
     private int next;
+
+    public PlantPlayer2 flower;
     
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (flower.IsTrigger)
         {
-            //si c'est la salle histoire renvoie vers la room_choice
-            if (SceneManager.GetActiveScene().buildIndex == history)
+            tag = "Flower";
+            if (collision.CompareTag("Player")) 
             {
-                Destroy(gameObject);
-                new WaitForSeconds(0.3f);
-                SceneManager.LoadScene(14); 
+                //si c'est la salle histoire renvoie vers la room_choice
+                if (SceneManager.GetActiveScene().buildIndex == history)
+                {
+                    Destroy(gameObject);
+                    new WaitForSeconds(0.3f);
+                    SceneManager.LoadScene(14);
+                }
                 
+                else 
+                {
+                    new WaitForSeconds(0.3f);
+                    SceneManager.LoadScene(NextIndex()); 
+                }
             }
-            
-            else
-            {
-               new WaitForSeconds(0.3f);
-               SceneManager.LoadScene(NextIndex()); 
-            }
-            
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        new WaitForSeconds(0.5f);
+        
+        if (other.CompareTag("Player"))
+        {
+            tag = "Untagged";
         }
     }
 
