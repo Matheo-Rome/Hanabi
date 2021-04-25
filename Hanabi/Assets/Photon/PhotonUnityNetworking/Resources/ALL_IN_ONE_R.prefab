@@ -6893,6 +6893,9 @@ MonoBehaviour:
   Pretzelcompteur: {fileID: 4322541084316407274}
   nextStress: 2
   StressCD: 0
+  canGainStress: 0
+  hasChangedRoom: 0
+  previousRoom: 0
   stressBar: {fileID: 4322541082978226382}
 --- !u!114 &3373130729893448801
 MonoBehaviour:
@@ -7089,6 +7092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2127162582203064326}
+  SpriteRenderer: {fileID: 0}
   speed: 2000
   nextWaypointDistance: 3
 --- !u!50 &3310499938542282735

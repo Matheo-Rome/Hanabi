@@ -169,6 +169,7 @@ MonoBehaviour:
   onWall: 0
   hasDashed: 0
   hasFallen: 0
+  fallResistance: 0
   dashSpeed: 30
   startDashTime: 0.1
   direction: 0
@@ -358,6 +359,9 @@ MonoBehaviour:
   Pretzelcompteur: {fileID: 7215375576983665535}
   nextStress: 2
   StressCD: 0
+  canGainStress: 0
+  hasChangedRoom: 0
+  previousRoom: 0
   stressBar: {fileID: 7215375576279247765}
 --- !u!114 &7215375577595965323
 MonoBehaviour:
@@ -7141,6 +7145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3953277621171225875}
+  SpriteRenderer: {fileID: 0}
   speed: 2000
   nextWaypointDistance: 3
 --- !u!50 &8263450322764312504
