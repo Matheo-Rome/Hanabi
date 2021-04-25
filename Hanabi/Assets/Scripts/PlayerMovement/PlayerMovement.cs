@@ -434,7 +434,7 @@ using Object = System.Object;
             gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
             CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
 
-            SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);*/
             
             //Reduces the amount of stress gained when falling of you have the long fall boots item
             foreach (var objet in InventairePassif.instance.content)
@@ -466,14 +466,7 @@ using Object = System.Object;
         }
     }
 
-    public void Reposition()
-    {
-        playerCamera.transform.position = new Vector3(CameraSpawn.position.x, CameraSpawn.position.y,CameraSpawn.position.z);
-        gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
-        CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
-        SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-    }
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Planche"))
