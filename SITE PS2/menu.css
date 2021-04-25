@@ -1,5 +1,8 @@
 body{
+	background-image: url(background.jpg);
 	background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-attachment: fixed, scroll;
 	font: 16px/150% Montserrat;
 	margin: 0px;
 	padding: 0px;
