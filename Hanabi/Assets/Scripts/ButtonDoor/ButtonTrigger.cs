@@ -16,7 +16,7 @@ public class ButtonTrigger : MonoBehaviour
         {
             theSR.sprite = buttonOn;
             door.OpenDoor();
-            timer = 7f;
+            timer = 8f;
         }
     }
     
