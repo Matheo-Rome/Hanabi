@@ -65,6 +65,7 @@ using Object = System.Object;
      
      public bool itemJump;
      public bool itemTp;
+     public bool isItemDashing;
 
      public GameObject playerCamera;
      public Transform CameraSpawn;
@@ -169,9 +170,23 @@ using Object = System.Object;
 
          //Dash Light or The World
          if (direction == 0 && (LightDash || itemTp))
+         {
+             if (itemTp)
+             {
+                 itemTp = false;
+                 isItemDashing = true;
+             }
              DashdirLight();
-         else if (LightDash || itemTp)
+         }
+         else if (LightDash)
              DashLight();
+
+         if (isItemDashing)
+         {
+             DashLight();
+             DashLight();
+         }
+             
 
          //Reset du Dash quand le personnage touche le sol
          if (onGround && Time.time >= NextDash)
@@ -326,10 +341,11 @@ using Object = System.Object;
             }
         }
     }
+    
     //Permet de sélectionner la direction du dash
     private void DashdirLight()
     {
-        if ((Input.GetButton("Dash") || itemTp) && !hasDashed && Time.time >= NextDash)
+        if (Input.GetButton("Dash") && !hasDashed && Time.time >= NextDash || isItemDashing)
         {
             rb.velocity = Vector2.zero;
             if (Input.GetAxis("Vertical") > 0) //haut
@@ -370,7 +386,7 @@ using Object = System.Object;
     //En cas de nombre impaire renvoie le joueur à sa position d'origine
     private void DashLight()
     {
-        if (dashTime <= 0)
+        if (dashTime <= 0 || !isItemDashing)
         {
             direction = 0;
             dashTime = startDashTime;
@@ -392,10 +408,10 @@ using Object = System.Object;
             spriteRenderer.enabled = true;
             Boxcollider.enabled = false;
             Polycollider.enabled = true;
-            itemTp = false;
         }
         else
         {
+            isItemDashing = false;
             dashTime -= Time.deltaTime;
             hasDashed = true;
             NextDash = Time.time + dashCD;
