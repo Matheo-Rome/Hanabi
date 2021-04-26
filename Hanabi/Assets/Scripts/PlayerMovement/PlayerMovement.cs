@@ -442,6 +442,7 @@ using Object = System.Object;
                 fallResistance += objet.StressLoss;
             }
             PlayerStress.instance.TakeStress(10 - fallResistance);
+            base.photonView.RPC("RPC_TakeStress", RpcTarget.Others, 10 - fallResistance);
             hasFallen = true;
             
             

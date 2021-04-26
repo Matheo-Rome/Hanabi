@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerStress : MonoBehaviour
+public class PlayerStress : MonoBehaviourPunCallbacks
 {
     List<int> storyScenes = new List<int>{13, 14, 27, 28, 29, 42, 43, 44, 57, 58, 59, 60};
     List<int> fireScenes = new List<int>{12, 26, 41, 56};
@@ -88,12 +90,14 @@ public class PlayerStress : MonoBehaviour
             {
                 currentStress = 200;
             }
+            base.photonView.RPC("RPC_TakeStress", RpcTarget.Others, 20);
             
         }
         
         if (currentStress == maxStress)
         {
             HealStressplayer(reductiondestress);
+            base.photonView.RPC("RPC_HealStress", RpcTarget.Others, reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
             
@@ -126,4 +130,18 @@ public class PlayerStress : MonoBehaviour
         
         stressBar.SetStress(currentStress);
     }
+
+    [PunRPC]
+    private void RPC_HealStress(int stress)
+    {
+        HealStressplayer(stress);
+    }
+    
+    
+    [PunRPC]
+    private void RPC_TakeStress(int stress)
+    {
+        TakeStress(stress);
+    }
+
 }

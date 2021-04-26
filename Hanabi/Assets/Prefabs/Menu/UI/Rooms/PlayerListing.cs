@@ -13,14 +13,20 @@ public class PlayerListing : MonoBehaviourPunCallbacks
     public Player Player { get; private set; }
     public bool Ready = false;
     public bool Classic = false;
-    public bool Light = false;
-    public bool Bouncy = false;
+    public bool Light = false; 
+    public bool Bouncy = false; 
     public string Classe = "";
+    public bool ClassicJ2 = false;
+    public bool LightJ2 = false;
+    public bool BouncyJ2 = false;
+    public string ClasseJ2 = "";
+    public bool IsMaster;
 
     public void SetPlayerInfo(Player player)
     {
         Player = player;
         SetPlayerText(player);
+        IsMaster = player.IsMasterClient;
     }
 
     public override void OnPlayerPropertiesUpdate(Player target, Hashtable changedProps)
