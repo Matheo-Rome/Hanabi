@@ -54,7 +54,7 @@ public class PlayerStress : MonoBehaviour
         }
         
         //if the room just changed and you are near a fire place then we update the stress accordingly
-        if (hasChangedRoom && fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && isTouchingFire)
+        if (hasChangedRoom && isTouchingFire)
         {
             currentStress = (int) (currentStress * 0.6f);
             hasChangedRoom = false;
