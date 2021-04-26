@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -12,10 +13,18 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     [SerializeField]  private PlayerListing _playerListing;
     [SerializeField] private Text _readyUpText;
     
-
     private List<PlayerListing> _listings = new List<PlayerListing>();
     private RoomsCanvases _roomsCanvases;
     private bool _ready = false; 
+    
+    [SerializeField] private Text _classicText;
+    [SerializeField] private Text _bouncyText;
+    [SerializeField] private Text _lightText;
+
+    private bool _classic = false;
+    private bool _bouncy = false;
+    private bool _light = false;
+    
 
     private void Awake()
     {
@@ -40,6 +49,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
         else
             _readyUpText.text = "N";
     }
+    
     public override void OnLeftRoom()
     {
         _content.DestroyChildren();
@@ -89,19 +99,25 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
 
     public void OnClick_StartGame()
     {
-        if (PhotonNetwork.IsMasterClient && _listings.Count == 2)
+        if (_listings.Count == 2)
         {
-            for (int i = 0; i < _listings.Count; i++)
+            PlayerListing p1 = _listings[0];
+            PlayerListing p2 = _listings[1];
+            if (PhotonNetwork.IsMasterClient && (p1.Classic || p1.Bouncy || p1.Light) && (p2.Classic || p2.Bouncy || p2.Light) && p1.Classe != p2.Classe)
             {
-                if (_listings[i].Player != PhotonNetwork.LocalPlayer)
+                for (int i = 0; i < _listings.Count; i++)
                 {
-                    if(!_listings[i].Ready)
-                        return;
+                    if (_listings[i].Player != PhotonNetwork.LocalPlayer)
+                    {
+                        if (!_listings[i].Ready)
+                            return;
+                    }
                 }
+
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+                PhotonNetwork.CurrentRoom.IsVisible = false;
+                PhotonNetwork.LoadLevel(1);
             }
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-            PhotonNetwork.CurrentRoom.IsVisible = false;
-            PhotonNetwork.LoadLevel(1);
         }
     }
 
@@ -122,4 +138,130 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
             _listings[index].Ready = ready;
         }
     }
+    
+    private void ClassicChosen(bool choice)
+    {
+        _classic = choice;
+        if (_classic)
+            _classicText.text = "C";
+        else
+            _classicText.text = "";
+    }
+    
+    private void BouncyChosen(bool choice)
+    {
+        _bouncy = choice;
+        if (_bouncy)
+            _bouncyText.text = "C";
+        else
+            _bouncyText.text = "";
+    }
+    
+    private void LightChosen(bool choice)
+    {
+        _light = choice;
+        if (_light)
+            
+            _lightText.text = "C";
+        else
+            _lightText.text = "";
+    }
+
+    public void OnClick_ChosenClassic()
+    {
+        ClassicChosen(!_classic);
+        base.photonView.RPC("RPC_ChangeClassicState", RpcTarget.All, PhotonNetwork.LocalPlayer, _classic);
+       /*int index = -1;
+        if (PhotonNetwork.IsMasterClient)
+            index = 0;
+        else
+            index = 1;
+        _listings[index].Classic = true;
+        _listings[index].Bouncy = false;
+        _listings[index].Light = false;
+        _listings[index].Classe = "Classic";
+        LightChosen(false);
+        BouncyChosen(false);*/
+        
+    }
+
+    [PunRPC]
+    private void RPC_ChangeClassicState(Player player, bool classic)
+    {
+        int index = _listings.FindIndex(x => x.Player == player);
+        if (index != -1)
+        {
+            _listings[index].Classic = true;
+            _listings[index].Bouncy = false;
+            _listings[index].Light = false;
+            _listings[index].Classe = "Classic";
+            LightChosen(false);
+            BouncyChosen(false);
+        }
+    }
+    
+    public void OnClick_ChosenBouncy()
+    {
+        BouncyChosen(!_bouncy);
+        base.photonView.RPC("RPC_ChangeBouncyState", RpcTarget.All, PhotonNetwork.LocalPlayer, _bouncy);
+       /* int index = -1;
+        if (PhotonNetwork.IsMasterClient)
+            index = 0;
+        else
+            index = 1;
+        _listings[index].Classic = false;
+        _listings[index].Bouncy = true;
+        _listings[index].Light = false;
+        _listings[index].Classe = "Bouncy";
+        LightChosen(false);
+        ClassicChosen(false);*/
+    }
+
+    [PunRPC]
+    private void RPC_ChangeBouncyState(Player player, bool classic)
+    {
+        int index = _listings.FindIndex(x => x.Player == player);
+        if (index != -1)
+        {
+            _listings[index].Classic = false;
+            _listings[index].Bouncy = true;
+            _listings[index].Light = false;
+            _listings[index].Classe = "Bouncy";
+            LightChosen(false);
+            ClassicChosen(false);
+        }
+    }
+    
+    public void OnClick_ChosenLight()
+    {
+        LightChosen(!_light);
+        base.photonView.RPC("RPC_ChangeLightState", RpcTarget.All, PhotonNetwork.LocalPlayer, _light);
+        /*int index = -1;
+        if (PhotonNetwork.IsMasterClient)
+            index = 0;
+        else
+            index = 1;
+        _listings[index].Classic = false;
+        _listings[index].Bouncy = false;
+        _listings[index].Light = true;
+        _listings[index].Classe = "Light";
+        BouncyChosen(false);
+        ClassicChosen(false);*/
+    }
+
+    [PunRPC]
+    private void RPC_ChangeLightState(Player player, bool light)
+    {
+        int index = _listings.FindIndex(x => x.Player == player);
+        if (index != -1)
+        {
+            _listings[index].Classic = false;
+            _listings[index].Bouncy = false;
+            _listings[index].Light = true;
+            _listings[index].Classe = "Light";
+            BouncyChosen(false);
+            ClassicChosen(false);
+        }
+    }
+    
 }

@@ -12,6 +12,10 @@ public class PlayerListing : MonoBehaviourPunCallbacks
 
     public Player Player { get; private set; }
     public bool Ready = false;
+    public bool Classic = false;
+    public bool Light = false;
+    public bool Bouncy = false;
+    public string Classe = "";
 
     public void SetPlayerInfo(Player player)
     {
