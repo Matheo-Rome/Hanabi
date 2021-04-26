@@ -51,91 +51,94 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Hougo/Scenes/Main Menu.unity
     guid: 9abb1c16c4c5f4156afb3d3f6d7fd988
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Angelina/Assets/Scenes/MenuAnge.unity
+    guid: aa241552c05e64c71ad365620ccd6f7b
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/jump1.1.unity
     guid: b909fa11203764ad0a6fa1b302eaeab0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/jump1.2.unity
     guid: d487f51a718794f47b9d5c4fac7ffb68
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/key1.1.unity
     guid: 8b19c7c23a8bf774b909822819d35549
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/key1.2.unity
     guid: 90ddd6706ce269a41ad27b776d373577
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/captor1.1.unity
     guid: 2b9a48af39a983343a1d403d920d9091
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/captor1.2.unity
     guid: a166c8faa285685499f5483879db0189
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/torch1.1.unity
     guid: 6d3bc13f3531a4543b5cae14d8530a70
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/torch1.2.unity
     guid: d723b6248649a374c9dcb50cd7bb6bdb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/button1.1.unity
     guid: 02feedc2555728e4aa02ba0452d9ab66
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/button1.2.unity
     guid: afd141219c22e2b488daf8e98670fadf
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/shop1.unity
     guid: 4cc08a5f56c24424ea76bc5d9a4c86ec
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/campfire1.unity
     guid: dae3b3fb2e39ae2449f7534fa2d3495f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/history111.unity
     guid: db8f5f63e8f04014c857b5c948d63cb0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 1/room_choice.unity
     guid: e1241b1c199a98e4a9d6ab5774287bbd
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/jump2.1.unity
     guid: b4a04763ef0775a4c95d32b0cd13ed65
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/jump2.2.unity
     guid: c7c405bca9f6e444ba33e260c1f648dc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/key2.1.unity
     guid: 65874a30583080e40b5965984879457f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/key2.2.unity
     guid: df3f86694b547c340a56633f9d7b196e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/captor2.1.unity
     guid: 6d81ac7a4a4781e49ae42563b2d14cb6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/captor2.2.unity
     guid: 48cf888a8c1070e4e886ec784120afbe
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/torch2.1.unity
     guid: 519c47d109e50bf4bb608c763a80cf0d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/torch2.2.unity
     guid: ae63b231347e4484abae3817699694e1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/button2.1.unity
     guid: 794407a0c099f4f4dbdcb92084baa08f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/button2.2.unity
     guid: df494cefbe707464595eb30d4b0035a8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/shop2.unity
     guid: e338465061dd96b4a953ed9717384b89
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/campfire2.unity
     guid: e10ae965a8ffd364b8ad63d7847535cd
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/hisotry2.unity
     guid: 330ad1898a60bf8489b0de162be57d0e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/history3.unity
     guid: 736a9832aa6d69f47a101c3738181402
-  - enabled: 0
+  - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Zone 2/history4.unity
     guid: f0dfe75e217a0a44ca45de1229a7ffa3
   - enabled: 0
@@ -147,10 +150,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Matheo/scene/Bouton Multi.unity
     guid: 61d3a59793e6af644b06bf9104e26e8c
-  - enabled: 1
-    path: Assets/Angelina/Assets/Scenes/MenuAnge.unity
-    guid: aa241552c05e64c71ad365620ccd6f7b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Matheo/scene/test21.unity
     guid: 01349cc2969abd64cb1cf42aa57b36a8
   m_configObjects: {}

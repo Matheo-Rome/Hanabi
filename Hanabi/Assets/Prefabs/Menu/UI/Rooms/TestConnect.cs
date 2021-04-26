@@ -26,6 +26,8 @@ public class TestConnect : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        print("Disconnected from server for reason" + cause.ToString());
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();
+        print("Disconnected from server for reason " + cause.ToString());
     }
 }

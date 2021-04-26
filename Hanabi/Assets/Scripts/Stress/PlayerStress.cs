@@ -61,11 +61,25 @@ public class PlayerStress : MonoBehaviourPunCallbacks
             currentStress = (int) (currentStress * 0.6f);
             hasChangedRoom = false;
         }
+        List<Items> content = new List<Items>();;
+        foreach (var objet in InventairePassif.instance.content)
+        {
+            reductiondestress += objet.StressRemoved;
+            StressCD += objet.StressIntervalle;
+            Pretzelcompteur.text = reductiondestress.ToString();
+            if (objet.StressRemoved == 0)
+            {
+                content.Add(objet);
+            }
+        }
+        InventairePassif.instance.content = content;    
         
         //updates the stress each time the cd is up
         if (Time.time > StressCD && canGainStress)
         {
            TakeStress(1);
+           PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(1);
+           photonView.RPC("RPC_TakeStress", RpcTarget.Others, 1);
            if (currentStress > 200)
            {
                currentStress = 200;
@@ -73,38 +87,23 @@ public class PlayerStress : MonoBehaviourPunCallbacks
            StressCD = Time.time + nextStress;
         }
         
-        List<Items> content = new List<Items>();;
-        foreach (var objet in InventairePassif.instance.content)
-        {
-            reductiondestress += objet.StressRemoved;
-            Pretzelcompteur.text = reductiondestress.ToString();
-            if (objet.StressRemoved == 0)
-            {
-                content.Add(objet);
-            }
-        }
         
-        InventairePassif.instance.content = content;    
 
         //cheat code UwU omg so cool
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeStress(20);
-            if (currentStress > 200)
-            {
-                currentStress = 200;
-            }
-            base.photonView.RPC("RPC_TakeStress", RpcTarget.Others, 20);
-            
+            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(20);
+            photonView.RPC("RPC_TakeStress", RpcTarget.Others, 20);
         }
         
         if (currentStress == maxStress)
         {
             HealStressplayer(reductiondestress);
-            base.photonView.RPC("RPC_HealStress", RpcTarget.Others, reductiondestress);
+            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(reductiondestress);
+            photonView.RPC("RPC_HealStress", RpcTarget.Others, reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
-            
         }
 
     }
@@ -117,6 +116,10 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     public void TakeStress(int addstress)
     {
         currentStress += addstress;
+        if (currentStress > 200)
+        {
+            currentStress = 200;
+        }
         stressBar.SetStress(currentStress);
     }
 
@@ -126,7 +129,6 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         {
             currentStress = minStress;
         }
-
         else
         {
             currentStress -= amount;
@@ -136,16 +138,18 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void RPC_HealStress(int stress)
+    public void RPC_HealStress(int stress)
     {
         HealStressplayer(stress);
+        PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(stress);
     }
     
     
     [PunRPC]
-    private void RPC_TakeStress(int stress)
+    public void RPC_TakeStress(int stress)
     {
         TakeStress(stress);
+        PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(stress);
     }
 
 }

@@ -11,15 +11,26 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
     private AudioSource audioSource;
     private Slider Slider;
+    public bool founded = false;
 
     private void Start()
     {
-        audioSource = audioManager.GetComponent<AudioSource>();
+       
+        //audioSource = audioManager.GetComponent<AudioSource>();
         Slider = SliderGO.GetComponent<Slider>();
-        
-
     }
-     
+
+    private void Update()
+    {
+        if (!founded)
+        {
+            audioSource = FindObjectOfType<AudioSource>();
+            Debug.Log(audioSource.ToString());
+            if (audioSource != null)
+                founded = true;
+        }
+    }
+
 
     public void SetVolume(float volume)
     {
