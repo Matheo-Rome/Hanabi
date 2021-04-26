@@ -149,10 +149,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasBlurrb
       objectReference: {fileID: 0}
+    - target: {fileID: 389787251040797018, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 389787251040797018, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 389787251040797018, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 389787251040797018, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.27450982
+      objectReference: {fileID: 0}
     - target: {fileID: 389787252153564443, guid: 88a8077e1330ea142bcee58c15ccce70,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389787252153564446, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 389787252153564446, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 389787252153564446, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 389787252153564446, guid: 88a8077e1330ea142bcee58c15ccce70,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88a8077e1330ea142bcee58c15ccce70, type: 3}
