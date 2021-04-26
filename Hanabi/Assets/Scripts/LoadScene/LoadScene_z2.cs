@@ -16,13 +16,19 @@ public class LoadScene_z2 : MonoBehaviour
     private int r;
     private int next;
     
+    public PlantPlayer2 flower;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (flower.IsTrigger)
         {
-            new WaitForSeconds(0.3f);
-            SceneManager.LoadScene(NextIndex());
+            tag = "Flower";
+
+            if (collision.CompareTag("Player"))
+            {
+                new WaitForSeconds(0.3f);
+                SceneManager.LoadScene(NextIndex());
+            }
         }
     }
 
