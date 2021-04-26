@@ -16,13 +16,16 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     public Text Pretzelcompteur;
     public float nextStress = 2f;
     public float StressCD;
+    
     public bool canGainStress;
     public bool hasChangedRoom;
     public int previousRoom;
+    public bool isTouchingFire;
 
     public StressBar stressBar;
 
     public static PlayerStress instance;
+    
     private void Awake()
     {
         // Il faut qu'il n'y ai qu'un seul et unique inventaire
@@ -52,10 +55,11 @@ public class PlayerStress : MonoBehaviourPunCallbacks
             previousRoom = SceneManager.GetActiveScene().buildIndex;
         }
         
-        //if the room just changed and it is a fire place room then we update the stress accordingly
-        if (fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && hasChangedRoom)
+        //if the room just changed and you are near a fire place then we update the stress accordingly
+        if (hasChangedRoom && isTouchingFire)
         {
             currentStress = (int) (currentStress * 0.6f);
+            hasChangedRoom = false;
         }
         
         //updates the stress each time the cd is up
