@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target;
+    //public Transform FantomeGFX;
+    public SpriteRenderer SpriteRenderer;
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -79,6 +81,17 @@ public class EnemyAI : MonoBehaviour
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
+        }
+
+        if (rb.velocity.x >= -0.01f)
+        {
+            //FantomeGFX.localScale = new Vector3(-1f, 1f, 1f);
+            SpriteRenderer.flipX = false;   
+        }
+        else if (rb.velocity.x<= -0.01f)
+        {
+            //FantomeGFX.localScale = new Vector3(1f, 1f, 1f);
+            SpriteRenderer.flipX = true;
         }
     }
 }
