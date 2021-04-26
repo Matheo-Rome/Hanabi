@@ -25,6 +25,8 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     private bool _bouncy = false;
     private bool _light = false;
 
+    [SerializeField] private GameObject sound;
+
 
     private void Awake()
     {
@@ -117,6 +119,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
 
                 PhotonNetwork.CurrentRoom.IsOpen = false;
                 PhotonNetwork.CurrentRoom.IsVisible = false;
+                sound.SetActive(false);
                 PhotonNetwork.LoadLevel(1);
             }
         }

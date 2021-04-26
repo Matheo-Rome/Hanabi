@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public GameObject SliderGO;
-    public AudioManager audioManager;
+    [SerializeField] private GameObject SliderGO;
+    [SerializeField] private AudioManager audioManager;
     private AudioSource audioSource;
     private Slider Slider;
 
