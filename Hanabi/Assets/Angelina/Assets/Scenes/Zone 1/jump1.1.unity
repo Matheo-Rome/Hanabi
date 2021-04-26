@@ -13415,7 +13415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 893352654}
   - component: {fileID: 893352655}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Grid_planche
   m_TagString: Planche
   m_Icon: {fileID: 0}
@@ -13459,7 +13459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 967262776}
   - component: {fileID: 967262775}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25771,7 +25771,7 @@ GameObject:
   - component: {fileID: 1386280276}
   - component: {fileID: 1386280278}
   - component: {fileID: 1386280277}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26931,7 +26931,7 @@ GameObject:
   - component: {fileID: 1690361891}
   - component: {fileID: 1690361893}
   - component: {fileID: 1690361892}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28841,7 +28841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049037613}
   - component: {fileID: 2049037612}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Grid_planche
   m_TagString: Planche
   m_Icon: {fileID: 0}
@@ -28885,7 +28885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050715211}
   - component: {fileID: 2050715212}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
