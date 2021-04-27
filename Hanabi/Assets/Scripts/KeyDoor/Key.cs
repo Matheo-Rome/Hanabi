@@ -32,12 +32,23 @@ public class Key : MonoBehaviour
         {
             if (!isFollowing)
             {
-                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+                PlayerMovement[] players = FindObjectsOfType<PlayerMovement>();
+                float min = 10000000f;
+                PlayerMovement Closer = null;
+                foreach (var player in players)
+                {
+                    if (Vector3.Distance(collision.transform.position, player.transform.position) < min)
+                    {
+                        min = Vector3.Distance(collision.transform.position, player.transform.position);
+                        Closer = player;
+                    }
+                }
+                
 
-                followTarget = player.keyFollowPoint;
+                followTarget = Closer.keyFollowPoint;
 
                 isFollowing = true;
-                player.followingKey = this;
+                Closer.followingKey = this;
                 
             }
         }
