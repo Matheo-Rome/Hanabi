@@ -29,6 +29,7 @@ public class ButtonTrigger : MonoBehaviour
             {
                 door.CloseDoor();
                 theSR.sprite = buttonOff;
+                
             }
         }
     }
