@@ -138,22 +138,22 @@ using Object = System.Object;
      void FixedUpdate()
      {
          
-             if (!founded)
+         if (!founded)
+         { 
+             GameObject[] allPlayer = GameObject.FindGameObjectsWithTag("Player");
+             Debug.Log(allPlayer.Length);
+             foreach (var Player in allPlayer)
              {
-                 GameObject[] allPlayer = GameObject.FindGameObjectsWithTag("Player");
-                 Debug.Log(allPlayer.Length);
-                 foreach (var Player in allPlayer)
+                 if (Player != player)
                  {
-                     if (Player != player)
-                     {
-                         otherplayer = Player;
-                         founded = true;
-                     }
+                     otherplayer = Player;
+                     founded = true;
                  }
              }
+         }
 
-             if (photonView.IsMine)
-             {
+         //if (photonView.IsMine)
+         {
              scenecheck = SceneManager.GetActiveScene().buildIndex;
              if (scene != scenecheck)
                  Reposition();
@@ -183,6 +183,10 @@ using Object = System.Object;
              animator.SetFloat("SpeedY", rb.velocity.y);
              animator.SetBool("GroundColl", onGround);
              animator.SetBool("WallColl", onWall);
+             if (BouncyDash)
+                 animator.SetInteger("Direction",direction);
+             else if (ClassiqueDash)
+                 animator.SetInteger("Direction",direction);
              Flip(rb.velocity.x);
 
              //Réduction de la vitesse de déplacement sur l'axe x dans les airs 
@@ -424,7 +428,7 @@ using Object = System.Object;
     //En cas de nombre impaire renvoie le joueur à sa position d'origine
     private void DashLight()
     {
-        if (dashTime <= 0 || !isItemDashing)
+        if (dashTime <= 0 || isItemDashing)
         {
             direction = 0;
             dashTime = startDashTime;
