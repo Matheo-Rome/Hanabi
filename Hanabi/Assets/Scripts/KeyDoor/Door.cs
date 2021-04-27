@@ -31,8 +31,8 @@ public class Door : MonoBehaviour
             {
                Player = player;
                min =Vector3.Distance(player.transform.position, _searchPlayer.position);
-           }
-       }
+            }
+        }
        
     }
 

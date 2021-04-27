@@ -18979,6 +18979,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5147636259311510873, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 5147636259311510877, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18988,6 +18993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636259633084375, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5147636259633084379, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
@@ -18999,6 +19009,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.63
       objectReference: {fileID: 0}
+    - target: {fileID: 5147636259727336394, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 5147636259727336398, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19008,6 +19023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -6.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636260222011249, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5147636260222011253, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
@@ -19028,6 +19048,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636260867227037, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636261017374554, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5147636261017374558, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
@@ -23291,6 +23321,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5147636259311510873, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 5147636259311510877, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23300,6 +23335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636259633084375, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5147636259633084379, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
@@ -23311,6 +23351,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.63
       objectReference: {fileID: 0}
+    - target: {fileID: 5147636259727336394, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 5147636259727336398, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23320,6 +23365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -6.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636260222011249, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5147636260222011253, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}
@@ -23340,6 +23390,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636260867227037, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147636261017374554, guid: 720fa415d607d0a4db40038a45eaf066,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5147636261017374558, guid: 720fa415d607d0a4db40038a45eaf066,
         type: 3}

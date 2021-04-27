@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5147636260707145145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.638193, y: 11.374419, z: 22.53125}
+  m_LocalPosition: {x: 18.638193, y: -28.622002, z: 22.53125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3253536269391481676}
@@ -153,7 +153,7 @@ PrefabInstance:
     - target: {fileID: 6278641479510205178, guid: 4220e7e8c15c82b41a3d9754bdce1a31,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.376419
+      value: -28.62
       objectReference: {fileID: 0}
     - target: {fileID: 6278641479510205178, guid: 4220e7e8c15c82b41a3d9754bdce1a31,
         type: 3}
@@ -222,6 +222,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3253536269391481676}
     m_Modifications:
+    - target: {fileID: 6130570747498253423, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570747759854660, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 6130570747819260610, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
       propertyPath: door
@@ -245,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 6130570747819260637, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7061909
+      value: -39.706192
       objectReference: {fileID: 0}
     - target: {fileID: 6130570747819260637, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
@@ -286,6 +296,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570747876603523, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570748476141123, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570748476141127, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570749060414665, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570749150963924, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247e660f3dd805945ae41cd7f87d0aee, type: 3}
