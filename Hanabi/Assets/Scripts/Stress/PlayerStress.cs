@@ -97,6 +97,13 @@ public class PlayerStress : MonoBehaviourPunCallbacks
             photonView.RPC("RPC_TakeStress", RpcTarget.Others, 20);
         }
         
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            /*TakeStress(20);
+            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(20);*/
+            photonView.RPC("RPC_TakeStress", RpcTarget.Others, -20);
+        }
+        
         if (currentStress == maxStress)
         {
             HealStressplayer(reductiondestress);
