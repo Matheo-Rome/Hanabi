@@ -8172,6 +8172,12 @@ MonoBehaviour:
   maxStress: 200
   reductiondestress: 0
   Pretzelcompteur: {fileID: 2063078798}
+  nextStress: 2
+  StressCD: 0
+  canGainStress: 0
+  hasChangedRoom: 0
+  previousRoom: 0
+  isTouchingFire: 0
   stressBar: {fileID: 1610546964}
 --- !u!4 &614482714778135163
 Transform:
@@ -8505,7 +8511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483462048251873932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.26, y: 0.1, z: 0}
+  m_LocalPosition: {x: -3.35, y: 0.1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 9086395537750631726}
@@ -8652,10 +8658,14 @@ MonoBehaviour:
   wallCheckLeft: {fileID: 614482714778135163}
   wallCheckLeft2: {fileID: 851509197688032956}
   keyFollowPoint: {fileID: 1986937721}
+  SpawnPoint: {fileID: 0}
   followingKey: {fileID: 0}
   onGround: 1
   onWall: 0
   hasDashed: 0
+  hasFallen: 0
+  fallResistance: 0
+  canvas: {fileID: 0}
   dashSpeed: 30
   startDashTime: 0.1
   direction: 0
@@ -8663,10 +8673,13 @@ MonoBehaviour:
   BouncyDash: 0
   LightDash: 0
   itemJump: 0
+  itemTp: 0
+  isItemDashing: 0
   playerCamera: {fileID: 6363285486639718227}
-  player1: 0
-  player2: 0
+  CameraSpawn: {fileID: 0}
   player: {fileID: 0}
+  otherplayer: {fileID: 0}
+  founded: 0
 --- !u!1 &5666424802891837980
 GameObject:
   m_ObjectHideFlags: 0

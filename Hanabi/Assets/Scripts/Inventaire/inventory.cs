@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 public class inventory : MonoBehaviour
 {
@@ -100,6 +101,8 @@ public class inventory : MonoBehaviour
 
     private void Update() //updates the countdown for the current active item
     {
+        useitem();
+        
         if (contenu.Count > 0)
         {
             if (timeStart > 0)
@@ -151,6 +154,18 @@ public class inventory : MonoBehaviour
     {
         compteurdecoinstext.text = NombreDePièce.ToString();
         compteurdeRaspberries.text = NombreDeRaspberries.ToString();
+    }
+
+    public void useitem()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ConsommerItems();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ConsommerItems();
+        }
     }
 
 }
