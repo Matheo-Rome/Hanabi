@@ -971,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SliderGO: {fileID: 0}
   audioManager: {fileID: 0}
+  founded: 0
 --- !u!1 &391622422
 GameObject:
   m_ObjectHideFlags: 0
@@ -10089,7 +10090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8099631766218548082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10264,6 +10265,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5509288350125108629, guid: b69da3986d8ca1a4eb3311caa733f8d1,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 8099631766218548083}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b69da3986d8ca1a4eb3311caa733f8d1, type: 3}
 --- !u!4 &6205501802383044028 stripped

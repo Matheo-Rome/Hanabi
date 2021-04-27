@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +18,7 @@ public class LoadScene_z1 : MonoBehaviour
 
     public PlantPlayer2 flower;
     
-    
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (flower.IsTrigger)
@@ -30,13 +31,15 @@ public class LoadScene_z1 : MonoBehaviour
                 {
                     Destroy(gameObject);
                     new WaitForSeconds(0.3f);
-                    SceneManager.LoadScene(14);
+                    PhotonNetwork.LoadLevel(14);
+                    //SceneManager.LoadScene(14);
                 }
                 
                 else 
                 {
                     new WaitForSeconds(0.3f);
-                    SceneManager.LoadScene(NextIndex()); 
+                    PhotonNetwork.LoadLevel(NextIndex());
+                    //SceneManager.LoadScene(NextIndex());
                 }
             }
         }

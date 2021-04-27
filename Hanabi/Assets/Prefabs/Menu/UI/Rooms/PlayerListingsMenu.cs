@@ -120,9 +120,16 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
                 PhotonNetwork.CurrentRoom.IsOpen = false;
                 PhotonNetwork.CurrentRoom.IsVisible = false;
                 sound.SetActive(false);
+                base.photonView.RPC("RPC_Desactivate",RpcTarget.All);
                 PhotonNetwork.LoadLevel(1);
             }
         }
+    }
+
+    [PunRPC]
+    private void RPC_Desactivate()
+    {
+        sound.SetActive(false);
     }
 
     public void OnClick_ReadyUp()
@@ -176,61 +183,14 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         ClassicChosen(!_classic);
         base.photonView.RPC("RPC_ChangeClassicState", RpcTarget.All, PhotonNetwork.LocalPlayer);
-        /*int index = -1;
-         if (PhotonNetwork.IsMasterClient)
-             index = 0;
-         else
-             index = 1;
-         _listings[index].Classic = true;
-         _listings[index].Bouncy = false;
-         _listings[index].Light = false;
-         _listings[index].Classe = "Classic";
-         LightChosen(false);
-         BouncyChosen(false);*/
         LightChosen(false);
         BouncyChosen(false);
-        /*if (PhotonNetwork.IsMasterClient)
-        {
-            _listings[0].Classic = true;
-            _listings[0].Bouncy = false;
-            _listings[0].Light = false;
-            _listings[0].Classe = "Classic";
-        }*/
-
     }
 
     [PunRPC]
     private void RPC_ChangeClassicState(Player player)
     {
-        /*if (_listings.Count == 2)
-        {
-            int index = -1;
-            if (player.IsMasterClient)
-            {
-                
-            }
-            else
-                index = 1;
-            if (index != -1)
-            {
-                _listings[index].Classic = true;
-                _listings[index].Bouncy = false;
-                _listings[index].Light = false;
-                _listings[index].Classe = "Classic";
-                LightChosen(false);
-                BouncyChosen(false);
-            }
-        }*/
-       /* int index = _listings.FindIndex(x => x.Player == player);
-        if (index != -1)
-        {
-            _listings[index].Classic = false;
-            _listings[index].Bouncy = true;
-            _listings[index].Light = false;
-            _listings[index].Classe = "Classic";
-            ClassicChosen(false);
-        }*/
-       if (_listings.Count == 2)
+        if (_listings.Count == 2)
        {
            if (player.IsMasterClient)
            {
@@ -256,34 +216,13 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         BouncyChosen(!_bouncy);
         base.photonView.RPC("RPC_ChangeBouncyState", RpcTarget.All, PhotonNetwork.LocalPlayer);
-       /* int index = -1;
-        if (PhotonNetwork.IsMasterClient)
-            index = 0;
-        else
-            index = 1;
-        _listings[index].Classic = false;
-        _listings[index].Bouncy = true;
-        _listings[index].Light = false;
-        _listings[index].Classe = "Bouncy";
         LightChosen(false);
-        ClassicChosen(false);*/
-       LightChosen(false);
        ClassicChosen(false);
     }
 
     [PunRPC]
     private void RPC_ChangeBouncyState(Player player)
     {
-        /*int index = _listings.FindIndex(x => x.Player == player);
-        if (index != -1)
-        {
-            _listings[index].Classic = false;
-            _listings[index].Bouncy = true;
-            _listings[index].Light = false;
-            _listings[index].Classe = "Bouncy";
-            BouncyChosen(false);
-            }*/
-        
         if (_listings.Count == 2)
         {
             if (player.IsMasterClient)
@@ -310,17 +249,6 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         LightChosen(!_light);
         base.photonView.RPC("RPC_ChangeLightState", RpcTarget.All, PhotonNetwork.LocalPlayer);
-        /*int index = -1;
-        if (PhotonNetwork.IsMasterClient)
-            index = 0;
-        else
-            index = 1;
-        _listings[index].Classic = false;
-        _listings[index].Bouncy = false;
-        _listings[index].Light = true;
-        _listings[index].Classe = "Light";
-        BouncyChosen(false);
-        ClassicChosen(false);*/
         ClassicChosen(false);
         BouncyChosen(false);
     }
@@ -328,16 +256,6 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     [PunRPC]
     private void RPC_ChangeLightState(Player player)
     {
-        /*int index = _listings.FindIndex(x => x.Player == player);
-        if (index != -1)
-        {
-            _listings[index].Classic = false;
-            _listings[index].Bouncy = false;
-            _listings[index].Light = true;
-            _listings[index].Classe = "Light";
-            BouncyChosen(false);
-            LightChosen(false);
-        }*/
         if (_listings.Count == 2)
         {
             if (player.IsMasterClient)

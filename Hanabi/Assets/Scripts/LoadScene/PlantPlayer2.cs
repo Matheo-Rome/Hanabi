@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlantPlayer2 : MonoBehaviour
+public class PlantPlayer2 : MonoBehaviourPunCallbacks
 {
     public bool IsTrigger = false;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,6 +13,7 @@ public class PlantPlayer2 : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             IsTrigger = true;
+            base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,true);
         }
     }
     
@@ -20,6 +22,13 @@ public class PlantPlayer2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IsTrigger = false;
+            base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,false);
         }
+    }
+
+    [PunRPC]
+    private void RPC_PlantP2(bool trigger)
+    {
+        IsTrigger = trigger;
     }
 }

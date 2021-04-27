@@ -5420,7 +5420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &722573737669145411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8805,6 +8805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SliderGO: {fileID: 0}
   audioManager: {fileID: 0}
+  founded: 0
 --- !u!1 &6885018211133370931
 GameObject:
   m_ObjectHideFlags: 0
@@ -10203,6 +10204,11 @@ PrefabInstance:
       propertyPath: Inventaire
       value: 
       objectReference: {fileID: 722573736124847397}
+    - target: {fileID: 4103882524008959095, guid: f7c40af4e8e77b5478c65428131fda45,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 722573737669145410}
     - target: {fileID: 5980486558397604320, guid: f7c40af4e8e77b5478c65428131fda45,
         type: 3}
       propertyPath: m_RootOrder

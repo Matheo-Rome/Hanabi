@@ -3536,6 +3536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SliderGO: {fileID: 0}
   audioManager: {fileID: 0}
+  founded: 0
 --- !u!1 &1934000534
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,6 +4449,7 @@ MonoBehaviour:
   hasDashed: 0
   hasFallen: 0
   fallResistance: 0
+  canvas: {fileID: 6549106301692990342}
   dashSpeed: 15
   startDashTime: 0.4
   direction: 0
@@ -4456,11 +4458,12 @@ MonoBehaviour:
   LightDash: 1
   itemJump: 0
   itemTp: 0
+  isItemDashing: 0
   playerCamera: {fileID: 5698837321430800355}
   CameraSpawn: {fileID: 8180359128223614880}
-  player1: 0
-  player2: 0
   player: {fileID: 413283747132478429}
+  otherplayer: {fileID: 0}
+  founded: 0
 --- !u!251 &3486577312600970590
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -4580,7 +4583,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 280703553175996899}
   - {fileID: 4041139712922838978}
-  viewIdField: 2
+  viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &5606719976092413712
@@ -9038,7 +9041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5901860841979812895
 RectTransform:
   m_ObjectHideFlags: 0
