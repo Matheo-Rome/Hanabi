@@ -21,11 +21,14 @@ public class Instantiate : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            GameObject p1 = MasterManager.NetworkInstantiate(_prefab1, sp1.transform.position, Quaternion.identity);
+            //MasterManager.NetworkInstantiate(_prefab1, sp1.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("ALL_IN_ONE_R", sp1.transform.position, Quaternion.identity);
+
         }
         else
         {
-            MasterManager.NetworkInstantiate(_prefab2, sp2.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("ALL_IN_ONE_S", sp1.transform.position, Quaternion.identity);
+            //MasterManager.NetworkInstantiate(_prefab2, sp2.transform.position, Quaternion.identity);
         }
         Destroy(theEndIsNear);
         Destroy(sp1);
