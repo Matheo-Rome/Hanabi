@@ -15153,7 +15153,7 @@ PrefabInstance:
     - target: {fileID: 888196222291244358, guid: f1632cd138cc471458418558e33c7c53,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.580503
+      value: -9.64
       objectReference: {fileID: 0}
     - target: {fileID: 888196222291244358, guid: f1632cd138cc471458418558e33c7c53,
         type: 3}
@@ -35754,6 +35754,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TorchSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441549366479060280, guid: 1a9d8109fc7d40e4eb4edc8efebc5051,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441549367163074794, guid: 1a9d8109fc7d40e4eb4edc8efebc5051,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441549367368866733, guid: 1a9d8109fc7d40e4eb4edc8efebc5051,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441549367380532031, guid: 1a9d8109fc7d40e4eb4edc8efebc5051,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441549367443170357, guid: 1a9d8109fc7d40e4eb4edc8efebc5051,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d8109fc7d40e4eb4edc8efebc5051, type: 3}
