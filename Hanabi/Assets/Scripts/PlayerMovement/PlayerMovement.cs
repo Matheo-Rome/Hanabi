@@ -87,6 +87,8 @@ using Object = System.Object;
      public GameObject otherplayer;
      public bool founded = false;
 
+     [SerializeField] private bool troll;
+
 
 
      private void Awake()
