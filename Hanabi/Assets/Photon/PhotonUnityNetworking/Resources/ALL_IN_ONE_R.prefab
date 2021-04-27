@@ -4903,6 +4903,7 @@ GameObject:
   - component: {fileID: 4322541084328720963}
   - component: {fileID: 4322541084328720956}
   - component: {fileID: 5327215422994922}
+  - component: {fileID: 426446495908167484}
   m_Layer: 0
   m_Name: ALL_IN_ONE_R
   m_TagString: Untagged
@@ -4965,6 +4966,19 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &426446495908167484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322541084328720957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c39df1218d3be744918037ea5a02447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventaire: {fileID: 4322541084027964547}
 --- !u!1 &4322541084346962987
 GameObject:
   m_ObjectHideFlags: 0
@@ -6654,7 +6668,7 @@ MonoBehaviour:
   player: {fileID: 4416159990541805393}
   otherplayer: {fileID: 0}
   founded: 0
-  troll: 0
+  _saveData: {fileID: 426446495908167484}
 --- !u!251 &6981669235713010224
 PlatformEffector2D:
   m_ObjectHideFlags: 0

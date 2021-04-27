@@ -111,7 +111,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         {
             HealStressplayer(200);
             PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(200);
-            photonView.RPC("RPC_HealStress", RpcTarget.Others, 200);
+            base.photonView.RPC("RPC_HealStress", RpcTarget.Others, 200);
         }
 
     }

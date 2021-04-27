@@ -87,7 +87,7 @@ using Object = System.Object;
      public GameObject otherplayer;
      public bool founded = false;
 
-     [SerializeField] private bool troll;
+     [SerializeField] private SaveData _saveData;
 
 
 
@@ -104,6 +104,8 @@ using Object = System.Object;
 
      private void Start()
      {
+         if(PhotonNetwork.IsMasterClient)
+             _saveData.Load();
          SpawnPoint.position = transform.position;
          CameraSpawn.position = playerCamera.transform.position;
          rb = GetComponent<Rigidbody2D>();

@@ -16,14 +16,13 @@ public class SaveData : MonoBehaviour
         _inventory = Inventaire.GetComponent<inventory>();
     }
     
-    void Update()
+    /*void Update()
     {
         if(Input.GetKeyDown(KeyCode.S))
             Save();
         if(Input.GetKeyDown(KeyCode.C))
             Load();
-
-    }
+    }*/
 
      public void Save()
     {
@@ -36,11 +35,14 @@ public class SaveData : MonoBehaviour
     public void Load()
     {
         string saveString = File.ReadAllText(Application.dataPath + "/sauvgarde.txt");
-        string[] content = saveString.Split(new[] {saveSeparator},System.StringSplitOptions.None);
-        _inventory.NombreDePièce = int.Parse(content[0]);
-        _inventory.compteurdecoinstext.text =  _inventory.NombreDePièce.ToString();
-        _inventory.NombreDeRaspberries = int.Parse(content[1]);
-        _inventory.compteurdeRaspberries.text = _inventory.NombreDeRaspberries.ToString();
-        Debug.Log("Loaded" + _inventory.NombreDePièce.ToString() + " " + _inventory.NombreDeRaspberries.ToString());
+        if (saveString.Length != 0)
+        {
+            string[] content = saveString.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
+            _inventory.NombreDePièce = int.Parse(content[0]);
+            _inventory.compteurdecoinstext.text = _inventory.NombreDePièce.ToString();
+            _inventory.NombreDeRaspberries = int.Parse(content[1]);
+            _inventory.compteurdeRaspberries.text = _inventory.NombreDeRaspberries.ToString();
+            Debug.Log("Loaded" + _inventory.NombreDePièce.ToString() + " " + _inventory.NombreDeRaspberries.ToString());
+        }
     }
 }
