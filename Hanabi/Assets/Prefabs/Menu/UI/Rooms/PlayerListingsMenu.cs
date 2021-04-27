@@ -27,6 +27,8 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
 
     [SerializeField] private GameObject sound;
 
+    [SerializeField] private ActivateInstanciate _activateInstanciate;
+
 
     private void Awake()
     {
@@ -121,6 +123,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
                 PhotonNetwork.CurrentRoom.IsVisible = false;
                 sound.SetActive(false);
                 base.photonView.RPC("RPC_Desactivate",RpcTarget.All);
+                base.photonView.RPC("RPC_Class",RpcTarget.All);
                 PhotonNetwork.LoadLevel(1);
             }
         }
@@ -130,6 +133,25 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     private void RPC_Desactivate()
     {
         sound.SetActive(false);
+    }
+
+    [PunRPC]
+    private void RPC_Class()
+    {
+        if (_listings[0].Classic)
+            _activateInstanciate.p1 = 1;
+        else if (_listings[0].Bouncy)
+            _activateInstanciate.p1 = 2;
+        else if (_listings[0].Light)
+            _activateInstanciate.p1 = 3;
+
+        if (_listings[1].Classic)
+            _activateInstanciate.p2 = 1;
+        else if (_listings[1].Bouncy)
+            _activateInstanciate.p2 = 2;
+        else if (_listings[1].Light)
+            _activateInstanciate.p2 = 3;
+        
     }
 
     public void OnClick_ReadyUp()
