@@ -152,7 +152,7 @@ using Object = System.Object;
              }
          }
 
-         //if (photonView.IsMine)
+         if (photonView.IsMine)
          {
              scenecheck = SceneManager.GetActiveScene().buildIndex;
              if (scene != scenecheck)
