@@ -39,8 +39,6 @@ public class Door : MonoBehaviour
 
             }
         }
-
-        
         //pas sûr de cette ligne là
         //pour reload la scène pour retester
         if (doorOpen && Vector3.Distance(player.transform.position, transform.position) < 1f && Input.GetAxis("Vertical") > 0.1f)

@@ -468,12 +468,12 @@ using Object = System.Object;
     // Test collider fin de niveau/tomber dans un trou/ collision avec l'ia de la mort qui tue/ collision lors d'une teleportation
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Flower"))
+       /* if (other.CompareTag("Flower"))
         {
             Reposition();
             
-        }
-        else if (other.CompareTag("Respawn"))
+        }*/
+        if (other.CompareTag("Respawn"))
         {
             Reposition();
            
@@ -494,12 +494,14 @@ using Object = System.Object;
         }
         else
         {
-           
-            if (other.CompareTag("Planche"))
+            if (!other.CompareTag("Door"))
             {
+                if (other.CompareTag("Planche"))
+                {
+                    isInsideEn++;
+                }
                 isInsideEn++;
             }
-            isInsideEn++;
         }
     }
 
