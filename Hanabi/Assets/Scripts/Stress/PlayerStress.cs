@@ -76,15 +76,10 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         
         //updates the stress each time the cd is up
         if (Time.time > StressCD && canGainStress)
-        {
-           /*TakeStress(1);
-           PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(1);*/
-           photonView.RPC("RPC_TakeStress", RpcTarget.Others, 1);
-           if (currentStress > 200)
-           {
-               currentStress = 200;
-           }
-           StressCD = Time.time + nextStress;
+        { 
+            
+            photonView.RPC("RPC_TakeStress", RpcTarget.Others, 1);
+            StressCD = Time.time + nextStress;
         }
         
         
@@ -92,34 +87,26 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         //cheat code UwU omg so cool
         if (Input.GetKeyDown(KeyCode.H))
         {
-            /*TakeStress(20);
-            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(20);*/
-            photonView.RPC("RPC_TakeStress", RpcTarget.Others, 20);
+            /*TakeStress(20);*/
+            photonView.RPC("RPC_TakeStress", RpcTarget.All, 20);
         }
         
         if (Input.GetKeyDown(KeyCode.J))
         {
             /*TakeStress(20);
             PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(20);*/
-            photonView.RPC("RPC_TakeStress", RpcTarget.Others, -20);
+            photonView.RPC("RPC_HealStress", RpcTarget.All, 20);
         }
         
         if (currentStress == maxStress)
         {
-            HealStressplayer(reductiondestress);
-            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(reductiondestress);
+            /*HealStressplayer(reductiondestress);
+            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(reductiondestress);*/
             photonView.RPC("RPC_HealStress", RpcTarget.Others, reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
         }
-
-        // Si il touche l'IA son stress redescend à 0
-        if (gameObject.GetComponent<Collider2D>().CompareTag("IA"))
-        {
-           /* HealStressplayer(200);
-            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(200);*/
-            base.photonView.RPC("RPC_HealStress", RpcTarget.Others, 200);
-        }
+        
 
     }
 
@@ -156,7 +143,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     public void RPC_HealStress(int stress)
     {
         HealStressplayer(stress);
-        PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(stress);
+        //PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(stress);
     }
     
     

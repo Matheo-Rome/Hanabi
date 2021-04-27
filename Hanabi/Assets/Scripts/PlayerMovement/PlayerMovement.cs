@@ -10,82 +10,82 @@ using UnityEngine.SceneManagement;
 using Object = System.Object;
 
 
- public class PlayerMovement : MonoBehaviourPun
- {
+public class PlayerMovement : MonoBehaviourPun
+{
 
-     public static PlayerMovement instance;
-     private PlayerStress Stress;
+    public static PlayerMovement instance;
+    private PlayerStress Stress;
 
-     //Mouvement
-     public float jumpVelocity;
-     public float speed;
-     public float slideSpeed;
+    //Mouvement
+    public float jumpVelocity;
+    public float speed;
+    [SerializeField] private float slideSpeed;
 
 
-     private Rigidbody2D rb;
-     private Collider2D rc;
+    private Rigidbody2D rb;
+    private Collider2D rc;
 
-     //Checker de position
-     public Transform groundCheckLeft;
-     public Transform groundCheckRight;
-     public Transform wallCheckRight;
-     public Transform wallCheckRight2;
-     public Transform wallCheckLeft;
-     public Transform wallCheckLeft2;
+    //Checker de position
+    [SerializeField] private Transform groundCheckLeft;
+    [SerializeField] private Transform groundCheckRight;
+    [SerializeField] private Transform wallCheckRight;
+    [SerializeField] private Transform wallCheckRight2;
+    [SerializeField] private Transform wallCheckLeft;
+    [SerializeField] private Transform wallCheckLeft2;
 
-     public Transform keyFollowPoint;
-     public Transform SpawnPoint;
+    public Transform keyFollowPoint;
+    [SerializeField] private Transform SpawnPoint;
 
-     public Key followingKey;
+    public Key followingKey;
 
-     public bool onGround;
-     public bool onWall;
-     public bool hasDashed;
-     public bool hasFallen;
-     public int fallResistance;
+    [SerializeField] private bool onGround;
+    [SerializeField] private bool onWall;
+    public bool hasDashed;
+    public bool hasFallen;
+    public int fallResistance;
 
-     [SerializeField] private GameObject canvas;
-     [SerializeField] private GameObject canvasPause;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject canvasPause;
 
-     //Dash
-     public float dashSpeed;
-     private float dashTime;
-     public float startDashTime;
-     public int direction;
-     private float dashCD = 0.5f;
-     private float NextDash;
-     private bool isDashing;
-     private Vector2 dir;
-     private Vector3 stocktele;
-     private Vector3 stockSpawn;
-     private Vector3 stockCam;
-     private int isInsideEn = 0;
-     private int isInsideEx = 0;
+    //Dash
+    public float dashSpeed;
+    private float dashTime;
+    public float startDashTime;
+    public int direction;
+    private float dashCD = 0.5f;
+    private float NextDash;
+    private bool isDashing;
+    private Vector2 dir;
+    private Vector3 stocktele;
+    private Vector3 stockSpawn;
+    private Vector3 stockCam;
+    private int isInsideEn = 0;
+    private int isInsideEx = 0;
 
-     public bool ClassiqueDash;
-     public bool BouncyDash;
-     private bool isBouncydashing;
-     public bool LightDash;
-     
-     public bool itemJump;
-     public bool itemTp;
-     public bool isItemDashing;
+    [SerializeField] private bool ClassiqueDash;
+    [SerializeField] private bool BouncyDash;
+    [SerializeField] private bool isBouncydashing;
+    [SerializeField] private bool LightDash;
 
-     public GameObject playerCamera;
-     public Transform CameraSpawn;
+    public bool itemJump;
+    public bool itemTp;
+    [SerializeField] private bool isItemDashing;
 
-     private Animator animator;
-     private SpriteRenderer spriteRenderer;
-     
+    [SerializeField] private GameObject playerCamera;
+    [SerializeField] private Transform CameraSpawn;
 
-     public GameObject player;
-     private PolygonCollider2D Polycollider;
-     private BoxCollider2D Boxcollider;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
-     private int scene = 1;
-     private int scenecheck = 1;
 
-     public GameObject otherplayer;
+    [SerializeField] private GameObject player;
+    private PolygonCollider2D Polycollider;
+    private BoxCollider2D Boxcollider;
+
+    private int scene = 1;
+    private int scenecheck = 1;
+
+    [SerializeField] private GameObject otherplayer;
      public bool founded = false;
 
      [SerializeField] private SaveData _saveData;
@@ -485,19 +485,22 @@ using Object = System.Object;
             Reposition();
            
             //Reduces the amount of stress gained when falling of you have the long fall boots item
+            fallResistance = 0;
             foreach (var objet in InventairePassif.instance.content)
             {
                 fallResistance += objet.StressLoss;
             }
-            /*PlayerStress.instance.TakeStress(10 - fallResistance);
-            otherplayer.GetComponent<PlayerStress>().TakeStress(10 - fallResistance);*/
-            PlayerStress.instance.photonView.RPC("RPC_TakeStress", RpcTarget.Others, 10 - fallResistance);
+            //PlayerStress.instance.TakeStress(10 - fallResistance);
+            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_TakeStress", RpcTarget.All, 10 - fallResistance);//TakeStress(10 - fallResistance);
+            photonView.RPC("RPC_TakeStress", RpcTarget.All, 10 - fallResistance);
             hasFallen = true;
         }
         
         else if (other.CompareTag("IA"))
         {
             Reposition();
+            base.photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
+            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
         }
         else
         {
