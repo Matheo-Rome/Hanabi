@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
     //porte ouverte
     public Sprite doorOpenSprite;
     [SerializeField] private Transform _searchPlayer;
-    private PlayerMovement Player;
+    public PlayerMovement Player;
     
 
     public bool doorOpen, waitingToOpen;
