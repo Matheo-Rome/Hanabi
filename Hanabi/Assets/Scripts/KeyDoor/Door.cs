@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,8 @@ public class Door : MonoBehaviour
     public SpriteRenderer theSR;
     //porte ouverte
     public Sprite doorOpenSprite;
+    [SerializeField] private Transform _searchPlayer;
+    private PlayerMovement Player;
     
 
     public bool doorOpen, waitingToOpen;
@@ -20,7 +23,17 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement[] players = FindObjectsOfType<PlayerMovement>();
+        float min = 1000000f;
+        foreach (var player in players)
+        { 
+            if (Vector3.Distance(player.transform.position, _searchPlayer.position) < min)
+            {
+               Player = player;
+               min =Vector3.Distance(player.transform.position, _searchPlayer.position);
+           }
+       }
+       
     }
 
     // Ouvre la porte en changeant l'asset de la porte
@@ -28,20 +41,20 @@ public class Door : MonoBehaviour
     {
         if (waitingToOpen)
         {
-            if (Vector3.Distance(player.followingKey.transform.position, transform.position) < 0.1f)
+            if (Vector3.Distance(Player.followingKey.transform.position, transform.position) < 0.1f)
             {
                 waitingToOpen = false;
                 doorOpen = true;
                 theSR.sprite = doorOpenSprite;
-                player.followingKey.gameObject.SetActive(false);
-                player.followingKey = null;
+                Player.followingKey.gameObject.SetActive(false);
+                Player.followingKey = null;
                 gameObject.SetActive(false);
 
             }
         }
         //pas sûr de cette ligne là
         //pour reload la scène pour retester
-        if (doorOpen && Vector3.Distance(player.transform.position, transform.position) < 1f && Input.GetAxis("Vertical") > 0.1f)
+        if (doorOpen && Vector3.Distance(Player.transform.position, transform.position) < 1f && Input.GetAxis("Vertical") > 0.1f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -51,9 +64,9 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (player.followingKey != null)
+            if (Player.followingKey != null)
             {
-                player.followingKey.followTarget = transform;
+                Player.followingKey.followTarget = transform;
                 waitingToOpen = true;
             }
         }

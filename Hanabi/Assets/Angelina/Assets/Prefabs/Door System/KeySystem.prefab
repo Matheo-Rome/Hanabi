@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1297419557248998595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6337883755456587739}
+  m_Layer: 0
+  m_Name: SearchPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6337883755456587739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297419557248998595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.7, y: -20.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4397297599235479877}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4397297598067196854
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4397297598067196852}
   - component: {fileID: 4397297598067196855}
+  - component: {fileID: 749833712}
+  - component: {fileID: 207494273}
   m_Layer: 0
   m_Name: OpenDoor
   m_TagString: Untagged
@@ -81,6 +113,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &749833712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397297598067196854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa797450afd28374c85eb4bfbcb95566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 4397297599350605011}
+--- !u!114 &207494273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397297598067196854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa797450afd28374c85eb4bfbcb95566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 4397297599350605011}
+--- !u!114 &4397297599350605011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397297599235479881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4f861da30750543b520a87cc5c8811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4397297599288415541
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,18 +184,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4397297599350605011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4397297599235479881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e4f861da30750543b520a87cc5c8811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1347234026104972534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +191,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4397297599288415538}
     m_Modifications:
+    - target: {fileID: 3437373425668439472, guid: 5cba2090bdac69249aaf52c923f44465,
+        type: 3}
+      propertyPath: _searchPlayer
+      value: 
+      objectReference: {fileID: 6337883755456587739}
     - target: {fileID: 3437373425668439474, guid: 5cba2090bdac69249aaf52c923f44465,
         type: 3}
       propertyPath: m_SortingOrder
