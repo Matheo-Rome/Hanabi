@@ -27,7 +27,7 @@ public class Instantiate : MonoBehaviour
         }
         else
         {
-            PhotonNetwork.Instantiate("ALL_IN_ONE_S", sp1.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("ALL_IN_ONE_S", sp2.transform.position, Quaternion.identity);
             //MasterManager.NetworkInstantiate(_prefab2, sp2.transform.position, Quaternion.identity);
         }
         Destroy(theEndIsNear);

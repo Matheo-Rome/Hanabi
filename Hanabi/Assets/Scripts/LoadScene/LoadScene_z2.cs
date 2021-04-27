@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,7 +28,8 @@ public class LoadScene_z2 : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 new WaitForSeconds(0.3f);
-                SceneManager.LoadScene(NextIndex());
+                PhotonNetwork.LoadLevel(NextIndex());
+                //SceneManager.LoadScene(NextIndex());
             }
         }
     }
