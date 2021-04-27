@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerStress : MonoBehaviour
+public class PlayerStress : MonoBehaviourPunCallbacks
 {
     List<int> storyScenes = new List<int>{13, 14, 27, 28, 29, 42, 43, 44, 57, 58, 59, 60};
     List<int> fireScenes = new List<int>{12, 26, 41, 56};
@@ -14,13 +16,16 @@ public class PlayerStress : MonoBehaviour
     public Text Pretzelcompteur;
     public float nextStress = 2f;
     public float StressCD;
+    
     public bool canGainStress;
     public bool hasChangedRoom;
     public int previousRoom;
+    public bool isTouchingFire;
 
     public StressBar stressBar;
 
     public static PlayerStress instance;
+    
     private void Awake()
     {
         // Il faut qu'il n'y ai qu'un seul et unique inventaire
@@ -50,10 +55,11 @@ public class PlayerStress : MonoBehaviour
             previousRoom = SceneManager.GetActiveScene().buildIndex;
         }
         
-        //if the room just changed and it is a fire place room then we update the stress accordingly
-        if (fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && hasChangedRoom)
+        //if the room just changed and you are near a fire place then we update the stress accordingly
+        if (hasChangedRoom && isTouchingFire)
         {
             currentStress = (int) (currentStress * 0.6f);
+            hasChangedRoom = false;
         }
         
         //updates the stress each time the cd is up
@@ -88,12 +94,14 @@ public class PlayerStress : MonoBehaviour
             {
                 currentStress = 200;
             }
+            base.photonView.RPC("RPC_TakeStress", RpcTarget.Others, 20);
             
         }
         
         if (currentStress == maxStress)
         {
             HealStressplayer(reductiondestress);
+            base.photonView.RPC("RPC_HealStress", RpcTarget.Others, reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
             
@@ -126,4 +134,18 @@ public class PlayerStress : MonoBehaviour
         
         stressBar.SetStress(currentStress);
     }
+
+    [PunRPC]
+    private void RPC_HealStress(int stress)
+    {
+        HealStressplayer(stress);
+    }
+    
+    
+    [PunRPC]
+    private void RPC_TakeStress(int stress)
+    {
+        TakeStress(stress);
+    }
+
 }
