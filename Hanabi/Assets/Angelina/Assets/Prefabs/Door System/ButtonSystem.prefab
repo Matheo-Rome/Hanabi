@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3696543221646363952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.440811, y: 10.600971, z: 7.7421875}
+  m_LocalPosition: {x: -20.440811, y: 10.60097, z: 7.7421875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1193685511141092515}
@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 3696543221656775740}
   - component: {fileID: 3696543221656775731}
   - component: {fileID: 3696543221656775742}
+  - component: {fileID: 1728518732}
+  - component: {fileID: 1728518731}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -341,6 +343,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4f861da30750543b520a87cc5c8811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1728518732
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696543221656775730}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.65794086, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.1875, y: 3.125}
+    newSize: {x: 1.1875, y: 3.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.51493645, y: 3.125}
+  m_EdgeRadius: 0
+--- !u!114 &1728518731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696543221656775730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06329f6dabe9311418edbbffa483d8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5528814695545056521
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193685511141092515}
   m_Layer: 0
-  m_Name: Button ange
+  m_Name: ButtonSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
