@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainCaptor : MonoBehaviour
 {
@@ -39,4 +41,6 @@ public class MainCaptor : MonoBehaviour
             captor6.Desactivate();
         }
     }
+    
+    
 }

@@ -185,6 +185,7 @@ MonoBehaviour:
   player: {fileID: 1589968619953422916}
   otherplayer: {fileID: 0}
   founded: 0
+  troll: 0
 --- !u!251 &5456728022921809701
 PlatformEffector2D:
   m_ObjectHideFlags: 0
