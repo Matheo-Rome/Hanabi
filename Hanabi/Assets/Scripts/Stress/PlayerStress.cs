@@ -77,8 +77,8 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         //updates the stress each time the cd is up
         if (Time.time > StressCD && canGainStress)
         {
-           TakeStress(1);
-           PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(1);
+           /*TakeStress(1);
+           PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(1);*/
            photonView.RPC("RPC_TakeStress", RpcTarget.Others, 1);
            if (currentStress > 200)
            {
@@ -92,8 +92,8 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         //cheat code UwU omg so cool
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeStress(20);
-            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(20);
+            /*TakeStress(20);
+            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(20);*/
             photonView.RPC("RPC_TakeStress", RpcTarget.Others, 20);
         }
         
@@ -109,8 +109,8 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         // Si il touche l'IA son stress redescend à 0
         if (gameObject.GetComponent<Collider2D>().CompareTag("IA"))
         {
-            HealStressplayer(200);
-            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(200);
+           /* HealStressplayer(200);
+            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(200);*/
             base.photonView.RPC("RPC_HealStress", RpcTarget.Others, 200);
         }
 
@@ -157,7 +157,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     public void RPC_TakeStress(int stress)
     {
         TakeStress(stress);
-        PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(stress);
+        //PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(stress);
     }
 
 }

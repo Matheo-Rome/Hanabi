@@ -45,6 +45,7 @@ using Object = System.Object;
      public int fallResistance;
 
      [SerializeField] private GameObject canvas;
+     [SerializeField] private GameObject canvasPause;
 
      //Dash
      public float dashSpeed;
@@ -104,8 +105,8 @@ using Object = System.Object;
 
      private void Start()
      {
-         if(PhotonNetwork.IsMasterClient)
-             _saveData.Load();
+         /*if(PhotonNetwork.IsMasterClient)
+         _saveData.Load();*/
          SpawnPoint.position = transform.position;
          CameraSpawn.position = playerCamera.transform.position;
          rb = GetComponent<Rigidbody2D>();
@@ -126,20 +127,22 @@ using Object = System.Object;
          {
              playerCamera.SetActive(true);
              canvas.SetActive(true);
+             canvasPause.SetActive(true);
          }
          else
          {
              playerCamera.SetActive(false);
              canvas.SetActive(false);
+             canvasPause.SetActive(false);
          }
      }
 
 
      void FixedUpdate()
      {
-         
+
          if (!founded)
-         { 
+         {
              GameObject[] allPlayer = GameObject.FindGameObjectsWithTag("Player");
              Debug.Log(allPlayer.Length);
              foreach (var Player in allPlayer)
@@ -151,98 +154,95 @@ using Object = System.Object;
                  }
              }
          }
+         scenecheck = SceneManager.GetActiveScene().buildIndex;
+         if (scene != scenecheck)
+             Reposition();
+         scene = scenecheck;
 
-         if (photonView.IsMine)
+
+         //Information sur la direction du déplacement selon les touches appuyé
+         float x = Input.GetAxis("Horizontal");
+         float y = Input.GetAxis("Vertical");
+         float xRaw = Input.GetAxisRaw("Horizontal");
+         float yRaw = Input.GetAxisRaw("Vertical");
+         Vector2 dir = new Vector2(x, 0);
+
+         //Vérifie la position du personnage par rapport au sol et aux murs.
+         onGround = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
+         onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
+                  Physics2D.OverlapArea(wallCheckLeft.position, wallCheckLeft2.position);
+
+         //Jump
+         if (Input.GetButton("Jump") && onGround || itemJump)
+             Jump();
+
+         if (!isDashing)
+             Walk(dir);
+
+         animator.SetFloat("SpeedX", Mathf.Abs(rb.velocity.x));
+         animator.SetFloat("SpeedY", rb.velocity.y);
+         animator.SetBool("GroundColl", onGround);
+         animator.SetBool("WallColl", onWall);
+         if (BouncyDash)
+             animator.SetInteger("Direction", direction);
+         else if (ClassiqueDash)
+             animator.SetInteger("Direction", direction);
+         Flip(rb.velocity.x);
+
+         //Réduction de la vitesse de déplacement sur l'axe x dans les airs 
+         if (!onGround)
+             SlowAir(dir);
+
+         //Sliding
+         if (onWall && !onGround && !Input.GetButton("Jump") && !isBouncydashing)
+             Slide();
+
+         //Dash Classique
+         if (direction == 0 && ClassiqueDash)
+             DashdirClassique();
+         else if (ClassiqueDash)
+             DashClassique();
+
+         //Dash Bouncy
+         if (direction == 0 && BouncyDash)
+             DashdirBouncy();
+         else if (BouncyDash)
+             DashBouncy();
+
+         //Dash Light or The World
+         if (direction == 0 && (LightDash || itemTp))
          {
-             scenecheck = SceneManager.GetActiveScene().buildIndex;
-             if (scene != scenecheck)
-                 Reposition();
-             scene = scenecheck;
-             
-
-             //Information sur la direction du déplacement selon les touches appuyé
-             float x = Input.GetAxis("Horizontal");
-             float y = Input.GetAxis("Vertical");
-             float xRaw = Input.GetAxisRaw("Horizontal");
-             float yRaw = Input.GetAxisRaw("Vertical");
-             Vector2 dir = new Vector2(x, 0);
-
-             //Vérifie la position du personnage par rapport au sol et aux murs.
-             onGround = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
-             onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
-                      Physics2D.OverlapArea(wallCheckLeft.position, wallCheckLeft2.position);
-
-             //Jump
-             if (Input.GetButton("Jump") && onGround || itemJump)
-                 Jump();
-
-             if (!isDashing)
-                 Walk(dir);
-
-             animator.SetFloat("SpeedX", Mathf.Abs(rb.velocity.x));
-             animator.SetFloat("SpeedY", rb.velocity.y);
-             animator.SetBool("GroundColl", onGround);
-             animator.SetBool("WallColl", onWall);
-             if (BouncyDash)
-                 animator.SetInteger("Direction",direction);
-             else if (ClassiqueDash)
-                 animator.SetInteger("Direction",direction);
-             Flip(rb.velocity.x);
-
-             //Réduction de la vitesse de déplacement sur l'axe x dans les airs 
-             if (!onGround)
-                 SlowAir(dir);
-
-             //Sliding
-             if (onWall && !onGround && !Input.GetButton("Jump") && !isBouncydashing)
-                 Slide();
-
-             //Dash Classique
-             if (direction == 0 && ClassiqueDash)
-                 DashdirClassique();
-             else if (ClassiqueDash)
-                 DashClassique();
-
-             //Dash Bouncy
-             if (direction == 0 && BouncyDash)
-                 DashdirBouncy();
-             else if (BouncyDash)
-                 DashBouncy();
-
-             //Dash Light or The World
-             if (direction == 0 && (LightDash || itemTp))
+             if (itemTp)
              {
-                 if (itemTp)
-                 {
-                     itemTp = false;
-                     isItemDashing = true;
-                 }
-
-                 DashdirLight();
-             }
-             else if (LightDash)
-                 DashLight();
-
-             if (isItemDashing)
-             {
-                 DashLight();
-                 DashLight();
+                 itemTp = false;
+                 isItemDashing = true;
              }
 
-
-             //Reset du Dash quand le personnage touche le sol
-             if (onGround && Time.time >= NextDash)
-                 hasDashed = false;
-
-             if (rb.velocity.y < 0)
-                 isBouncydashing = false;
-
-             if (onGround)
-                 hasFallen = false;
+             DashdirLight();
          }
+         else if (LightDash)
+             DashLight();
+
+         if (isItemDashing)
+         {
+             DashLight();
+             DashLight();
+         }
+
+
+         //Reset du Dash quand le personnage touche le sol
+         if (onGround && Time.time >= NextDash)
+             hasDashed = false;
+
+         if (rb.velocity.y < 0)
+             isBouncydashing = false;
+
+         if (onGround)
+             hasFallen = false;
      }
- 
-    //Fait sauter
+
+
+     //Fait sauter
     private void Jump()
     {
         rb.velocity = Vector2.up * jumpVelocity;
@@ -489,8 +489,8 @@ using Object = System.Object;
             {
                 fallResistance += objet.StressLoss;
             }
-            PlayerStress.instance.TakeStress(10 - fallResistance);
-            otherplayer.GetComponent<PlayerStress>().TakeStress(10 - fallResistance);
+            /*PlayerStress.instance.TakeStress(10 - fallResistance);
+            otherplayer.GetComponent<PlayerStress>().TakeStress(10 - fallResistance);*/
             PlayerStress.instance.photonView.RPC("RPC_TakeStress", RpcTarget.Others, 10 - fallResistance);
             hasFallen = true;
         }
