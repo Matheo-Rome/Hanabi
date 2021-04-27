@@ -158,6 +158,7 @@ using Object = System.Object;
              if (scene != scenecheck)
                  Reposition();
              scene = scenecheck;
+             
 
              //Information sur la direction du déplacement selon les touches appuyé
              float x = Input.GetAxis("Horizontal");
