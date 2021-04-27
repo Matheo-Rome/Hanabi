@@ -106,6 +106,14 @@ public class PlayerStress : MonoBehaviourPunCallbacks
             Pretzelcompteur.text = reductiondestress.ToString();
         }
 
+        // Si il touche l'IA son stress redescend à 0
+        if (gameObject.GetComponent<Collider2D>().CompareTag("IA"))
+        {
+            HealStressplayer(200);
+            PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(200);
+            photonView.RPC("RPC_HealStress", RpcTarget.Others, 200);
+        }
+
     }
 
     public bool CanStress()
