@@ -80,7 +80,7 @@ public class LoadScene_z2 : MonoBehaviour
             return next;
         }
         
-        //au bout de 10 salles,  1/10 chance d'aller à la zone suivante
+        //au bout de 10 salles,  1/5 chance d'aller à la zone suivante
         if (i > 9)
         {
             r = Random.Range(0, 5);
