@@ -501,7 +501,7 @@ using Object = System.Object;
         }
         else
         {
-            if (!other.CompareTag("Door"))
+            if (!(other.CompareTag("Door")||other.CompareTag("Button")))
             {
                 if (other.CompareTag("Planche"))
                 {
