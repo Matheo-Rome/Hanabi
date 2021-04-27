@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5147636260707145145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.638193, y: -28.622002, z: 22.53125}
+  m_LocalPosition: {x: 18.638193, y: -28.691998, z: 22.53125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3253536269391481676}
@@ -153,7 +153,7 @@ PrefabInstance:
     - target: {fileID: 6278641479510205178, guid: 4220e7e8c15c82b41a3d9754bdce1a31,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.62
+      value: -28.69
       objectReference: {fileID: 0}
     - target: {fileID: 6278641479510205178, guid: 4220e7e8c15c82b41a3d9754bdce1a31,
         type: 3}
@@ -222,10 +222,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3253536269391481676}
     m_Modifications:
+    - target: {fileID: 6130570747498253419, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570747498253419, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.51
+      objectReference: {fileID: 0}
     - target: {fileID: 6130570747498253423, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
       propertyPath: m_TagString
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570747759854656, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570747759854656, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 6130570747759854660, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
@@ -302,20 +322,55 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 6130570747876603551, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570747876603551, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.16
+      objectReference: {fileID: 0}
     - target: {fileID: 6130570748476141123, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.63
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570748476141123, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.18
       objectReference: {fileID: 0}
     - target: {fileID: 6130570748476141127, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
       propertyPath: m_TagString
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 6130570749060414661, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570749060414661, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.38
+      objectReference: {fileID: 0}
     - target: {fileID: 6130570749060414665, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
       propertyPath: m_TagString
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570749150963920, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130570749150963920, guid: 247e660f3dd805945ae41cd7f87d0aee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.05
       objectReference: {fileID: 0}
     - target: {fileID: 6130570749150963924, guid: 247e660f3dd805945ae41cd7f87d0aee,
         type: 3}
