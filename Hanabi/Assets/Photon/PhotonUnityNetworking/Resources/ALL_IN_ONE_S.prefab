@@ -177,6 +177,7 @@ MonoBehaviour:
   direction: 0
   ClassiqueDash: 0
   BouncyDash: 1
+  isBouncydashing: 0
   LightDash: 0
   itemJump: 0
   itemTp: 0
@@ -7333,6 +7334,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7215375576024392022}
     m_Modifications:
+    - target: {fileID: 2708285852805078314, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3700255977828713544, guid: 78ffe398a01ae2042b03dce8968c068e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7447,6 +7453,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255977931557777, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255978957310788, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255978957310788, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255978957310788, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255979167860341, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255979208791853, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255979208791854, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700255979398214366, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339193937912313536, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339193937912313536, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403938507169253818, guid: 78ffe398a01ae2042b03dce8968c068e,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Slider '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78ffe398a01ae2042b03dce8968c068e, type: 3}

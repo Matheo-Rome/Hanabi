@@ -67,7 +67,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
             reductiondestress += objet.StressRemoved;
             StressCD += objet.StressIntervalle;
             Pretzelcompteur.text = reductiondestress.ToString();
-            if (objet.StressRemoved == 0)
+            if (objet.StressRemoved == 0 && objet.StressIntervalle == 0)
             {
                 content.Add(objet);
             }
@@ -87,7 +87,6 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         //cheat code UwU omg so cool
         if (Input.GetKeyDown(KeyCode.H))
         {
-            /*TakeStress(20);*/
             photonView.RPC("RPC_TakeStress", RpcTarget.All, 20);
         }
         
