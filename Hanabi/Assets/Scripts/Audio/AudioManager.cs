@@ -118,7 +118,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
         {
-            _audioDistortionFilter.distortionLevel = (float)0.85;
+            _audioDistortionFilter.distortionLevel = (float)0.70;
             Blur2.SetActive(false);
             Blur1.SetActive(true);
         }
@@ -150,7 +150,7 @@ public class AudioManager : MonoBehaviour
             RepeatTheSong();
             if(PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
             {
-                _audioDistortionFilter.distortionLevel = (float)1;
+                _audioDistortionFilter.distortionLevel = (float)0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
@@ -169,7 +169,7 @@ public class AudioManager : MonoBehaviour
         }
         if(PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
         {
-            _audioDistortionFilter.distortionLevel = (float)0.85;
+            _audioDistortionFilter.distortionLevel = (float)0.70;
             Blur2.SetActive(false);
             Blur1.SetActive(true);
         }
@@ -199,7 +199,7 @@ public class AudioManager : MonoBehaviour
             audioSource.Play();
             if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
             {
-                _audioDistortionFilter.distortionLevel = (float) 0.85;
+                _audioDistortionFilter.distortionLevel = (float) 0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
@@ -225,7 +225,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         if(PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
         {
-            _audioDistortionFilter.distortionLevel = (float)0.85;
+            _audioDistortionFilter.distortionLevel = (float)0.70;
             Blur2.SetActive(false);
             Blur1.SetActive(true);
         }

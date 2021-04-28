@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class tp_to_z3 : MonoBehaviour
 {
@@ -10,7 +13,7 @@ public class tp_to_z3 : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             new WaitForSeconds(0.3f);
-            SceneManager.LoadScene(0); //30);
+            PhotonNetwork.LoadLevel(30);
         }
         
     }
