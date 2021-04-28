@@ -44,6 +44,11 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LeaveLobby();
+        }
         pauseMenuUi.SetActive(false);
         optionsUi.SetActive(false);
         Time.timeScale = 1f;
