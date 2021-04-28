@@ -12895,6 +12895,16 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3953277621171225875, guid: bd0f3017dbc3adc4d82d8ac4ee69fea6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953277621171225875, guid: bd0f3017dbc3adc4d82d8ac4ee69fea6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.36
+      objectReference: {fileID: 0}
     - target: {fileID: 7215375576024392017, guid: bd0f3017dbc3adc4d82d8ac4ee69fea6,
         type: 3}
       propertyPath: m_Name
