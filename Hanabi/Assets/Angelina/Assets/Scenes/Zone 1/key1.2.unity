@@ -24545,12 +24545,6 @@ CompositeCollider2D:
       - X: -220000000
         Y: 40000000
       - X: -220000000
-        Y: 119999900
-      - X: -219999959
-        Y: 119999900
-      - X: -219999900
-        Y: 119999959
-      - X: -219999900
         Y: 120000000
       - X: 250000000
         Y: 120000000
@@ -24564,14 +24558,8 @@ CompositeCollider2D:
         Y: 71250000
       - X: 141250000
         Y: 70000000
-      - X: 219999900
-        Y: 70000000
-      - X: 219999900
-        Y: 69999959
-      - X: 219999959
-        Y: 69999900
       - X: 220000000
-        Y: 69999900
+        Y: 70000000
       - X: 220000000
         Y: 30000000
       - X: 191250000
@@ -25003,14 +24991,14 @@ CompositeCollider2D:
       - {x: -19, y: 4.874989}
       - {x: -19.000029, y: 4}
       - {x: -22, y: 4.0000296}
-      - {x: -21.99996, y: 12}
+      - {x: -21.999971, y: 12}
       - {x: 25, y: 11.99997}
       - {x: 24.999971, y: 9}
       - {x: 14.124992, y: 8.999992}
       - {x: 14, y: 8.874989}
       - {x: 14.000009, y: 7.124992}
       - {x: 14.125011, y: 7}
-      - {x: 22, y: 6.999961}
+      - {x: 22, y: 6.9999704}
       - {x: 21.999971, y: 3}
       - {x: 19.124992, y: 2.9999924}
       - {x: 19, y: 2.8749893}
@@ -45391,16 +45379,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1418730698}
     m_Modifications:
-    - target: {fileID: 4397297598365258034, guid: 70cbc189baccbb2448d68f0fe670e4dc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397297598365258034, guid: 70cbc189baccbb2448d68f0fe670e4dc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.38
-      objectReference: {fileID: 0}
     - target: {fileID: 4397297599288415538, guid: 70cbc189baccbb2448d68f0fe670e4dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -45476,16 +45454,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1228540519}
     m_Modifications:
-    - target: {fileID: 4397297598365258034, guid: 70cbc189baccbb2448d68f0fe670e4dc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4397297598365258034, guid: 70cbc189baccbb2448d68f0fe670e4dc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.38
-      objectReference: {fileID: 0}
     - target: {fileID: 4397297599288415538, guid: 70cbc189baccbb2448d68f0fe670e4dc,
         type: 3}
       propertyPath: m_RootOrder
