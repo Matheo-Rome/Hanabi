@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 
 
-public class LoadScene_z3 : MonoBehaviour
+public class LoadScene_z4 : MonoBehaviour
 {
     
        List<int> scenes = new List<int>{16,17,18,19,20,21,22,23,24};
