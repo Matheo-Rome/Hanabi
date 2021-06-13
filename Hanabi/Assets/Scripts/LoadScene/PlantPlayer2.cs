@@ -13,7 +13,8 @@ public class PlantPlayer2 : MonoBehaviourPunCallbacks
         if (collision.CompareTag("Player"))
         {
             IsTrigger = true;
-            base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,true);
+            if(PhotonNetwork.IsConnected)
+                base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,true);
         }
     }
     
@@ -22,7 +23,8 @@ public class PlantPlayer2 : MonoBehaviourPunCallbacks
         if (other.CompareTag("Player"))
         {
             IsTrigger = false;
-            base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,false);
+            if(PhotonNetwork.IsConnected)
+                base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,false);
         }
     }
 

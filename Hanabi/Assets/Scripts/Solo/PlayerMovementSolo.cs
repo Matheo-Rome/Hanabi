@@ -10,11 +10,11 @@ using UnityEngine.SceneManagement;
 using Object = System.Object;
 
 
-public class PlayerMovement : MonoBehaviourPun
+public class PlayerMovementSolo : MonoBehaviourPun
 {
 
-    public static PlayerMovement instance;
-    private PlayerStress Stress;
+    public static PlayerMovementSolo instance;
+    private PlayerStressSolo Stress;
 
     //Mouvement
     public float jumpVelocity;
@@ -121,20 +121,7 @@ public class PlayerMovement : MonoBehaviourPun
              Boxcollider.isTrigger = true;
          }
 
-         Stress = GetComponent<PlayerStress>();
-
-         if (photonView.IsMine) //Active la caméra du joueur est éteint celle de l'autre joueur
-         {
-             playerCamera.SetActive(true);
-             canvas.SetActive(true);
-             canvasPause.SetActive(true);
-         }
-         else
-         {
-             playerCamera.SetActive(false);
-             canvas.SetActive(false);
-             canvasPause.SetActive(false);
-         }
+         Stress = GetComponent<PlayerStressSolo>();
      }
 
 
@@ -490,17 +477,16 @@ public class PlayerMovement : MonoBehaviourPun
             {
                 fallResistance += objet.StressLoss;
             }
-            //PlayerStress.instance.TakeStress(10 - fallResistance);
-            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_TakeStress", RpcTarget.All, 10 - fallResistance);//TakeStress(10 - fallResistance);
-            photonView.RPC("RPC_TakeStress", RpcTarget.All, 10 - fallResistance);
+            PlayerStressSolo.instance.TakeStress(10 - fallResistance);
+            otherplayer.GetComponent<PlayerStressSolo>().TakeStress(10 - fallResistance);
             hasFallen = true;
         }
         
         else if (other.CompareTag("IA"))
         {
             Reposition();
-            base.photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
-            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
+            PlayerStressSolo.instance.HealStressplayer(200);
+            otherplayer.GetComponent<PlayerStressSolo>().HealStressplayer(200);
         }
         else
         {
@@ -555,3 +541,4 @@ public class PlayerMovement : MonoBehaviourPun
         SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
     }
  }
+
