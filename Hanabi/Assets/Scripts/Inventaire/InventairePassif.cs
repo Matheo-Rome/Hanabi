@@ -241,6 +241,7 @@ public class InventairePassif : MonoBehaviour
     }
 
     public void UpdateImageInventory(int CurrentItemIndex)   //FAIT UN PUTAIN DE SWITCH C'EST ILLISIBLE :kappa:
+    // Laisse moi tranquille mathéo (oui c pas bo)
     {
         if (CurrentItemIndex == 0)
         {
