@@ -20,10 +20,8 @@ public class ActivateInstanciate : MonoBehaviour
 
     private void Start()
     {
-        if (!PhotonNetwork.IsConnected)
-            _instantiateSolo = instantiateSolo.GetComponent<InstantiateSolo>();
-        else
-            _instantiate = instanciate.GetComponent<Instantiate>();
+        _instantiateSolo = instantiateSolo.GetComponent<InstantiateSolo>();
+        _instantiate = instanciate.GetComponent<Instantiate>();
     }
 
     public void Update()

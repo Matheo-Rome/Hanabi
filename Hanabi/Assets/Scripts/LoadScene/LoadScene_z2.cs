@@ -25,7 +25,7 @@ public class LoadScene_z2 : MonoBehaviour
         {
             tag = "Flower";
 
-            if (collision.CompareTag("Player"))
+            if (collision.CompareTag("Player") || collision.CompareTag("Player1"))
             {
                 new WaitForSeconds(0.3f);
                 PhotonNetwork.LoadLevel(NextIndex());

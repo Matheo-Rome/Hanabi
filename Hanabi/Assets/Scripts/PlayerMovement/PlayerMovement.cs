@@ -239,6 +239,9 @@ public class PlayerMovement : MonoBehaviourPun
 
          if (onGround)
              hasFallen = false;
+         
+         if(Input.GetButtonDown("Respawn") && onGround)
+             Reposition();
      }
 
 

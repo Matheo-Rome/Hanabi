@@ -32,8 +32,9 @@ public class ClassChoiceSolo : MonoBehaviour
             sound.SetActive(false);
             _activateInstanciate.p1 = p1;
             _activateInstanciate.p2 = p2;
-            StartCoroutine(Disconnect());
-            Debug.Log(PhotonNetwork.IsConnected);
+            PhotonNetwork.Disconnect();
+            //StartCoroutine(Disconnect());
+            //Debug.Log(PhotonNetwork.IsConnected);
             SceneManager.LoadScene(1);
         }
     }

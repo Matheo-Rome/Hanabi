@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class Key : MonoBehaviour
@@ -28,28 +29,47 @@ public class Key : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             if (!isFollowing)
             {
-                PlayerMovement[] players = FindObjectsOfType<PlayerMovement>();
-                float min = 10000000f;
-                PlayerMovement Closer = null;
-                foreach (var player in players)
+                if (PhotonNetwork.IsConnected)
                 {
-                    if (Vector3.Distance(collision.transform.position, player.transform.position) < min)
+                    PlayerMovement[] players = FindObjectsOfType<PlayerMovement>();
+                    float min = 10000000f;
+                    PlayerMovement Closer = null;
+                    foreach (var player in players)
                     {
-                        min = Vector3.Distance(collision.transform.position, player.transform.position);
-                        Closer = player;
+                        if (Vector3.Distance(collision.transform.position, player.transform.position) < min)
+                        {
+                            min = Vector3.Distance(collision.transform.position, player.transform.position);
+                            Closer = player;
+                        }
                     }
+                    followTarget = Closer.keyFollowPoint;
+
+                    isFollowing = true;
+                    Closer.followingKey = this;
                 }
-                
+                else
+                {
+                    PlayerMovementSolo[] players = FindObjectsOfType<PlayerMovementSolo>();
+                    float min = 10000000f;
+                    PlayerMovementSolo Closer = null;
+                    foreach (var player in players)
+                    {
+                        if (Vector3.Distance(collision.transform.position, player.transform.position) < min)
+                        {
+                            min = Vector3.Distance(collision.transform.position, player.transform.position);
+                            Closer = player;
+                        }
+                    }
+                    followTarget = Closer.keyFollowPoint;
 
-                followTarget = Closer.keyFollowPoint;
+                    isFollowing = true;
+                    Closer.followingKey = this;
+                }
 
-                isFollowing = true;
-                Closer.followingKey = this;
-                
             }
         }
         

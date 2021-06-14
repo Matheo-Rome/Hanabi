@@ -15,12 +15,9 @@ public class MainCaptor : MonoBehaviour
     public CaptorTrigger captor4;
     public CaptorTrigger captor5;
     public CaptorTrigger captor6;
+
+    [SerializeField] private bool isDown;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -31,14 +28,41 @@ public class MainCaptor : MonoBehaviour
             door.OpenDoor();
         }
 
-        if (PlayerMovement.instance.hasFallen)
+        if (!PhotonNetwork.IsConnected)
         {
-            captor1.Desactivate();
-            captor2.Desactivate();
-            captor3.Desactivate();
-            captor4.Desactivate();
-            captor5.Desactivate();
-            captor6.Desactivate();
+            if (isDown)
+            {
+                if (PlayerMovementSolo.instance.hasFallen)
+                {
+                    captor1.Desactivate();
+                    captor2.Desactivate();
+                    captor3.Desactivate();
+                    captor4.Desactivate();
+                    captor5.Desactivate();
+                    captor6.Desactivate();
+                }
+            }
+            else if (PlayerMovementSolo.instance.hasFallen)
+            {
+                captor1.Desactivate();
+                captor2.Desactivate();
+                captor3.Desactivate();
+                captor4.Desactivate();
+                captor5.Desactivate();
+                captor6.Desactivate();
+            }
+        }
+        else
+        {
+            if (PlayerMovement.instance.hasFallen)
+            {
+                captor1.Desactivate();
+                captor2.Desactivate();
+                captor3.Desactivate();
+                captor4.Desactivate();
+                captor5.Desactivate();
+                captor6.Desactivate();
+            }
         }
     }
     

@@ -253,12 +253,12 @@ EditorBuildSettings:
     path: Assets/Angelina/Assets/Scenes/test matheo.unity
     guid: 68332ac51c558584c8435a79571f0f8b
   - enabled: 0
-    path: Assets/Matheo/scene/test1.unity
+    path: Assets/Matheo/Prefabs/scene/test1.unity
     guid: 865bb5cff04b6704ba8488ab3ed23abf
   - enabled: 0
-    path: Assets/Matheo/scene/Bouton Multi.unity
+    path: Assets/Matheo/Prefabs/scene/Bouton Multi.unity
     guid: 61d3a59793e6af644b06bf9104e26e8c
   - enabled: 0
-    path: Assets/Matheo/scene/test21.unity
+    path: Assets/Matheo/Prefabs/scene/test21.unity
     guid: 01349cc2969abd64cb1cf42aa57b36a8
   m_configObjects: {}

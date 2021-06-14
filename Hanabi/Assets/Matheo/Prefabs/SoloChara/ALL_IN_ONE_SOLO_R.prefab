@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7996100273999535784}
   m_Layer: 0
   m_Name: roger nrml il est sympa
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,6 +374,8 @@ MonoBehaviour:
   otherplayer: {fileID: 0}
   founded: 0
   _saveData: {fileID: 169691723052149533}
+  playing: 1
+  J1: 1
 --- !u!114 &8086771456694426032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4707,7 +4709,7 @@ GameObject:
   - component: {fileID: 7725376195927308286}
   m_Layer: 0
   m_Name: ALL_IN_ONE_SOLO_R
-  m_TagString: Untagged
+  m_TagString: Package
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

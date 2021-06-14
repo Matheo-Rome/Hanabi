@@ -12,7 +12,7 @@ public class ButtonTrigger : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player")|| collider.CompareTag("Player1") || collider.CompareTag("Player2"))
         {
             theSR.sprite = buttonOn;
             door.OpenDoor();

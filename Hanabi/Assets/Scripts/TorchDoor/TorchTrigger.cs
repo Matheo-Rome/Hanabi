@@ -22,7 +22,7 @@ public class TorchTrigger : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player") && Input.GetKey(KeyCode.E))
+        if ((collider.CompareTag("Player") || collider.CompareTag("Player1")) && Input.GetKey(KeyCode.E))
         {
             animator.SetBool("On",true);
             IsActive = true;
