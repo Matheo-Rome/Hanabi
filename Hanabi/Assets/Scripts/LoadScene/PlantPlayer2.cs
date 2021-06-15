@@ -10,7 +10,7 @@ public class PlantPlayer2 : MonoBehaviourPunCallbacks
     public bool IsTrigger = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")|| collision.CompareTag("Player2"))
+        if (collision.CompareTag("Player")|| collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             IsTrigger = true;
             if(PhotonNetwork.IsConnected)
@@ -20,7 +20,7 @@ public class PlantPlayer2 : MonoBehaviourPunCallbacks
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Player2"))
+        if (other.CompareTag("Player") || other.CompareTag("Player2") || other.CompareTag("Player2"))
         {
             IsTrigger = false;
             if(PhotonNetwork.IsConnected)

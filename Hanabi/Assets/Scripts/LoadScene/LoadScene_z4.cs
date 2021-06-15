@@ -27,7 +27,7 @@ public class LoadScene_z4 : MonoBehaviour
            {
                tag = "Flower";
    
-               if (collision.CompareTag("Player") || collision.CompareTag("Player2"))
+               if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
                {
                    //salle défi renvoie vers last_scene
                    if (SceneManager.GetActiveScene().buildIndex == 64)
