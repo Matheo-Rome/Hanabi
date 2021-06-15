@@ -9,7 +9,7 @@ public class TestConnect : MonoBehaviourPunCallbacks
     
     private void Start()
     {
-        print("Connectiong to server.");
+        //print("Connectiong to server.");
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.NickName = MasterManager.GameSettings.NickName;
         PhotonNetwork.GameVersion = MasterManager.GameSettings.GameVersion;
@@ -18,8 +18,8 @@ public class TestConnect : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        print("Connectiong to server.");
-        print(PhotonNetwork.LocalPlayer.NickName);
+        //print("Connectiong to server.");
+        //print(PhotonNetwork.LocalPlayer.NickName);
         if(!PhotonNetwork.InLobby)
             PhotonNetwork.JoinLobby();
     }

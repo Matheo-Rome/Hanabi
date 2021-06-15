@@ -198,6 +198,7 @@ public class PlayerMovementSolo : MonoBehaviourPun
              otherplayer.GetComponent<PlayerMovementSolo>().enabled = false;
          }
 
+         otherplayer.GetComponent<PlayerMovementSolo>().scene = scenecheck;
          scene = scenecheck;
 
 

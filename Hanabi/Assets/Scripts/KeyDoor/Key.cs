@@ -13,10 +13,6 @@ public class Key : MonoBehaviour
     
     
     
-    void Start()
-    {
-    }
-    
     void Update()
     {
         

@@ -7,7 +7,7 @@ public class FirePlace_Trigger : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") || collider.CompareTag("Player1"))
         {
             PlayerStress.instance.isTouchingFire = true;
         }
@@ -15,7 +15,7 @@ public class FirePlace_Trigger : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") | collider.CompareTag("Player1"))
         {
             PlayerStress.instance.isTouchingFire = false;
         }
