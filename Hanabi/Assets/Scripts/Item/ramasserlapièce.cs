@@ -7,9 +7,9 @@ public class ramasserlapièce : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player")||col.CompareTag("Player1")||col.CompareTag("Player2"))
         {
-            inventory.instance.Addcoins(1);
+            inventory.instance.Addcoins(1,true);
             Destroy(gameObject);
         }
     }
