@@ -57,15 +57,16 @@ public class Jar : MonoBehaviourPunCallbacks
             {
                 if (photonView.IsMine)
                 {
-                    Destroy(pot, 0.3f);
+                    
                     GameObject[] inventories = GameObject.FindGameObjectsWithTag("InventaireM");
                     foreach (var inventory in inventories)
                     {
                         inventory.GetComponent<inventory>().Addcoins(add,true);
                     }
-                    
                 }
-                
+
+                Destroy(pot, 0.3f);
+
             }
         }
     }
