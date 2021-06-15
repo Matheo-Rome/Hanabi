@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Photon.Pun;
 using UnityEngine;
 
 public class CaptorTrigger : MonoBehaviour
@@ -10,26 +12,36 @@ public class CaptorTrigger : MonoBehaviour
     public Sprite buttonOn;
     private BoxCollider2D collider2D;
 
+    private bool founded = false;
+    private MainCaptor MainCaptor;
+
     public bool IsActive;
     // Start is called before the first frame update
     void Start()
     {
         collider2D = GetComponent<BoxCollider2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        MainCaptor = GetComponentInParent<MainCaptor>();
     }
     
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") || collider.CompareTag("Player1") || collider.CompareTag("Player2"))
         {
             theSR.sprite = buttonOn;
             IsActive = true;
-            PlayerMovement.instance.hasDashed = false;
+            bool t = PlayerMovementSolo.instance.hasDashed;
+            bool t2 = PlayerMovementSolo.otherinstance.hasDashed;
             collider2D.enabled = false;
+            if (!PhotonNetwork.IsConnected)
+                /*if (collider.CompareTag("Player1"))
+                         PlayerMovementSolo.instance.hasDashed = false;
+                else
+                    PlayerMovementSolo.otherinstance.hasDashed = false;*/
+                MainCaptor.player.hasDashed = false;
+
+            else
+                PlayerMovement.instance.hasDashed = false;
         }
     }
 

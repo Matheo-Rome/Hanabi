@@ -28,7 +28,7 @@ public class ShopTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !HasTalked)
+        if ((collision.CompareTag("Player") || collision.CompareTag("Player1")) && !HasTalked)
         {
             isInRange = true;
             interactUI.enabled = true;
@@ -37,7 +37,7 @@ public class ShopTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Player1"))
         {
             isInRange = false;
             interactUI.enabled = false;

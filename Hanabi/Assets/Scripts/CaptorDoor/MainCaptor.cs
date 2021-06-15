@@ -15,30 +15,57 @@ public class MainCaptor : MonoBehaviour
     public CaptorTrigger captor4;
     public CaptorTrigger captor5;
     public CaptorTrigger captor6;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    [SerializeField] private bool isDown;
+
+    private bool founded = false;
+
+    public PlayerMovementSolo player;
+
 
     // Update is called once per frame
     void Update()
     {
+        if (!PhotonNetwork.IsConnected)
+        {
+            if (!founded)
+            {
+                if (isDown)
+                    player = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovementSolo>();
+                else
+                    player = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovementSolo>();
+            }
+        }
+
         if (captor1.IsActive && captor2.IsActive && captor3.IsActive && captor4.IsActive && captor5.IsActive &&
             captor6.IsActive)
         {
             door.OpenDoor();
         }
 
-        if (PlayerMovement.instance.hasFallen)
+        if (!PhotonNetwork.IsConnected)
         {
-            captor1.Desactivate();
-            captor2.Desactivate();
-            captor3.Desactivate();
-            captor4.Desactivate();
-            captor5.Desactivate();
-            captor6.Desactivate();
+            if (player.hasFallen)
+            {
+                captor1.Desactivate();
+                captor2.Desactivate();
+                captor3.Desactivate();
+                captor4.Desactivate();
+                captor5.Desactivate();
+                captor6.Desactivate();
+            }
+        }
+        else
+        {
+            if (PlayerMovement.instance.hasFallen)
+            {
+                captor1.Desactivate();
+                captor2.Desactivate();
+                captor3.Desactivate();
+                captor4.Desactivate();
+                captor5.Desactivate();
+                captor6.Desactivate();
+            }
         }
     }
     

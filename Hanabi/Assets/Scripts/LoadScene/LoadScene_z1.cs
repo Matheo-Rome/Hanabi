@@ -24,7 +24,7 @@ public class LoadScene_z1 : MonoBehaviour
         if (flower.IsTrigger)
         {
             tag = "Flower";
-            if (collision.CompareTag("Player")) 
+            if (collision.CompareTag("Player")|| collision.CompareTag("Player1")) 
             {
                 //si c'est la salle histoire renvoie vers la room_choice
                 if (SceneManager.GetActiveScene().buildIndex == history)
@@ -49,7 +49,7 @@ public class LoadScene_z1 : MonoBehaviour
     {
         new WaitForSeconds(0.5f);
         
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Player1"))
         {
             tag = "Untagged";
         }

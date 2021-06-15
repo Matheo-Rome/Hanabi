@@ -12,7 +12,7 @@ public class DoorCheatCode : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
             door.OpenDoor();
         
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.V))
             door.CloseDoor();
     }
 }

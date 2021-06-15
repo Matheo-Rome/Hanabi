@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -49,6 +50,12 @@ public class PauseMenu : MonoBehaviour
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LeaveLobby();
         }
+        
+        List<GameObject> toDestroy = GameObject.FindGameObjectsWithTag("Package").ToList();
+        Destroy(toDestroy[0]);
+        Destroy(toDestroy[1]);
+        
+            
         pauseMenuUi.SetActive(false);
         optionsUi.SetActive(false);
         Time.timeScale = 1f;

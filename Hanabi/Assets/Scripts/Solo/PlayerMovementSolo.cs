@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 //using UnityEditor.Timeline;
@@ -10,11 +11,12 @@ using UnityEngine.SceneManagement;
 using Object = System.Object;
 
 
-public class PlayerMovement : MonoBehaviourPun
+public class PlayerMovementSolo : MonoBehaviourPun
 {
 
-    public static PlayerMovement instance;
-    private PlayerStress Stress;
+    public static PlayerMovementSolo instance;
+    public static PlayerMovementSolo otherinstance;
+    private PlayerStressSolo Stress;
 
     //Mouvement
     public float jumpVelocity;
@@ -90,9 +92,11 @@ public class PlayerMovement : MonoBehaviourPun
 
     [SerializeField] private SaveData _saveData;
 
+    public bool playing;
+    public bool J1;
 
-
-     private void Awake()
+    
+    private void Awake()
      {
          // Il faut qu'il n'y ai qu'un seul et unique inventaire
          if (instance != null)
@@ -100,7 +104,21 @@ public class PlayerMovement : MonoBehaviourPun
              Debug.LogWarning("il y a plus d'une instance de mouvement dans la scène");
              return;
          }
-         instance = this;
+
+         /*if (J1)
+         {
+             instance = this;
+             otherinstance = otherplayer.GetComponent<PlayerMovementSolo>();
+         }
+         else
+         {
+             otherinstance = this;
+             instance = otherinstance.GetComponent<PlayerMovementSolo>();
+         }*/
+         /*instance = this;
+         if (J1)
+             otherinstance = otherplayer.GetComponent<PlayerMovementSolo>();*/
+
      }
 
      private void Start()
@@ -120,31 +138,26 @@ public class PlayerMovement : MonoBehaviourPun
              Boxcollider.enabled = false;
              Boxcollider.isTrigger = true;
          }
-
-         Stress = GetComponent<PlayerStress>();
-
-         if (photonView.IsMine) //Active la caméra du joueur est éteint celle de l'autre joueur
+         Stress = GetComponent<PlayerStressSolo>();
+         if (J1)
          {
-             playerCamera.SetActive(true);
-             canvas.SetActive(true);
-             canvasPause.SetActive(true);
+             instance = this;
+             otherinstance = otherplayer.GetComponent<PlayerMovementSolo>();
          }
          else
          {
-             playerCamera.SetActive(false);
-             canvas.SetActive(false);
-             canvasPause.SetActive(false);
+             otherinstance = this;
+             instance = otherinstance.GetComponent<PlayerMovementSolo>();
          }
      }
 
 
      void FixedUpdate()
      {
-
+        
          if (!founded)
          {
-             GameObject[] allPlayer = GameObject.FindGameObjectsWithTag("Player");
-             Debug.Log(allPlayer.Length);
+             GameObject[] allPlayer = new GameObject[]{GameObject.FindGameObjectWithTag("Player1"),GameObject.FindGameObjectWithTag("Player2")};
              foreach (var Player in allPlayer)
              {
                  if (Player != player)
@@ -154,9 +167,38 @@ public class PlayerMovement : MonoBehaviourPun
                  }
              }
          }
+         if (playing)
+         {
+             playerCamera.SetActive(true);
+             canvas.SetActive(true);
+             canvasPause.SetActive(true);
+             otherplayer.GetComponent<PlayerMovementSolo>().canvas.SetActive(false);
+             otherplayer.GetComponent<PlayerMovementSolo>().canvasPause.SetActive(false);
+             otherplayer.GetComponent<PlayerMovementSolo>().enabled = false;
+             otherplayer.GetComponent<PlayerMovementSolo>().playerCamera.SetActive(false);
+         }
+         else
+         {
+             otherplayer.GetComponent<PlayerMovementSolo>().enabled = true;
+             
+         }
+
+         if (Input.GetButtonDown("Switch"))
+         {
+             playing = false;
+             otherplayer.GetComponent<PlayerMovementSolo>().playing = true;
+         }
+
          scenecheck = SceneManager.GetActiveScene().buildIndex;
          if (scene != scenecheck)
+         {
              Reposition();
+             otherplayer.GetComponent<PlayerMovementSolo>().enabled = true;
+             otherplayer.GetComponent<PlayerMovementSolo>().Reposition();
+             otherplayer.GetComponent<PlayerMovementSolo>().enabled = false;
+         }
+
+         otherplayer.GetComponent<PlayerMovementSolo>().scene = scenecheck;
          scene = scenecheck;
 
 
@@ -493,17 +535,16 @@ public class PlayerMovement : MonoBehaviourPun
             {
                 fallResistance += objet.StressLoss;
             }
-            //PlayerStress.instance.TakeStress(10 - fallResistance);
-            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_TakeStress", RpcTarget.All, 10 - fallResistance);//TakeStress(10 - fallResistance);
-            photonView.RPC("RPC_TakeStress", RpcTarget.All, 10 - fallResistance);
+            PlayerStressSolo.instance.TakeStress(10 - fallResistance);
+            otherplayer.GetComponent<PlayerStressSolo>().TakeStress(10 - fallResistance);
             hasFallen = true;
         }
         
         else if (other.CompareTag("IA"))
         {
             Reposition();
-            base.photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
-            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
+            PlayerStressSolo.instance.HealStressplayer(200);
+            otherplayer.GetComponent<PlayerStressSolo>().HealStressplayer(200);
         }
         else
         {
@@ -558,3 +599,4 @@ public class PlayerMovement : MonoBehaviourPun
         SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
     }
  }
+

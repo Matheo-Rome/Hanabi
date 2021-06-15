@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -110,29 +111,54 @@ public class AudioManager : MonoBehaviour
 
     
     //Menu principal
+    
     void Start()
     {
         ActualIndex = 0;
         musicIndex = 0;
         audioSource.clip = playlist[musicIndex];
         audioSource.Play();
-        if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+        if (!PhotonNetwork.IsConnected)
         {
-            _audioDistortionFilter.distortionLevel = (float)0.70;
-            Blur2.SetActive(false);
-            Blur1.SetActive(true);
+            if (PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float)0.70;
+                Blur2.SetActive(false);
+                Blur1.SetActive(true);
+            }
+            else if(PlayerStressSolo.instance.currentStress < 100)
+            {
+                _audioDistortionFilter.distortionLevel = (float)0.5;
+                Blur2.SetActive(false);
+                Blur1.SetActive(false);
+            }
+            else if(PlayerStressSolo.instance.currentStress >= 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float)0.85;
+                Blur2.SetActive(true);
+                Blur1.SetActive(false);
+            }  
         }
-        else if(PlayerStress.instance.currentStress < 100)
+        else
         {
-            _audioDistortionFilter.distortionLevel = (float)0.5;
-            Blur2.SetActive(false);
-            Blur1.SetActive(false);
-        }
-        else if(PlayerStress.instance.currentStress >= 150)
-        {
-            _audioDistortionFilter.distortionLevel = (float)0.85;
-            Blur2.SetActive(true);
-            Blur1.SetActive(false);
+            if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.70;
+                Blur2.SetActive(false);
+                Blur1.SetActive(true);
+            }
+            else if (PlayerStress.instance.currentStress < 100)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.5;
+                Blur2.SetActive(false);
+                Blur1.SetActive(false);
+            }
+            else if (PlayerStress.instance.currentStress >= 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.85;
+                Blur2.SetActive(true);
+                Blur1.SetActive(false);
+            }
         }
     }
 
@@ -144,59 +170,75 @@ public class AudioManager : MonoBehaviour
             ActualIndex = SceneManager.GetActiveScene().buildIndex;
             NewSong();
         }
-        
-        if (!audioSource.isPlaying)
+
+        if (!PhotonNetwork.IsConnected)
         {
-            RepeatTheSong();
-            if(PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            if (!audioSource.isPlaying)
+            {
+                RepeatTheSong();
+                if(PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float)0.70;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(true);
+                }
+                else if(PlayerStressSolo.instance.currentStress < 100)
+                {
+                    _audioDistortionFilter.distortionLevel = (float)0.5;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(false);
+                }
+                else if(PlayerStressSolo.instance.currentStress >= 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float)0.85;
+                    Blur2.SetActive(true);
+                    Blur1.SetActive(false);
+                }
+            }
+            if(PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
-            else if(PlayerStress.instance.currentStress < 100)
+            if(PlayerStressSolo.instance.currentStress < 100)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
-            else if(PlayerStress.instance.currentStress >= 150)
+            if(PlayerStressSolo.instance.currentStress >= 150)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.85;
                 Blur2.SetActive(true);
                 Blur1.SetActive(false);
             }
         }
-        if(PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+        else
         {
-            _audioDistortionFilter.distortionLevel = (float)0.70;
-            Blur2.SetActive(false);
-            Blur1.SetActive(true);
-        }
-        if(PlayerStress.instance.currentStress < 100)
-        {
-            _audioDistortionFilter.distortionLevel = (float)0.5;
-            Blur2.SetActive(false);
-            Blur1.SetActive(false);
-        }
-        if(PlayerStress.instance.currentStress >= 150)
-        {
-            _audioDistortionFilter.distortionLevel = (float)0.85;
-            Blur2.SetActive(true);
-            Blur1.SetActive(false);
-        }
-    }
+            if (!audioSource.isPlaying)
+            {
+                RepeatTheSong();
+                if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.70;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(true);
+                }
+                else if (PlayerStress.instance.currentStress < 100)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.5;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(false);
+                }
+                else if (PlayerStress.instance.currentStress >= 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.85;
+                    Blur2.SetActive(true);
+                    Blur1.SetActive(false);
+                }
+            }
 
-    void NewSong()
-    {
-        ActualIndex = SceneManager.GetActiveScene().buildIndex;
-        
-        //si il faut changer de musique
-        if (IndexSong() != 15)
-        {
-            musicIndex = IndexSong();
-            audioSource.clip = playlist[musicIndex];
-            audioSource.Play();
             if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.70;
@@ -219,27 +261,114 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    void NewSong()
+    {
+        ActualIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        //si il faut changer de musique
+        if (IndexSong() != 15)
+        {
+            musicIndex = IndexSong();
+            audioSource.clip = playlist[musicIndex];
+            audioSource.Play();
+            if (!PhotonNetwork.IsConnected)
+            {
+                if (PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.70;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(true);
+                }
+
+                if (PlayerStressSolo.instance.currentStress < 100)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.5;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(false);
+                }
+
+                if (PlayerStressSolo.instance.currentStress >= 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.85;
+                    Blur2.SetActive(true);
+                    Blur1.SetActive(false);
+                } 
+            }
+            else
+            {
+                if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.70;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(true);
+                }
+
+                if (PlayerStress.instance.currentStress < 100)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.5;
+                    Blur2.SetActive(false);
+                    Blur1.SetActive(false);
+                }
+
+                if (PlayerStress.instance.currentStress >= 150)
+                {
+                    _audioDistortionFilter.distortionLevel = (float) 0.85;
+                    Blur2.SetActive(true);
+                    Blur1.SetActive(false);
+                }
+            }
+        }
+    }
     void RepeatTheSong()
     {
         audioSource.clip = playlist[musicIndex];
         audioSource.Play();
-        if(PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+        if (!PhotonNetwork.IsConnected)
         {
-            _audioDistortionFilter.distortionLevel = (float)0.70;
-            Blur2.SetActive(false);
-            Blur1.SetActive(true);
+            if (PlayerStressSolo.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.70;
+                Blur2.SetActive(false);
+                Blur1.SetActive(true);
+            }
+
+            if (PlayerStressSolo.instance.currentStress < 100)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.5;
+                Blur2.SetActive(false);
+                Blur1.SetActive(false);
+            }
+
+            if (PlayerStressSolo.instance.currentStress >= 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.85;
+                Blur2.SetActive(true);
+                Blur1.SetActive(false);
+            }
         }
-        if(PlayerStress.instance.currentStress < 100)
+        else
         {
-            _audioDistortionFilter.distortionLevel = (float)0.5;
-            Blur2.SetActive(false);
-            Blur1.SetActive(false);
-        }
-        if(PlayerStress.instance.currentStress >= 150)
-        {
-            _audioDistortionFilter.distortionLevel = (float)0.85;
-            Blur2.SetActive(true);
-            Blur1.SetActive(false);
+            if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.70;
+                Blur2.SetActive(false);
+                Blur1.SetActive(true);
+            }
+
+            if (PlayerStress.instance.currentStress < 100)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.5;
+                Blur2.SetActive(false);
+                Blur1.SetActive(false);
+            }
+
+            if (PlayerStress.instance.currentStress >= 150)
+            {
+                _audioDistortionFilter.distortionLevel = (float) 0.85;
+                Blur2.SetActive(true);
+                Blur1.SetActive(false);
+            }
         }
     }
 
