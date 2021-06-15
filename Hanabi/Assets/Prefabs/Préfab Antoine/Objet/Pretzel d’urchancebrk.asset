@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: "Pretzel d\u2019urchancebrk"
   m_EditorClassIdentifier: 
   id: 12
-  name: "Pretzel d\u2019urchancebrk"
+  name: "Pretzel d\u2019urchanceBreak"
   description: Stress removing 50 Stress
   image: {fileID: 21300000, guid: d91c4c5caa2c4334e9dfe97c6271be1b, type: 3}
   StressRemoved: 50
   speedGiven: 0
-  speedDuration: 0
   jumpBoostGiven: 0
   Price: 40
-  dashReset: 0
-  jumpGiven: 0
   ReducePrice: 0
+  StressIntervalle: 0
+  StressLoss: 0

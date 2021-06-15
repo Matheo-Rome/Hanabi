@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa6578cfbbd830e4b99ab535ec51ea3b, type: 3}
-  m_Name: Jump potionUsed
+  m_Name: Jump potionNew 1
   m_EditorClassIdentifier: 
-  id: 5
-  name: JumpPotionUsed
+  id: 6
+  name: Jump2
   description: gives the player a higher jump
-  image: {fileID: 1544313349654327813, guid: 76ffe0297478847a48c3091443de6fc4, type: 3}
+  image: {fileID: 1527132242282399131, guid: 76ffe0297478847a48c3091443de6fc4, type: 3}
   StressRemoved: 0
   speedGiven: 0
-  jumpBoostGiven: 0.667
-  Price: 70
+  jumpBoostGiven: 1.0005
+  Price: 100
   ReducePrice: 0
   StressIntervalle: 0
   StressLoss: 0
