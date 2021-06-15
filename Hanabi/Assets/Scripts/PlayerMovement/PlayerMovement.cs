@@ -154,6 +154,7 @@ public class PlayerMovement : MonoBehaviourPun
                  }
              }
          }
+
          scenecheck = SceneManager.GetActiveScene().buildIndex;
          if (scene != scenecheck)
              Reposition();

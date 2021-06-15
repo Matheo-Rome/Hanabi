@@ -17,6 +17,7 @@ public class LoadScene_z1 : MonoBehaviour
     private int next;
 
     public PlantPlayer2 flower;
+    public bool destroy;
     
    
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +25,7 @@ public class LoadScene_z1 : MonoBehaviour
         if (flower.IsTrigger)
         {
             tag = "Flower";
-            if (collision.CompareTag("Player")|| collision.CompareTag("Player1")) 
+            if (collision.CompareTag("Player")|| collision.CompareTag("Player1") || collision.CompareTag("Player2")) 
             {
                 //si c'est la salle histoire renvoie vers la salle défi
                 if (SceneManager.GetActiveScene().buildIndex == history)
@@ -38,6 +39,7 @@ public class LoadScene_z1 : MonoBehaviour
                 else if (SceneManager.GetActiveScene().buildIndex == 61)
                 {
                     Destroy(gameObject);
+                    destroy = true;
                     new WaitForSeconds(0.3f);
                     PhotonNetwork.LoadLevel(14);
                     //SceneManager.LoadScene(14);
@@ -57,7 +59,7 @@ public class LoadScene_z1 : MonoBehaviour
     {
         new WaitForSeconds(0.5f);
         
-        if (other.CompareTag("Player") || other.CompareTag("Player1"))
+        if (other.CompareTag("Player") || other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             tag = "Untagged";
         }

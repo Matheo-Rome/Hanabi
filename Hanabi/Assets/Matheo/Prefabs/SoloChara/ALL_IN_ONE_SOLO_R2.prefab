@@ -1677,7 +1677,7 @@ GameObject:
   - component: {fileID: 3043325455377941941}
   m_Layer: 5
   m_Name: "Textnombredepi\xE8ce"
-  m_TagString: Untagged
+  m_TagString: Canvas2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3028,7 +3028,7 @@ GameObject:
   - component: {fileID: 3043325455793191314}
   m_Layer: 0
   m_Name: Inventaire
-  m_TagString: Untagged
+  m_TagString: Inventaire2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6923,6 +6923,8 @@ MonoBehaviour:
   Oneinstance: 0
   Fantome: {fileID: 2083277297713527361}
   instance: {fileID: 0}
+  cooldown: 15
+  instanceFantome: {fileID: 0}
 --- !u!1 &5002119468169902439
 GameObject:
   m_ObjectHideFlags: 0

@@ -104,21 +104,7 @@ public class PlayerMovementSolo : MonoBehaviourPun
              Debug.LogWarning("il y a plus d'une instance de mouvement dans la scène");
              return;
          }
-
-         /*if (J1)
-         {
-             instance = this;
-             otherinstance = otherplayer.GetComponent<PlayerMovementSolo>();
-         }
-         else
-         {
-             otherinstance = this;
-             instance = otherinstance.GetComponent<PlayerMovementSolo>();
-         }*/
-         /*instance = this;
-         if (J1)
-             otherinstance = otherplayer.GetComponent<PlayerMovementSolo>();*/
-
+         
      }
 
      private void Start()
