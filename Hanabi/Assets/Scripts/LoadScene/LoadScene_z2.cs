@@ -27,9 +27,21 @@ public class LoadScene_z2 : MonoBehaviour
 
             if (collision.CompareTag("Player") || collision.CompareTag("Player1"))
             {
-                new WaitForSeconds(0.3f);
-                PhotonNetwork.LoadLevel(NextIndex());
-                //SceneManager.LoadScene(NextIndex());
+                //salle défi renvoie vers prochaine zone
+                if (SceneManager.GetActiveScene().buildIndex == 62)
+                {
+                    Destroy(gameObject);
+                    new WaitForSeconds(0.3f);
+                    PhotonNetwork.LoadLevel(45);
+                    //SceneManager.LoadScene(14);
+                }
+
+                else
+                {
+                    new WaitForSeconds(0.3f);
+                    PhotonNetwork.LoadLevel(NextIndex());
+                    //SceneManager.LoadScene(NextIndex());
+                }
             }
         }
     }
@@ -37,7 +49,7 @@ public class LoadScene_z2 : MonoBehaviour
     private int NextIndex()
     {
         if (i == 13)
-            return 30;
+            return 62;
 
         //n'a pas encore visité le firecamp au bout de 7 salles
         if (i == 6 && firecamp != 0)
@@ -87,7 +99,7 @@ public class LoadScene_z2 : MonoBehaviour
         {
             r = Random.Range(0, 5);
             if (r == 1)
-                return 30;
+                return 62;
         }
             
         

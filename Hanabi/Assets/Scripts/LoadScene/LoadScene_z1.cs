@@ -26,8 +26,16 @@ public class LoadScene_z1 : MonoBehaviour
             tag = "Flower";
             if (collision.CompareTag("Player")|| collision.CompareTag("Player1")) 
             {
-                //si c'est la salle histoire renvoie vers la room_choice
+                //si c'est la salle histoire renvoie vers la salle défi
                 if (SceneManager.GetActiveScene().buildIndex == history)
+                {
+                    new WaitForSeconds(0.3f);
+                    PhotonNetwork.LoadLevel(61);
+                    
+                }
+                
+                //salle défi renvoie vers choice_room
+                else if (SceneManager.GetActiveScene().buildIndex == 61)
                 {
                     Destroy(gameObject);
                     new WaitForSeconds(0.3f);
