@@ -11,10 +11,10 @@ using Random = UnityEngine.Random;
 public class LoadScene_z3 : MonoBehaviour
 {
     
-       List<int> scenes = new List<int>{16,17,18,19,20,21,22,23,24};
-       List<int> history = new List<int>{27,28,29};
-       private int shop = 25;
-       private int firecamp = 26;
+       List<int> scenes = new List<int>{31,32,33,34,35,36,37,38,39};
+       List<int> history = new List<int>{42,43,44};
+       private int shop = 40;
+       private int firecamp = 41;
        private int i = 0;
        private int r;
        private int next;
@@ -29,9 +29,21 @@ public class LoadScene_z3 : MonoBehaviour
    
                if (collision.CompareTag("Player"))
                {
-                   new WaitForSeconds(0.3f);
-                   PhotonNetwork.LoadLevel(NextIndex());
-                   //SceneManager.LoadScene(NextIndex());
+                   //salle défi renvoie vers prochaine zone
+                   if (SceneManager.GetActiveScene().buildIndex == 63)
+                   {
+                       Destroy(gameObject);
+                       new WaitForSeconds(0.3f);
+                       PhotonNetwork.LoadLevel(45);
+                       //SceneManager.LoadScene(14);
+                   }
+
+                   else
+                   {
+                       new WaitForSeconds(0.3f);
+                       PhotonNetwork.LoadLevel(NextIndex());
+                       //SceneManager.LoadScene(NextIndex());
+                   }
                }
            }
        }
@@ -39,14 +51,14 @@ public class LoadScene_z3 : MonoBehaviour
        private int NextIndex()
        {
            if (i == 13)
-               return 30;
+               return 63;
    
            //n'a pas encore visité le firecamp au bout de 7 salles
            if (i == 6 && firecamp != 0)
            {
                firecamp = 0;
                i++;
-               return 26;
+               return 41;
            }
    
            //n'a pas encore visité le shop au bout de 8 salles
@@ -54,7 +66,7 @@ public class LoadScene_z3 : MonoBehaviour
            {
                shop = 0;
                i++;
-               return 25;
+               return 40;
            }
            
            //pas de firecamp ni de shop pour les 3 premières salles
@@ -89,7 +101,7 @@ public class LoadScene_z3 : MonoBehaviour
            {
                r = Random.Range(0, 5);
                if (r == 1)
-                   return 30;
+                   return 63;
            }
                
            
@@ -118,7 +130,7 @@ public class LoadScene_z3 : MonoBehaviour
                {
                    shop = 0;
                    i++;
-                   return 25;
+                   return 40;
                }
            }
            
@@ -132,7 +144,7 @@ public class LoadScene_z3 : MonoBehaviour
                {
                    firecamp = 0;
                    i++; 
-                   return 26;
+                   return 41;
                }
            }
            
