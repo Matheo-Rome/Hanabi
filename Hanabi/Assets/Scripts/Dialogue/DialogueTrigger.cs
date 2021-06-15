@@ -31,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
    //Se met sur true si leur boites de collision sont en contact
    private void OnTriggerEnter2D(Collider2D collision)
    {
-      if (collision.CompareTag("Player"))
+      if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
       {
          isInRange = true;
          interactUI.enabled = true;
@@ -43,7 +43,7 @@ public class DialogueTrigger : MonoBehaviour
    //Se met sur false si leur boites de collision ne sont pas en contact
    private void OnTriggerExit2D(Collider2D collision)
    {
-      if (collision.CompareTag("Player"))
+      if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
       {
          isInRange = false;
          interactUI.enabled = false;

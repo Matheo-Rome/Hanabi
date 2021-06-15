@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 
 public class Jar : MonoBehaviourPunCallbacks
@@ -12,8 +12,7 @@ public class Jar : MonoBehaviourPunCallbacks
     [SerializeField] private BoxCollider2D collider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject pot;
-    private int maxP = 50;
-    private Random rnd = new Random();
+    private float maxP = 3;
 
     private GameObject p1;
     private GameObject p2;
@@ -21,6 +20,7 @@ public class Jar : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        Random.seed = System.DateTime.Now.Millisecond;
         collider = GetComponent<BoxCollider2D>();
         Animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -46,7 +46,7 @@ public class Jar : MonoBehaviourPunCallbacks
         if (other.CompareTag("Player") || other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             Animator.Play("Jar");
-            int add = rnd.Next(0, maxP + 1);
+            int add = (int) Random.Range(0,maxP+1);
             if (!PhotonNetwork.IsConnected)
             {
                 p1.GetComponent<inventory>().Addcoins(add,false);
@@ -57,17 +57,16 @@ public class Jar : MonoBehaviourPunCallbacks
             {
                 if (photonView.IsMine)
                 {
+                    Destroy(pot, 0.3f);
                     GameObject[] inventories = GameObject.FindGameObjectsWithTag("InventaireM");
                     foreach (var inventory in inventories)
                     {
                         inventory.GetComponent<inventory>().Addcoins(add,true);
                     }
-                    Destroy(pot, 0.3f);
+                    
                 }
                 
             }
-
-            add = rnd.Next(0, maxP + 1);
         }
     }
     
