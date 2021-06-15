@@ -55,41 +55,6 @@ public class AmeliorationManager : MonoBehaviour
             buttonScript.item = items[i];
             button.GetComponent<Button>().onClick.AddListener(delegate { buttonScript.BuyItem(); });
         }
-
-        /*var j = 0;
-        int reduction = 0;
-        var nouveauxprix = 0;
-
-        foreach (var objet in InventairePassif.instance.content)
-        {
-            reduction += objet.ReducePrice;
-        }
-
-        // supprime les potentiels boutons présent dans le parents
-        for (int i = 0; i < sellbuttonsParent.childCount; i++)
-        {
-            Destroy(sellbuttonsParent.GetChild(i).gameObject);
-        }
-
-        // Instancie un bouton pour chaque item à vendre et le configure
-        for (int i = 0; i < 3; i++)
-        {
-            nouveauxprix = 0;
-
-            j = Random.Range(0, 30);
-            nouveauxprix = items[j].Price - reduction;
-            if (nouveauxprix < 0)
-            {
-                nouveauxprix = 0;
-            }
-
-            GameObject button = Instantiate(sellbuttonPrefab, sellbuttonsParent);
-            SellButtonItem buttonScript = button.GetComponent<SellButtonItem>();
-            buttonScript.ItemName.text = items[j].name;
-            buttonScript.ItemImage.sprite = items[j].image;
-            buttonScript.ItemPrice.text = nouveauxprix.ToString();
-            buttonScript.item = items[j];
-            button.GetComponent<Button>().onClick.AddListener(delegate { buttonScript.BuyItem(); });*/
     }
 
 
