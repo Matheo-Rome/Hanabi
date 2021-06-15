@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 6813591526561147484}
   m_Layer: 0
   m_Name: Inventaire
-  m_TagString: Untagged
+  m_TagString: Inventaire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5423,6 +5423,8 @@ MonoBehaviour:
   Oneinstance: 0
   Fantome: {fileID: 3457025921060577813}
   instance: {fileID: 0}
+  cooldown: 15
+  instanceFantome: {fileID: 0}
 --- !u!1 &7489156747815033742
 GameObject:
   m_ObjectHideFlags: 0

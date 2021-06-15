@@ -3,8 +3,9 @@ using UnityEngine.UI;
 using UnityEngine;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Photon.Pun;
 
-public class inventory : MonoBehaviour
+public class inventory : MonoBehaviourPunCallbacks
 {
     public int NombreDePièce;
     public int NombreDeRaspberries;
@@ -24,6 +25,7 @@ public class inventory : MonoBehaviour
 
     public static inventory instance;
     
+    
     private void Awake()
     {
         // Il faut qu'il n'y ai qu'un seul et unique inventaire
@@ -36,11 +38,20 @@ public class inventory : MonoBehaviour
         instance = this;
     }
 
-    public void Addcoins(int pièce)
+    public void Addcoins(int pièce,bool again)
     {
         NombreDePièce += pièce; 
         compteurdecoinstext.text = NombreDePièce.ToString();
-        
+        if (PhotonNetwork.IsConnected && again)
+        {
+            photonView.RPC("RPC_AddCoins", RpcTarget.Others,pièce);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_AddCoins(int pièce)
+    {
+        Addcoins(pièce,false);
     }
     
     public void AddRaspberries(int Raspberries)
