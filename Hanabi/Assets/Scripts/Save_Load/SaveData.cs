@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Photon.Pun;
 using UnityEngine;
 
 public class SaveData : MonoBehaviour
@@ -38,11 +39,24 @@ public class SaveData : MonoBehaviour
         if (saveString.Length != 0)
         {
             string[] content = saveString.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
-            _inventory.NombreDePièce = int.Parse(content[0]);
-            _inventory.compteurdecoinstext.text = _inventory.NombreDePièce.ToString();
-            _inventory.NombreDeRaspberries = int.Parse(content[1]);
-            _inventory.compteurdeRaspberries.text = _inventory.NombreDeRaspberries.ToString();
-            Debug.Log("Loaded" + _inventory.NombreDePièce.ToString() + " " + _inventory.NombreDeRaspberries.ToString());
+            if (!PhotonNetwork.IsConnected)
+            {
+                _inventory.NombreDePièce = int.Parse(content[0]);
+                _inventory.compteurdecoinstext.text = _inventory.NombreDePièce.ToString();
+                _inventory.NombreDeRaspberries = int.Parse(content[1]);
+                _inventory.compteurdeRaspberries.text = _inventory.NombreDeRaspberries.ToString();
+            }
+            else
+            {
+                GameObject[] inventories = GameObject.FindGameObjectsWithTag("InventaireM");
+                foreach (var inventory in inventories)
+                {
+                    inventory.GetComponent<inventory>().Addcoins(-inventory.GetComponent<inventory>().NombreDePièce,true);
+                    inventory.GetComponent<inventory>().Addcoins(int.Parse(content[0]),true);
+                    inventory.GetComponent<inventory>().AddRaspberries(-inventory.GetComponent<inventory>().NombreDeRaspberries,true);
+                    inventory.GetComponent<inventory>().AddRaspberries(int.Parse(content[1]),true);
+                }
+            }
         }
     }
 }

@@ -53,12 +53,21 @@ public class inventory : MonoBehaviourPunCallbacks
     {
         Addcoins(pièce,false);
     }
-    
-    public void AddRaspberries(int Raspberries)
+
+    public void AddRaspberries(int Raspberries,bool again)
     {
         NombreDeRaspberries += Raspberries; 
         compteurdeRaspberries.text = NombreDeRaspberries.ToString();
-        
+        if (PhotonNetwork.IsConnected && again)
+        {
+            photonView.RPC("RPC_AddRaspberries", RpcTarget.Others,Raspberries);
+        }
+    }
+    
+    [PunRPC]
+    public void RPC_AddRaspberries(int Raspberries)
+    {
+        AddRaspberries(Raspberries,false);
     }
     
     public void Start()
