@@ -30,8 +30,7 @@ public class RamasserRaspberries : MonoBehaviourPunCallbacks
     {
         if (col.CompareTag("Player") || col.CompareTag("Player1") || col.CompareTag("Player2"))
         {
-            /*inventory.instance.AddRaspberries(1,true);
-            Destroy(gameObject);*/
+           
             
             if (!PhotonNetwork.IsConnected)
             {
@@ -43,7 +42,6 @@ public class RamasserRaspberries : MonoBehaviourPunCallbacks
             {
                 if (photonView.IsMine)
                 {
-                    Debug.Log("dsskljgmlghjfdslmhkjfdlmksjhf");
                     GameObject[] inventories = GameObject.FindGameObjectsWithTag("InventaireM");
                     foreach (var inventory in inventories)
                     {
