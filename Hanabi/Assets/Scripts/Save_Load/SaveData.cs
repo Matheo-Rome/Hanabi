@@ -28,12 +28,6 @@ public class SaveData : MonoBehaviour
             Load();
             already = true;
         }
-        /* if(Input.GetKeyDown(KeyCode.U))
-             Save();
-         if(Input.GetKeyDown(KeyCode.Y))
-             Load();*/
-        
-        
     }
     
     public void Save()
