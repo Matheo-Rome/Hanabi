@@ -15,7 +15,8 @@ public class upgradesSO : ScriptableObject
     public int givenObjectLevel;
     public int coinDropUpgrade;
     
-    
+    //Pour la jar
+    public int addGiventByJar;
     
     //test
     public float jumpBoostGiven;

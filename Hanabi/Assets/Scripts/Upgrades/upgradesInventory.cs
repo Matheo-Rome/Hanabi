@@ -12,7 +12,7 @@ public class upgradesInventory : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("il y a plus d'une instance d'inventaire Passif dans la scène");
+            Debug.LogWarning("il y a plus d'une instance d'inventaire d'upgrade dans la scène");
             return;
         }
 
@@ -21,7 +21,10 @@ public class upgradesInventory : MonoBehaviour
     
     public void AddEffectAmelioration(upgradesSO Upgrade)
     {
+        //test
         PlayerMovement.instance.jumpVelocity += Upgrade.jumpBoostGiven;
+
+        ValueOfUpgrade.instance.addGiventByJar = Upgrade.coinDropUpgrade;
     }
 
     public void Start()
