@@ -12,20 +12,31 @@ public class SaveData : MonoBehaviour
 
     private string saveSeparator = "%VALUE%";
 
+    private bool already = false;
+
     private void Start()
     {
         _inventory = Inventaire.GetComponent<inventory>();
     }
-    
-    /*void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.S))
-            Save();
-        if(Input.GetKeyDown(KeyCode.C))
-            Load();
-    }*/
 
-     public void Save()
+   
+
+    void Update()
+    {
+        if (!already && Input.anyKey)
+        {
+            Load();
+            already = true;
+        }
+        /* if(Input.GetKeyDown(KeyCode.U))
+             Save();
+         if(Input.GetKeyDown(KeyCode.Y))
+             Load();*/
+        
+        
+    }
+    
+    public void Save()
     {
         string[] content = new[] {_inventory.NombreDePièce.ToString(), _inventory.NombreDeRaspberries.ToString()};
         string saveString = string.Join(saveSeparator,content);
@@ -46,7 +57,7 @@ public class SaveData : MonoBehaviour
                 _inventory.NombreDeRaspberries = int.Parse(content[1]);
                 _inventory.compteurdeRaspberries.text = _inventory.NombreDeRaspberries.ToString();
             }
-            else
+            else if (PhotonNetwork.IsMasterClient)
             {
                 GameObject[] inventories = GameObject.FindGameObjectsWithTag("InventaireM");
                 foreach (var inventory in inventories)

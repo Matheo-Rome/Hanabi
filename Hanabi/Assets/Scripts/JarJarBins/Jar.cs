@@ -51,7 +51,7 @@ public class Jar : MonoBehaviourPunCallbacks
             {
                 p1.GetComponent<inventory>().Addcoins(add,false);
                 p2.GetComponent<inventory>().Addcoins(add,false);
-                Destroy(pot, 0.3f);
+                Destroy(gameObject, 0.3f);
             }
             else
             {
@@ -65,7 +65,7 @@ public class Jar : MonoBehaviourPunCallbacks
                     }
                 }
 
-                Destroy(pot, 0.3f);
+                Destroy(gameObject, 0.3f);
 
             }
         }
