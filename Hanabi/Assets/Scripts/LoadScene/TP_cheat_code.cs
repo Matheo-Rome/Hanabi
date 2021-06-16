@@ -60,6 +60,15 @@ public class TP_cheat_code : MonoBehaviour
             
         }
         
+        //tp last_scene
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            Destroy(GameObject.FindGameObjectWithTag("PlantsTP"));
+            new WaitForSeconds(0.3f);
+            PhotonNetwork.LoadLevel(60);
+            
+        }
+        
     }
 
     void UpdateBool()
