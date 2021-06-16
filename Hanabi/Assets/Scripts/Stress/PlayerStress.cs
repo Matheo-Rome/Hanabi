@@ -137,6 +137,22 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         stressBar.SetStress(currentStress);
     }
 
+    public void UpdateMaxStress(int UpdateStress)
+    {
+        maxStress += UpdateStress;
+
+        if (PhotonNetwork.IsConnected)
+        {
+            photonView.RPC("RPC_UpdateMaxStress",RpcTarget.Others,UpdateStress);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_UpdateMaxStress(int UpdateStress)
+    {
+        maxStress += UpdateStress;
+    }
+
     [PunRPC]
     public void RPC_HealStress(int stress)
     {

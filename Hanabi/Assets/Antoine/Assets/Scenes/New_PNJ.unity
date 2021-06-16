@@ -4669,7 +4669,12 @@ PrefabInstance:
     - target: {fileID: 8561965244743183083, guid: ea6a95f53a0038248a0184415e6fbc02,
         type: 3}
       propertyPath: m_TagString
-      value: Player1
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090918151022720625, guid: ea6a95f53a0038248a0184415e6fbc02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea6a95f53a0038248a0184415e6fbc02, type: 3}
@@ -4773,6 +4778,11 @@ MonoBehaviour:
   AmeliorationTosell:
   - {fileID: 11400000, guid: c0a57a7456f31a24b924708dfe038f4c, type: 2}
   - {fileID: 11400000, guid: 178ac2f754dd22e458e3098727112405, type: 2}
+  - {fileID: 11400000, guid: fd828da109f402c469764203f6a7865d, type: 2}
+  - {fileID: 11400000, guid: 54df393b59260704ca497ec2d29e4ded, type: 2}
+  - {fileID: 11400000, guid: ee3b588bbcab0a149adbcf030a97f917, type: 2}
+  - {fileID: 11400000, guid: 5f5c1187332242140b522746739795ae, type: 2}
+  - {fileID: 11400000, guid: 6794dff070e6a974f820e6913741d0c7, type: 2}
   Istalking: 0
 --- !u!61 &1076294592
 BoxCollider2D:

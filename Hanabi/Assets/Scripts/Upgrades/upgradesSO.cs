@@ -17,6 +17,7 @@ public class upgradesSO : ScriptableObject
     
     //Pour la jar
     public int addGiventByJar;
+    public int addMaxStress;
     
     //test
     public float jumpBoostGiven;
