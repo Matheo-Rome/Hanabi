@@ -17,7 +17,16 @@ public class upgradesSO : ScriptableObject
     
     //Pour la jar
     public int addGiventByJar;
+    
+    //Pour l'item qui augmente le stress
     public int addMaxStress;
+    
+    //Banque
+    public int addMaxBank;
+    
+    
+    //Pour le feu de camp
+    public float FireCamp; //toujours = à 0.1
     
     //test
     public float jumpBoostGiven;

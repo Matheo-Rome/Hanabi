@@ -26,11 +26,12 @@ public class upgradesInventory : MonoBehaviour
     
     public void AddEffectAmelioration(upgradesSO Upgrade)
     {
+
         //test
         PlayerMovement.instance.jumpVelocity += Upgrade.jumpBoostGiven;
 
         // Pour la jar
-        ValueOfUpgrade.instance.addGiventByJar = Upgrade.coinDropUpgrade;
+        ValueOfUpgrade.instance.addGiventByJar += Upgrade.coinDropUpgrade;
         
         //Pour le Oscillococcinum
         if (!PhotonNetwork.IsConnected)
@@ -47,7 +48,32 @@ public class upgradesInventory : MonoBehaviour
                 player.GetComponent<PlayerStress>().UpdateMaxStress(Upgrade.addMaxStress);
             }
         }
+        
+        //Pour la banque
+        GameObject[] packages = GameObject.FindGameObjectsWithTag("Package");
+        foreach (var package in packages)
+        {
+            package.GetComponent<SaveData>().UpdateBank(Upgrade.addMaxBank,true);
+        }
+        
+        //Pour le feu de camp
+        if (PhotonNetwork.IsConnected)
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            players[0].GetComponent<PlayerStress>().firecampValue += Upgrade.FireCamp;
+            int saveStress = (int)(players[0].GetComponent<PlayerStress>().currentStress * (players[0].GetComponent<PlayerStress>().firecampValue));
+            foreach (var player in players)
+            {
+                player.GetComponent<PlayerStress>().HealStressplayer(player.GetComponent<PlayerStress>().currentStress - saveStress);
+            }
+        }
 
+        else
+        {
+            int saveStress = (int)(p1.GetComponent<PlayerStress>().currentStress * (p1.GetComponent<PlayerStress>().firecampValue));
+            p1.GetComponent<PlayerStress>().HealStressplayer(p1.GetComponent<PlayerStress>().currentStress - saveStress);
+            p2.GetComponent<PlayerStress>().HealStressplayer(p2.GetComponent<PlayerStress>().currentStress - saveStress);
+        }
     }
     public void Update()
     {

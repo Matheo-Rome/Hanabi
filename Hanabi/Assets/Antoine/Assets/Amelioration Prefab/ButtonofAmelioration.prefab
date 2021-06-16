@@ -346,7 +346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.0999756, y: -3.7999878}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7812330788785835623
@@ -444,4 +444,4 @@ MonoBehaviour:
   ItemName: {fileID: 7812330786959516705}
   ItemImage: {fileID: 7812330787951828714}
   ItemPrice: {fileID: 7812330786733916236}
-  item: {fileID: 0}
+  Upgrade: {fileID: 0}

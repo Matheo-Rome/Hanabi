@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class FirePlace_Trigger : MonoBehaviour
@@ -9,7 +10,13 @@ public class FirePlace_Trigger : MonoBehaviour
     {
         if (collider.CompareTag("Player") || collider.CompareTag("Player1"))
         {
-            PlayerStress.instance.isTouchingFire = true;
+            if (PhotonNetwork.IsConnected)
+                PlayerStress.instance.isTouchingFire = true;
+            else
+            {
+                PlayerStressSolo.instance.isTouchingFire = true;
+            }
+            
         }
     }
     
@@ -17,7 +24,13 @@ public class FirePlace_Trigger : MonoBehaviour
     {
         if (collider.CompareTag("Player") | collider.CompareTag("Player1"))
         {
-            PlayerStress.instance.isTouchingFire = false;
+            
+            if (PhotonNetwork.IsConnected)
+                PlayerStress.instance.isTouchingFire = false;
+            else
+            {
+                PlayerStressSolo.instance.isTouchingFire = false;
+            }
         }
     }
 }
