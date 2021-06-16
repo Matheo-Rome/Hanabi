@@ -9,8 +9,8 @@ public class SoundPackageTurnOn : MonoBehaviour
 
      void Update()
      {
-         if(Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Jump") )
-            sound.SetActive(true);
+         if(Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Jump") ) 
+             sound.SetActive(true);
     }
      //|| SceneManager.GetActiveScene().buildIndex == 1
 }
