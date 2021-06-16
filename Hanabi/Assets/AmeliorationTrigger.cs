@@ -28,7 +28,7 @@ public class AmeliorationTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             isInRange = true;
             interactUI.enabled = true;
@@ -37,7 +37,7 @@ public class AmeliorationTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             isInRange = false;
             interactUI.enabled = false;
