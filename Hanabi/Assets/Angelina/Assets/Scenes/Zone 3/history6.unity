@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 46871938}
   - component: {fileID: 46871937}
   m_Layer: 0
-  m_Name: oppai
+  m_Name: affres
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,10 +739,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: p
+    name: Affres
     sentences:
-    - 
-    - 
+    - "Vous     trouvez     une     note     accroch\xE9e     au     tableau,    
+      elle     est     pleine     de     ratures     :\r"
+    - "\xAB     J\u2019ai     peur,\r\n"
+    - "Voil\xE0     un     moment     que     je     suis     seule     maintenant\u2026\r\n"
+    - "Enfin,     seule,     \xE7a     c\u2019est     si     on     met     \xE0    
+      part     cette     sensation     bizarre     que     je     ressens     depuis    
+      tout     \xE0     l\u2019heure. \r\n"
+    - "C\u2019est     comme     si     j\u2019\xE9tais     observ\xE9e,     plus    
+      je     stresse      plus      je      sens     ces     regards     pesants    
+      se     poser     sur     moi.     \xC0     chaque     pas     que     je    
+      fais,     ils     me     suivent,     impossible     de     leur     \xE9chapper.\r\n"
+    - "J\u2019esp\xE8re     que     ce     n\u2019est     qu\u2019une     mauvaise    
+      blague     des     gar\xE7ons\u2026"
+    - "J\u2019ai     peur,\r\n"
+    - "J\u2019ai     peur\u2026     \xBB\r\n"
+    - "Aucune     signature,     l\u2019\xE9criture     semble     \xEAtre     celle    
+      d\u2019une     fille\r\n"
 --- !u!61 &46871938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16232,6 +16247,84 @@ Transform:
   - {fileID: 46871940}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374174307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6747251772338861679, guid: 1c91e6e4efd44dc4cb493f0006af6274,
+    type: 3}
+  m_PrefabInstance: {fileID: 260403628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714ba6975bf104343a2b48a2fce2bcf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &438355355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 438355358}
+  - component: {fileID: 438355357}
+  - component: {fileID: 438355356}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &438355356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438355355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &438355357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438355355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &438355358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438355355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701345992
 GameObject:
@@ -48045,7 +48138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1641708346
 AudioListener:
   m_ObjectHideFlags: 0
@@ -61953,6 +62046,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6910300653698869473, guid: 5e8e174b1ceb7474b9b45ad7f4c07e57,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 374174307}
+    - target: {fileID: 6910300653698869473, guid: 5e8e174b1ceb7474b9b45ad7f4c07e57,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
+      objectReference: {fileID: 0}
     - target: {fileID: 6910300655293504370, guid: 5e8e174b1ceb7474b9b45ad7f4c07e57,
         type: 3}
       propertyPath: m_Pivot.x

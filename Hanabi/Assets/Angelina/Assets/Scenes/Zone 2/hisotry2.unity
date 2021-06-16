@@ -10337,11 +10337,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Painting2
+    name: Crepuscule
     sentences:
-    - a
-    - aa
-    - aaa
+    - "Vous     trouvez     une     note     accroch\xE9e     au     tableau,    
+      elle     est     recouverte     de     neige     :\r"
+    - "\xAB     Voil\xE0     maintenant     plus     d\u2019une     heure     que    
+      j\u2019ai     \xE9t\xE9     s\xE9par\xE9     du     reste     et     Tim    
+      et     son     groupe     restent     introuvables.\r"
+    - "Quelle     id\xE9e     en     m\xEAme     temps,     je     leur     avais    
+      bien     dit     que     rentrer     dans     cette     grotte     \xE9tait    
+      une     mauvaise     id\xE9e,     j\u2019ai     r\xE9ussi     \xE0     m\u2019en    
+      sortir     mais     qu\u2019en     est-il     d\u2019eux     ?\r"
+    - "Je     n\u2019aurai     pas     le     courage     de     retourner     l\xE0    
+      dedans,     tout     sauf     \xE7a.     Peut-\xEAtre     les    retrouverai-je    
+      en     haut     ?     Apr\xE8s     tout,     ce     n\u2019est     pas    
+      comme     si     j\u2019avais     vraiment     le     choix\u2026"
+    - "Je     commence     \xE0     entendre     leurs     voix     r\xE9sonner    
+      dans     ma     t\xEAte\u2026     peut-\xEAtre     je     deviens     fou    
+      ?     Tant     de     questions     sans     r\xE9ponses.\r"
+    - "C\u2019est     d\xE9cid\xE9,     je     vais     continuer     \xE0     monter,    
+      je     suis     certain     qu\u2019ils     m\u2019attendent     d\xE9j\xE0    
+      tous     en     haut.     \xBB\r"
+    - "C\u2019est     sign\xE9     Paul"
 --- !u!212 &1659416197
 SpriteRenderer:
   m_ObjectHideFlags: 0

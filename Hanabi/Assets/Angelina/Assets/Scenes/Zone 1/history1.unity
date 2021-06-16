@@ -47910,5 +47910,72 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: "Vous     trouvez     une     note     accroch\xE9e     au     tableau,    
+        elle     est     pleine     de     mousse :\r "
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: "\xAB     Aujourd\u2019hui     c\u2019est     le     grand     jour    
+        !\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: "Moi     et     tout     le     reste     de     notre     petite    
+        \xE9quipe     allons     enfin     gravir     la     grande     montagne    
+        qui     surplombe     notre     village.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: "Dire     que     tout     \xE7a     part     d\u2019un     simple    
+        d\xE9fi     que     nous     nous     \xE9tions     donn\xE9     lorsque    
+        nous     \xE9tions     enfants\u2026     \xC7a     remonte     \xE0     si    
+        loin     !\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: "La     marche     va     \xEAtre     longue     mais     nous     sommes    
+        plus     que     pr\xEAts.     Des     vivres     en     veux-tu     en    
+        voil\xE0,     sacs     de     couchage     et     autres     outils     n\xE9cessaires    
+        \xE0     la     mont\xE9e.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: "Il     semblerait     que     le     chemin     se     divise     un    
+        peu     plus     loin     en     ce     qui     semble     \xEAtre     une    
+        caverne     ou     un     sentier     enneig\xE9,     il     va     falloir    
+        se     d\xE9cider     en     route     !\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: "Tout     \xE7a     s\u2019annonce     \xEAtre     une     bien    
+        belle     aventure."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[7]
+      value: "On     se     voit     d\xE9j\xE0     tous     ensemble     f\xEAter    
+        \xE7a     au     sommet,     les     feux     d\u2019artifices     au   
+        loin     !     \xBB\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[8]
+      value: "C\u2019est     sign\xE9     Timoth\xE9e,     Paul,     Micha\xEBl    
+        et     F\xE9licie."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5c3e9c2661cd95438b3ddb5825de36f, type: 3}

@@ -153,14 +153,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Painting4
+    name: Ermite
     sentences:
-    - l
-    - j
-    - u
-    - 'i
-
-'
+    - "Vous     trouvez     une     note     accroch\xE9e     au     tableau,    
+      elle     est     compl\xE8tement     gel\xE9e     :\r"
+    - "\xAB     Je     viens     de     quitter     Timoth\xE9e     et     son    
+      groupe     pour     aller     retrouver     Paul,     par     chance     j\u2019ai    
+      r\xE9ussi     \xE0     sortir     de     la     grotte     et     j\u2019ai    
+      enfin     compris     l\u2019agencement     de     la     montagne. "
+    - "La     montagne     est     en     fait     quasi     creuse,     son    
+      int\xE9rieur     semble     sans     fin     et     en     sortir     semble    
+      presque     impossible.     L\u2019ext\xE9rieur     lui     semble     impraticable    
+      \xE0     pieds,     de     la     neige     \xE0     perte     de     vue.
+      \r"
+    - "Il     semblerait     que     les     deux     chemins     m\xE8nent     au    
+      sommet,     j\u2019esp\xE8re     que     ce     qu\u2019il     y     a    
+      en     haut     vaut     vraiment     le     coup\u2026\n"
+    - "Ce     fut     une     erreur     que     d\u2019essayer     de     la    
+      gravir     tous     les     quatre.\r\n"
+    - "Dans     tous     les     cas,     aucune     trace     de     Paul     pour    
+      le     moment,     je     ferai     bien     de     chercher     plus     loin.    
+      \xBB\r"
+    - "C\u2019est     sign\xE9     Micha\xEBl\n"
 --- !u!61 &21163033
 BoxCollider2D:
   m_ObjectHideFlags: 0
