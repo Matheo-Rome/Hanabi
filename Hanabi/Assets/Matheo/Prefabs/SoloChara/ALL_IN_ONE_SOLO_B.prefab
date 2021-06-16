@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3dc3c86787d64e85ff7f3ef7d6f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "NombreDePi\xE8ce": 1000
+  "NombreDePi\xE8ce": 0
   NombreDeRaspberries: 0
   compteurdecoinstext: {fileID: 3287445352788453193}
   compteurdeRaspberries: {fileID: 6130897110101297791}
@@ -5217,7 +5217,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7380819725164660686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c39df1218d3be744918037ea5a02447, type: 3}
   m_Name: 

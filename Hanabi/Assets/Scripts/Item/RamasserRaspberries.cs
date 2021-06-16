@@ -10,7 +10,7 @@ public class RamasserRaspberries : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            inventory.instance.AddRaspberries(1);
+            inventory.instance.AddRaspberries(1,true);
             Destroy(gameObject);
         }
     }

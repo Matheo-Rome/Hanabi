@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundPackageTurnOn : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class SoundPackageTurnOn : MonoBehaviour
 
      void Update()
      {
-        if(Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Jump") || SceneManager.GetActiveScene().buildIndex == 1)
             sound.SetActive(true);
     }
 }
