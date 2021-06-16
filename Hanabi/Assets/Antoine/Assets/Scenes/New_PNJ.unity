@@ -4527,8 +4527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pnjName: PNJ Amelioration
   AmeliorationTosell:
-  - {fileID: 11400000, guid: 91c6d4068395c3e4f9797e4b9b0434cc, type: 2}
-  - {fileID: 11400000, guid: f584fe3c5cbc2dc498214670b4cda62a, type: 2}
+  - {fileID: 11400000, guid: c0a57a7456f31a24b924708dfe038f4c, type: 2}
+  - {fileID: 11400000, guid: 178ac2f754dd22e458e3098727112405, type: 2}
   Istalking: 0
 --- !u!61 &1076294592
 BoxCollider2D:

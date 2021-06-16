@@ -3,6 +3,7 @@
 [CreateAssetMenu(fileName = "Upgrade", menuName = "inventory/upgrade")]
 public class upgradesSO : ScriptableObject
 {
+    public int Price;
     public int id;
     public string name;
     public string description;
@@ -13,4 +14,11 @@ public class upgradesSO : ScriptableObject
     public int stressIncrease;
     public int givenObjectLevel;
     public int coinDropUpgrade;
+    
+    
+    
+    //test
+    public float jumpBoostGiven;
+    public float speedGiven;
+
 }

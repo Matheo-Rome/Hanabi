@@ -1,5 +1,4 @@
-﻿//using UnityEditor.UIElements;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class AmeliorationButtonIteam : MonoBehaviour
@@ -7,16 +6,17 @@ public class AmeliorationButtonIteam : MonoBehaviour
     public Text ItemName;
     public Image ItemImage;
     public Text ItemPrice;
-    public Items item;
+    public upgradesSO Upgrade; // items que l'on regarde pour acheté
 
     public void BuyItem()
     {
         bool containLvLInferior = false;
         bool containLvL1 = false;
         
-        if (inventory.instance.NombreDePièce >= item.Price) 
+        
+        if (inventory.instance.NombreDePièce >= Upgrade.Price) 
         {
-            if (item.name[item.name.Length - 1] == '1')
+            if (Upgrade.name[Upgrade.name.Length - 1] == '1') // le dernier caractères du noms de l'items est son niveau
             {
                 containLvLInferior = true;
             }
@@ -27,18 +27,18 @@ public class AmeliorationButtonIteam : MonoBehaviour
             }
             
             string itemNameWithoutNumber = "";
-            for (int i = 0; i < item.name.Length-2; i++)
+            for (int i = 0; i < Upgrade.name.Length-2; i++)
             {
-                itemNameWithoutNumber = itemNameWithoutNumber + item.name[i];
+                itemNameWithoutNumber = itemNameWithoutNumber + Upgrade.name[i];
             }
             
-            if (containLvL1)
+            if (containLvL1) // Je vérifie que si on veut acheté l'item niv 2, il y a bien l'item niv 1
             {
-                foreach (var VARIABLE in InventairePassif.instance.content)
+                foreach (var VARIABLE in upgradesInventory.instance.content)
                 {
                     if (VARIABLE.name.Contains(itemNameWithoutNumber))
                     {
-                        if ((int)item.name[item.name.Length - 1]-1 == (int)VARIABLE.name[VARIABLE.name.Length - 1])
+                        if ((int)Upgrade.name[Upgrade.name.Length - 1]-1 == (int)VARIABLE.name[VARIABLE.name.Length - 1])
                         {
                             containLvLInferior = true;
                         }
@@ -47,14 +47,12 @@ public class AmeliorationButtonIteam : MonoBehaviour
             }
             
             
-            if (!item.name.Contains("Unvailable") && containLvLInferior)
+            if (!Upgrade.name.Contains("Unvailable") && containLvLInferior) // ajout des items à l'inventaire upgrade etc
             {
-                InventairePassif.instance.content.Add(item);
-                InventairePassif.instance.Start();
-                InventairePassif.instance.AddEffectItem(item);
-                inventory.instance.NombreDePièce -= item.Price;
-                inventory.instance.UpdateTextUI();
-                item.name = "Unvailable" + item.name;
+                upgradesInventory.instance.content.Add(Upgrade);
+                upgradesInventory.instance.AddEffectAmelioration(Upgrade);
+                inventory.instance.NombreDePièce -= Upgrade.Price;
+                Upgrade.name = "Unvailable" + Upgrade.name;
             }
         }
     }

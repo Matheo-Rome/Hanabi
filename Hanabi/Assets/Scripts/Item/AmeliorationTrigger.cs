@@ -8,7 +8,7 @@ public class AmeliorationTrigger : MonoBehaviour
     private Text interactUI;
 
     public string pnjName;
-    public Items[] AmeliorationTosell;
+    public upgradesSO[] AmeliorationTosell;
 
     public bool Istalking = false;
 
@@ -16,7 +16,7 @@ public class AmeliorationTrigger : MonoBehaviour
     {
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
     }
-
+// script basique pour parlé à un pnj et démarrer son interface
     void Update()
     {
         if (isInRange && Input.GetKeyDown(KeyCode.E) && !Istalking)

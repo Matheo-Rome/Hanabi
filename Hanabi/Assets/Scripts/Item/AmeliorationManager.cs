@@ -28,15 +28,15 @@ public class AmeliorationManager : MonoBehaviour
         instance = this;
     }
 
-    public void OpenShop(Items[] items, string pnjName)
+    public void OpenShop(upgradesSO[] Upgrade, string pnjName)
     {
         pnjNameText.text = pnjName;
-        UpdateItemToSell(items);
+        UpdateUpgradeToSell(Upgrade);
         animator.SetBool("isOpen", true);
     }
 
 
-    public void UpdateItemToSell(Items[] items)
+    public void UpdateUpgradeToSell(upgradesSO[] Upgrade)
     {
         // supprime les potentiels boutons présent dans le parents
         for (int i = 0; i < sellbuttonsParent.childCount; i++)
@@ -45,14 +45,14 @@ public class AmeliorationManager : MonoBehaviour
         }
 
         // Instancie un bouton pour chaque item à vendre et le configure
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 0; i < Upgrade.Length; i++)
         {
             GameObject button =  Instantiate(sellbuttonPrefab, sellbuttonsParent);
             AmeliorationButtonIteam buttonScript = button.GetComponent<AmeliorationButtonIteam>();
-            buttonScript.ItemName.text = items[i].name;
-            buttonScript.ItemImage.sprite = items[i].image;
-            buttonScript.ItemPrice.text = items[i].Price.ToString();
-            buttonScript.item = items[i];
+            buttonScript.ItemName.text = Upgrade[i].name;
+            buttonScript.ItemImage.sprite = Upgrade[i].image;
+            buttonScript.ItemPrice.text = Upgrade[i].Price.ToString();
+            buttonScript.Upgrade = Upgrade[i];
             button.GetComponent<Button>().onClick.AddListener(delegate { buttonScript.BuyItem(); });
         }
     }

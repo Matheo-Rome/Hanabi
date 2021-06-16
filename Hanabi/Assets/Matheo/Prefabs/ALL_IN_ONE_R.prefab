@@ -971,7 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SliderGO: {fileID: 0}
   audioManager: {fileID: 0}
-  founded: 0
+  audioSource: {fileID: 0}
 --- !u!1 &391622422
 GameObject:
   m_ObjectHideFlags: 0
@@ -4651,6 +4651,7 @@ Transform:
   - {fileID: 8099631764712309051}
   - {fileID: 8099631766218548082}
   - {fileID: 254579604}
+  - {fileID: 4490772618809176418}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10198,6 +10199,50 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &9090918151022720625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4490772618809176418}
+  - component: {fileID: 1052932865372860662}
+  m_Layer: 0
+  m_Name: UpgradeInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4490772618809176418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090918151022720625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 737.1454, y: 423.31146, z: 245.24846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8099631764421539833}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1052932865372860662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090918151022720625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055fdf45af7d54a1fb9aff55fe9c2d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: []
 --- !u!1001 &8099631764932439486
 PrefabInstance:
   m_ObjectHideFlags: 0

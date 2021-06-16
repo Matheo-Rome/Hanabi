@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class upgradesInventory : MonoBehaviour
 {
     public static upgradesInventory instance;
-    public List<upgradesSO> content = new List<upgradesSO>();
-    public int currentIndex;
+    public List<upgradesSO> content = new List<upgradesSO>(); // Liste où sont stocké tous les items
 
     private void Awake()
     {
@@ -19,9 +18,15 @@ public class upgradesInventory : MonoBehaviour
 
         instance = this;
     }
+    
+    public void AddEffectAmelioration(upgradesSO Upgrade)
+    {
+        PlayerMovement.instance.jumpVelocity += Upgrade.jumpBoostGiven;
+    }
 
     public void Start()
     {
         
     }
 }
+        

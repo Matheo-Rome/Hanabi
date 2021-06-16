@@ -9,17 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6578cfbbd830e4b99ab535ec51ea3b, type: 3}
-  m_Name: Jump potionBreak 1
+  m_Script: {fileID: 11500000, guid: f005d97340a34456aa67e07ad1f3ccee, type: 3}
+  m_Name: Jump1
   m_EditorClassIdentifier: 
-  id: 4
-  name: Jump1
-  description: gives the player a higher jump
-  image: {fileID: 1286699809844956028, guid: 76ffe0297478847a48c3091443de6fc4, type: 3}
-  StressRemoved: 0
-  speedGiven: 0
-  jumpBoostGiven: 0.3335
   Price: 40
-  ReducePrice: 0
-  StressIntervalle: 0
-  StressLoss: 0
+  id: 1
+  name: UnvailableJump1
+  description: 
+  image: {fileID: 1286699809844956028, guid: 76ffe0297478847a48c3091443de6fc4, type: 3}
+  campFireUpgrade: 0
+  maxCoinsSaved: 0
+  blurReduction: 0
+  stressIncrease: 0
+  givenObjectLevel: 0
+  coinDropUpgrade: 0
+  jumpBoostGiven: 0.3335
+  speedGiven: 0
