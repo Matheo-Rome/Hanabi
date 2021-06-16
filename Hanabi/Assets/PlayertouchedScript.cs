@@ -7,9 +7,10 @@ public class PlayertouchedScript : MonoBehaviour
 { 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
+        if (collision.CompareTag("Player"))
         {                                                                        
             Destroy(transform.parent.gameObject);
         }
     }
+    // || collision.CompareTag("Player1") || collision.CompareTag("Player2")
 }
