@@ -32,7 +32,7 @@ public class LoadScene_z4 : MonoBehaviour
                    //salle défi renvoie vers last_scene
                    if (SceneManager.GetActiveScene().buildIndex == 64)
                    {
-                       Destroy(gameObject);
+                       Destroy(GameObject.FindGameObjectWithTag("PlantsTP"));
                        new WaitForSeconds(0.3f);
                        PhotonNetwork.LoadLevel(60);
                        //SceneManager.LoadScene(14);

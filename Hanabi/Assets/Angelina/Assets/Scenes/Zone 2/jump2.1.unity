@@ -30789,7 +30789,7 @@ GameObject:
   - component: {fileID: 1835775763}
   m_Layer: 0
   m_Name: Plants z2
-  m_TagString: Untagged
+  m_TagString: PlantsTP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32641,7 +32641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &2139438685
 AudioListener:
   m_ObjectHideFlags: 0
@@ -32701,7 +32701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139438684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.59, y: -7.51, z: -10}
+  m_LocalPosition: {x: -0.1, y: -4.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

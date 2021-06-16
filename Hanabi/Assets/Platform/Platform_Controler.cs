@@ -17,7 +17,7 @@ public class Platform_Controler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 2f;
+        timer = 1f;
         active = true;
         platform2.Desactive();
 
@@ -31,7 +31,7 @@ public class Platform_Controler : MonoBehaviour
         else
         {
             Switch();
-            timer = 2f;
+            timer = 1f;
         }
     }
 

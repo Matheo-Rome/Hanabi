@@ -21,6 +21,7 @@ public class LoadScene_z3 : MonoBehaviour
        
        public PlantPlayer2 flower;
        
+       
        private void OnTriggerEnter2D(Collider2D collision)
        {
            if (flower.IsTrigger)
@@ -32,10 +33,11 @@ public class LoadScene_z3 : MonoBehaviour
                    //salle défi renvoie vers prochaine zone
                    if (SceneManager.GetActiveScene().buildIndex == 63)
                    {
-                       Destroy(gameObject);
+                       
+                       Destroy(GameObject.FindGameObjectWithTag("PlantsTP"));
                        new WaitForSeconds(0.3f);
                        PhotonNetwork.LoadLevel(45);
-                       //SceneManager.LoadScene(14);
+                       
                    }
 
                    else
