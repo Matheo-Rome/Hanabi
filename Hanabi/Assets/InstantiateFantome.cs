@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
 using UnityEngine;
 
 public class InstantiateFantome : MonoBehaviour
@@ -11,7 +10,10 @@ public class InstantiateFantome : MonoBehaviour
     public GameObject instance;
     public float cooldown = 15f;
     public GameObject instanceFantome;
-
+    void Start()
+    {
+        
+    }
     void Update()
     {
         if (PlayerStress.instance.currentStress == 200 && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
