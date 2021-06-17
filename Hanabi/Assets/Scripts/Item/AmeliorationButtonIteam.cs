@@ -14,7 +14,7 @@ public class AmeliorationButtonIteam : MonoBehaviour
         bool containLvL1 = false;
         
         
-        if (inventory.instance.NombreDePièce >= Upgrade.Price) 
+        if (inventory.instance.NombreDeRaspberries >= Upgrade.Price) 
         {
             if (Upgrade.name[Upgrade.name.Length - 1] == '1') // le dernier caractères du noms de l'items est son niveau
             {
@@ -51,7 +51,7 @@ public class AmeliorationButtonIteam : MonoBehaviour
             {
                 upgradesInventory.instance.content.Add(Upgrade);
                 upgradesInventory.instance.AddEffectAmelioration(Upgrade);
-                inventory.instance.NombreDePièce -= Upgrade.Price;
+                inventory.instance.NombreDeRaspberries -= Upgrade.Price;
                 Upgrade.name = "Unvailable" + Upgrade.name;
             }
         }

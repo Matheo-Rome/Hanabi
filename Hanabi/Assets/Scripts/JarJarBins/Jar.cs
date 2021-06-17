@@ -12,7 +12,7 @@ public class Jar : MonoBehaviourPunCallbacks
     [SerializeField] private BoxCollider2D collider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject pot;
-    private float maxP = 3;
+    public float maxP;
 
     private GameObject p1;
     private GameObject p2;
@@ -24,6 +24,7 @@ public class Jar : MonoBehaviourPunCallbacks
         collider = GetComponent<BoxCollider2D>();
         Animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        maxP = 3;
     }
 
     private void Update()
@@ -39,6 +40,8 @@ public class Jar : MonoBehaviourPunCallbacks
             }
 
         }
+
+        //maxP =  GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().addGiventByJar;
     }
     
     public void OnTriggerEnter2D(Collider2D other)
@@ -70,6 +73,4 @@ public class Jar : MonoBehaviourPunCallbacks
             }
         }
     }
-    
-    
 }

@@ -5,7 +5,7 @@ using System.IO;
 using Photon.Pun;
 using UnityEngine;
 
-public class SaveData : MonoBehaviour
+public class SaveData : MonoBehaviourPunCallbacks
 {
     public GameObject Inventaire;
     private inventory _inventory;
@@ -13,6 +13,7 @@ public class SaveData : MonoBehaviour
     private string saveSeparator = "%VALUE%";
 
     private bool already = false;
+    public int Bank = 0;
 
     private void Start()
     {
@@ -32,7 +33,10 @@ public class SaveData : MonoBehaviour
     
     public void Save()
     {
-        string[] content = new[] {_inventory.NombreDePièce.ToString(), _inventory.NombreDeRaspberries.ToString()};
+        int pièce = Bank;
+        if (_inventory.NombreDePièce < Bank)
+            pièce = _inventory.NombreDePièce;
+        string[] content = new[] {pièce.ToString(), _inventory.NombreDeRaspberries.ToString()};
         string saveString = string.Join(saveSeparator,content);
         File.WriteAllText(Application.dataPath + "/sauvgarde.txt", saveString.ToString());
         Debug.Log("Saved" + _inventory.NombreDePièce.ToString() + " " + _inventory.NombreDeRaspberries.ToString());
@@ -63,5 +67,19 @@ public class SaveData : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void UpdateBank(int Update,bool again)
+    {
+        Bank += Update;
+        if(PhotonNetwork.IsConnected && again)
+            photonView.RPC("RPC_UpdateBank",RpcTarget.Others,Update);
+
+    }
+
+    [PunRPC]
+    public void RPC_UpdateBank(int Update)
+    {
+        UpdateBank(Update,false);
     }
 }

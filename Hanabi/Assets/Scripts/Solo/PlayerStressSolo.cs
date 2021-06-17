@@ -23,7 +23,8 @@ public class PlayerStressSolo : MonoBehaviourPunCallbacks
     public bool isTouchingFire;
 
     public StressBar stressBar;
-
+    public float firecampValue = 0.6f;
+    
     public static PlayerStressSolo instance;
     
     private void Awake()
@@ -58,7 +59,7 @@ public class PlayerStressSolo : MonoBehaviourPunCallbacks
         //if the room just changed and you are near a fire place then we update the stress accordingly
         if (hasChangedRoom && isTouchingFire)
         {
-            currentStress = (int) (currentStress * 0.6f);
+            currentStress = (int) (currentStress * firecampValue);
             hasChangedRoom = false;
         }
         List<Items> content = new List<Items>();;

@@ -21,6 +21,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     public bool hasChangedRoom;
     public int previousRoom;
     public bool isTouchingFire;
+    public float firecampValue = 0.6f;
 
     public StressBar stressBar;
 
@@ -58,7 +59,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         //if the room just changed and you are near a fire place then we update the stress accordingly
         if (hasChangedRoom && isTouchingFire)
         {
-            currentStress = (int) (currentStress * 0.6f);
+            currentStress = (int) (currentStress * firecampValue);
             hasChangedRoom = false;
         }
         List<Items> content = new List<Items>();;
@@ -135,6 +136,22 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         }
         
         stressBar.SetStress(currentStress);
+    }
+
+    public void UpdateMaxStress(int UpdateStress)
+    {
+        maxStress += UpdateStress;
+
+        if (PhotonNetwork.IsConnected)
+        {
+            photonView.RPC("RPC_UpdateMaxStress",RpcTarget.Others,UpdateStress);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_UpdateMaxStress(int UpdateStress)
+    {
+        maxStress += UpdateStress;
     }
 
     [PunRPC]

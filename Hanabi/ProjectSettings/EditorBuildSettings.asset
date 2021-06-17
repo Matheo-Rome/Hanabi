@@ -261,4 +261,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Matheo/Prefabs/scene/test21.unity
     guid: 01349cc2969abd64cb1cf42aa57b36a8
+  - enabled: 1
+    path: Assets/Antoine/Assets/Scenes/New_PNJ.unity
+    guid: 39c0ca4ece5da3d48a5a7919e7aa38bf
   m_configObjects: {}

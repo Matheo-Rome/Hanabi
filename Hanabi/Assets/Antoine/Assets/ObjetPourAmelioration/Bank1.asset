@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f005d97340a34456aa67e07ad1f3ccee, type: 3}
+  m_Name: Bank1
+  m_EditorClassIdentifier: 
+  Price: 5
+  id: 8
+  name: Bank1
+  description: 
+  image: {fileID: 21300000, guid: 0c055743e3beed34aab10f480223957f, type: 3}
+  campFireUpgrade: 0
+  maxCoinsSaved: 0
+  blurReduction: 0
+  stressIncrease: 0
+  givenObjectLevel: 0
+  coinDropUpgrade: 0
+  addGiventByJar: 0
+  addMaxStress: 0
+  addMaxBank: 25
+  FireCamp: 0
+  jumpBoostGiven: 0
+  speedGiven: 0
