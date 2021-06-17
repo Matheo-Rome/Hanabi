@@ -22,6 +22,10 @@ public class ShopTrigger : MonoBehaviour
         if (isInRange && Input.GetKeyDown(KeyCode.E) && !HasTalked)
         {
             ShopManager.instance.OpenShop(itemsToSell, pnjName);
+            /*foreach (var item in itemsToSell)
+            {
+                item.Available = true;
+            }*/
             HasTalked = true;
         }
     }

@@ -14,4 +14,5 @@ public class Items : ScriptableObject
     public int ReducePrice;
     public float StressIntervalle;
     public int StressLoss;
+    public bool Available;
 }

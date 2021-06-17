@@ -1,8 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine.UI;
-public class InventairePassif : MonoBehaviour
+public class InventairePassif : MonoBehaviourPunCallbacks
 {
     public static InventairePassif instance;
     public List<Items> content = new List<Items>();
@@ -41,11 +42,36 @@ public class InventairePassif : MonoBehaviour
     }
 
 
-    public void AddEffectItem(Items items)
+    public void AddEffectItem(Items items,bool again)
     {
-        PlayerMovement.instance.speed += items.speedGiven;
-        PlayerMovement.instance.jumpVelocity += items.jumpBoostGiven;
-        PlayerStress.instance.nextStress -= items.StressIntervalle;
+        if(!PhotonNetwork.IsConnected)
+        {
+            GameObject P1 = GameObject.FindGameObjectWithTag("Player1");
+            GameObject P2 = GameObject.FindGameObjectWithTag("Player2");
+            P1.GetComponent<PlayerMovementSolo>().speed += items.speedGiven;
+            P1.GetComponent<PlayerMovementSolo>().jumpVelocity += items.jumpBoostGiven;
+            P1.GetComponent<PlayerMovementSolo>().fallResistance += items.StressLoss;
+            P1.GetComponent<PlayerStressSolo>().nextStress += items.StressIntervalle;
+            P2.GetComponent<PlayerMovementSolo>().speed += items.speedGiven;
+            P2.GetComponent<PlayerMovementSolo>().jumpVelocity += items.jumpBoostGiven;
+            P2.GetComponent<PlayerMovementSolo>().fallResistance += items.StressLoss;
+            P2.GetComponent<PlayerStressSolo>().nextStress += items.StressIntervalle;
+        }
+        else
+        {
+            PlayerMovement.instance.speed += items.speedGiven;
+            PlayerMovement.instance.jumpVelocity += items.jumpBoostGiven;
+            PlayerMovement.instance.fallResistance += items.StressLoss;
+            PlayerStress.instance.nextStress += items.StressIntervalle;
+            if (again)
+                photonView.RPC("RPC_AddEffectItem",RpcTarget.Others,items);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_AddEffectItem(Items items)
+    {
+        AddEffectItem(items, false);
     }
 
     public void Start()
@@ -240,8 +266,8 @@ public class InventairePassif : MonoBehaviour
         }
     }
 
-    public void UpdateImageInventory(int CurrentItemIndex)   //FAIT UN PUTAIN DE SWITCH C'EST ILLISIBLE :kappa:
-    // Laisse moi tranquille mathéo (oui c pas bo)
+    public void UpdateImageInventory(int CurrentItemIndex)   
+  
     {
         if (CurrentItemIndex == 0)
         {
