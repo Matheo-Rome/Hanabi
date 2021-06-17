@@ -9,6 +9,7 @@ public class ValueOfUpgrade : MonoBehaviour
     public int AmelioriationBank = 0;
     public int AmeliorationStress = 200;
     public float AmeliorationFeuDeCamps = 0.6f;
+    public int AmeliorationRandomLevel = 0;
     
 
     public static ValueOfUpgrade instance;
