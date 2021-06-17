@@ -252,6 +252,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Angelina/Assets/Scenes/Autres/Marchand_permanent.unity
     guid: fa6852cde33b7f247b5df390fe32e8dc
+  - enabled: 1
+    path: Assets/Angelina/Assets/Scenes/Autres/easter_egg.unity
+    guid: 2244cba40dc441a48938d3a85059dcbd
   - enabled: 0
     path: Assets/Hougo/Scenes/ALL items.unity
     guid: b7dff67a1bf4e1549b0130891e38b1ec
