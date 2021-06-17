@@ -358,8 +358,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<SIZE=200><B>THE OTHER SIDE</B>\r\n</SIZE>\r\n<SIZE=70>BY  HANABI</SIZE>\r\n<SIZE=60>WITH
-    HUGO, MATHEO, ANGELINA, ANTOINE</SIZE>\r\n\r\n\r\n<SIZE=160><B>ASSETS  USED</B>\r\n</SIZE>\r\n\r\n<SIZE=120>-
+  m_Text: "<SIZE=200><B>THE OTHER SIDE</B>\r\n</SIZE>\r\n<SIZE=70>BY  HANABI</SIZE>\r\n<SIZE=60>HUGO,
+    MATHEO, ANGELINA, ANTOINE</SIZE>\r\n\r\n\r\n<SIZE=160><B>ASSETS  USED</B>\r\n</SIZE>\r\n\r\n<SIZE=120>-
     GRAPHICS -</SIZE>\r\n\r\n<SIZE=60>PIXEL FOREST\r\nWINTER FOREST\r\n<I>BY  KAUZZ</I></SIZE>\r\n\r\n<SIZE=60>FROZEN
     FOREST\r\n<I>BY  QUINTINO PIXELS</I></SIZE>\r\n\r\n<SIZE=60>CAVE TILESET\r\n<I>BY
     GRAFXKID</I></SIZE>\r\n\r\n<SIZE=60>STARSTRING FIELDS\r\n<I>BY TRIEXELIZED</I></SIZE>\r\n\r\n<SIZE=60>CUTE
@@ -380,8 +380,9 @@ MonoBehaviour:
     VISAGER</I></SIZE>\r\n\r\n<SIZE=60>ENDING\r\n<I>BY KOMIKU</I></SIZE>\r\n\r\n\r\n<SIZE=120>-
     FONT -</SIZE>\r\n\r\n<SIZE=60>PIXELATED\r\n<I>BY  SKYLAR  PARK</I></SIZE>\r\n\r\n\r\n<SIZE=120>-
     SPECIAL  THANKS -</SIZE>\r\n\r\n<SIZE=60>YOUTUBEURS AND OTHER\r\n\r\n<I>BRACKEYS
-    POUR LES TUTOS GUCCI\r\nZEF - TUTO UNITY FR \r\nAL POUR ETRE LE SUGGAR DADDY\r\nLE
-    MARAICHER POUR LES FRAMBOISES</I></SIZE>\r\n\r\n\r\n<SIZE=60><I>AND YOU  <3</I></SIZE>\r\n\r\n"
+    POUR LES TUTOS GUCCI\r\nZEF - TUTO UNITY FR \r\nAL LE SUGGAR DADDY\r\nLE MARAICHER
+    POUR LES FRAMBOISES\r\nMA MAMAN\r\nPAUL POUR ETRE PAUL\r\n;)</I></SIZE>\r\n\r\n\r\n<SIZE=60><I>AND
+    YOU  <3</I></SIZE>\r\n\r\n"
 --- !u!222 &1546663661
 CanvasRenderer:
   m_ObjectHideFlags: 0
