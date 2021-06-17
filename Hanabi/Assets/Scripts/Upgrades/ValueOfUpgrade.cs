@@ -1,12 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ValueOfUpgrade : MonoBehaviour
 {
-    public int addGiventByJar = 3;
+    public int AmeliorationJar = 0;
+    public int AmelioriationBank = 0;
+    public int AmeliorationStress = 200;
+    public float AmeliorationFeuDeCamps = 0.6f;
     
-    
+
     public static ValueOfUpgrade instance;
     private void Awake()
     {
@@ -17,5 +21,11 @@ public class ValueOfUpgrade : MonoBehaviour
         }
 
         instance = this;
+    }
+
+    public void Start()
+    {
+        AmeliorationStress = 200;
+        AmeliorationFeuDeCamps = 0.6f;
     }
 }
