@@ -1659,6 +1659,7 @@ MonoBehaviour:
   AmelioriationBank: 0
   AmeliorationStress: 200
   AmeliorationFeuDeCamps: 0.6
+  AmeliorationRandomLevel: 0
 --- !u!114 &398117860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4815,13 +4816,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pnjName: PNJ Amelioration
   AmeliorationTosell:
-  - {fileID: 11400000, guid: c0a57a7456f31a24b924708dfe038f4c, type: 2}
-  - {fileID: 11400000, guid: 178ac2f754dd22e458e3098727112405, type: 2}
-  - {fileID: 11400000, guid: fd828da109f402c469764203f6a7865d, type: 2}
-  - {fileID: 11400000, guid: 54df393b59260704ca497ec2d29e4ded, type: 2}
-  - {fileID: 11400000, guid: ee3b588bbcab0a149adbcf030a97f917, type: 2}
-  - {fileID: 11400000, guid: 5f5c1187332242140b522746739795ae, type: 2}
-  - {fileID: 11400000, guid: 6794dff070e6a974f820e6913741d0c7, type: 2}
   - {fileID: 11400000, guid: 9c70c3f4739e0654a96f58efb0e19cd4, type: 2}
   - {fileID: 11400000, guid: b062bf3b511406a408f60a0a21142fd0, type: 2}
   - {fileID: 11400000, guid: 449878018206d6f4b90407f277d1fcae, type: 2}
@@ -4837,6 +4831,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79f2a1607abba6b4ea8117a9e0fc4389, type: 2}
   - {fileID: 11400000, guid: 4866bdfe5c2eae04f8777acc2f2f182c, type: 2}
   - {fileID: 11400000, guid: 90e0e9acc2c2a6447b007cd3ba96b4ff, type: 2}
+  - {fileID: 11400000, guid: fd828da109f402c469764203f6a7865d, type: 2}
+  - {fileID: 11400000, guid: 54df393b59260704ca497ec2d29e4ded, type: 2}
+  - {fileID: 11400000, guid: ee3b588bbcab0a149adbcf030a97f917, type: 2}
+  - {fileID: 11400000, guid: 5f5c1187332242140b522746739795ae, type: 2}
+  - {fileID: 11400000, guid: 6794dff070e6a974f820e6913741d0c7, type: 2}
+  - {fileID: 11400000, guid: 9145f1d559c6d4373acd3ca41b15ff6a, type: 2}
+  - {fileID: 11400000, guid: 667721f158f214b5897e7f0c23a7d213, type: 2}
+  - {fileID: 11400000, guid: 277896d2bfd444cc0a4fde2804a4a26e, type: 2}
+  - {fileID: 11400000, guid: 3c9588623a5744516a3b5cbd556b88b7, type: 2}
+  - {fileID: 11400000, guid: fbfe561ef8176436fb8c8ed3476b93fe, type: 2}
   Istalking: 0
 --- !u!61 &1076294592
 BoxCollider2D:

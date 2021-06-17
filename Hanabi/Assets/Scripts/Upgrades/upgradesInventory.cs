@@ -52,11 +52,8 @@ public class upgradesInventory : MonoBehaviour
         {
             ValueOfUpgrade.instance.AmeliorationRandomLevel++;
         }
-            
-        //test
-        PlayerMovement.instance.jumpVelocity += Upgrade.jumpBoostGiven;
 
-        // Pour la jar
+        /*// Pour la jar
         ValueOfUpgrade.instance.AmeliorationJar += Upgrade.coinDropUpgrade;
 
         //Pour le Oscillococcinum
@@ -102,6 +99,7 @@ public class upgradesInventory : MonoBehaviour
             p1.GetComponent<PlayerStress>().HealStressplayer(p1.GetComponent<PlayerStress>().currentStress - saveStress);
             p2.GetComponent<PlayerStress>().HealStressplayer(p2.GetComponent<PlayerStress>().currentStress - saveStress);
         }
+        */
 
         //Random.org
         var rd = new Random();
@@ -150,7 +148,7 @@ public class upgradesInventory : MonoBehaviour
                 break;
             }
         }
-    public void Update()
+    /*public void Update()
     {
         if (!PhotonNetwork.IsConnected)
         {
@@ -162,6 +160,6 @@ public class upgradesInventory : MonoBehaviour
                 founded = p1 != null && p2 != null;
             }
         }
-    }
+    }*/
 }
         
