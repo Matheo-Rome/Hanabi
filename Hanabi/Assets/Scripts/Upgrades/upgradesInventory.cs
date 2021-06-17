@@ -85,6 +85,44 @@ public class upgradesInventory : MonoBehaviour
         {
             player.GetComponent<PlayerStress>().HealStressplayer(player.GetComponent<PlayerStress>().currentStress - saveStress);
         }
+        
+        //Random.org
+        int[] broken = new[] {16, 9, 4, 20, 12, 1};
+        int[] used = new[] {17, 11, 5, 21, 13, 2};
+        int[] fresh = new[] {18, 10, 6, 22, 14, 3};
+        switch (Upgrade.givenObjectLevel)
+        {
+            case 1 :
+                var item1 = ScriptableObject.CreateInstance<Items>();
+                InventairePassif.instance.content.Add(item1);
+                InventairePassif.instance.Start();
+                InventairePassif.instance.AddEffectItem(item1);
+                break;
+            case 2 :
+                var item2 = ScriptableObject.CreateInstance<Items>();
+                InventairePassif.instance.content.Add(item2);
+                InventairePassif.instance.Start();
+                InventairePassif.instance.AddEffectItem(item2);
+                break;
+            case 3 :
+                var item3 = ScriptableObject.CreateInstance<Items>();
+                InventairePassif.instance.content.Add(item3);
+                InventairePassif.instance.Start();
+                InventairePassif.instance.AddEffectItem(item3);
+                break;
+            case 4 :
+                var item4 = ScriptableObject.CreateInstance<Items>();
+                InventairePassif.instance.content.Add(item4);
+                InventairePassif.instance.Start();
+                InventairePassif.instance.AddEffectItem(item4);
+                break;
+            case 5 :
+                var item5 = ScriptableObject.CreateInstance<Items>();
+                InventairePassif.instance.content.Add(item5);
+                InventairePassif.instance.Start();
+                InventairePassif.instance.AddEffectItem(item5);
+                break;
+        }
     }
 
     else
