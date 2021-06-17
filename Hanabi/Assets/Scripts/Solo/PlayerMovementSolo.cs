@@ -169,6 +169,38 @@ public class PlayerMovementSolo : MonoBehaviourPun
              
          }
 
+         if (J1)
+         {
+             GameObject[] IAs = GameObject.FindGameObjectsWithTag("IA");
+             GameObject[] IA2s = GameObject.FindGameObjectsWithTag("IA2");
+             foreach (var ia in IAs)
+             {
+                 var rb2 = ia.GetComponent<Rigidbody2D>();
+                 rb2.constraints = RigidbodyConstraints2D.None;
+                 rb2.constraints = RigidbodyConstraints2D.FreezeRotation;
+             }
+             foreach (var ia2 in IA2s)
+             {
+                 ia2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+             }
+             
+         }
+         else
+         {
+             GameObject[] IAs = GameObject.FindGameObjectsWithTag("IA");
+             GameObject[] IA2s = GameObject.FindGameObjectsWithTag("IA2");
+             foreach (var ia in IAs)
+             {
+                 ia.GetComponent<Rigidbody2D>().constraints =  RigidbodyConstraints2D.FreezePosition;
+             }
+             foreach (var ia2 in IA2s)
+             {
+                 var rb2 = ia2.GetComponent<Rigidbody2D>();
+                 rb2.constraints = RigidbodyConstraints2D.None;
+                 rb2.constraints = RigidbodyConstraints2D.FreezeRotation;
+             } 
+         }
+
          if (Input.GetButtonDown("Switch"))
          {
              playing = false;
@@ -506,11 +538,6 @@ public class PlayerMovementSolo : MonoBehaviourPun
     // Test collider fin de niveau/tomber dans un trou/ collision avec l'ia de la mort qui tue/ collision lors d'une teleportation
     private void OnTriggerEnter2D(Collider2D other)
     {
-       /* if (other.CompareTag("Flower"))
-        {
-            Reposition();
-            
-        }*/
         if (other.CompareTag("Respawn"))
         {
             Reposition();
@@ -526,11 +553,11 @@ public class PlayerMovementSolo : MonoBehaviourPun
             hasFallen = true;
         }
         
-        else if (other.CompareTag("IA"))
+        else if (other.CompareTag("IAT"))
         {
             Reposition();
-            PlayerStressSolo.instance.HealStressplayer(200);
-            otherplayer.GetComponent<PlayerStressSolo>().HealStressplayer(200);
+            player.GetComponent<PlayerStressSolo>().currentStress = 0;
+            otherplayer.GetComponent<PlayerStressSolo>().currentStress = 0;
         }
         else
         {

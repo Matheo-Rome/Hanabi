@@ -4188,6 +4188,7 @@ Transform:
   - {fileID: 8282152031652967520}
   - {fileID: 4500264679528908321}
   - {fileID: 8284724180256128746}
+  - {fileID: 2631024771333251631}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6466,7 +6467,37 @@ MonoBehaviour:
   Fantome: {fileID: 8284724180256128740}
   instance: {fileID: 0}
   cooldown: 15
-  instanceFantome: {fileID: 0}
+  instanceFantome: {fileID: 5320756103961106609}
+--- !u!1 &5320756103961106609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2631024771333251631}
+  m_Layer: 0
+  m_Name: instanceFantome
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2631024771333251631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320756103961106609}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 714.1454, y: 410.31146, z: -299.88297}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2310040613290725413}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5925739167094567735
 GameObject:
   m_ObjectHideFlags: 0
@@ -7057,6 +7088,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2310040613290725413}
     m_Modifications:
+    - target: {fileID: 8241661015650301936, guid: 724a0b192802b7b40ac01c9764e2986c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8241661015928661317, guid: 724a0b192802b7b40ac01c9764e2986c,
         type: 3}
       propertyPath: m_Name
@@ -7121,6 +7157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241661016166961918, guid: 724a0b192802b7b40ac01c9764e2986c,
+        type: 3}
+      propertyPath: m_TagString
+      value: IAT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 724a0b192802b7b40ac01c9764e2986c, type: 3}
