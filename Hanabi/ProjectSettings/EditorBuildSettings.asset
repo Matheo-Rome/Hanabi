@@ -246,6 +246,12 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Angelina/Assets/Scenes/Autres/d\xE9fi 4.unity"
     guid: a9462f46c3c469641bc76d81ae2b43f8
+  - enabled: 1
+    path: "Assets/Angelina/Assets/Scenes/Autres/cr\xE9dit.unity"
+    guid: a27dfa39a3afb0e43a7751489b4b0d08
+  - enabled: 1
+    path: Assets/Angelina/Assets/Scenes/Autres/Marchand_permanent.unity
+    guid: fa6852cde33b7f247b5df390fe32e8dc
   - enabled: 0
     path: Assets/Hougo/Scenes/ALL items.unity
     guid: b7dff67a1bf4e1549b0130891e38b1ec
@@ -261,7 +267,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Matheo/Prefabs/scene/test21.unity
     guid: 01349cc2969abd64cb1cf42aa57b36a8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Antoine/Assets/Scenes/New_PNJ.unity
     guid: 39c0ca4ece5da3d48a5a7919e7aa38bf
   m_configObjects: {}
