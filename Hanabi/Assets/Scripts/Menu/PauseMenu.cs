@@ -50,10 +50,8 @@ public class PauseMenu : MonoBehaviour
         {
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LeaveLobby();
-            toDestroy = GameObject.FindGameObjectsWithTag("Package").ToList();
         }
-        else
-            toDestroy = new List<GameObject>(){GameObject.FindGameObjectWithTag("Package"),GameObject.FindGameObjectWithTag("Package2")};
+        toDestroy = GameObject.FindGameObjectsWithTag("Package").ToList();
         Destroy(toDestroy[0]);
         Destroy(toDestroy[1]);
         
