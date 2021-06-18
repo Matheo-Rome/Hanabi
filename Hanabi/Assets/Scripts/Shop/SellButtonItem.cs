@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SellButtonItem : MonoBehaviour
+public class SellButtonItem : MonoBehaviourPunCallbacks
 {
     public Text ItemName;
     public Image ItemImage;
@@ -19,7 +19,7 @@ public class SellButtonItem : MonoBehaviour
             nbPiece = GameObject.FindGameObjectWithTag("InventaireM").GetComponent<inventory>().NombreDePièce;
         else
             nbPiece = GameObject.FindGameObjectWithTag("Inventaire").GetComponent<inventory>().NombreDePièce;
-        if (/*inventory.instance.NombreDePièce*/nbPiece >= item.Price )
+        if (nbPiece >= item.Price )
         {
             reduction = 0;
             nouveauxprix = 0;
@@ -39,18 +39,17 @@ public class SellButtonItem : MonoBehaviour
             {
                 GameObject[] IPs = GameObject.FindGameObjectsWithTag("IP");
                 GameObject[] Invs = GameObject.FindGameObjectsWithTag("InventaireM");
-                foreach (var IP in IPs)
-                {
-                    InventairePassif ip = IP.GetComponent<InventairePassif>();
-                    ip.content.Add(item);
-                    ip.Start();
-                    ip.AddEffectItem(item, true);
-                }
-
                 foreach (var inv in Invs)
                 {
                     inv.GetComponent<inventory>().Addcoins(-nouveauxprix, true);
                 }
+                IPs[0].GetComponent<InventairePassif>().AddEffectItem(item,true);
+                IPs[0].GetComponent<InventairePassif>().ContentAdd(item,true);
+                foreach (var IP in IPs)
+                {
+                    IP.GetComponent<InventairePassif>().UpdateImage(true);
+                }
+                
             }
             else
             {
@@ -66,8 +65,6 @@ public class SellButtonItem : MonoBehaviour
                 I1.Addcoins(-nouveauxprix, false);
                 I2.Addcoins(-nouveauxprix, false);
             }
-
-            //item.Available = false;
         }
     }
 }

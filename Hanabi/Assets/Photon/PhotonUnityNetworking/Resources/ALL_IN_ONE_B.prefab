@@ -1628,6 +1628,7 @@ MonoBehaviour:
   hasChangedRoom: 0
   previousRoom: 0
   isTouchingFire: 0
+  firecampValue: 0.6
   stressBar: {fileID: 5330483819352954132}
 --- !u!114 &2810789557844901229
 MonoBehaviour:
@@ -1642,6 +1643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 9023373665538868985}
+  Bank: 0
 --- !u!114 &5132918531995365145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1993,6 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 9023373665538868985}
+  Bank: 0
 --- !u!114 &1720447798141858974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6379,6 +6382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3379456538435563326}
   - component: {fileID: 8108006145787032446}
+  - component: {fileID: 8896980069423503173}
   m_Layer: 0
   m_Name: InventaireMenu
   m_TagString: IP
@@ -6435,6 +6439,28 @@ MonoBehaviour:
   ImageItem18: {fileID: 6285463382242654039}
   ImageItem19: {fileID: 3317812758848216505}
   ImageItem20: {fileID: 7123251941776047165}
+--- !u!114 &8896980069423503173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8739686552295245922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8740587989070283441
 GameObject:
   m_ObjectHideFlags: 0

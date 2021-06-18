@@ -19,14 +19,12 @@ TagManager:
   - Inventaire
   - InventaireM
   - PlantsTP
-<<<<<<< Updated upstream
   - GameObjectUpgrade
-=======
   - IA2
   - IAT
   - IP
   - IP2
->>>>>>> Stashed changes
+  - Marchand
   layers:
   - Default
   - TransparentFX
