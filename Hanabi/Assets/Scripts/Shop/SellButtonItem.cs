@@ -44,9 +44,9 @@ public class SellButtonItem : MonoBehaviourPunCallbacks
                     inv.GetComponent<inventory>().Addcoins(-nouveauxprix, true);
                 }
                 IPs[0].GetComponent<InventairePassif>().AddEffectItem(item,true);
-                IPs[0].GetComponent<InventairePassif>().ContentAdd(item,true);
                 foreach (var IP in IPs)
                 {
+                    IP.GetComponent<InventairePassif>().ContentAdd(item,true);
                     IP.GetComponent<InventairePassif>().UpdateImage(true);
                 }
                 

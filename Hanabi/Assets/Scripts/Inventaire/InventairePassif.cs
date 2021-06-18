@@ -59,21 +59,8 @@ public class InventairePassif : MonoBehaviourPunCallbacks
         }
         else
         {
-            /*GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            foreach (var player in players)
-            {
-                PlayerMovement PM = player.GetComponent<PlayerMovement>();
-                PM.speed += items.speedGiven;
-                PM.jumpVelocity += items.jumpBoostGiven;
-                PM.fallResistance += items.StressLoss;
-                player.GetComponent<PlayerStress>().nextStress += items.StressIntervalle;
-            }*/
+            
             MultiAdd(items.speedGiven,items.jumpBoostGiven,items.StressLoss,items.StressIntervalle);
-            /*PlayerMovement.instance.speed += items.speedGiven;
-            PlayerMovement.instance.jumpVelocity += items.jumpBoostGiven;
-            PlayerMovement.instance.fallResistance += items.StressLoss;
-            PlayerStress.instance.nextStress += items.StressIntervalle;*/
-            //if (again)
             photonView.RPC("RPC_AddEffectItem", RpcTarget.Others, items.speedGiven,items.jumpBoostGiven,items.StressLoss,items.StressIntervalle);
         }
     }
@@ -151,6 +138,7 @@ public class InventairePassif : MonoBehaviourPunCallbacks
             if (list[i].id == id)
             {
                 ContentAdd(list[i],false);
+                break;
             }
         }
         //content.Add(items);
