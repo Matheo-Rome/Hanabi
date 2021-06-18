@@ -17,7 +17,7 @@ public class PlantPlayer2 : MonoBehaviourPunCallbacks
                 base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,true);
         }
     }
-    
+    /*
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Player2") || other.CompareTag("Player2"))
@@ -26,7 +26,7 @@ public class PlantPlayer2 : MonoBehaviourPunCallbacks
             if(PhotonNetwork.IsConnected)
                 base.photonView.RPC("RPC_PlantP2", RpcTarget.Others,false);
         }
-    }
+    }*/
 
     [PunRPC]
     private void RPC_PlantP2(bool trigger)

@@ -25,8 +25,9 @@ public class LoadScene_z1 : MonoBehaviour
         if (flower.IsTrigger)
         {
             tag = "Flower";
-            if (collision.CompareTag("Player")|| collision.CompareTag("Player1") || collision.CompareTag("Player2")) 
+            if (collision.CompareTag("Player")|| collision.CompareTag("Player1") || collision.CompareTag("Player2"))
             {
+                flower.IsTrigger = false;
                 //si c'est la salle histoire renvoie vers la salle défi
                 if (SceneManager.GetActiveScene().buildIndex == history)
                 {
