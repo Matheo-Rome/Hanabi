@@ -4983,6 +4983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 4322541084027964547}
+  Bank: 0
 --- !u!114 &-1402911050708720673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5577,6 +5578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4322541084407570242}
   - component: {fileID: 4322541084407570243}
+  - component: {fileID: 7775068580132193671}
   m_Layer: 0
   m_Name: InventaireMenu
   m_TagString: IP
@@ -5633,6 +5635,28 @@ MonoBehaviour:
   ImageItem18: {fileID: 4322541084008240705}
   ImageItem19: {fileID: 4322541084039781119}
   ImageItem20: {fileID: 4322541083248145196}
+--- !u!114 &7775068580132193671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322541084407570236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4322541084425109978
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,6 +6872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 4322541084027964547}
+  Bank: 0
 --- !u!114 &4322541082764754717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6884,6 +6909,7 @@ MonoBehaviour:
   hasChangedRoom: 0
   previousRoom: 0
   isTouchingFire: 0
+  firecampValue: 0.6
   stressBar: {fileID: 4322541082978226382}
 --- !u!114 &3373130729893448801
 MonoBehaviour:

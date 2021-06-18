@@ -59,22 +59,50 @@ public class InventairePassif : MonoBehaviourPunCallbacks
         }
         else
         {
-            PlayerMovement.instance.speed += items.speedGiven;
+            /*GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (var player in players)
+            {
+                PlayerMovement PM = player.GetComponent<PlayerMovement>();
+                PM.speed += items.speedGiven;
+                PM.jumpVelocity += items.jumpBoostGiven;
+                PM.fallResistance += items.StressLoss;
+                player.GetComponent<PlayerStress>().nextStress += items.StressIntervalle;
+            }*/
+            MultiAdd(items.speedGiven,items.jumpBoostGiven,items.StressLoss,items.StressIntervalle);
+            /*PlayerMovement.instance.speed += items.speedGiven;
             PlayerMovement.instance.jumpVelocity += items.jumpBoostGiven;
             PlayerMovement.instance.fallResistance += items.StressLoss;
-            PlayerStress.instance.nextStress += items.StressIntervalle;
-            if (again)
-                photonView.RPC("RPC_AddEffectItem",RpcTarget.Others,items);
+            PlayerStress.instance.nextStress += items.StressIntervalle;*/
+            //if (again)
+            photonView.RPC("RPC_AddEffectItem", RpcTarget.Others, items.speedGiven,items.jumpBoostGiven,items.StressLoss,items.StressIntervalle);
+        }
+    }
+
+    public void MultiAdd(float speedGiven, float jumpBoostGiven, int StressLoss, float StressIntervalle)
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (var player in players)
+        {
+            PlayerMovement PM = player.GetComponent<PlayerMovement>();
+            PM.speed += speedGiven;
+            PM.jumpVelocity += jumpBoostGiven;
+            PM.fallResistance += StressLoss;
+            player.GetComponent<PlayerStress>().nextStress += StressIntervalle;
         }
     }
 
     [PunRPC]
-    public void RPC_AddEffectItem(Items items)
+    public void RPC_AddEffectItem(float speedGiven,float jumpBoostGiven,int StressLoss, float StressIntervalle)
     {
-        AddEffectItem(items, false);
+       MultiAdd(speedGiven,jumpBoostGiven,StressLoss,StressIntervalle);
     }
 
     public void Start()
+    {
+       UpdateImage(true);
+    }
+
+    public void UpdateImage(bool again)
     {
         Item0();
         Item1();
@@ -97,6 +125,35 @@ public class InventairePassif : MonoBehaviourPunCallbacks
         Item18();
         Item19();
         Item20();
+        if(PhotonNetwork.IsConnected && again)
+            photonView.RPC("RPC_Start",RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void RPC_Start()
+    {
+        UpdateImage(false);
+    }
+
+    public void ContentAdd(Items items,bool again)
+    {
+        content.Add(items);
+        if(PhotonNetwork.IsConnected && again)
+            photonView.RPC("RPC_ContentAdd",RpcTarget.Others,items.id);
+    }
+
+    [PunRPC]
+    public void RPC_ContentAdd(int id)
+    {
+        Items[] list = GameObject.FindGameObjectWithTag("Marchand").GetComponent<ShopTrigger>().itemsToSell;
+        for (int i = 0; i < list.Length; i++)
+        {
+            if (list[i].id == id)
+            {
+                ContentAdd(list[i],false);
+            }
+        }
+        //content.Add(items);
     }
     public void Item0()
     {
