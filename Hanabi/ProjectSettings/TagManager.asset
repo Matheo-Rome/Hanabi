@@ -3,7 +3,32 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - InteractUI
+  - Bullet
+  - Flower
+  - IA
+  - Planche
+  - Door
+  - Button
+  - Package
+  - Player1
+  - Player2
+  - Inventaire2
+  - Canvas2
+  - Inventaire
+  - InventaireM
+  - PlantsTP
+  - GameObjectUpgrade
+  - IA2
+  - IAT
+  - IP
+  - IP2
+  - Marchand
+>>>>>>> parent of ebfbcb7 (tag)
   layers:
   - Default
   - TransparentFX
