@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class ValueOfUpgrade : MonoBehaviour
@@ -29,4 +30,6 @@ public class ValueOfUpgrade : MonoBehaviour
         AmeliorationStress = 200;
         AmeliorationFeuDeCamps = 0.6f;
     }
+
+    
 }

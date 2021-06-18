@@ -93,24 +93,50 @@ public class inventory : MonoBehaviourPunCallbacks
             {
                 //if the item is "updraft"
                 case 8:
-                    PlayerMovement.instance.itemJump = true;
+                    if (PhotonNetwork.IsConnected)
+                        gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerMovement>().itemJump = true;
+                    else
+                    {
+                        gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerMovementSolo>().itemJump = true;
+                    }
+                    //PlayerMovement.instance.itemJump = true;
                     cooldown = Time.time + 15f;
                     timeStart = 15f;
                     break;
                 //if the item is "plutôt deux fois Khune"
                 case 15:
-                    PlayerMovement.instance.hasDashed = false;
+                    if (PhotonNetwork.IsConnected)
+                        gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerMovement>().hasDashed = false;
+                    else
+                    {
+                        gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerMovementSolo>().hasDashed = false;
+                    }
+                    //PlayerMovement.instance.hasDashed = false;
                     cooldown = Time.time + 15f;
                     timeStart = 15f;
                     break;
                 //if the item is "sandwich triangle"
                 case 7:
-                    PlayerStress.instance.HealStressplayer(20);
+                    if (PhotonNetwork.IsConnected)
+                        gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerStress>().HealStressplayer(20);
+                    else
+                    {
+                        GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerStressSolo>().HealStressplayer(20);
+                        GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerStressSolo>().HealStressplayer(20);
+                        //gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerStressSolo>().HealStressplayer(20);
+                    }
+                    //PlayerStress.instance.HealStressplayer(20);
                     cooldown = Time.time + 40f;
                     timeStart = 40f;
                     break;
                 //if the item is "The World"
                 case 19:
+                    if (PhotonNetwork.IsConnected)
+                        gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerMovement>().itemTp = true;
+                    else
+                    {
+                        gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerMovementSolo>().itemTp = true;
+                    }
                     PlayerMovement.instance.itemTp = true;
                     cooldown = Time.time + 15f;
                     timeStart = 15f;
@@ -121,8 +147,10 @@ public class inventory : MonoBehaviourPunCallbacks
 
     private void Update() //updates the countdown for the current active item
     {
-        useitem();
-        
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.P))
+        {
+            ConsommerItems();
+        }
         if (contenu.Count > 0)
         {
             if (timeStart > 0)
@@ -174,18 +202,6 @@ public class inventory : MonoBehaviourPunCallbacks
     {
         compteurdecoinstext.text = NombreDePièce.ToString();
         compteurdeRaspberries.text = NombreDeRaspberries.ToString();
-    }
-
-    public void useitem()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ConsommerItems();
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ConsommerItems();
-        }
     }
 
 }

@@ -119,7 +119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4345154898782449250}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8748802211199277571
 MonoBehaviour:
@@ -182,15 +182,10 @@ GameObject:
   - component: {fileID: 8044301159012502266}
   - component: {fileID: 110039934314930900}
   - component: {fileID: 3101223031567014543}
-  - component: {fileID: 8086771456694426032}
   - component: {fileID: 7445022208532577809}
   - component: {fileID: 7119955352289851382}
-  - component: {fileID: 822655008243128824}
-  - component: {fileID: 104674741477733869}
-  - component: {fileID: 1886086574090905639}
   - component: {fileID: 4345154898257619773}
   - component: {fileID: 4345154898257619772}
-  - component: {fileID: 4345154898257619775}
   - component: {fileID: 2989849105909995584}
   - component: {fileID: 7996100273999535784}
   m_Layer: 0
@@ -222,7 +217,7 @@ Transform:
   - {fileID: 4345154898286145072}
   - {fileID: 5103495281213545206}
   m_Father: {fileID: 4345154898782449250}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7295797587890948169
 SpriteRenderer:
@@ -378,53 +373,6 @@ MonoBehaviour:
   _saveData: {fileID: 169691723052149533}
   playing: 1
   J1: 1
---- !u!114 &8086771456694426032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4249301761304654704}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcc679e55b403ce409716c1e6475e547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpVelocity: 8.02
-  speed: 10
-  slideSpeed: 2
-  groundCheckLeft: {fileID: 4779528402321071314}
-  groundCheckRight: {fileID: 5586358059487755230}
-  wallCheckRight: {fileID: 5839398001519437643}
-  wallCheckRight2: {fileID: 5893374913011536711}
-  wallCheckLeft: {fileID: 3803856813289968519}
-  wallCheckLeft2: {fileID: 4007144019820984128}
-  keyFollowPoint: {fileID: 4345154898246023813}
-  SpawnPoint: {fileID: 4345154898286145072}
-  followingKey: {fileID: 0}
-  onGround: 1
-  onWall: 0
-  hasDashed: 0
-  hasFallen: 0
-  fallResistance: 0
-  canvas: {fileID: 4345154898158172904}
-  canvasPause: {fileID: 1139907645755489292}
-  dashSpeed: 30
-  startDashTime: 0.1
-  direction: 0
-  ClassiqueDash: 1
-  BouncyDash: 0
-  isBouncydashing: 0
-  LightDash: 0
-  itemJump: 0
-  itemTp: 0
-  isItemDashing: 0
-  playerCamera: {fileID: 7206877831830300335}
-  CameraSpawn: {fileID: 5103495281213545206}
-  player: {fileID: 4249301761304654704}
-  otherplayer: {fileID: 0}
-  founded: 0
-  _saveData: {fileID: 169691723052149533}
 --- !u!251 &7445022208532577809
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -474,71 +422,6 @@ PolygonCollider2D:
       - {x: 0.3189716, y: -0.4946487}
       - {x: 0.3128259, y: 0.498719}
       - {x: -0.4415464, y: 0.5003771}
---- !u!114 &822655008243128824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4249301761304654704}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
---- !u!114 &104674741477733869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4249301761304654704}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 0
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
---- !u!114 &1886086574090905639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4249301761304654704}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08be62f0f291603439298141b3e6edcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptsToIgnore:
-  - {fileID: 8086771456694426032}
-  - {fileID: 110039934314930900}
-  - {fileID: 1886086574090905639}
 --- !u!114 &4345154898257619773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 4345154899001792674}
+  Bank: 0
 --- !u!114 &4345154898257619772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,30 +449,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryGO: {fileID: 4345154898803820716}
---- !u!114 &4345154898257619775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4249301761304654704}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e06600f6239e74b8b3c911d861dbfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minStress: 0
-  currentStress: 0
-  maxStress: 200
-  reductiondestress: 0
-  Pretzelcompteur: {fileID: 4345154898719801803}
-  nextStress: 2
-  StressCD: 0
-  canGainStress: 0
-  hasChangedRoom: 0
-  previousRoom: 0
-  isTouchingFire: 0
-  stressBar: {fileID: 4345154897918493935}
 --- !u!114 &2989849105909995584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +485,7 @@ MonoBehaviour:
   previousRoom: 0
   isTouchingFire: 0
   stressBar: {fileID: 4345154897918493935}
+  firecampValue: 0.6
 --- !u!1 &4345154897241863001
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,8 +4588,8 @@ Transform:
   m_LocalPosition: {x: -0.2755146, y: -13.115847, z: 600}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 9021122621222369161}
   - {fileID: 1888385330948568103}
+  - {fileID: 9021122621222369161}
   - {fileID: 4345154898827742051}
   - {fileID: 4345154899001792672}
   - {fileID: 4345154898158172905}
@@ -4763,6 +4624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 4345154899001792674}
+  Bank: 0
 --- !u!114 &7725376195927308286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4782,8 +4644,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 822655008243128824}
-  - {fileID: 104674741477733869}
+  - {fileID: 0}
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

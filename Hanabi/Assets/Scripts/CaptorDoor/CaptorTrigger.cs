@@ -30,16 +30,17 @@ public class CaptorTrigger : MonoBehaviour
         {
             theSR.sprite = buttonOn;
             IsActive = true;
-            bool t = PlayerMovementSolo.instance.hasDashed;
-            bool t2 = PlayerMovementSolo.otherinstance.hasDashed;
             collider2D.enabled = false;
             if (!PhotonNetwork.IsConnected)
+            {
+                /*bool t = PlayerMovementSolo.instance.hasDashed;
+                bool t2 = PlayerMovementSolo.otherinstance.hasDashed;*/
                 /*if (collider.CompareTag("Player1"))
                          PlayerMovementSolo.instance.hasDashed = false;
                 else
                     PlayerMovementSolo.otherinstance.hasDashed = false;*/
                 MainCaptor.player.hasDashed = false;
-
+            }
             else
                 PlayerMovement.instance.hasDashed = false;
         }

@@ -234,7 +234,9 @@ public class PlayerMovementSolo : MonoBehaviourPun
 
          //Jump
          if (Input.GetButton("Jump") && onGround || itemJump)
+         {
              Jump();
+         }
 
          if (!isDashing)
              Walk(dir);
@@ -285,7 +287,6 @@ public class PlayerMovementSolo : MonoBehaviourPun
 
          if (isItemDashing)
          {
-             DashLight();
              DashLight();
          }
 
@@ -496,8 +497,6 @@ public class PlayerMovementSolo : MonoBehaviourPun
             direction = 0;
             dashTime = startDashTime;
             rb.velocity = Vector2.zero;
-            Debug.Log("Exit " + isInsideEx);
-            Debug.Log("Enter " + isInsideEn);
             if (isInsideEn%2 != 0 || isInsideEx%2 != 0)
             {
                 player.transform.position = stocktele;

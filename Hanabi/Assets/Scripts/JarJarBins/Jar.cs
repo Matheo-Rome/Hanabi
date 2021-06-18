@@ -40,8 +40,7 @@ public class Jar : MonoBehaviourPunCallbacks
             }
 
         }
-
-        //maxP =  GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().addGiventByJar;
+        
     }
     
     public void OnTriggerEnter2D(Collider2D other)
@@ -49,7 +48,7 @@ public class Jar : MonoBehaviourPunCallbacks
         if (other.CompareTag("Player") || other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             Animator.Play("Jar");
-            int add = (int) Random.Range(0,maxP+1);
+            int add = (int) Random.Range(0,maxP+1+ GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>().AmeliorationJar);
             if (!PhotonNetwork.IsConnected)
             {
                 p1.GetComponent<inventory>().Addcoins(add,false);

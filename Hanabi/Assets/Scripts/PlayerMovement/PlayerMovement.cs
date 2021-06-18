@@ -121,6 +121,7 @@ public class PlayerMovement : MonoBehaviourPun
              Boxcollider.isTrigger = true;
          }
 
+         PhotonNetwork.AutomaticallySyncScene = true;
          Stress = GetComponent<PlayerStress>();
 
          if (photonView.IsMine) //Active la caméra du joueur est éteint celle de l'autre joueur
@@ -157,7 +158,12 @@ public class PlayerMovement : MonoBehaviourPun
 
          scenecheck = SceneManager.GetActiveScene().buildIndex;
          if (scene != scenecheck)
+         {
+             if (!PhotonNetwork.IsMasterClient)
+                 photonView.RPC("RPC_TP",RpcTarget.Others,scenecheck);
              Reposition();
+         }
+
          scene = scenecheck;
 
 
@@ -167,7 +173,7 @@ public class PlayerMovement : MonoBehaviourPun
          float xRaw = Input.GetAxisRaw("Horizontal");
          float yRaw = Input.GetAxisRaw("Vertical");
          Vector2 dir = new Vector2(x, 0);
-
+         
          //Vérifie la position du personnage par rapport au sol et aux murs.
          onGround = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
          onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
@@ -557,5 +563,11 @@ public class PlayerMovement : MonoBehaviourPun
         gameObject.transform.position = new Vector3(SpawnPoint.position.x,SpawnPoint.position.y,SpawnPoint.position.z);
         CameraSpawn.position = new Vector3(playerCamera.transform.position.x,playerCamera.transform.position.y,playerCamera.transform.position.z);
         SpawnPoint.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+    }
+
+    [PunRPC]
+    public void RPC_TP(int index)
+    {
+        PhotonNetwork.LoadLevel(index);
     }
  }

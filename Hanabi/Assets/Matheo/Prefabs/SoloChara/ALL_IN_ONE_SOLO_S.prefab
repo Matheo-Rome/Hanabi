@@ -4217,6 +4217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 2310040612226032164}
+  Bank: 0
 --- !u!114 &3026328040222365339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4236,8 +4237,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 7182767857045608895}
-  - {fileID: 7787870837942560917}
+  - {fileID: 0}
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -6512,9 +6513,6 @@ GameObject:
   - component: {fileID: 7584635360940515987}
   - component: {fileID: 1123350485528575574}
   - component: {fileID: 723901667668113329}
-  - component: {fileID: 7182767857045608895}
-  - component: {fileID: 7787870837942560917}
-  - component: {fileID: 8279939036426627168}
   - component: {fileID: 7813339880924969714}
   - component: {fileID: 2310040612381859576}
   - component: {fileID: 2310040612381859579}
@@ -6687,54 +6685,6 @@ PolygonCollider2D:
       - {x: 0.31897163, y: -0.4946487}
       - {x: 0.31825876, y: 0.49871898}
       - {x: -0.44154644, y: 0.50037706}
---- !u!114 &7182767857045608895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925739167094567735}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
---- !u!114 &7787870837942560917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925739167094567735}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 0
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &8279939036426627168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5925739167094567735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08be62f0f291603439298141b3e6edcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptsToIgnore:
-  - {fileID: 0}
-  - {fileID: 7584635360940515987}
-  - {fileID: 8279939036426627168}
 --- !u!95 &7813339880924969714
 Animator:
   serializedVersion: 3
@@ -6780,6 +6730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventaire: {fileID: 2310040612226032164}
+  Bank: 0
 --- !u!114 &2310040612381859578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6816,6 +6767,7 @@ MonoBehaviour:
   previousRoom: 0
   isTouchingFire: 0
   stressBar: {fileID: 2310040613547580134}
+  firecampValue: 0.6
 --- !u!114 &7100870950334057842
 MonoBehaviour:
   m_ObjectHideFlags: 0

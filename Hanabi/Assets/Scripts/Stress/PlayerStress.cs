@@ -59,7 +59,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         //if the room just changed and you are near a fire place then we update the stress accordingly
         if (hasChangedRoom && isTouchingFire)
         {
-            currentStress = (int) (currentStress * firecampValue);
+            currentStress = (int) ((float) currentStress * GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>().AmeliorationStress);
             hasChangedRoom = false;
         }
         List<Items> content = new List<Items>();;
@@ -117,16 +117,16 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     public void TakeStress(int addstress)
     {
         currentStress += addstress;
-        if (currentStress > 200)
+        if (currentStress > maxStress)
         {
-            currentStress = 200;
+            currentStress = maxStress;
         }
         stressBar.SetStress(currentStress);
     }
 
     public void HealStressplayer(int amount)
     {
-        if ((currentStress -= amount)<0)
+        if (currentStress - amount<0)
         {
             currentStress = minStress;
         }

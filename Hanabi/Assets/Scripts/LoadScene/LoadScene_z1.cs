@@ -17,9 +17,14 @@ public class LoadScene_z1 : MonoBehaviour
     private int next;
 
     public PlantPlayer2 flower;
-  
-    
-   
+
+    private void Start()
+    {
+        if(PhotonNetwork.IsConnected) 
+            PhotonNetwork.AutomaticallySyncScene = true;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (flower.IsTrigger)

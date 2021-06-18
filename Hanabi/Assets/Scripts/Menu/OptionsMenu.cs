@@ -17,7 +17,7 @@ public class OptionsMenu : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
         audioSource = audioManager.GetComponent<AudioSource>();
-        Slider = SliderGO.GetComponent<Slider>();
+       // Slider = SliderGO.GetComponent<Slider>();
     }
     
 

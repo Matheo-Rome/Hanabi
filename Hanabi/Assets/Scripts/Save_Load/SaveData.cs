@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml;
 using Photon.Pun;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class SaveData : MonoBehaviourPunCallbacks
 
     private bool already = false;
     public int Bank = 0;
+    private bool founded = false;
+    private ValueOfUpgrade ValueOfUpgrade;
 
     private void Start()
     {
@@ -29,14 +32,24 @@ public class SaveData : MonoBehaviourPunCallbacks
             Load();
             already = true;
         }
+
+        if (!founded)
+        {
+            ValueOfUpgrade = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>();
+            founded = ValueOfUpgrade != null;
+        }
+        
+
     }
     
     public void Save()
     {
-        int pièce = Bank;
-        if (_inventory.NombreDePièce < Bank)
+        int pièce = ValueOfUpgrade.AmelioriationBank;
+        if (_inventory.NombreDePièce < ValueOfUpgrade.AmelioriationBank)
             pièce = _inventory.NombreDePièce;
-        string[] content = new[] {pièce.ToString(), _inventory.NombreDeRaspberries.ToString()};
+        string[] content = new[] {pièce.ToString(), _inventory.NombreDeRaspberries.ToString(),ValueOfUpgrade.AmeliorationJar.ToString(),
+            ValueOfUpgrade.AmelioriationBank.ToString(),ValueOfUpgrade.AmeliorationStress.ToString(),
+            ((int) ValueOfUpgrade.AmeliorationFeuDeCamps*10).ToString(),ValueOfUpgrade.AmeliorationRandomLevel.ToString()};
         string saveString = string.Join(saveSeparator,content);
         File.WriteAllText(Application.dataPath + "/sauvgarde.txt", saveString.ToString());
         Debug.Log("Saved" + _inventory.NombreDePièce.ToString() + " " + _inventory.NombreDeRaspberries.ToString());
@@ -54,6 +67,12 @@ public class SaveData : MonoBehaviourPunCallbacks
                 _inventory.compteurdecoinstext.text = _inventory.NombreDePièce.ToString();
                 _inventory.NombreDeRaspberries = int.Parse(content[1]);
                 _inventory.compteurdeRaspberries.text = _inventory.NombreDeRaspberries.ToString();
+                ValueOfUpgrade.AmeliorationJar = int.Parse(content[2]);
+                ValueOfUpgrade.AmelioriationBank = int.Parse(content[3]);
+                ValueOfUpgrade.AmeliorationStress = int.Parse(content[4]);
+                ValueOfUpgrade.AmeliorationRandomLevel = int.Parse(content[6]);
+                ValueOfUpgrade.AmeliorationFeuDeCamps = ((float) int.Parse(content[5]))/10;
+                UpdateStress();
             }
             else if (PhotonNetwork.IsMasterClient)
             {
@@ -65,11 +84,53 @@ public class SaveData : MonoBehaviourPunCallbacks
                     inventory.GetComponent<inventory>().AddRaspberries(-inventory.GetComponent<inventory>().NombreDeRaspberries,true);
                     inventory.GetComponent<inventory>().AddRaspberries(int.Parse(content[1]),true);
                 }
+                photonView.RPC("RPC_UpdateValue", RpcTarget.All, int.Parse(content[2]), int.Parse(content[3]),
+                    int.Parse(content[4]), ((float) int.Parse(content[5]))/10, int.Parse(content[6]));
+                photonView.RPC("RPC_UpdateStress",RpcTarget.All);
             }
         }
     }
 
-    public void UpdateBank(int Update,bool again)
+    public void UpdateStress()
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                player.GetComponent<PlayerStress>().maxStress = ValueOfUpgrade.AmeliorationStress;
+            }
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerStressSolo>().maxStress = ValueOfUpgrade.AmeliorationStress;
+            GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerStressSolo>().maxStress = ValueOfUpgrade.AmeliorationStress;
+            
+        }
+    }
+
+    [PunRPC]
+    public void RPC_UpdateStress()
+    {
+        UpdateStress();
+    }
+
+    
+    public void UpdateValue(int _ameliorationJar, int _amelioriationBank, int _ameliorationStress, float _ameliorationFeuDeCamps, int _ameliorationRandomLevel)
+    {
+        ValueOfUpgrade.AmeliorationJar = _ameliorationJar;
+        ValueOfUpgrade.AmelioriationBank = _amelioriationBank;
+        ValueOfUpgrade.AmeliorationStress = _ameliorationStress;
+        ValueOfUpgrade.AmeliorationFeuDeCamps = _ameliorationRandomLevel;
+        ValueOfUpgrade.AmeliorationRandomLevel = _ameliorationRandomLevel;
+    }
+
+    [PunRPC]
+    public void RPC_UpdateValue(int _ameliorationJar, int _amelioriationBank, int _ameliorationStress,
+        float _ameliorationFeuDeCamps, int _ameliorationRandomLevel)
+    {
+        UpdateValue(_ameliorationJar, _amelioriationBank, _ameliorationStress, _ameliorationFeuDeCamps,_ameliorationRandomLevel);
+    }
+    /*public void UpdateBank(int Update,bool again)
     {
         Bank += Update;
         if(PhotonNetwork.IsConnected && again)
@@ -81,5 +142,5 @@ public class SaveData : MonoBehaviourPunCallbacks
     public void RPC_UpdateBank(int Update)
     {
         UpdateBank(Update,false);
-    }
+    }*/
 }

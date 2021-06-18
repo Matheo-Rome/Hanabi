@@ -30,21 +30,11 @@ public class ShopTrigger : MonoBehaviourPunCallbacks
                 HasTalked = true;
             }
         }
-
-        if (!founded)
-        {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Package");
-            foreach (var player in players)
-            {
-                if (!PhotonNetwork.IsMasterClient)
-                    interactUI.text = "";
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag("Player") || collision.CompareTag("Player1")) && !HasTalked)
+        if ((collision.CompareTag("Player") /*&& collision.transform.parent.gameObject.GetPhotonView().IsMine*/|| collision.CompareTag("Player1")) && !HasTalked)
         {
             isInRange = true;
             interactUI.enabled = true;

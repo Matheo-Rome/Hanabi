@@ -16,13 +16,13 @@ public class InstantiateFantome : MonoBehaviour
     {
         if (PhotonNetwork.IsConnected)
         {
-            if (PlayerStress.instance.currentStress == 200 && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
+            if (PlayerStress.instance.currentStress == PlayerStress.instance.maxStress && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
             {
                 instance = Instantiate(Fantome, transform.position, Quaternion.identity, instanceFantome.transform);
                 Oneinstance = true;
             }
 
-            if (PlayerStress.instance.currentStress <= 189 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
+            if (PlayerStress.instance.currentStress <= PlayerStress.instance.maxStress -11 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
             {
                 Oneinstance = false;
                 Destroy(instanceFantome.transform.GetChild(0).parent.gameObject);
@@ -33,13 +33,13 @@ public class InstantiateFantome : MonoBehaviour
         else
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player1");
-            if (player.GetComponent<PlayerStressSolo>().currentStress == 200 && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
+            if (player.GetComponent<PlayerStressSolo>().currentStress == player.GetComponent<PlayerStressSolo>().maxStress && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
             {
                 instance = Instantiate(Fantome, transform.position, Quaternion.identity, instanceFantome.transform);
                 Oneinstance = true;
             }
 
-            if (player.GetComponent<PlayerStressSolo>().currentStress  <= 189 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
+            if (player.GetComponent<PlayerStressSolo>().currentStress  <= player.GetComponent<PlayerStressSolo>().maxStress-11 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
             {
                 Oneinstance = false;
                 Destroy(instanceFantome.transform.GetChild(0).parent.gameObject);

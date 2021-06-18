@@ -118,21 +118,23 @@ public class AudioManager : MonoBehaviour
         musicIndex = 0;
         audioSource.clip = playlist[musicIndex];
         audioSource.Play();
+        int mid = PlayerStressSolo.instance.maxStress / 2;
+        int third = (3 * PlayerStressSolo.instance.maxStress) / 4;
         if (!PhotonNetwork.IsConnected)
         {
-            if (PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
+            if (PlayerStressSolo.instance.currentStress >= mid  && PlayerStressSolo.instance.currentStress < third)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
-            else if(PlayerStressSolo.instance.currentStress < 100)
+            else if(PlayerStressSolo.instance.currentStress < mid)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
-            else if(PlayerStressSolo.instance.currentStress >= 150)
+            else if(PlayerStressSolo.instance.currentStress >= third)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.85;
                 Blur2.SetActive(true);
@@ -141,19 +143,19 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            if (PlayerStress.instance.currentStress >= mid && PlayerStress.instance.currentStress < third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
-            else if (PlayerStress.instance.currentStress < 100)
+            else if (PlayerStress.instance.currentStress < mid)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
-            else if (PlayerStress.instance.currentStress >= 150)
+            else if (PlayerStress.instance.currentStress >= third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.85;
                 Blur2.SetActive(true);
@@ -173,41 +175,43 @@ public class AudioManager : MonoBehaviour
 
         if (!PhotonNetwork.IsConnected)
         {
+            int mid = PlayerStressSolo.instance.maxStress / 2;
+            int third = (3 * PlayerStressSolo.instance.maxStress) / 4;
             if (!audioSource.isPlaying)
             {
                 RepeatTheSong();
-                if(PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
+                if(PlayerStressSolo.instance.currentStress >= mid && PlayerStressSolo.instance.currentStress < third)
                 {
                     _audioDistortionFilter.distortionLevel = (float)0.70;
                     Blur2.SetActive(false);
                     Blur1.SetActive(true);
                 }
-                else if(PlayerStressSolo.instance.currentStress < 100)
+                else if(PlayerStressSolo.instance.currentStress < mid)
                 {
                     _audioDistortionFilter.distortionLevel = (float)0.5;
                     Blur2.SetActive(false);
                     Blur1.SetActive(false);
                 }
-                else if(PlayerStressSolo.instance.currentStress >= 150)
+                else if(PlayerStressSolo.instance.currentStress >= third)
                 {
                     _audioDistortionFilter.distortionLevel = (float)0.85;
                     Blur2.SetActive(true);
                     Blur1.SetActive(false);
                 }
             }
-            if(PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
+            if(PlayerStressSolo.instance.currentStress >= mid && PlayerStressSolo.instance.currentStress < third)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
-            if(PlayerStressSolo.instance.currentStress < 100)
+            if(PlayerStressSolo.instance.currentStress < mid)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
-            if(PlayerStressSolo.instance.currentStress >= 150)
+            if(PlayerStressSolo.instance.currentStress >= third)
             {
                 _audioDistortionFilter.distortionLevel = (float)0.85;
                 Blur2.SetActive(true);
@@ -215,23 +219,24 @@ public class AudioManager : MonoBehaviour
             }
         }
         else
-        {
+        {int mid = PlayerStress.instance.maxStress / 2;
+            int third = (3 * PlayerStress.instance.maxStress) / 4;
             if (!audioSource.isPlaying)
             {
                 RepeatTheSong();
-                if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+                if (PlayerStress.instance.currentStress >= mid && PlayerStress.instance.currentStress < third)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.70;
                     Blur2.SetActive(false);
                     Blur1.SetActive(true);
                 }
-                else if (PlayerStress.instance.currentStress < 100)
+                else if (PlayerStress.instance.currentStress < mid)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.5;
                     Blur2.SetActive(false);
                     Blur1.SetActive(false);
                 }
-                else if (PlayerStress.instance.currentStress >= 150)
+                else if (PlayerStress.instance.currentStress >= third)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.85;
                     Blur2.SetActive(true);
@@ -239,21 +244,21 @@ public class AudioManager : MonoBehaviour
                 }
             }
 
-            if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            if (PlayerStress.instance.currentStress >= mid && PlayerStress.instance.currentStress < third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
 
-            if (PlayerStress.instance.currentStress < 100)
+            if (PlayerStress.instance.currentStress < mid)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
 
-            if (PlayerStress.instance.currentStress >= 150)
+            if (PlayerStress.instance.currentStress >= third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.85;
                 Blur2.SetActive(true);
@@ -265,7 +270,6 @@ public class AudioManager : MonoBehaviour
     void NewSong()
     {
         ActualIndex = SceneManager.GetActiveScene().buildIndex;
-        
         //si il faut changer de musique
         if (IndexSong() != 15)
         {
@@ -274,21 +278,23 @@ public class AudioManager : MonoBehaviour
             audioSource.Play();
             if (!PhotonNetwork.IsConnected)
             {
-                if (PlayerStressSolo.instance.currentStress >= 100 && PlayerStressSolo.instance.currentStress < 150)
+                int mid = PlayerStressSolo.instance.maxStress / 2;
+                int third = (3 * PlayerStressSolo.instance.maxStress) / 4;
+                if (PlayerStressSolo.instance.currentStress >= mid && PlayerStressSolo.instance.currentStress < third)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.70;
                     Blur2.SetActive(false);
                     Blur1.SetActive(true);
                 }
 
-                if (PlayerStressSolo.instance.currentStress < 100)
+                if (PlayerStressSolo.instance.currentStress < mid)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.5;
                     Blur2.SetActive(false);
                     Blur1.SetActive(false);
                 }
 
-                if (PlayerStressSolo.instance.currentStress >= 150)
+                if (PlayerStressSolo.instance.currentStress >= third)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.85;
                     Blur2.SetActive(true);
@@ -297,21 +303,23 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+                int mid = PlayerStress.instance.maxStress / 2;
+                int third = (3 * PlayerStress.instance.maxStress) / 4;
+                if (PlayerStress.instance.currentStress >= mid && PlayerStress.instance.currentStress < third)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.70;
                     Blur2.SetActive(false);
                     Blur1.SetActive(true);
                 }
 
-                if (PlayerStress.instance.currentStress < 100)
+                if (PlayerStress.instance.currentStress < mid)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.5;
                     Blur2.SetActive(false);
                     Blur1.SetActive(false);
                 }
 
-                if (PlayerStress.instance.currentStress >= 150)
+                if (PlayerStress.instance.currentStress >= third)
                 {
                     _audioDistortionFilter.distortionLevel = (float) 0.85;
                     Blur2.SetActive(true);
@@ -326,21 +334,23 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         if (!PhotonNetwork.IsConnected)
         {
-            if (PlayerStressSolo.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            int mid = PlayerStressSolo.instance.maxStress / 2;
+            int third = (3 * PlayerStressSolo.instance.maxStress) / 4;
+            if (PlayerStressSolo.instance.currentStress >= mid && PlayerStress.instance.currentStress < third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
 
-            if (PlayerStressSolo.instance.currentStress < 100)
+            if (PlayerStressSolo.instance.currentStress < mid)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
 
-            if (PlayerStressSolo.instance.currentStress >= 150)
+            if (PlayerStressSolo.instance.currentStress >= third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.85;
                 Blur2.SetActive(true);
@@ -349,21 +359,23 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            if (PlayerStress.instance.currentStress >= 100 && PlayerStress.instance.currentStress < 150)
+            int mid = PlayerStress.instance.maxStress / 2;
+            int third = (3 * PlayerStress.instance.maxStress) / 4;
+            if (PlayerStress.instance.currentStress >= mid && PlayerStress.instance.currentStress < third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.70;
                 Blur2.SetActive(false);
                 Blur1.SetActive(true);
             }
 
-            if (PlayerStress.instance.currentStress < 100)
+            if (PlayerStress.instance.currentStress < mid)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.5;
                 Blur2.SetActive(false);
                 Blur1.SetActive(false);
             }
 
-            if (PlayerStress.instance.currentStress >= 150)
+            if (PlayerStress.instance.currentStress >= third)
             {
                 _audioDistortionFilter.distortionLevel = (float) 0.85;
                 Blur2.SetActive(true);

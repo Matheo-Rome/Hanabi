@@ -28,10 +28,10 @@ public class LoadScene_z3 : MonoBehaviour
            {
                tag = "Flower";
    
-               if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2") )
+               if (collision.CompareTag("Player") || collision.CompareTag("Player1"))
                {
                    
-                   flower.IsTrigger = false;
+                   //flower.IsTrigger = false;
                    //salle défi renvoie vers prochaine zone
                    if (SceneManager.GetActiveScene().buildIndex == 63)
                    {
