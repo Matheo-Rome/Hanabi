@@ -3,9 +3,6 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags: []
-=======
   tags:
   - InteractUI
   - Bullet
@@ -28,7 +25,6 @@ TagManager:
   - IP
   - IP2
   - Marchand
->>>>>>> parent of ebfbcb7 (tag)
   layers:
   - Default
   - TransparentFX
