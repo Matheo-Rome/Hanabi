@@ -12,7 +12,7 @@ public class Load_credit : MonoBehaviour
     {
         if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
-            new WaitForSeconds(0.3f);
+            new WaitForSeconds(77.7f);
             LoadCredit();
         }
     }
