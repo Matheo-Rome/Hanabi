@@ -47919,7 +47919,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
       value: "Vous     trouvez     une     note     accroch\xE9e     au     tableau,    
-        elle     est     pleine     de     mousse :\r "
+        elle     est     pleine     de     mousse :"
       objectReference: {fileID: 0}
     - target: {fileID: 2568947061238191581, guid: a5c3e9c2661cd95438b3ddb5825de36f,
         type: 3}
