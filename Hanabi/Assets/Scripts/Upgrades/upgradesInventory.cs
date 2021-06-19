@@ -30,32 +30,41 @@ public class upgradesInventory : MonoBehaviour
     {
         
         if(Upgrade.name.Contains("Midas"))
-        {
-            ValueOfUpgrade.instance.AmeliorationJar += 1;
+        { 
+            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().AmeliorationJar++;
+            //ValueOfUpgrade.instance.AmeliorationJar += 1;
         }
         
         else if(Upgrade.name.Contains("FeudecampStonks"))
         {
-            ValueOfUpgrade.instance.AmeliorationFeuDeCamps += 0.1f;
+            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
+                .AmeliorationFeuDeCamps += 0.1f;
+            //ValueOfUpgrade.instance.AmeliorationFeuDeCamps += 0.1f;
         }
         
         else if(Upgrade.name.Contains("Bank"))
         {
-            ValueOfUpgrade.instance.AmelioriationBank += 25;
+            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().AmelioriationBank +=
+                25;
+            //ValueOfUpgrade.instance.AmelioriationBank += 25;
         }
         
         else if(Upgrade.name.Contains("Oscillococcinum"))
         {
-            ValueOfUpgrade.instance.AmeliorationStress += 20;
+            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().AmeliorationStress +=
+                20;
+            //ValueOfUpgrade.instance.AmeliorationStress += 20;
         }
         
         else if (Upgrade.name.Contains("Random"))
         {
-            ValueOfUpgrade.instance.AmeliorationRandomLevel++;
+            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
+                .AmeliorationRandomLevel++;
+            //ValueOfUpgrade.instance.AmeliorationRandomLevel++;
         }
 
-        if (PhotonNetwork.IsConnected)
-            ValueOfUpgrade.instance.toUpdate = true;
+        /*if (PhotonNetwork.IsConnected)
+            ValueOfUpgrade.instance.toUpdate = true;*/
 
         /*// Pour la jar
         ValueOfUpgrade.instance.AmeliorationJar += Upgrade.coinDropUpgrade;
