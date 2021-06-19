@@ -26,7 +26,7 @@ public class ActivateInstanciate : MonoBehaviour
 
     public void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 66)
         {
             if (!PhotonNetwork.IsConnected)
             {

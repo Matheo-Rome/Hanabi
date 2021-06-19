@@ -35,7 +35,7 @@ public class ClassChoiceSolo : MonoBehaviour
             PhotonNetwork.Disconnect();
             //StartCoroutine(Disconnect());
             //Debug.Log(PhotonNetwork.IsConnected);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(66);
         }
     }
 

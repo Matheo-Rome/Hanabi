@@ -124,7 +124,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
                 sound.SetActive(false);
                 base.photonView.RPC("RPC_Desactivate",RpcTarget.All);
                 base.photonView.RPC("RPC_Class",RpcTarget.All);
-                PhotonNetwork.LoadLevel(1);
+                PhotonNetwork.LoadLevel(66);
             }
         }
     }
