@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
@@ -557,6 +558,9 @@ public class PlayerMovementSolo : MonoBehaviourPun
             Reposition();
             player.GetComponent<PlayerStressSolo>().currentStress = 0;
             otherplayer.GetComponent<PlayerStressSolo>().currentStress = 0;
+            List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
+            toDestroy.ForEach(x => Destroy(x.gameObject));
+            SceneManager.LoadScene(68);
         }
         else
         {

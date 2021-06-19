@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 //using UnityEditor.Timeline;
@@ -159,12 +160,21 @@ public class PlayerMovement : MonoBehaviourPun
          scenecheck = SceneManager.GetActiveScene().buildIndex;
          if (scene != scenecheck)
          {
-             if (!PhotonNetwork.IsMasterClient)
+             if (!PhotonNetwork.IsMasterClient && scenecheck != 68)
                  photonView.RPC("RPC_TP",RpcTarget.Others,scenecheck);
              Reposition();
          }
 
          scene = scenecheck;
+
+         if (scene == 68)
+         {
+             if (PhotonNetwork.IsMasterClient)
+                 gameObject.transform.parent.gameObject.GetComponent<SaveData>().Save();
+             StartCoroutine(Disconnect());
+             List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
+             toDestroy.ForEach(DDOL => Destroy(DDOL.gameObject));
+         }
 
 
          //Information sur la direction du déplacement selon les touches appuyé
@@ -509,8 +519,23 @@ public class PlayerMovement : MonoBehaviourPun
         else if (other.CompareTag("IA"))
         {
             Reposition();
-            base.photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
-            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 200);
+            base.photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
+            otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
+            
+            photonView.RPC("RPC_TP",RpcTarget.All,68);
+            //photonView.RPC("RPC_Destroy",RpcTarget.All);
+            /*if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.LoadLevel(68);
+                /*List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
+                toDestroy.ForEach(x => Destroy(x.gameObject));
+            }
+            else
+            {
+                photonView.RPC("RPC_TP", RpcTarget.Others, 68);
+            }
+            photonView.RPC("RPC_Destroy", RpcTarget.All);
+           //PhotonNetwork.Disconnect();*/
         }
         else
         {
@@ -568,6 +593,22 @@ public class PlayerMovement : MonoBehaviourPun
     [PunRPC]
     public void RPC_TP(int index)
     {
-        PhotonNetwork.LoadLevel(index);
+        if(PhotonNetwork.IsMasterClient)
+            PhotonNetwork.LoadLevel(index);
+    }
+
+    [PunRPC]
+    public void RPC_Destroy()
+    {
+        List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
+        toDestroy.ForEach(x => Destroy(x.gameObject));
+        PhotonNetwork.Disconnect();
+    }
+
+    IEnumerator Disconnect()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+            yield return null;
     }
  }

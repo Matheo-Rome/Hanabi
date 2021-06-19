@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class AmeliorationButtonIteam : MonoBehaviour
@@ -12,9 +13,12 @@ public class AmeliorationButtonIteam : MonoBehaviour
     {
         bool containLvLInferior = false;
         bool containLvL1 = false;
-        
-        
-        if (inventory.instance.NombreDeRaspberries >= Upgrade.Price) 
+        int rasp = 0;
+        if (PhotonNetwork.IsConnected)
+            rasp = GameObject.FindGameObjectWithTag("InventaireM").GetComponent<inventory>().NombreDeRaspberries;
+        else
+            rasp = GameObject.FindGameObjectWithTag("Inventaire").GetComponent<inventory>().NombreDeRaspberries;
+        if (rasp >= Upgrade.Price) 
         {
             if (Upgrade.name[Upgrade.name.Length - 1] == '1') // le dernier caractères du noms de l'items est son niveau
             {
@@ -34,13 +38,31 @@ public class AmeliorationButtonIteam : MonoBehaviour
             
             if (containLvL1) // Je vérifie que si on veut acheté l'item niv 2, il y a bien l'item niv 1
             {
-                foreach (var VARIABLE in upgradesInventory.instance.content)
+               /* if (PhotonNetwork.IsConnected)
                 {
-                    if (VARIABLE.name.Contains(itemNameWithoutNumber))
+                    foreach (var VARIABLE in upgradesInventory.instance.content)
                     {
-                        if ((int)Upgrade.name[Upgrade.name.Length - 1]-1 == (int)VARIABLE.name[VARIABLE.name.Length - 1])
+                        if (VARIABLE.name.Contains(itemNameWithoutNumber))
                         {
-                            containLvLInferior = true;
+                            if ((int) Upgrade.name[Upgrade.name.Length - 1] - 1 ==
+                                (int) VARIABLE.name[VARIABLE.name.Length - 1])
+                            {
+                                containLvLInferior = true;
+                            }
+                        }
+                    }
+                }
+                else*/
+                {
+                    foreach (var upgrade in GameObject.FindGameObjectWithTag("UpInv").GetComponent<upgradesInventory>().content)
+                    {
+                        if (upgrade.name.Contains(itemNameWithoutNumber))
+                        {
+                            if ((int) Upgrade.name[Upgrade.name.Length - 1] - 1 ==
+                                (int) upgrade.name[upgrade.name.Length - 1])
+                            {
+                                containLvLInferior = true;
+                            }
                         }
                     }
                 }
@@ -49,9 +71,34 @@ public class AmeliorationButtonIteam : MonoBehaviour
             
             if (!Upgrade.name.Contains("Unvailable") && containLvLInferior) // ajout des items à l'inventaire upgrade etc
             {
-                upgradesInventory.instance.content.Add(Upgrade);
+                if (PhotonNetwork.IsConnected)
+                {
+                    GameObject[] inventories = GameObject.FindGameObjectsWithTag("InventaireM");
+                    foreach (var inventory in inventories)
+                    {
+                        inventory.GetComponent<inventory>().AddRaspberries(-Upgrade.Price, true);
+                    }
+                    foreach (var Upinv  in GameObject.FindGameObjectsWithTag("UpInv"))
+                    {
+                        Upinv.GetComponent<upgradesInventory>().content.Add(Upgrade);
+                        if(PhotonNetwork.IsMasterClient)
+                            Upinv.GetComponent<upgradesInventory>().AddEffectAmelioration(Upgrade);
+                    }
+                }
+                else
+                {
+                    GameObject.FindGameObjectWithTag("Inventaire").GetComponent<inventory>().AddRaspberries(-Upgrade.Price,false);
+                    GameObject.FindGameObjectWithTag("Inventaire2").GetComponent<inventory>().AddRaspberries(-Upgrade.Price,false);
+                    upgradesInventory UP1 = GameObject.FindGameObjectWithTag("UpInv").GetComponent<upgradesInventory>();
+                    upgradesInventory UP2 = GameObject.FindGameObjectWithTag("UpInv2").GetComponent<upgradesInventory>();
+                    UP1.content.Add(Upgrade);
+                    UP2.content.Add(Upgrade);
+                    UP1.AddEffectAmelioration(Upgrade);
+                    
+                }
+                /*upgradesInventory.instance.content.Add(Upgrade);
                 upgradesInventory.instance.AddEffectAmelioration(Upgrade);
-                inventory.instance.NombreDeRaspberries -= Upgrade.Price;
+                inventory.instance.NombreDeRaspberries -= Upgrade.Price;*/
                 Upgrade.name = "Unvailable" + Upgrade.name;
             }
         }

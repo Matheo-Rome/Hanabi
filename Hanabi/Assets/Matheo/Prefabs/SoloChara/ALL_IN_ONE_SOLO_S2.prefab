@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 8506115833855109211}
   m_Layer: 0
   m_Name: UpgradeInventory
-  m_TagString: Untagged
+  m_TagString: UpInv2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7349,15 +7349,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78ffe398a01ae2042b03dce8968c068e, type: 3}
---- !u!224 &5483306368524432229 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3700255977828713544, guid: 78ffe398a01ae2042b03dce8968c068e,
-    type: 3}
-  m_PrefabInstance: {fileID: 9169730309685917485}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5483306368524432225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3700255977828713548, guid: 78ffe398a01ae2042b03dce8968c068e,
+    type: 3}
+  m_PrefabInstance: {fileID: 9169730309685917485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5483306368524432229 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3700255977828713544, guid: 78ffe398a01ae2042b03dce8968c068e,
     type: 3}
   m_PrefabInstance: {fileID: 9169730309685917485}
   m_PrefabAsset: {fileID: 0}

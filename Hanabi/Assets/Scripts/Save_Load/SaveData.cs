@@ -39,6 +39,11 @@ public class SaveData : MonoBehaviourPunCallbacks
             founded = ValueOfUpgrade != null;
         }
         
+        if(Input.GetKeyDown(KeyCode.T))
+            Save();
+        if(Input.GetKeyDown(KeyCode.Y))
+            Load();
+
 
     }
     

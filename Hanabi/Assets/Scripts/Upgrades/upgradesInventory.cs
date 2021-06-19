@@ -28,6 +28,7 @@ public class upgradesInventory : MonoBehaviour
 
     public void AddEffectAmelioration(upgradesSO Upgrade)
     {
+        
         if(Upgrade.name.Contains("Midas"))
         {
             ValueOfUpgrade.instance.AmeliorationJar += 1;
@@ -52,6 +53,9 @@ public class upgradesInventory : MonoBehaviour
         {
             ValueOfUpgrade.instance.AmeliorationRandomLevel++;
         }
+
+        if (PhotonNetwork.IsConnected)
+            ValueOfUpgrade.instance.toUpdate = true;
 
         /*// Pour la jar
         ValueOfUpgrade.instance.AmeliorationJar += Upgrade.coinDropUpgrade;
