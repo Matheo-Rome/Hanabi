@@ -114,26 +114,26 @@ public class upgradesInventory : MonoBehaviour
         switch (ValueOfUpgrade.instance.AmeliorationRandomLevel)
         { 
             case 1 : 
-                var item1 = items[broken[nb1]]; 
+                var item1 = items[broken[nb1] - 1]; 
                 InventairePassif.instance.content.Add(item1); 
                 InventairePassif.instance.Start(); 
                 InventairePassif.instance.AddEffectItem(item1,true);
                 break;
             case 2 : 
-                var item2 = items[used[nb1]];
+                var item2 = items[used[nb1] - 1];
                 InventairePassif.instance.content.Add(item2);
                 InventairePassif.instance.Start();
                 InventairePassif.instance.AddEffectItem(item2,true);
                 break;
             case 3 : 
-                var item3 = items[fresh[nb1]]; 
+                var item3 = items[fresh[nb1] - 1]; 
                 InventairePassif.instance.content.Add(item3);
                 InventairePassif.instance.Start();
                 InventairePassif.instance.AddEffectItem(item3,true); 
                 break;
             case 4 : 
-                var item4 = items[broken[nb1]];
-                var item5 = items[broken[nb2]];
+                var item4 = items[broken[nb1] - 1];
+                var item5 = items[broken[nb2] - 1];
                 InventairePassif.instance.content.Add(item4);
                 InventairePassif.instance.content.Add(item5);
                 InventairePassif.instance.Start();
@@ -141,8 +141,8 @@ public class upgradesInventory : MonoBehaviour
                 InventairePassif.instance.content.Add(item5);
                 break;
             case 5 : 
-                var item6 = items[broken[nb1]];
-                var item7 = items[broken[nb1]];
+                var item6 = items[broken[nb1] - 1];
+                var item7 = items[broken[nb1] - 1];
                 InventairePassif.instance.content.Add(item6);
                 InventairePassif.instance.content.Add(item7);
                 InventairePassif.instance.Start();
