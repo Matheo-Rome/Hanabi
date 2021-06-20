@@ -49,7 +49,7 @@ MonoBehaviour:
   khune: {fileID: 1371213428232886206}
   updraft: {fileID: 1205837248156097297}
   dwich: {fileID: 2527708407833978465}
-  spawnChance: 0
+  spawnChance: 1
 --- !u!1001 &134064606552941752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,12 +65,12 @@ PrefabInstance:
     - target: {fileID: 2506378997361541413, guid: 24adcac417426fc4e8efb6f23252fde2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.26
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2506378997361541413, guid: 24adcac417426fc4e8efb6f23252fde2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.1
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2506378997361541413, guid: 24adcac417426fc4e8efb6f23252fde2,
         type: 3}
@@ -117,6 +117,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramasser Sandwich
       objectReference: {fileID: 0}
+    - target: {fileID: 2506378997361541849, guid: 24adcac417426fc4e8efb6f23252fde2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24adcac417426fc4e8efb6f23252fde2, type: 3}
 --- !u!1 &2527708407833978465 stripped
@@ -143,6 +148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramasser Updraft
       objectReference: {fileID: 0}
+    - target: {fileID: 3111826027399071150, guid: 7eb54d768cd0ec449817a43bfd8cec25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3111826027399071314, guid: 7eb54d768cd0ec449817a43bfd8cec25,
         type: 3}
       propertyPath: m_RootOrder
@@ -151,12 +161,12 @@ PrefabInstance:
     - target: {fileID: 3111826027399071314, guid: 7eb54d768cd0ec449817a43bfd8cec25,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.27
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3111826027399071314, guid: 7eb54d768cd0ec449817a43bfd8cec25,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.12
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3111826027399071314, guid: 7eb54d768cd0ec449817a43bfd8cec25,
         type: 3}
@@ -224,6 +234,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramasser Khune
       objectReference: {fileID: 0}
+    - target: {fileID: 5716399518081250683, guid: a71acc957836bd44c9f7053be51158f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_RootOrder
@@ -232,12 +247,12 @@ PrefabInstance:
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.25
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.04
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
@@ -247,22 +262,22 @@ PrefabInstance:
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.00027151778
       objectReference: {fileID: 0}
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
@@ -277,7 +292,7 @@ PrefabInstance:
     - target: {fileID: 5716399518081250951, guid: a71acc957836bd44c9f7053be51158f9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.031000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a71acc957836bd44c9f7053be51158f9, type: 3}
