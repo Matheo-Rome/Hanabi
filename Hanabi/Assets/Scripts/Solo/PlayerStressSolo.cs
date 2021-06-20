@@ -59,7 +59,9 @@ public class PlayerStressSolo : MonoBehaviourPunCallbacks
         //if the room just changed and you are near a fire place then we update the stress accordingly
         if (hasChangedRoom && isTouchingFire)
         {
-            currentStress = (int) ((float) currentStress * GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>().AmeliorationFeuDeCamps);
+            float reduc = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>().AmeliorationFeuDeCamps;
+            currentStress = (int) ((float) currentStress * reduc);
+            gameObject.GetComponent<PlayerMovementSolo>().otherplayer.GetComponent<PlayerStressSolo>().currentStress = currentStress;
             hasChangedRoom = false;
         }
         List<Items> content = new List<Items>();;

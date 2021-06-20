@@ -21,6 +21,7 @@ public class MainCaptor : MonoBehaviour
     private bool founded = false;
 
     public PlayerMovementSolo player;
+    private PlayerMovement playerM;
 
 
     // Update is called once per frame
@@ -34,6 +35,31 @@ public class MainCaptor : MonoBehaviour
                     player = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovementSolo>();
                 else
                     player = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovementSolo>();
+            }
+        }
+        else
+        {
+            if (!founded)
+            {
+                GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+                GameObject up;
+                GameObject down;
+                if (players[0].transform.position.y > players[1].transform.position.y)
+                {
+                    up = players[0];
+                    down = players[1];
+                }
+                else
+                {
+                    up = players[1];
+                    down = players[0];
+                }
+
+                if (isDown)
+                    playerM = down.GetComponent<PlayerMovement>();
+                else
+                    playerM = up.GetComponent<PlayerMovement>();
+                founded = playerM != null;
             }
         }
 
@@ -57,7 +83,7 @@ public class MainCaptor : MonoBehaviour
         }
         else
         {
-            if (PlayerMovement.instance.hasFallen)
+            if (playerM.hasFallen)
             {
                 captor1.Desactivate();
                 captor2.Desactivate();
