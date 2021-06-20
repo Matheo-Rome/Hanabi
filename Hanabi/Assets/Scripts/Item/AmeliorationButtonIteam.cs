@@ -38,15 +38,10 @@ public class AmeliorationButtonIteam : MonoBehaviour
             
             if (containLvL1) // Je vérifie que si on veut acheté l'item niv 2, il y a bien l'item niv 1
             {
-                ValueOfUpgrade valueOfUpgrade = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>();
                 if (Upgrade.name.Contains("Midas"))
                 {
-<<<<<<< Updated upstream
-                    if (valueOfUpgrade.AmeliorationJar == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
-=======
                     if (GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>()
                         .AmeliorationJar == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
->>>>>>> Stashed changes
                     {
                         containLvLInferior = true;
                     }
@@ -54,24 +49,16 @@ public class AmeliorationButtonIteam : MonoBehaviour
                 
                 else if (Upgrade.name.Contains("FeudecampStonks"))
                 {
-<<<<<<< Updated upstream
-                    if ((valueOfUpgrade.AmeliorationFeuDeCamps -0.6f)*10 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
-=======
-                    if ((GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>()
-                        .AmeliorationFeuDeCamps -0.6f)*10 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
->>>>>>> Stashed changes
+                    if ((-GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>()
+                        .AmeliorationFeuDeCamps + 0.6f)*10 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
                     {
                         containLvLInferior = true;
                     }
                 }
                 else if (Upgrade.name.Contains("Bank"))
                 {
-<<<<<<< Updated upstream
-                    if ((valueOfUpgrade.AmelioriationBank)/25 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
-=======
                     if ((GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>()
                         .AmelioriationBank)/25 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
->>>>>>> Stashed changes
                     {
                         containLvLInferior = true;
                     }
@@ -79,12 +66,8 @@ public class AmeliorationButtonIteam : MonoBehaviour
                 
                 else if (Upgrade.name.Contains("Oscillococcinum"))
                 {
-<<<<<<< Updated upstream
-                    if ((valueOfUpgrade.AmeliorationStress-200)/20 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
-=======
                     if ((GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>()
                         .AmeliorationStress-200)/20 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
->>>>>>> Stashed changes
                     {
                         containLvLInferior = true;
                     }
@@ -92,12 +75,8 @@ public class AmeliorationButtonIteam : MonoBehaviour
                 
                 else if (Upgrade.name.Contains("Random"))
                 {
-<<<<<<< Updated upstream
-                    if (valueOfUpgrade.AmeliorationRandomLevel == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
-=======
                     if (GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>()
                         .AmeliorationRandomLevel == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
->>>>>>> Stashed changes
                     {
                         containLvLInferior = true;
                     }

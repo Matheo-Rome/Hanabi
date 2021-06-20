@@ -1,20 +1,26 @@
 ﻿using Photon.Pun;
+using System;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class PickUpItem : MonoBehaviour
 {
     private Text interactUI;
     private Text interactUI2;
     private bool isInRange;
-
+    
+    public static PickUpItem instance;
+    public Sprite itemSprite;
     public Items item;
     public bool isDown;
+    public List<Items> items = new List<Items>();
     private bool founded = false;
     private GameObject test;
     private inventory Inventory;
 
-    
+
 
     void Update()
     {
