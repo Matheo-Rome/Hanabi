@@ -177,7 +177,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         _classic = choice;
         if (_classic)
-            _classicText.text = "C";
+            _classicText.text = "x";
         else
             _classicText.text = "";
     }
@@ -186,7 +186,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         _bouncy = choice;
         if (_bouncy)
-            _bouncyText.text = "C";
+            _bouncyText.text = "x";
         else
             _bouncyText.text = "";
     }
@@ -196,7 +196,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
         _light = choice;
         if (_light)
 
-            _lightText.text = "C";
+            _lightText.text = "x";
         else
             _lightText.text = "";
     }

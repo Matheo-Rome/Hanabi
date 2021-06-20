@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviourPun
          if (scene != scenecheck)
          {
               if (PhotonNetwork.IsMasterClient && scenecheck != 68)
-                  PhotonNetwork.LoadLevel(scenecheck);
+                  photonView.RPC("RPC_TP",RpcTarget.Others,scenecheck);
              Reposition();
          }
 
@@ -592,8 +592,8 @@ public class PlayerMovement : MonoBehaviourPun
     [PunRPC]
     public void RPC_TP(int index)
     {
-        if(PhotonNetwork.IsMasterClient)
-            PhotonNetwork.LoadLevel(index);
+        if(/*PhotonNetwork.IsMasterClient &&*/ SceneManager.GetActiveScene().buildIndex != index)
+            SceneManager.LoadScene(index);
     }
 
     [PunRPC]

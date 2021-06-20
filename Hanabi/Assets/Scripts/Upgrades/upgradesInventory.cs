@@ -37,7 +37,7 @@ public class upgradesInventory : MonoBehaviour
         
         else if(Upgrade.name.Contains("FeudecampStonks"))
         {
-            valueOfUpgrade.AmeliorationFeuDeCamps += 0.1f;
+            valueOfUpgrade.AmeliorationFeuDeCamps -= 0.1f;
             //ValueOfUpgrade.instance.AmeliorationFeuDeCamps += 0.1f;
         }
         

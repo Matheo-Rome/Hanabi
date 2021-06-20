@@ -75,8 +75,7 @@ public class AmeliorationButtonIteam : MonoBehaviour
                 
                 else if (Upgrade.name.Contains("Random"))
                 {
-                    if (GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>()
-                        .AmeliorationRandomLevel == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
+                    if (GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>().AmeliorationRandomLevel == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
                     {
                         containLvLInferior = true;
                     }

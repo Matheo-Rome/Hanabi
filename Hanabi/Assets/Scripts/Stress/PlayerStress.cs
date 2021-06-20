@@ -102,7 +102,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         {
             /*HealStressplayer(reductiondestress);
             PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(reductiondestress);*/
-            photonView.RPC("RPC_HealStress", RpcTarget.Others, reductiondestress);
+            photonView.RPC("RPC_HealStress", RpcTarget.All, reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
         }

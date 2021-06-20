@@ -39,7 +39,6 @@ public class SaveData : MonoBehaviourPunCallbacks
             Load();
             already2 = true;
         }
-
         if (!founded)
         {
             ValueOfUpgrade = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>();
@@ -57,11 +56,12 @@ public class SaveData : MonoBehaviourPunCallbacks
     public void Save()
     {
         int pièce = ValueOfUpgrade.AmelioriationBank;
+        //ValueOfUpgrade = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>();
         if (_inventory.NombreDePièce < ValueOfUpgrade.AmelioriationBank)
             pièce = _inventory.NombreDePièce;
         string[] content = new[] {pièce.ToString(), _inventory.NombreDeRaspberries.ToString(),ValueOfUpgrade.AmeliorationJar.ToString(),
             ValueOfUpgrade.AmelioriationBank.ToString(),ValueOfUpgrade.AmeliorationStress.ToString(),
-            ((int) ValueOfUpgrade.AmeliorationFeuDeCamps*10).ToString(),ValueOfUpgrade.AmeliorationRandomLevel.ToString()};
+            ((int) (ValueOfUpgrade.AmeliorationFeuDeCamps*10)).ToString(),ValueOfUpgrade.AmeliorationRandomLevel.ToString()};
         string saveString = string.Join(saveSeparator,content);
         File.WriteAllText(Application.dataPath + "/sauvgarde.txt", saveString.ToString());
         Debug.Log("Saved" + _inventory.NombreDePièce.ToString() + " " + _inventory.NombreDeRaspberries.ToString());
@@ -70,6 +70,7 @@ public class SaveData : MonoBehaviourPunCallbacks
     public void Load()
     {
         string saveString = File.ReadAllText(Application.dataPath + "/sauvgarde.txt");
+        //ValueOfUpgrade = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>();
         if (saveString.Length != 0)
         {
             string[] content = saveString.Split(new[] {saveSeparator}, System.StringSplitOptions.None);

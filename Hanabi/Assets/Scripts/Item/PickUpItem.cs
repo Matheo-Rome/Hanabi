@@ -47,16 +47,17 @@ public class PickUpItem : MonoBehaviour
             }
             else
             {
-                var UI1 = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
-                var UI2 = GameObject.FindGameObjectWithTag("InteractUI2").GetComponent<Text>();
+                
                 if (isDown)
                 {
+                    var UI1 = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
                     interactUI = UI1;
                     //interactUI2 = UI2;
                     Inventory = GameObject.FindGameObjectWithTag("Inventaire").GetComponent<inventory>();
                 }
                 else
                 {
+                    var UI2 = GameObject.FindGameObjectWithTag("InteractUI2").GetComponent<Text>();
                     interactUI = UI2;
                     //interactUI2 = UI1;
                     Inventory = GameObject.FindGameObjectWithTag("Inventaire2").GetComponent<inventory>();
@@ -82,7 +83,7 @@ public class PickUpItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" &&  collision.transform.parent.gameObject.GetPhotonView().IsMine|| collision.CompareTag("Player1")|| collision.CompareTag("Player2"))
+        if ((collision.tag == "Player" &&  collision.transform.parent.gameObject.GetPhotonView().IsMine)|| collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             interactUI.enabled = true;
             //interactUI2.enabled = false;

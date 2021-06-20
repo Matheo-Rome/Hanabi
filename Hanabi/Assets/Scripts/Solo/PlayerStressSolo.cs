@@ -63,7 +63,7 @@ public class PlayerStressSolo : MonoBehaviourPunCallbacks
             hasChangedRoom = false;
         }
         List<Items> content = new List<Items>();;
-        foreach (var objet in InventairePassif.instance.content)
+        foreach (var objet in gameObject.transform.parent.gameObject.GetComponentInChildren<InventairePassif>().content)
         {
             reductiondestress += objet.StressRemoved;
             StressCD += objet.StressIntervalle;
@@ -73,7 +73,7 @@ public class PlayerStressSolo : MonoBehaviourPunCallbacks
                 content.Add(objet);
             }
         }
-        InventairePassif.instance.content = content;    
+        gameObject.transform.parent.gameObject.GetComponentInChildren<InventairePassif>().content = content;    
         
         //updates the stress each time the cd is up
         if (Time.time > StressCD && canGainStress)
@@ -101,7 +101,7 @@ public class PlayerStressSolo : MonoBehaviourPunCallbacks
         if (currentStress == maxStress)
         {
             HealStressplayer(reductiondestress);
-            PlayerMovementSolo.instance.otherplayer.GetComponent<PlayerStressSolo>().HealStressplayer(reductiondestress);
+            gameObject.GetComponent<PlayerMovementSolo>().otherplayer.GetComponent<PlayerStressSolo>().HealStressplayer(reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
         }

@@ -40,7 +40,7 @@ public class RamasserRaspberries : MonoBehaviourPunCallbacks
             }
             else
             {
-                if (photonView.IsMine)
+                if (col.gameObject.GetPhotonView().IsMine)
                 {
                     GameObject[] inventories = GameObject.FindGameObjectsWithTag("InventaireM");
                     foreach (var inventory in inventories)

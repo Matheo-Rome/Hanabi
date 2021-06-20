@@ -11,10 +11,8 @@ public class ExitPermanentShop : MonoBehaviour
     {
         if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
-            SaveData saveData = collision.gameObject.transform.parent.gameObject.GetComponent<SaveData>();
-            saveData.Save();
             upgradesInventory.instance.addUpgradeItems();
-            new WaitForSeconds(0.3f);
+            new WaitForSeconds(0.9f);
             PhotonNetwork.LoadLevel(1);
         }
     }
