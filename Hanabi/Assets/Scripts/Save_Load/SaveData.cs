@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveData : MonoBehaviourPunCallbacks
 {
@@ -14,6 +15,7 @@ public class SaveData : MonoBehaviourPunCallbacks
     private string saveSeparator = "%VALUE%";
 
     private bool already = false;
+    private bool already2 = false;
     public int Bank = 0;
     private bool founded = false;
     private ValueOfUpgrade ValueOfUpgrade;
@@ -31,6 +33,11 @@ public class SaveData : MonoBehaviourPunCallbacks
         {
             Load();
             already = true;
+        }
+        else if (!already2 && Input.anyKey && SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            Load();
+            already2 = true;
         }
 
         if (!founded)

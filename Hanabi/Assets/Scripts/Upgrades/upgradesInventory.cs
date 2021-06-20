@@ -28,41 +28,36 @@ public class upgradesInventory : MonoBehaviour
 
     public void AddEffectAmelioration(upgradesSO Upgrade)
     {
-        
+        ValueOfUpgrade valueOfUpgrade = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>();
         if(Upgrade.name.Contains("Midas"))
         { 
-            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().AmeliorationJar++;
+            valueOfUpgrade.AmeliorationJar++;
             //ValueOfUpgrade.instance.AmeliorationJar += 1;
         }
         
         else if(Upgrade.name.Contains("FeudecampStonks"))
         {
-            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
-                .AmeliorationFeuDeCamps += 0.1f;
+            valueOfUpgrade.AmeliorationFeuDeCamps += 0.1f;
             //ValueOfUpgrade.instance.AmeliorationFeuDeCamps += 0.1f;
         }
         
         else if(Upgrade.name.Contains("Bank"))
         {
-            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().AmelioriationBank +=
-                25;
+            valueOfUpgrade.AmelioriationBank += 25;
             //ValueOfUpgrade.instance.AmelioriationBank += 25;
         }
         
         else if(Upgrade.name.Contains("Oscillococcinum"))
         {
-            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>().AmeliorationStress +=
-                20;
+            valueOfUpgrade.AmeliorationStress += 20;
             //ValueOfUpgrade.instance.AmeliorationStress += 20;
         }
         
         else if (Upgrade.name.Contains("Random"))
         {
-            GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
-                .AmeliorationRandomLevel++;
+            valueOfUpgrade.AmeliorationRandomLevel++;
             //ValueOfUpgrade.instance.AmeliorationRandomLevel++;
         }
-
         /*if (PhotonNetwork.IsConnected)
             ValueOfUpgrade.instance.toUpdate = true;*/
 
@@ -127,40 +122,131 @@ public class upgradesInventory : MonoBehaviour
         switch (ValueOfUpgrade.instance.AmeliorationRandomLevel)
         { 
             case 1 : 
-                var item1 = items[broken[nb1] - 1]; 
-                InventairePassif.instance.content.Add(item1); 
-                InventairePassif.instance.Start(); 
-                InventairePassif.instance.AddEffectItem(item1,true);
+                var item1 = items[broken[nb1] - 1];
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient)
+                {
+                    GameObject[] IPs = GameObject.FindGameObjectsWithTag("IP");
+                    IPs[0].GetComponent<InventairePassif>().AddEffectItem(item1,true);
+                    foreach (var Ip in IPs)
+                    {
+                        Ip.GetComponent<InventairePassif>().ContentAdd(item1,true);
+                        Ip.GetComponent<InventairePassif>().UpdateImage(true);
+                    }
+                }
+                else
+                {
+                    InventairePassif IP1 = GameObject.FindGameObjectWithTag("IP").GetComponent<InventairePassif>();
+                    InventairePassif IP2 = GameObject.FindGameObjectWithTag("IP2").GetComponent<InventairePassif>();
+                    IP1.content.Add(item1);
+                    IP2.content.Add(item1);
+                    IP1.Start();
+                    IP2.Start();
+                    IP1.AddEffectItem(item1, true);
+                }
                 break;
             case 2 : 
                 var item2 = items[used[nb1] - 1];
-                InventairePassif.instance.content.Add(item2);
-                InventairePassif.instance.Start();
-                InventairePassif.instance.AddEffectItem(item2,true);
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient)
+                {
+                    GameObject[] IPs = GameObject.FindGameObjectsWithTag("IP");
+                    IPs[0].GetComponent<InventairePassif>().AddEffectItem(item2,true);
+                    foreach (var Ip in IPs)
+                    {
+                        Ip.GetComponent<InventairePassif>().ContentAdd(item2,true);
+                        Ip.GetComponent<InventairePassif>().UpdateImage(true);
+                    }
+                }
+                else
+                {
+                    InventairePassif IP1 = GameObject.FindGameObjectWithTag("IP").GetComponent<InventairePassif>();
+                    InventairePassif IP2 = GameObject.FindGameObjectWithTag("IP2").GetComponent<InventairePassif>();
+                    IP1.content.Add(item2);
+                    IP2.content.Add(item2);
+                    IP1.Start();
+                    IP2.Start();
+                    IP1.AddEffectItem(item2, true);
+                }
                 break;
             case 3 : 
-                var item3 = items[fresh[nb1] - 1]; 
-                InventairePassif.instance.content.Add(item3);
-                InventairePassif.instance.Start();
-                InventairePassif.instance.AddEffectItem(item3,true); 
+                var item3 = items[fresh[nb1] - 1];
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient)
+                {
+                    GameObject[] IPs = GameObject.FindGameObjectsWithTag("IP");
+                    IPs[0].GetComponent<InventairePassif>().AddEffectItem(item3,true);
+                    foreach (var Ip in IPs)
+                    {
+                        Ip.GetComponent<InventairePassif>().ContentAdd(item3,true);
+                        Ip.GetComponent<InventairePassif>().UpdateImage(true);
+                    }
+                }
+                else
+                {
+                    InventairePassif IP1 = GameObject.FindGameObjectWithTag("IP").GetComponent<InventairePassif>();
+                    InventairePassif IP2 = GameObject.FindGameObjectWithTag("IP2").GetComponent<InventairePassif>();
+                    IP1.content.Add(item3);
+                    IP2.content.Add(item3);
+                    IP1.Start();
+                    IP2.Start();
+                    IP1.AddEffectItem(item3, true);
+                }
                 break;
             case 4 : 
                 var item4 = items[broken[nb1] - 1];
                 var item5 = items[broken[nb2] - 1];
-                InventairePassif.instance.content.Add(item4);
-                InventairePassif.instance.content.Add(item5);
-                InventairePassif.instance.Start();
-                InventairePassif.instance.AddEffectItem(item4,true);
-                InventairePassif.instance.content.Add(item5);
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient)
+                {
+                    GameObject[] IPs = GameObject.FindGameObjectsWithTag("IP");
+                    IPs[0].GetComponent<InventairePassif>().AddEffectItem(item4,true);
+                    IPs[0].GetComponent<InventairePassif>().AddEffectItem(item5,true);
+                    foreach (var Ip in IPs)
+                    {
+                        Ip.GetComponent<InventairePassif>().ContentAdd(item4,true);
+                        Ip.GetComponent<InventairePassif>().ContentAdd(item5,true);
+                        Ip.GetComponent<InventairePassif>().UpdateImage(true);
+                    }
+                }
+                else
+                {
+                    InventairePassif IP1 = GameObject.FindGameObjectWithTag("IP").GetComponent<InventairePassif>();
+                    InventairePassif IP2 = GameObject.FindGameObjectWithTag("IP2").GetComponent<InventairePassif>();
+                    IP1.content.Add(item4);
+                    IP1.content.Add(item5);
+                    IP2.content.Add(item4);
+                    IP2.content.Add(item5);
+                    IP1.Start();
+                    IP2.Start();
+                    IP1.AddEffectItem(item4, true);
+                    IP1.AddEffectItem(item5,true);
+                }
                 break;
             case 5 : 
                 var item6 = items[broken[nb1] - 1];
                 var item7 = items[broken[nb1] - 1];
-                InventairePassif.instance.content.Add(item6);
-                InventairePassif.instance.content.Add(item7);
-                InventairePassif.instance.Start();
-                InventairePassif.instance.content.Add(item6);
-                InventairePassif.instance.AddEffectItem(item7,true);
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient)
+                {
+                    GameObject[] IPs = GameObject.FindGameObjectsWithTag("IP");
+                    IPs[0].GetComponent<InventairePassif>().AddEffectItem(item6,true);
+                    IPs[0].GetComponent<InventairePassif>().AddEffectItem(item7,true);
+                    foreach (var Ip in IPs)
+                    {
+                        Ip.GetComponent<InventairePassif>().ContentAdd(item6,true);
+                        Ip.GetComponent<InventairePassif>().ContentAdd(item7,true);
+                        Ip.GetComponent<InventairePassif>().UpdateImage(true);
+                    }
+                }
+                else
+                {
+                    InventairePassif IP1 = GameObject.FindGameObjectWithTag("IP").GetComponent<InventairePassif>();
+                    InventairePassif IP2 = GameObject.FindGameObjectWithTag("IP2").GetComponent<InventairePassif>();
+                    IP1.content.Add(item6);
+                    IP1.content.Add(item7);
+                    IP2.content.Add(item6);
+                    IP2.content.Add(item7);
+                    IP1.Start();
+                    IP2.Start();
+                    IP1.AddEffectItem(item6, true);
+                    IP1.AddEffectItem(item7,true);
+                }
                 break;
         }
     }

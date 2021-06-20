@@ -78,12 +78,10 @@ public class AmeliorationButtonIteam : MonoBehaviour
                     {
                         inventory.GetComponent<inventory>().AddRaspberries(-Upgrade.Price, true);
                     }
-                    foreach (var Upinv  in GameObject.FindGameObjectsWithTag("UpInv"))
-                    {
-                        Upinv.GetComponent<upgradesInventory>().content.Add(Upgrade);
-                        if(PhotonNetwork.IsMasterClient)
-                            Upinv.GetComponent<upgradesInventory>().AddEffectAmelioration(Upgrade);
-                    }
+
+                    upgradesInventory Upinv = GameObject.FindGameObjectWithTag("UpInv").GetComponent<upgradesInventory>();
+                    Upinv.GetComponent<upgradesInventory>().content.Add(Upgrade);
+                    Upinv.GetComponent<upgradesInventory>().AddEffectAmelioration(Upgrade);
                 }
                 else
                 {

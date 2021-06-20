@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class AmeliorationTrigger : MonoBehaviour
@@ -28,7 +29,7 @@ public class AmeliorationTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
+        if (collision.CompareTag("Player") && collision.transform.parent.gameObject.GetPhotonView().IsMine|| collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             isInRange = true;
             interactUI.enabled = true;
