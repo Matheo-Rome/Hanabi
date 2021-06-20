@@ -38,6 +38,50 @@ public class AmeliorationButtonIteam : MonoBehaviour
             
             if (containLvL1) // Je vérifie que si on veut acheté l'item niv 2, il y a bien l'item niv 1
             {
+                if (Upgrade.name.Contains("Midas"))
+                {
+                    if (GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
+                        .AmeliorationJar == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
+                    {
+                        containLvLInferior = true;
+                    }
+                }
+                
+                else if (Upgrade.name.Contains("FeudecampStonks"))
+                {
+                    if ((GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
+                        .AmeliorationFeuDeCamps -0.6f)*10 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
+                    {
+                        containLvLInferior = true;
+                    }
+                }
+                else if (Upgrade.name.Contains("Bank"))
+                {
+                    if ((GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
+                        .AmelioriationBank)/25 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
+                    {
+                        containLvLInferior = true;
+                    }
+                }
+                
+                else if (Upgrade.name.Contains("Oscillococcinum"))
+                {
+                    if ((GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
+                        .AmeliorationStress-200)/20 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
+                    {
+                        containLvLInferior = true;
+                    }
+                }
+                
+                else if (Upgrade.name.Contains("Random"))
+                {
+                    if (GameObject.FindGameObjectWithTag("GameObjectUpgrade").GetComponent<ValueOfUpgrade>()
+                        .AmeliorationRandomLevel == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
+                    {
+                        containLvLInferior = true;
+                    }
+                }
+                
                /* if (PhotonNetwork.IsConnected)
                 {
                     foreach (var VARIABLE in upgradesInventory.instance.content)
@@ -52,7 +96,7 @@ public class AmeliorationButtonIteam : MonoBehaviour
                         }
                     }
                 }
-                else*/
+                else
                 {
                     foreach (var upgrade in GameObject.FindGameObjectWithTag("UpInv").GetComponent<upgradesInventory>().content)
                     {
@@ -65,7 +109,7 @@ public class AmeliorationButtonIteam : MonoBehaviour
                             }
                         }
                     }
-                }
+                }*/
             }
             
             
