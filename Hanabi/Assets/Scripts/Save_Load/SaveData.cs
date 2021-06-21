@@ -133,7 +133,7 @@ public class SaveData : MonoBehaviourPunCallbacks
         ValueOfUpgrade.AmeliorationJar = _ameliorationJar;
         ValueOfUpgrade.AmelioriationBank = _amelioriationBank;
         ValueOfUpgrade.AmeliorationStress = _ameliorationStress;
-        ValueOfUpgrade.AmeliorationFeuDeCamps = _ameliorationRandomLevel;
+        ValueOfUpgrade.AmeliorationFeuDeCamps = _ameliorationFeuDeCamps;
         ValueOfUpgrade.AmeliorationRandomLevel = _ameliorationRandomLevel;
     }
 
