@@ -414,10 +414,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: aa
+    name: Frileux
     sentences:
-    - 
-    - 
+    - "\rVous     trouvez     ce     qui     semble     \xEAtre     un     petit    
+      extrait     d\u2019un     po\xE8me,     vous     le     lisez     avec    
+      attention     :\r\n"
+    - "\xAB     Les     chats     puissants     et     doux,     orgueil     de    
+      la     maison,    \r\nQui     comme     eux     sont     frileux     et    
+      comme     eux     s\xE9dentaires.\r"
+    - "Amis     de     la     science     et     de     la     volupt\xE9,\r\nIls    
+      cherchent     le     silence     et     l\u2019horreur     des     t\xE9n\xE8bres    
+      \xBB\r\n"
+    - "Vous     semblez     intrigu\xE9     par     ce     po\xE8me,     ces    
+      comparaisons     semblent     vous     laisser     perplexe. \r\n"
+    - "Peut-\xEAtre     arriverez-vous     \xE0     fuir     ces     t\xE9n\xE8bres    
+      en     continuant     \xE0     monter.     La     fin     est     proche,    
+      qui     sait     ce     qui     vous     attend     au     sommet. \r\n"
 --- !u!1 &490315261
 GameObject:
   m_ObjectHideFlags: 0
