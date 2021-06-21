@@ -250,18 +250,5 @@ public class upgradesInventory : MonoBehaviour
                 break;
         }
     }
-    /*public void Update()
-    {
-        if (!PhotonNetwork.IsConnected)
-        {
-            if (!founded)
-            {
-                p1 = GameObject.FindGameObjectWithTag("Player1");
-                p2 = GameObject.FindGameObjectWithTag("Player2");
-                
-                founded = p1 != null && p2 != null;
-            }
-        }
-    }*/
 }
         

@@ -44,13 +44,6 @@ public class SaveData : MonoBehaviourPunCallbacks
             ValueOfUpgrade = GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>();
             founded = ValueOfUpgrade != null;
         }
-        
-        if(Input.GetKeyDown(KeyCode.T))
-            Save();
-        if(Input.GetKeyDown(KeyCode.Y))
-            Load();
-
-
     }
     
     public void Save()
@@ -143,17 +136,5 @@ public class SaveData : MonoBehaviourPunCallbacks
     {
         UpdateValue(_ameliorationJar, _amelioriationBank, _ameliorationStress, _ameliorationFeuDeCamps,_ameliorationRandomLevel);
     }
-    /*public void UpdateBank(int Update,bool again)
-    {
-        Bank += Update;
-        if(PhotonNetwork.IsConnected && again)
-            photonView.RPC("RPC_UpdateBank",RpcTarget.Others,Update);
-
-    }
-
-    [PunRPC]
-    public void RPC_UpdateBank(int Update)
-    {
-        UpdateBank(Update,false);
-    }*/
+   
 }

@@ -90,13 +90,13 @@ public class PlayerStressSolo : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeStress(20);
-            PlayerMovementSolo.instance.otherplayer.GetComponent<PlayerStressSolo>().TakeStress(20);
+            //gameObject.GetComponent<PlayerMovementSolo>().otherplayer.GetComponent<PlayerStressSolo>().TakeStress(20);
         }
         
         if (Input.GetKeyDown(KeyCode.J))
         {
             HealStressplayer(20);
-            PlayerMovementSolo.instance.otherplayer.GetComponent<PlayerStressSolo>().HealStressplayer(20);
+           // gameObject.GetComponent<PlayerMovementSolo>().otherplayer.GetComponent<PlayerStressSolo>().HealStressplayer(20);
            
         }
         
