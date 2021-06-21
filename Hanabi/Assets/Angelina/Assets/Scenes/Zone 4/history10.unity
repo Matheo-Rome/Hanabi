@@ -22599,10 +22599,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: o
+    name: Boite
     sentences:
-    - 
-    - 
+    - "Vous     trouvez     une     sorte     de     texte     accroch\xE9     au    
+      tableau,     un     petit     chat     est     gribouill\xE9     dessus    
+      :\r\n"
+    - "\xAB     Tant     que     personne     n\u2019ouvre     la     bo\xEEte,    
+      le     chat     se     trouve     dans     une     superposition     de    
+      l\u2019\xE9tat     \xAB     mort     \xBB     et     de     l\u2019\xE9tat    
+      \xAB     vivant     \xBB. \r\n"
+    - "Ce     n\u2019est     qu\u2019au     moment     o\xF9     l\u2019on     ouvre    
+      la     bo\xEEte     et     o\xF9     l\u2019on     observe     le      chat    
+      que     la     fonction     s'effondre     sur     l\u2019un     de     ses    
+      deux     \xE9tats. \r\n"
+    - "\rJe     pense,     ou     du     moins     je     crois,     que     ce    
+      principe     pourtant     si     imag\xE9     peut     s\u2019appliquer    
+      \xE0     de     simples     \xEAtres     humains,\r\n"
+    - "peut-\xEAtre     quelque     part     existe-t-il     cet     homme     perdu    
+      au     point     de     ne     plus     pouvoir     se     retrouver,    de    
+      ne     plus     pouvoir     se     reconna\xEEtre,     dans     l\u2019incapacit\xE9    
+      de     conna\xEEtre     son     \xE9tat.\r\n\r"
+    - "Qui     sait,     peut-\xEAtre     qu\u2019accomplir     quelque     chose    
+      de     remarquable     pourrait     permettre     \xE0     cette     personne    
+      de     se     retrouver.     \xBB\r\n"
+    - "Vous     ne     comprenez     pas     tout     mais     semblez     encore    
+      plus     d\xE9termin\xE9     \xE0     gravir     la     montagne.\r\n"
 --- !u!212 &1634483624
 SpriteRenderer:
   m_ObjectHideFlags: 0

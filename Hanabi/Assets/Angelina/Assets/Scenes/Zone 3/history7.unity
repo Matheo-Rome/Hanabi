@@ -57613,10 +57613,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: u
+    name: Ascension
     sentences:
-    - 
-    - 
+    - "Vous     trouvez     un     tableau     mettant     en     sc\xE8ne     un    
+      homme     au     milieu     d\u2019un     sentier     de     fleurs,     celui-ci    
+      semble    mener     vers     une     montagne\u2026\r\n"
+    - "Peut-\xEAtre     est-ce     la     voie     vers     le     sommet     ?\r\n"
+    - "Il     est     vrai     que     vous     avez     d\xE9j\xE0     remarqu\xE9    
+      d\u2019\xE9tranges     fleurs     durant     votre     ascension,     et    
+      si     elles     essayaient     de     vous     guider     quelque     part    
+      ?    "
+    - "Peut-\xEAtre     essayent-elles     de     vous     dire     quelque     chose    
+      ?"
+    - "Vous     ressentez     comme     un     besoin     de     les     suivre,    
+      apr\xE8s-tout     garder     un     rep\xE8re     ne     peut     pas     \xEAtre    
+      une     mauvaise     id\xE9e,     vous     perdre     serait     la     derni\xE8re    
+      de     vos     envies.\r\n"
 --- !u!212 &802721216
 SpriteRenderer:
   m_ObjectHideFlags: 0

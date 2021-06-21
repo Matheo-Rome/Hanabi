@@ -41500,10 +41500,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: o
+    name: Antoine
     sentences:
-    - 
-    - 
+    - "Vous     trouvez     un     mot     accroch\xE9     au     tableau,     il    
+      est     d\xE9cor\xE9     d\u2019un     beau     ruban     dor\xE9,     peut-\xEAtre    
+      sera-t-il     important     pour     la     fin     de     votre     p\xE9riple    
+      :\r\n"
+    - "\xAB     Bonjour     je     m\u2019appelle     Antoine...      Bonjour    
+      je     m\u2019appelle     Antoine\u2026     Bonjour     je     m\u2019appelle    
+      Antoine     \xBB\r\n"
+    - "Vous     avez     comme     une     impression     de     d\xE9j\xE0-vu\u2026    
+      Dans     tous     les     cas,     vous     ne     comprenez     pas     l'int\xE9r\xEAt    
+      de     le     r\xE9p\xE9ter     3     fois     dans     un     m\xEAme    
+      texte\u2026\r\n"
 --- !u!61 &1021180665
 BoxCollider2D:
   m_ObjectHideFlags: 0

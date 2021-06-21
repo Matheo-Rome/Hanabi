@@ -26526,28 +26526,17 @@ MonoBehaviour:
   dialogue:
     name: Painting3
     sentences:
-    - b
-    - 'bb
-
-'
-    - 'bb
-
-'
-    - 'bb
-
-'
-    - 'bb
-
-'
-    - 'bb
-
-'
-    - 'bb
-
-'
-    - 'bb
-
-'
+    - "Vous     trouvez     une     citation     accroch\xE9e     au     tableau,    
+      elle     semble     vous     rappeler     un     vieux     livre     que    
+      vous     avez     lu     :\r\n"
+    - "\xAB     Tout     enfant,     j\u2019ai     senti     dans     mon     c\u0153ur    
+      deux     sentiments \r\nContradictoires     l\u2019horreur     de     la    
+      vie     et     l\u2019extase     de     la     vie \r\nC\u2019est     bien    
+      le     fait     d\u2019un     paresseux     nerveux. \xBB\r\n"
+    - "Vous     semblez     vous     rappeler     la     raison     qui     vous    
+      a     pouss\xE9     \xE0     vous     lancer     dans     votre     aventure,    
+      vous     cherchiez     \xE0     vous     r\xE9unir     avec     quelqu\u2019un\u2026    
+      Mais     qui     ?\r\n"
 --- !u!212 &1440738108
 SpriteRenderer:
   m_ObjectHideFlags: 0
