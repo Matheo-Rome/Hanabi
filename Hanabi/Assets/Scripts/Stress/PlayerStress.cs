@@ -60,11 +60,13 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         //if the room just changed and you are near a fire place then we update the stress accordingly
         if (hasChangedRoom && isTouchingFire)
         {
-            currentStress = (int) ((float) currentStress * GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>().AmeliorationStress);
+            currentStress = (int) ((float) currentStress * GameObject.FindGameObjectWithTag("Upgrader").GetComponent<ValueOfUpgrade>().AmeliorationFeuDeCamps);
+            gameObject.GetComponent<PlayerMovement>().otherplayer.GetComponent<PlayerStress>().currentStress = currentStress;
+            photonView.RPC("RPC_SetStress",RpcTarget.Others, currentStress);
             hasChangedRoom = false;
         }
         List<Items> content = new List<Items>();;
-        foreach (var objet in InventairePassif.instance.content)
+        foreach (var objet in gameObject.transform.parent.gameObject.GetComponentInChildren<InventairePassif>().content/*InventairePassif.instance.content*/)
         {
             reductiondestress += objet.StressRemoved;
             StressCD += objet.StressIntervalle;
@@ -74,7 +76,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
                 content.Add(objet);
             }
         }
-        InventairePassif.instance.content = content;    
+        gameObject.transform.parent.gameObject.GetComponentInChildren<InventairePassif>().content= content;    
         
         //updates the stress each time the cd is up
         if (Time.time > StressCD && canGainStress)
@@ -102,7 +104,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
         {
             /*HealStressplayer(reductiondestress);
             PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().HealStressplayer(reductiondestress);*/
-            photonView.RPC("RPC_HealStress", RpcTarget.Others, reductiondestress);
+            photonView.RPC("RPC_HealStress", RpcTarget.All, reductiondestress);
             reductiondestress = 0;
             Pretzelcompteur.text = reductiondestress.ToString();
         }
@@ -168,6 +170,13 @@ public class PlayerStress : MonoBehaviourPunCallbacks
     {
         TakeStress(stress);
         //PlayerMovement.instance.otherplayer.GetComponent<PlayerStress>().TakeStress(stress);
+    }
+
+    [PunRPC]
+    public void RPC_SetStress(int stress)
+    {
+        currentStress = stress;
+        gameObject.GetComponent<PlayerMovement>().otherplayer.GetComponent<PlayerStress>().currentStress = stress;
     }
 
 }

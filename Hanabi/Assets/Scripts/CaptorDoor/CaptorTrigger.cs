@@ -42,7 +42,7 @@ public class CaptorTrigger : MonoBehaviour
                 MainCaptor.player.hasDashed = false;
             }
             else
-                PlayerMovement.instance.hasDashed = false;
+                collider.gameObject.GetComponent<PlayerMovement>().hasDashed = false;
         }
     }
 

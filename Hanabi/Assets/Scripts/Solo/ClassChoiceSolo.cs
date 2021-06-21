@@ -50,7 +50,7 @@ public class ClassChoiceSolo : MonoBehaviour
 
     public void OnClick_Chosen_Classic()
     {
-        _classicText.text = "c";
+        _classicText.text = "X";
         _classicText2.text = "";
         _bouncyText.text = "";
         _lightText.text = "";
@@ -59,7 +59,7 @@ public class ClassChoiceSolo : MonoBehaviour
     
     public void OnClick_Chosen_Classic2()
     {
-        _classicText2.text = "c";
+        _classicText2.text = "X";
         _classicText.text = "";
         _bouncyText2.text = "";
         _lightText2.text = "";
@@ -67,7 +67,7 @@ public class ClassChoiceSolo : MonoBehaviour
     }
     public void OnClick_Chosen_Bouncy()
     {
-        _bouncyText.text = "c";
+        _bouncyText.text = "X";
         _bouncyText2.text = "";
         _classicText.text = "";
         _lightText.text = "";
@@ -76,7 +76,7 @@ public class ClassChoiceSolo : MonoBehaviour
     
     public void OnClick_Chosen_Bouncy2()
     {
-        _bouncyText2.text = "c";
+        _bouncyText2.text = "X";
         _bouncyText.text = "";
         _classicText2.text = "";
         _lightText2.text = "";
@@ -85,7 +85,7 @@ public class ClassChoiceSolo : MonoBehaviour
     
     public void OnClick_Chosen_Light()
     {
-        _lightText.text = "c";
+        _lightText.text = "X";
         _lightText2.text = "";
         _classicText.text = "";
         _bouncyText.text = "";
@@ -94,7 +94,7 @@ public class ClassChoiceSolo : MonoBehaviour
     
     public void OnClick_Chosen_Light2()
     {
-        _lightText2.text = "c";
+        _lightText2.text = "X";
         _lightText.text = "";
         _classicText2.text = "";
         _bouncyText2.text = "";

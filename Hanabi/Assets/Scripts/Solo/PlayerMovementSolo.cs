@@ -558,6 +558,7 @@ public class PlayerMovementSolo : MonoBehaviourPun
             Reposition();
             player.GetComponent<PlayerStressSolo>().currentStress = 0;
             otherplayer.GetComponent<PlayerStressSolo>().currentStress = 0;
+            gameObject.transform.parent.gameObject.GetComponent<SaveData>().Save();
             List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
             toDestroy.ForEach(x => Destroy(x.gameObject));
             SceneManager.LoadScene(68);

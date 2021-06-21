@@ -12,7 +12,7 @@ public class ExitPermanentShop : MonoBehaviour
         if (collision.CompareTag("Player") || collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             upgradesInventory.instance.addUpgradeItems();
-            new WaitForSeconds(0.3f);
+            new WaitForSeconds(0.9f);
             PhotonNetwork.LoadLevel(1);
         }
     }

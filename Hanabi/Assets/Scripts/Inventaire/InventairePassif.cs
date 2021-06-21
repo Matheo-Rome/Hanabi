@@ -132,8 +132,8 @@ public class InventairePassif : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RPC_ContentAdd(int id)
     {
-        Items[] list = GameObject.FindGameObjectWithTag("Marchand").GetComponent<ShopTrigger>().itemsToSell;
-        for (int i = 0; i < list.Length; i++)
+        List<Items> list = gameObject.transform.parent.gameObject.GetComponentInChildren<upgradesInventory>().items;
+        for (int i = 0; i < list.Count; i++)
         {
             if (list[i].id == id)
             {

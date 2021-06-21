@@ -160,8 +160,8 @@ public class PlayerMovement : MonoBehaviourPun
          scenecheck = SceneManager.GetActiveScene().buildIndex;
          if (scene != scenecheck)
          {
-             if (!PhotonNetwork.IsMasterClient && scenecheck != 68)
-                 photonView.RPC("RPC_TP",RpcTarget.Others,scenecheck);
+              if (PhotonNetwork.IsMasterClient && scenecheck != 68)
+                  photonView.RPC("RPC_TP",RpcTarget.Others,scenecheck);
              Reposition();
          }
 
@@ -521,7 +521,6 @@ public class PlayerMovement : MonoBehaviourPun
             Reposition();
             base.photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
             otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
-            
             photonView.RPC("RPC_TP",RpcTarget.All,68);
             //photonView.RPC("RPC_Destroy",RpcTarget.All);
             /*if (PhotonNetwork.IsMasterClient)
@@ -593,8 +592,8 @@ public class PlayerMovement : MonoBehaviourPun
     [PunRPC]
     public void RPC_TP(int index)
     {
-        if(PhotonNetwork.IsMasterClient)
-            PhotonNetwork.LoadLevel(index);
+        if(/*PhotonNetwork.IsMasterClient &&*/ SceneManager.GetActiveScene().buildIndex != index)
+            SceneManager.LoadScene(index);
     }
 
     [PunRPC]
@@ -611,4 +610,5 @@ public class PlayerMovement : MonoBehaviourPun
         while (PhotonNetwork.IsConnected)
             yield return null;
     }
+    
  }

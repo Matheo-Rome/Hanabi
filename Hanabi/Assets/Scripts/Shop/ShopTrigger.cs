@@ -34,7 +34,7 @@ public class ShopTrigger : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag("Player") /*&& collision.transform.parent.gameObject.GetPhotonView().IsMine*/|| collision.CompareTag("Player1")) && !HasTalked)
+        if (((collision.CompareTag("Player") && collision.transform.parent.gameObject.GetPhotonView().IsMine)|| collision.CompareTag("Player1")) && !HasTalked)
         {
             isInRange = true;
             interactUI.enabled = true;

@@ -54,7 +54,9 @@ public class LoadScene_z1 : MonoBehaviour
                 else 
                 {
                     new WaitForSeconds(0.3f);
-                    PhotonNetwork.LoadLevel(NextIndex());
+                    int n = NextIndex();
+                    Debug.LogWarning(n);
+                    PhotonNetwork.LoadLevel(n);
                     //SceneManager.LoadScene(NextIndex());
                 }
             }
