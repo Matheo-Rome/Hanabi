@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1957520126}
-  sellbuttonPrefab: {fileID: 7812330788785835627, guid: 8c8bac3e9c84e2b42bc8516dbd7ccbd6,
+  sellbuttonPrefab: {fileID: 6709873728010532743, guid: 91ce2e9176d92f646b084075bc594a20,
     type: 3}
   sellbuttonsParent: {fileID: 1589158670}
   pnjNameText: {fileID: 883513930}
@@ -39987,6 +39987,7 @@ GameObject:
   - component: {fileID: 998330123}
   - component: {fileID: 998330122}
   - component: {fileID: 998330121}
+  - component: {fileID: 998330124}
   m_Layer: 0
   m_Name: Upgrader
   m_TagString: Upgrader
@@ -40023,6 +40024,7 @@ MonoBehaviour:
   AmeliorationStress: 200
   AmeliorationFeuDeCamps: 0.6
   AmeliorationRandomLevel: 0
+  toUpdate: 0
 --- !u!4 &998330123
 Transform:
   m_ObjectHideFlags: 0
@@ -40037,6 +40039,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &998330124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998330120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 888
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1003373813
 GameObject:
   m_ObjectHideFlags: 0
@@ -52238,6 +52262,7 @@ MonoBehaviour:
   AmeliorationStress: 200
   AmeliorationFeuDeCamps: 0.6
   AmeliorationRandomLevel: 0
+  toUpdate: 0
 --- !u!114 &1787259440
 MonoBehaviour:
   m_ObjectHideFlags: 0

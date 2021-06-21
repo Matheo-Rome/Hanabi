@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class PlayerStress : MonoBehaviourPunCallbacks
 {
-    List<int> storyScenes = new List<int>{13, 14, 27, 28, 29, 42, 43, 44, 57, 58, 59, 60};
+    List<int> storyScenes = new List<int>{13, 14, 27, 28, 29, 42, 43, 44, 57, 58, 59, 60, 65};
     List<int> fireScenes = new List<int>{12, 26, 41, 56};
+    List<int> shopScenes = new List<int>(){11, 25, 40, 55, 66};
     public int minStress = 0;
     public int currentStress;
     public int maxStress = 200;
@@ -111,7 +112,7 @@ public class PlayerStress : MonoBehaviourPunCallbacks
 
     public bool CanStress()
     {
-        return !fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && !storyScenes.Contains(SceneManager.GetActiveScene().buildIndex);
+        return !fireScenes.Contains(SceneManager.GetActiveScene().buildIndex) && !storyScenes.Contains(SceneManager.GetActiveScene().buildIndex) && !shopScenes.Contains(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void TakeStress(int addstress)

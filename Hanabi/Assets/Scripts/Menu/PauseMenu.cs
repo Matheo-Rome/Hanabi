@@ -5,7 +5,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviourPunCallbacks
 {
     public static bool gameIsPaused = false;
 
@@ -45,32 +45,52 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        List<GameObject> toDestroy = new List<GameObject>();
         if (PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.LeaveRoom();
-            PhotonNetwork.LeaveLobby();
+            photonView.RPC("RPC_ReturnToMenu", RpcTarget.Others);
+            StartCoroutine(Disconnect());
         }
-        toDestroy = GameObject.FindGameObjectsWithTag("Package").ToList();
-        Destroy(toDestroy[0]);
-        Destroy(toDestroy[1]);
-        
-            
         pauseMenuUi.SetActive(false);
         optionsUi.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
         SceneManager.LoadScene(0);
+        List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
+        toDestroy.ForEach(x => Destroy(x.gameObject));
+    }
+
+    [PunRPC]
+    public void RPC_ReturnToMenu()
+    {
+        StartCoroutine(Disconnect());
+        pauseMenuUi.SetActive(false);
+        optionsUi.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        SceneManager.LoadScene(0);
+        List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
+        toDestroy.ForEach(x => Destroy(x.gameObject));
     }
 
     public void QuitGame()
     {
         if (PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.LeaveRoom();
-            PhotonNetwork.LeaveLobby();
+            photonView.RPC("RPC_ReturnToMenu", RpcTarget.Others);
+            PhotonNetwork.Disconnect();
         }
-        Debug.Log("game quit");
         Application.Quit();
+        pauseMenuUi.SetActive(false);
+        optionsUi.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        SceneManager.LoadScene(0);
+    }
+    
+    IEnumerator Disconnect()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+            yield return null;
     }
 }

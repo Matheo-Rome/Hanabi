@@ -28,6 +28,7 @@ public class upgradesInventory : MonoBehaviour
 
     public void AddEffectAmelioration(upgradesSO Upgrade)
     {
+        
         if(Upgrade.name.Contains("Midas"))
         {
             ValueOfUpgrade.instance.AmeliorationJar += 1;
@@ -52,6 +53,9 @@ public class upgradesInventory : MonoBehaviour
         {
             ValueOfUpgrade.instance.AmeliorationRandomLevel++;
         }
+
+        if (PhotonNetwork.IsConnected)
+            ValueOfUpgrade.instance.toUpdate = true;
 
         /*// Pour la jar
         ValueOfUpgrade.instance.AmeliorationJar += Upgrade.coinDropUpgrade;
@@ -100,7 +104,10 @@ public class upgradesInventory : MonoBehaviour
             p2.GetComponent<PlayerStress>().HealStressplayer(p2.GetComponent<PlayerStress>().currentStress - saveStress);
         }
         */
+    }
 
+    public void addUpgradeItems()
+    {
         //Random.org
         var rd = new Random();
         int[] broken = new[] {16, 9, 4, 20, 12, 1};
@@ -108,7 +115,7 @@ public class upgradesInventory : MonoBehaviour
         int[] fresh = new[] {18, 10, 6, 22, 14, 3};
         var nb1 = rd.Next(6);
         var nb2 = rd.Next(6);
-        switch (Upgrade.givenObjectLevel)
+        switch (ValueOfUpgrade.instance.AmeliorationRandomLevel)
         { 
             case 1 : 
                 var item1 = items[broken[nb1] - 1]; 
@@ -130,7 +137,7 @@ public class upgradesInventory : MonoBehaviour
                 break;
             case 4 : 
                 var item4 = items[broken[nb1] - 1];
-                var item5 = items[broken[nb1] - 1];
+                var item5 = items[broken[nb2] - 1];
                 InventairePassif.instance.content.Add(item4);
                 InventairePassif.instance.content.Add(item5);
                 InventairePassif.instance.Start();
@@ -146,8 +153,8 @@ public class upgradesInventory : MonoBehaviour
                 InventairePassif.instance.content.Add(item6);
                 InventairePassif.instance.AddEffectItem(item7,true);
                 break;
-            }
         }
+    }
     /*public void Update()
     {
         if (!PhotonNetwork.IsConnected)
