@@ -10,5 +10,5 @@ Le groupe Hanabi est mené par Hugo Schlegel et est constitué des membres Math�
 
 Ce projet est né d’une passion commune à l’ensemble du groupe pour le jeu Celeste et des jeux de type Roguelike. Celeste est un jeu vidéo de plate-formes mélangeant action et puzzle sorti en 2018. Dans celui-ci, chaque ensemble d’actions doit être réfléchi et organisé pour achever un tableau. L’histoire du jeu est basée sur le modèle Kübler-Ross, expliquant les cinq phases du deuil. Notre but, au travers de ce projet, est de réaliser un jeu mélangeant jeu de plate-formes et Roguelike.
 
-HANABI,
+HANABI :
 Hugo SCHLEGEL, Matheo ROMÉ, Angelina KUNTZ, Antoine RIQUET.
