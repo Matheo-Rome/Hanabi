@@ -1,8 +1,6 @@
-# Hanabi
-ZA WARUDOOOOOOOOOOOOOOOOO
+# HANABI
 
-TOKI WO TOMARE
+Dépot git du projet S2 du groupe HANABI, The Other Side. 
 
-La première règle du Fight Club est : il est interdit de parler du Fight Club. 
-La seconde règle du Fight Club est : il est interdit de parler du Fight Club. 
-Troisième règle du Fight Club : quelqu'un crie stop, quelqu'un s'écroule ou n'en peut plus, le combat est terminé.
+- ANIMATIONS S2 : Tous les animations et assets réalisés spécialement pour le projet.
+- SITE PS2 : Tous les fichiers .html et .css qui constituent le site de notre projet ainsi que les images et autres fichiers s'y trouvant.
