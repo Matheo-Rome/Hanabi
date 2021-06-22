@@ -11,39 +11,44 @@ public class InstantiateFantome : MonoBehaviour
     public GameObject instance;
     public float cooldown = 15f;
     public GameObject instanceFantome;
-    
+
     void Update()
     {
         if (PhotonNetwork.IsConnected)
         {
-            if (PlayerStress.instance.currentStress == PlayerStress.instance.maxStress && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
+            PlayerStress playerStress = gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerStress>();
+            if (playerStress.currentStress == playerStress.maxStress && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
             {
                 instance = Instantiate(Fantome, transform.position, Quaternion.identity, instanceFantome.transform);
                 Oneinstance = true;
             }
 
-            if (PlayerStress.instance.currentStress <= PlayerStress.instance.maxStress -11 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
+            if (playerStress.currentStress <= playerStress.maxStress -11 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
             {
                 Oneinstance = false;
-                Destroy(instanceFantome.transform.GetChild(0).parent.gameObject);
-                instanceFantome = new GameObject();
+                GameObject parent = instanceFantome.transform.parent.gameObject;
+                Destroy(instanceFantome);
+                instanceFantome = new GameObject("instanceFantome");
+                instanceFantome.transform.parent = parent.transform;
                 cooldown = 15f;
             }
         }
         else
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player1");
-            if (player.GetComponent<PlayerStressSolo>().currentStress == player.GetComponent<PlayerStressSolo>().maxStress && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
+            PlayerStressSolo playerStressSolo = gameObject.transform.parent.gameObject.GetComponentInChildren<PlayerStressSolo>();
+            if (playerStressSolo.currentStress == playerStressSolo.maxStress && !Oneinstance) //j'instancie le fantome la première fois que je suis à 200, le booléen me permet de ne pas instancier 36 fantome toutes les secondes mais uniquement la première fois que je passe à 200
             {
                 instance = Instantiate(Fantome, transform.position, Quaternion.identity, instanceFantome.transform);
                 Oneinstance = true;
             }
 
-            if (player.GetComponent<PlayerStressSolo>().currentStress  <= player.GetComponent<PlayerStressSolo>().maxStress-11 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
+            if (playerStressSolo.currentStress  <= playerStressSolo.maxStress-11 && Oneinstance) // cette méthode me permet de détruire l'instance du fantome créé lorsque notre stress passe en dessous de 189
             {
                 Oneinstance = false;
-                Destroy(instanceFantome.transform.GetChild(0).parent.gameObject);
-                instanceFantome = new GameObject();
+                GameObject parent = instanceFantome.transform.parent.gameObject;
+                Destroy(instanceFantome);
+                instanceFantome = new GameObject("instanceFantome");
+                instanceFantome.transform.parent = parent.transform;
                 cooldown = 15f;
             } 
         }

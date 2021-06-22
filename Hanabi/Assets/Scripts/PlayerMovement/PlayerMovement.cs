@@ -171,7 +171,14 @@ public class PlayerMovement : MonoBehaviourPun
          if (scene == 68)
          {
              if (PhotonNetwork.IsMasterClient)
+             {
                  gameObject.transform.parent.gameObject.GetComponent<SaveData>().Save();
+                 photonView.RPC("RPC_TPF", RpcTarget.Others, 68);
+             }
+             else
+                 photonView.RPC("RPC_TPF", RpcTarget.Others, 68);
+             gameObject.GetComponent<PlayerStress>().HealStressplayer(100000);
+             otherplayer.GetComponent<PlayerStress>().HealStressplayer(100000);
              StartCoroutine(Disconnect());
              List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
              toDestroy.ForEach(DDOL => Destroy(DDOL.gameObject));
@@ -526,25 +533,8 @@ public class PlayerMovement : MonoBehaviourPun
         {
             Reposition();
             SceneManager.LoadScene(68);
-            //gameObject.GetComponent<PlayerStress>().HealStressplayer(90000);
-           /*List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
-            toDestroy.ForEach(x => Destroy(x.gameObject));*/
             photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
             otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
-            //photonView.RPC("RPC_TPF",RpcTarget.All,68);
-            //photonView.RPC("RPC_Destroy",RpcTarget.All);
-            /*if (PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.LoadLevel(68);
-                /*List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
-                toDestroy.ForEach(x => Destroy(x.gameObject));
-            }
-            else
-            {
-                photonView.RPC("RPC_TP", RpcTarget.Others, 68);
-            }
-            photonView.RPC("RPC_Destroy", RpcTarget.All);
-           //PhotonNetwork.Disconnect();*/
         }
         else
         {
