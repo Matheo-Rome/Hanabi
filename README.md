@@ -12,3 +12,4 @@ Ce projet est né d’une passion commune à l’ensemble du groupe pour le jeu 
 
 HANABI :
 Hugo SCHLEGEL, Matheo ROMÉ, Angelina KUNTZ, Antoine RIQUET.
+https://happatsu.github.io/HANABI_S2/index.html
