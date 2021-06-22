@@ -41,7 +41,7 @@ public class PlayerMovementSolo : MonoBehaviourPun
 
     public Key followingKey;
 
-    [SerializeField] private bool onGround;
+    public bool onGround;
     [SerializeField] private bool onWall;
     public bool hasDashed;
     public bool hasFallen;
@@ -138,6 +138,20 @@ public class PlayerMovementSolo : MonoBehaviourPun
          }
      }
 
+     private void Update()
+     {
+         if (Input.GetButtonDown("Switch") && onGround)
+         {
+             playing = false;
+             otherplayer.GetComponent<PlayerMovementSolo>().playing = true;
+             otherplayer.GetComponent<PlayerMovementSolo>().GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+             otherplayer.GetComponent<PlayerMovementSolo>().GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+         }
+         
+         if(Input.GetButtonDown("Respawn") && onGround)
+             Reposition();
+     }
+
 
      void FixedUpdate()
      {
@@ -167,46 +181,51 @@ public class PlayerMovementSolo : MonoBehaviourPun
          else
          {
              otherplayer.GetComponent<PlayerMovementSolo>().enabled = true;
-             
+             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+             //canvas.SetActive(false);
+             //canvasPause.SetActive(false);
+             //playerCamera.SetActive(false);
+             this.enabled = false;
          }
 
-         if (J1)
+         if (playing)
          {
-             GameObject[] IAs = GameObject.FindGameObjectsWithTag("IA");
-             GameObject[] IA2s = GameObject.FindGameObjectsWithTag("IA2");
-             foreach (var ia in IAs)
+
+             if (J1)
              {
-                 var rb2 = ia.GetComponent<Rigidbody2D>();
-                 rb2.constraints = RigidbodyConstraints2D.None;
-                 rb2.constraints = RigidbodyConstraints2D.FreezeRotation;
+                 GameObject[] IAs = GameObject.FindGameObjectsWithTag("IA");
+                 GameObject[] IA2s = GameObject.FindGameObjectsWithTag("IA2");
+                 foreach (var ia in IAs)
+                 {
+                     var rb2 = ia.GetComponent<Rigidbody2D>();
+                     rb2.constraints = RigidbodyConstraints2D.None;
+                     rb2.constraints = RigidbodyConstraints2D.FreezeRotation;
+                 }
+
+                 foreach (var ia2 in IA2s)
+                 {
+                     ia2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                 }
+
              }
-             foreach (var ia2 in IA2s)
+             else
              {
-                 ia2.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                 GameObject[] IAs = GameObject.FindGameObjectsWithTag("IA");
+                 GameObject[] IA2s = GameObject.FindGameObjectsWithTag("IA2");
+                 foreach (var ia in IAs)
+                 {
+                     ia.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                 }
+
+                 foreach (var ia2 in IA2s)
+                 {
+                     var rb2 = ia2.GetComponent<Rigidbody2D>();
+                     rb2.constraints = RigidbodyConstraints2D.None;
+                     rb2.constraints = RigidbodyConstraints2D.FreezeRotation;
+                 }
              }
-             
-         }
-         else
-         {
-             GameObject[] IAs = GameObject.FindGameObjectsWithTag("IA");
-             GameObject[] IA2s = GameObject.FindGameObjectsWithTag("IA2");
-             foreach (var ia in IAs)
-             {
-                 ia.GetComponent<Rigidbody2D>().constraints =  RigidbodyConstraints2D.FreezePosition;
-             }
-             foreach (var ia2 in IA2s)
-             {
-                 var rb2 = ia2.GetComponent<Rigidbody2D>();
-                 rb2.constraints = RigidbodyConstraints2D.None;
-                 rb2.constraints = RigidbodyConstraints2D.FreezeRotation;
-             } 
          }
 
-         if (Input.GetButtonDown("Switch"))
-         {
-             playing = false;
-             otherplayer.GetComponent<PlayerMovementSolo>().playing = true;
-         }
 
          scenecheck = SceneManager.GetActiveScene().buildIndex;
          if (scene != scenecheck)
@@ -229,7 +248,7 @@ public class PlayerMovementSolo : MonoBehaviourPun
          Vector2 dir = new Vector2(x, 0);
 
          //Vérifie la position du personnage par rapport au sol et aux murs.
-         onGround = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
+         onGround =Physics2D.OverlapArea(groundCheckLeft.position, groundCheckLeft.position);
          onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
                   Physics2D.OverlapArea(wallCheckLeft.position, wallCheckLeft2.position);
 
@@ -302,8 +321,7 @@ public class PlayerMovementSolo : MonoBehaviourPun
          if (onGround)
              hasFallen = false;
          
-         if(Input.GetButtonDown("Respawn") && onGround)
-             Reposition();
+         
      }
 
 

@@ -50,7 +50,7 @@ public class AmeliorationButtonIteam : MonoBehaviour
                 
                 else if (Upgrade.name.Contains("FeudecampStonks"))
                 {
-                    if ((-valueOfUpgrade.AmeliorationFeuDeCamps + 0.6f)*10 == (Upgrade.name[Upgrade.name.Length - 1] - '0') - 1)
+                    if ((int) ((-valueOfUpgrade.AmeliorationFeuDeCamps + 0.6f)*10) == Upgrade.name[Upgrade.name.Length - 1] - '0' -1)
                     {
                         containLvLInferior = true;
                     }

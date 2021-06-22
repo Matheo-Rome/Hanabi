@@ -17,6 +17,7 @@ public class ActivateInstanciate : MonoBehaviour
     private InstantiateSolo _instantiateSolo;
     public int p1;
     public int p2;
+    public bool solo = false;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class ActivateInstanciate : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 66)
         {
-            if (!PhotonNetwork.IsConnected)
+            if (solo)
             {
                 _instantiateSolo.P1 = p1;
                 _instantiateSolo.P2 = p2;
