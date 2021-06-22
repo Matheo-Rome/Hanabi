@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     public GameObject otherplayer;
     public bool founded = false;
+    private bool go = false;
 
     [SerializeField] private SaveData _saveData;
 
@@ -259,6 +260,11 @@ public class PlayerMovement : MonoBehaviourPun
          
          if(Input.GetButtonDown("Respawn") && onGround)
              Reposition();
+
+         if (go)
+         {
+             SceneManager.LoadScene(68);
+         }
      }
 
 
@@ -519,9 +525,13 @@ public class PlayerMovement : MonoBehaviourPun
         else if (other.CompareTag("IA"))
         {
             Reposition();
-            base.photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
+            SceneManager.LoadScene(68);
+            //gameObject.GetComponent<PlayerStress>().HealStressplayer(90000);
+           /*List<DDOL> toDestroy = GameObject.FindObjectsOfType<DDOL>().ToList();
+            toDestroy.ForEach(x => Destroy(x.gameObject));*/
+            photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
             otherplayer.GetComponent<PlayerStress>().photonView.RPC("RPC_HealStress", RpcTarget.All, 90000);
-            photonView.RPC("RPC_TP",RpcTarget.All,68);
+            //photonView.RPC("RPC_TPF",RpcTarget.All,68);
             //photonView.RPC("RPC_Destroy",RpcTarget.All);
             /*if (PhotonNetwork.IsMasterClient)
             {
@@ -595,6 +605,15 @@ public class PlayerMovement : MonoBehaviourPun
         if(/*PhotonNetwork.IsMasterClient &&*/ SceneManager.GetActiveScene().buildIndex != index)
             SceneManager.LoadScene(index);
     }
+    
+    [PunRPC]
+    public void RPC_TPF(int index)
+    {
+        if(PhotonNetwork.IsMasterClient)
+            PhotonNetwork.LoadLevel(index);
+        else
+            PhotonNetwork.LoadLevel(index);
+    }
 
     [PunRPC]
     public void RPC_Destroy()
@@ -604,11 +623,22 @@ public class PlayerMovement : MonoBehaviourPun
         PhotonNetwork.Disconnect();
     }
 
+    [PunRPC]
+    public void RPC_Disconnect()
+    {
+        StartCoroutine(Disconnect());
+    }
+
     IEnumerator Disconnect()
     {
         PhotonNetwork.Disconnect();
         while (PhotonNetwork.IsConnected)
+        {
+            Debug.Log(PhotonNetwork.IsConnected);
             yield return null;
+        }
+
+        go = true;
     }
     
  }

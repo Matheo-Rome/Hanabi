@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform _content;
     [SerializeField] private PlayerListing _playerListing;
-    [SerializeField] private Text _readyUpText;
+    [SerializeField] private TextMeshProUGUI _readyUpText;
 
     private List<PlayerListing> _listings = new List<PlayerListing>();
     private RoomsCanvases _roomsCanvases;
@@ -49,9 +50,9 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         _ready = state;
         if (_ready)
-            _readyUpText.text = "Y";
+            _readyUpText.text = "Ready";
         else
-            _readyUpText.text = "N";
+            _readyUpText.text = "Not Ready";
     }
 
     public override void OnLeftRoom()
@@ -170,6 +171,10 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
         if (index != -1)
         {
             _listings[index].Ready = ready;
+            if (ready)
+                _readyUpText.text = "Ready";
+            else
+                _readyUpText.text = "Not Ready";
         }
     }
 
@@ -177,7 +182,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         _classic = choice;
         if (_classic)
-            _classicText.text = "x";
+            _classicText.text = "X";
         else
             _classicText.text = "";
     }
@@ -186,7 +191,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
     {
         _bouncy = choice;
         if (_bouncy)
-            _bouncyText.text = "x";
+            _bouncyText.text = "X";
         else
             _bouncyText.text = "";
     }
@@ -196,7 +201,7 @@ public class PlayerListingsMenu : MonoBehaviourPunCallbacks
         _light = choice;
         if (_light)
 
-            _lightText.text = "x";
+            _lightText.text = "X";
         else
             _lightText.text = "";
     }

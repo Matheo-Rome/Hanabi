@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
@@ -24,19 +25,28 @@ public class ClassChoiceSolo : MonoBehaviour
     [SerializeField] private GameObject sound;
     [SerializeField] private ActivateInstanciate _activateInstanciate;
 
+    private bool go = false;
+
 
     public void OnClick_StartGame()
     {
-        if (p1 != p2 && p1 != 0)
+        if (p1 != p2 && p1 != 0 && p2 != 0)
         {
             sound.SetActive(false);
             _activateInstanciate.p1 = p1;
             _activateInstanciate.p2 = p2;
-            PhotonNetwork.Disconnect();
-            //StartCoroutine(Disconnect());
+            _activateInstanciate.solo = true;
+            //PhotonNetwork.Disconnect();
+            StartCoroutine(Disconnect());
             //Debug.Log(PhotonNetwork.IsConnected);
             SceneManager.LoadScene(66);
         }
+    }
+
+    private void Update()
+    {
+        if(go)
+            SceneManager.LoadScene(66);
     }
 
     IEnumerator Disconnect()
@@ -46,6 +56,8 @@ public class ClassChoiceSolo : MonoBehaviour
         {
             yield return null;
         }
+
+        go = true;
     }
 
     public void OnClick_Chosen_Classic()

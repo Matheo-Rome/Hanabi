@@ -11,10 +11,14 @@ public class FirePlace_Trigger : MonoBehaviour
         if (collider.CompareTag("Player") || collider.CompareTag("Player1"))
         {
             if (PhotonNetwork.IsConnected)
-                PlayerStress.instance.isTouchingFire = true;
+                foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if(player.GetPhotonView().IsMine)
+                        player.GetComponent<PlayerStress>().isTouchingFire = true;
+                }
             else
             {
-                PlayerStressSolo.instance.isTouchingFire = true;
+                GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerStressSolo>().isTouchingFire = true;
             }
             
         }
@@ -26,10 +30,14 @@ public class FirePlace_Trigger : MonoBehaviour
         {
             
             if (PhotonNetwork.IsConnected)
-                PlayerStress.instance.isTouchingFire = false;
+                foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if(player.GetPhotonView().IsMine)
+                        player.GetComponent<PlayerStress>().isTouchingFire = false;
+                }
             else
             {
-                PlayerStressSolo.instance.isTouchingFire = false;
+                GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerStressSolo>().isTouchingFire = false;
             }
         }
     }
