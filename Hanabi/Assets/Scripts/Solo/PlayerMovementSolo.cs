@@ -248,7 +248,7 @@ public class PlayerMovementSolo : MonoBehaviourPun
          Vector2 dir = new Vector2(x, 0);
 
          //Vérifie la position du personnage par rapport au sol et aux murs.
-         onGround =Physics2D.OverlapArea(groundCheckLeft.position, groundCheckLeft.position);
+         onGround =Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
          onWall = Physics2D.OverlapArea(wallCheckRight.position, wallCheckRight2.position) ||
                   Physics2D.OverlapArea(wallCheckLeft.position, wallCheckLeft2.position);
 
